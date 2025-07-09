@@ -36,7 +36,7 @@ const testimonials = [
 const Testimonials = () => {
   return (
     <section
-      className="w-full min-h-screen bg-white flex flex-col font-Poppins"
+      className="w-full max-w-[1600px] mx-auto min-h-screen bg-white flex flex-col font-Poppins"
       aria-labelledby="testimonials-heading"
     >
       <div

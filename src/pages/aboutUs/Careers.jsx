@@ -6,10 +6,10 @@ const Careers = () => {
   const fileInputRef = useRef();
 
   return (
-    <section className="w-full min-h-screen bg-white flex flex-col font-Poppins" aria-labelledby="careers-heading">
+    <section className="w-full min-h-screen bg-white flex flex-col font-Poppins max-w-[1600px] mx-auto " aria-labelledby="careers-heading">
       {/* Header Section */}
       <div
-        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] mt-[100px] flex items-center justify-center bg-cover bg-center"
+        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] mt-[100px] flex items-center justify-center bg-cover bg-center max-w-[1600px] mx-auto"
         style={{ backgroundImage: `url(${aboutusbg3})` }}
         role="presentation"
         aria-hidden="true"
@@ -81,7 +81,7 @@ const Careers = () => {
         </form>
 
         {/* Contact Details Section */}
-        <div className="w-full max-w-sm flex flex-col gap-8 mt-10 md:mt-0">
+        <div className="w-full max-w-[444px] md:mx-auto flex flex-col gap-8 lg:mt-14 md:mt-0 p-2">
           <h4 className="text-[#192437] text-xl md:text-[36px] font-semibold mb-2">Contact Details</h4>
 
           {/* Email */}

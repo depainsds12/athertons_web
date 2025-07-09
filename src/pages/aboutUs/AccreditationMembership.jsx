@@ -11,7 +11,7 @@ import officeForZeroEmissionVehicle from "../../assets/aboutus/officeForZeroEmis
 const AccreditationMembership = () => {
   return (
     <section
-      className="w-full min-h-screen bg-white flex flex-col"
+      className="w-full max-w-[1600px] mx-auto min-h-screen bg-white flex flex-col"
       aria-labelledby="accreditation-heading"
     >
       {/* Background Header with Decorative Image */}
@@ -31,10 +31,10 @@ const AccreditationMembership = () => {
       </div>
 
       {/* Logos section */}
-      <div className="w-full flex flex-col items-center justify-center py-10 px-4">
+      <div className="w-full flex flex-col items-center justify-center py-10 px-0.5">
         {/* First group of accreditation logos */}
         <div
-          className="flex flex-wrap justify-evenly w-full max-w-[1450px] mb-6"
+          className="flex flex-wrap justify-evenly w-full max-w-[1600px] mb-6"
           role="group"
           aria-labelledby="group1-label"
         >
@@ -62,7 +62,7 @@ const AccreditationMembership = () => {
 
         {/* Second group of accreditation logos */}
         <div
-          className="flex flex-wrap justify-evenly w-[75%] max-w-[1150px]"
+          className="flex flex-wrap justify-evenly w-[75%] max-w-[1400px] mt-3"
           role="group"
           aria-labelledby="group2-label"
         >
