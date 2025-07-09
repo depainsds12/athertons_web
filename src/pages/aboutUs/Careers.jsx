@@ -32,31 +32,31 @@ const Careers = () => {
       {/* Main Content: Form + Contact Details */}
       <div className="w-full flex flex-col md:flex-row justify-center items-start gap-10 px-4 md:px-10 lg:px-20 xl:px-32 mb-16">
         {/* Form Section */}
-        <form className="bg-[#F4F4F5] p-6 md:p-8 w-full max-w-lg flex flex-col gap-4" onSubmit={e => e.preventDefault()}>
+        <form className="bg-[#F4F4F5] p-6 md:p-8 w-full max-w-[628.83px] xl:h-[655px] flex flex-col gap-4" onSubmit={e => e.preventDefault()}>
           <div className="flex gap-4">
             <div className="flex flex-col w-1/2">
               <label className="text-xs md:text-[14px] font-semibold mb-1 text-[#192437]">First Name*</label>
-              <input type="text" required className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white" />
+              <input type="text" required className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px] xl:w-[265px]" />
             </div>
             <div className="flex flex-col w-1/2">
               <label className="text-xs md:text-[14px] font-semibold mb-1 text-[#192437]">Last Name*</label>
-              <input type="text" required className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white" />
+              <input type="text" required className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px] xl:w-[265px] xl:ml-5 " />
             </div>
           </div>
           <div className="flex flex-col">
             <label className="text-xs md:text-[14px] font-semibold mb-1 text-[#192437]">Phone Number*</label>
-            <input type="tel" required className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white" />
+            <input type="tel" required className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px] xl:w-[568px] " />
           </div>
           <div className="flex flex-col">
             <label className="text-xs md:text-[14px] font-semibold mb-1 text-[#192437]">Email Address*</label>
-            <input type="email" required className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white" />
+            <input type="email" required className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px] xl:w-[568px]" />
           </div>
           <div className="flex flex-col">
             <label className="text-xs md:text-[14px] font-semibold mb-1 text-[#192437]">Upload Resume*</label>
             <div className="flex items-center gap-2 w-full">
               <button
                 type="button"
-                className="border border-[#D6D6D6] w-full py-2 text-sm bg-white font-medium rounded cursor-pointer hover:bg-[#e0e0e0] focus:outline-none text-[#192437] text-center"
+                className="border border-[#D6D6D6]  w-full py-2 mt-3 text-sm bg-white font-medium  cursor-pointer hover:bg-[#e0e0e0] focus:outline-none text-[#192437] text-center h-[50px] xl:w-[425px]"
                 onClick={() => fileInputRef.current.click()}
               >
                 Choose File
@@ -75,9 +75,9 @@ const Careers = () => {
           </div>
           <div className="flex flex-col">
             <label className="text-xs md:text-[14px] font-semibold mb-1 text-[#192437]">Your Message</label>
-            <textarea rows={4} className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white resize-none" />
+            <textarea rows={4} className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white resize-none h-[120px] xl:w-[568px]" />
           </div>
-          <button type="submit" className="mt-2 bg-[#03837E] text-white font-medium py-2 hover:bg-[#02635e] transition-colors">Submit</button>
+          <button type="submit" className=" h-[48px] bg-[#03837E] text-white font-medium mt-4 hover:bg-[#02635e] transition-colors">Submit</button>
         </form>
 
         {/* Contact Details Section */}
@@ -115,8 +115,8 @@ const Careers = () => {
 
           {/* Location */}
           <div className="flex items-center gap-4">
-            <span className="flex items-center justify-center w-20 h-20 bg-[#03837E]">
-             <svg width="38" height="39" viewBox="0 0 38 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <span className="flex items-center justify-center w-20 h-20 min-w-[80px] min-h-[80px] max-w-[80px] max-h-[80px] bg-[#03837E]">
+             <svg className="w-10 h-10" width="38" height="39" viewBox="0 0 38 39" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_71_1245)">
 <path d="M33.25 16.0996C33.25 27.1829 19 36.6829 19 36.6829C19 36.6829 4.75 27.1829 4.75 16.0996C4.75 12.3203 6.25133 8.69573 8.92373 6.02334C11.5961 3.35094 15.2207 1.84961 19 1.84961C22.7793 1.84961 26.4039 3.35094 29.0763 6.02334C31.7487 8.69573 33.25 12.3203 33.25 16.0996Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M19 20.8496C21.6234 20.8496 23.75 18.723 23.75 16.0996C23.75 13.4763 21.6234 11.3496 19 11.3496C16.3766 11.3496 14.25 13.4763 14.25 16.0996C14.25 18.723 16.3766 20.8496 19 20.8496Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

@@ -6,6 +6,7 @@ import MeetOurTeam from './pages/aboutUs/MeetOurTeam.jsx';
 import AccreditationMembership from './pages/aboutUs/AccreditationMembership.jsx';
 import Testimonials from './pages/aboutUs/Testimonials.jsx';
 import Careers from './pages/aboutUs/Careers.jsx';
+import SmartDesign from './pages/services/SmartDesign.jsx';
 
 function App() {
   const router = createBrowserRouter(
@@ -19,6 +20,7 @@ function App() {
           { path: '/aboutus/accreditation_Membership', element: <AccreditationMembership/> },
           { path: '/aboutus/careers', element: <Careers/> },
           { path: '/aboutus/testimonials', element: <Testimonials/> },
+          { path: '/services/consultancy_smartdesign', element: <SmartDesign/> },
         ],
       },
     ],
