@@ -8,6 +8,7 @@ import Testimonials from "./pages/aboutUs/Testimonials.jsx";
 import Careers from "./pages/aboutUs/Careers.jsx";
 import SmartDesign from "./pages/services/SmartDesign.jsx";
 import ServicePage from "./pages/services/ServicePage.jsx";
+import EcoSolutions from "./pages/services/EcoSolutions.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -25,6 +26,7 @@ function App() {
         { path: "/aboutus/testimonials", element: <Testimonials /> },
         // { path: '/services/consultancy_smartdesign', element: <SmartDesign/> },
         { path: "/services/:serviceName", element: <ServicePage /> },
+        { path: '/services/eco_solutions', element: <EcoSolutions/> }
       ],
     },
   ]);
