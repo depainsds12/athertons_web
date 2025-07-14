@@ -11,6 +11,8 @@ import ServicePage from "./pages/services/ServicePage.jsx";
 import EcoSolutions from "./pages/services/EcoSolutions.jsx";
 import ProjectList from "./pages/projects/ProjectList.jsx";
 import CaseStudyList from "./pages/caseStudy/CaseStudyList.jsx";
+import ProjectDetail from "./pages/projects/ProjectDetail.jsx";
+import ContactUs from "./pages/ContactUs.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -30,7 +32,9 @@ function App() {
         { path: "/services/:serviceName", element: <ServicePage /> },
         { path: '/services/eco_solutions', element: <EcoSolutions/> },
         { path: '/projects', element: <ProjectList/> },
+        { path: '/projects/:projectId', element: <ProjectDetail/> },
         { path: '/casestudies', element: <CaseStudyList/> },
+        { path: '/contactus', element: <ContactUs/> },
       ],
     },
   ]);

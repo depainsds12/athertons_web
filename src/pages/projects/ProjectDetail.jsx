@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
 
 const ProjectDetail = () => {
   return (
     <section className="w-full min-h-screen bg-white flex flex-col font-Poppins max-w-[1600px] mx-auto" aria-labelledby="careers-heading">
+
+      {/* Banner */}
       <div
-        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] mt-[100px] flex items-center justify-center bg-cover bg-center max-w-[1600px] mx-auto"
-        style={{ backgroundImage: `url(/ty-menai.jpg)` }}
+        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] mt-[100px] flex items-center justify-center bg-cover bg-center"
+        style={{ backgroundImage: `url(/images/ty-menai.jpg)` }}
         role="presentation"
         aria-hidden="true"
       >
@@ -17,65 +19,135 @@ const ProjectDetail = () => {
           Tŷ Menai College Refurbishment
         </h2>
       </div>
-      {/* Main Content */}
-      <div className="flex flex-col lg:flex-row gap-8 px-4 md:px-12 py-10 max-w-6xl mx-auto w-full">
-        {/* Left: Image Carousel */}
-        <div className="flex flex-col items-center lg:w-1/2 w-full">
-          <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-lg overflow-hidden mb-4">
-            <img src="/images/ty-1.jpg" alt="Ty Menai Refurbishment 1" className="w-full h-full object-cover" />
-            {/* Carousel arrows (static for now) */}
-            <button className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-md" aria-label="Previous image">
-              <span className="text-2xl text-[#192437]">&#8592;</span>
-            </button>
-            <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-md" aria-label="Next image">
-              <span className="text-2xl text-[#192437]">&#8594;</span>
-            </button>
+
+     {/* Main Content */}
+<div className="flex flex-col lg:flex-row gap-8 px-4 md:px-12 py-10 max-w-6xl mx-auto w-full text-black font-normal text-[16px] leading-[28px]">
+
+  {/* Left: Image */}
+  <div className="flex flex-col lg:w-1/2 w-full items-center">
+    <div className="relative w-full max-w-[420px] aspect-[4/3] overflow-hidden mb-4">
+      <img src="/images/ty-1.jpg" alt="Ty Menai Refurbishment 1" className="w-full h-full object-cover" />
+      <button className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 p-2" aria-label="Previous image">
+        <span className="text-2xl text-[#192437]">&#8592;</span>
+      </button>
+      <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 p-2" aria-label="Next image">
+        <span className="text-2xl text-[#192437]">&#8594;</span>
+      </button>
+    </div>
+  </div>
+
+  {/* Right: Project Info */}
+  <div className="flex flex-col gap-2 lg:w-1/2 w-full">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+      <div className="text-[#192437] font-semibold text-[20px]">Project Name:</div><div>Tŷ Menai Refurbishment</div>
+      <div className="text-[#192437] font-semibold text-[20px]">Overall Value:</div><div>£10 million / Ty Menai Transformation</div>
+      <div className="text-[#192437] font-semibold text-[20px]">Athertons project size:</div><div>£6m project</div>
+      <div className="text-[#192437] font-semibold text-[20px]">Scope of Works:</div><div>Refurbishment</div>
+      <div className="text-[#192437] font-semibold text-[20px]">Location:</div><div>Bangor</div>
+      <div className="text-[#192437] font-semibold text-[20px]">Duration:</div><div>40 Weeks</div>
+      <div className="text-[#192437] font-semibold text-[20px]">Client:</div><div>Read Construction for Grŵp Llandrillo Menai</div>
+      <div className="text-[#192437] font-semibold text-[20px]">Project URL:</div>
+      <div className="underline"><a href="http://www.grwp.ac.uk" target="_blank" rel="noopener noreferrer">http://www.grwp.ac.uk</a></div>
+    </div>
+  </div>
+</div>
+
+{/* Paragraph Below Image Full Width */}
+<div className="px-4 md:px-12 max-w-6xl mx-auto w-full text-black font-normal text-[16px] leading-[28px] pb-10">
+  <p>
+    Grŵp Llandrillo Menai appointed North Wales-based Read Construction to carry out the works to the new College Menai Bangor Campus, which is situated on Parc Menai in Bangor, with teaching on the campus due to take place from September 2014. </p>
+   <p className='mt-3'> Read Construction appointed Athertons as main contractor to deliver the full refurbishment.
+  </p>
+</div>
+
+
+      {/* Summary Section */}
+      <div className="flex flex-col gap-8 px-4 md:px-12 pb-16 max-w-6xl mx-auto w-full">
+        <h3 className="text-[#192437] font-semibold text-[40px] leading-[100%] mb-6">Summary</h3>
+
+        <div className="flex flex-col lg:flex-row gap-8 text-black font-normal text-[16px] leading-[28px]">
+          <div className="flex-1 flex flex-col gap-4">
+            <p className='text-[#192437] font-[500]'>
+              The project, backed with £14 million from the Welsh Government’s Sustainable Communities for Learning Programme, will relocate Coleg Menai’s current provision from the Ffriddoedd Road and Friars site. The new Bangor campus – which will be within very close proximity to the long-established Art department already situated on Parc Menai – will be the new home for ten vocational areas:
+            </p>
+            <p>
+              Hair and Beauty, Hospitality and Catering, Business, Travel and Tourism, Performing Arts, Music, Media (TV and Games Development), Access to Higher Education, Adult Community Learning, and English for Speakers Other Languages. Included within the facility will be cutting-edge, industry-level facilities, ranging from a professional training kitchen, an Apple Mac suite, and a modern LibraryPlus space.
+            </p>
           </div>
-          <div className="w-full max-w-[420px] aspect-[4/3] rounded-lg overflow-hidden">
-            <img src="/images/ty-2.jpg" alt="Ty Menai Refurbishment 2" className="w-full h-full object-cover" />
+
+          <div className="flex-1">
+            <img src="/images/ty-2.jpg" alt="Ty Menai Refurbishment 2" className="w-full object-cover aspect-[4/3]" />
           </div>
         </div>
-        {/* Right: Project Info */}
-        <div className="flex flex-col gap-2 lg:w-1/2 w-full">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
-            <div className="text-[#192437] font-semibold text-[20px] leading-[100%]">Project Name:</div>
-            <div className="text-black font-normal text-[16px] leading-[28px]">Tŷ Menai Refurbishment</div>
-            <div className="text-[#192437] font-semibold text-[20px] leading-[100%]">Overall Value:</div>
-            <div className="text-black font-normal text-[16px] leading-[28px]">£10 million / Ty Menai Transformation</div>
-            <div className="text-[#192437] font-semibold text-[20px] leading-[100%]">Athertons project size:</div>
-            <div className="text-black font-normal text-[16px] leading-[28px]">£6m project</div>
-            <div className="text-[#192437] font-semibold text-[20px] leading-[100%]">Scope of Works:</div>
-            <div className="text-black font-normal text-[16px] leading-[28px]">Refurbishment</div>
-            <div className="text-[#192437] font-semibold text-[20px] leading-[100%]">Location:</div>
-            <div className="text-black font-normal text-[16px] leading-[28px]">Bangor</div>
-            <div className="text-[#192437] font-semibold text-[20px] leading-[100%]">Duration:</div>
-            <div className="text-black font-normal text-[16px] leading-[28px]">40 Weeks</div>
-            <div className="text-[#192437] font-semibold text-[20px] leading-[100%]">Client:</div>
-            <div className="text-black font-normal text-[16px] leading-[28px]">Read Construction for Grŵp Llandrillo Menai</div>
-            <div className="text-[#192437] font-semibold text-[20px] leading-[100%]">Project URL:</div>
-            <div className="text-black font-normal text-[16px] leading-[28px] underline"><a href="http://www.grwp.ac.uk" target="_blank" rel="noopener noreferrer">http://www.grwp.ac.uk</a></div>
-          </div>
-          <p className="mt-6 text-black font-normal text-[16px] leading-[28px]">Grŵp Llandrillo Menai appointed North Wales-based Read Construction to carry out the works to the new College Menai Bangor Campus, which is situated on Parc Menai in Bangor, with teaching on the campus due to take place from September 2014.<br/>Read Construction appointed Athertons as main contractor to deliver the full refurbishment.</p>
+
+        <div className="flex flex-col gap-4 text-black font-normal text-[16px] leading-[28px]">
+          <p>
+            Hair & beauty salons and nail bars run by learners will be open to the public, as well as a 180-seat performance studio which will be utilised by the Performing Arts department for theatre performance and live shows. Members of the public will also be able to dine in the on-site training restaurant during the week. Learners and staff will also benefit from a large, open-plan refectory and coffee bar, and there will be a large Learner Services presence offering careers guidance, confidential support and wellbeing activities to students.
+          </p>
+          <p>
+            The exciting development will also be certified Net-Zero Carbon and BREEAM excellent, through the installation of solar panels, air source heat pumps and LED lighting.
+          </p>
+          <p>
+            Grŵp Llandrillo Menai is also working with the Welsh Government’s Active Travel department to develop sustainable transport links to the site, through the creation of cycle routes.
+          </p>
+          <p>
+            Dafydd Evans, Chief Executive of Grŵp Llandrillo Menai, said,  “This new exciting campus serves as an innovative opportunity to have cross-departmental teaching, which will enhance the learner experience. We also hope that the facility will strengthen links with industry partners, through utilising the space to hold masterclasses and showcases. We would like to thank the Welsh Government for their continued support and for the generous funding package we have received for this project”.
+          </p>
+          <p>
+            Aled Jones-Griffith, Principal of Coleg Menai and Coleg Meirion-Dwyfor, said, “I’m looking forward to giving current and prospective students the opportunity to walk around the new campus. We are already working with schools in the area as part of the 14-19 provision, and we are eager to develop that partnership even further – now we have modern facilities across all sites”.
+          </p>
+          <p>
+            Alex Read, Director of Read Construction, said, “We are proud to be working with Grŵp Llandrillo Menai to deliver their latest net zero scheme at Tŷ Menai. As a proud North Wales based company, we are committed to reinvesting the Welsh pound through the engagement of local companies, and employment of local people on this prestigious scheme.”
+          </p>
         </div>
       </div>
-      {/* Summary Section */}
-      <div className="flex flex-col lg:flex-row gap-8 px-4 md:px-12 pb-16 max-w-6xl mx-auto w-full">
-        <div className="flex-1">
-          <h3 className="text-[#192437] font-semibold text-[40px] leading-[100%] mb-6">Summary</h3>
-          <p className="text-black font-normal text-[16px] leading-[28px] mb-4">The project, backed with £10 million from the Welsh Government’s Sustainable Communities for Learning Programme, will relocate Coleg Menai’s current campus – which houses more than 600 learners, many with complex additional learning needs (ALN) – to a new, previously largely non-educational and light-industrial facility situated on Parc Menai, Bangor.</p>
-          <p className="text-black font-normal text-[16px] leading-[28px] mb-4">Health and Recovery, Hospitality and Catering, Business, Travel and Tourism, Performing Arts, Public Sector Academy, IT and Science laboratories, Art and Design, Music Technology, and Media Studies will all be delivered from the new campus, which includes much improved accessibility, specialist teaching and learning spaces, and a range of industry-standard facilities, including an Apple Mac suite and a professional working kitchen.</p>
-          <p className="text-black font-normal text-[16px] leading-[28px] mb-4">The new building will also house its own hair and beauty salons as part of the curriculum, as well as up to 180 staff performance studios which will be utilised by the college’s performing arts learners. The new campus will be open to members of the public and will include a range of community facilities, including a café, conference and meeting rooms, and a business incubation hub. The new campus will also be home to the college’s Supported Internship Programme, which helps young people with additional learning needs to gain work experience and employment skills.</p>
-          <p className="text-black font-normal text-[16px] leading-[28px] mb-4">The scheme achieved a BREEAM ‘Excellent’ rating, with low-carbon and BREEAM accredited elements, through the installation of solar panels, air source heat pumps and electric vehicle charging points.</p>
-          <p className="text-black font-normal text-[16px] leading-[28px] mb-4">Athertons provided all cabling within the refurbished buildings. The new modular building works included the design to develop sustainable connections for both new and existing buildings.</p>
-          <p className="text-black font-normal text-[16px] leading-[28px] mb-4">Speaking about the project, Grŵp Llandrillo Menai’s deputy, Sion Lloyd, said: “This was exciting; campus was an incredible opportunity to have a new, energy-efficient structure, which would provide a fantastic learning environment for our learners and staff. The new campus will also be home to the college’s Supported Internship Programme, which helps young people with additional learning needs to gain work experience and employment skills.”</p>
-          <p className="text-black font-normal text-[16px] leading-[28px]">Read Construction’s Health and Safety Manager and College liaison, David Wells, said: “It is looking fantastic! Going up against and surpasses the students’ and staff’s expectations. We have been on site since March, working with schools in the area, including the local primary, to develop, and are eager to get the project completed for September.”</p>
+
+     {/* Background Section - Image Left, First 2 Paras Right */}
+      <div className="flex flex-col gap-8 px-4 md:px-12 pb-16 max-w-6xl mx-auto w-full">
+        <div className="flex flex-col lg:flex-row gap-8">
+          <div className="lg:w-1/2">
+            <img src="/images/ty-3.jpg" alt="Ty Menai Refurbishment 3" className="w-full object-cover aspect-[4/3]" />
+          </div>
+          <div className="md:w-1/2 flex flex-col justify-center text-black font-normal text-[16px] leading-[28px] gap-4">
+            <h3 className="text-[#192437] font-bold text-[28px] mb-2">Background of the project</h3>
+            <p className='text-[#192437] font-[500]'>The project involved refurbishing a large, two-story building, approximately 20 years old, primarily used as office space and meeting rooms. The building features a steel frame, concrete floors, a steel roof, and a raised access floor on the first floor for service routing. An adjacent smaller annex building, intended for the maintenance division, was also fully refurbished.</p>
+            <p>The refurbishment included a complete upgrade of all lighting, power, fire alarm, security, CCTV, electric vehicle charging, sound and lighting systems, and data infrastructure. The new lighting system is entirely LED. The existing main distribution system was retained and modified, with the UPS section and battery backups removed to accommodate new distribution cabling. </p>
+          </div>
         </div>
-        <div className="flex-1 flex flex-col gap-4">
-          <img src="/images/ty-2.jpg" alt="Ty Menai Refurbishment 2" className="w-full rounded-lg object-cover aspect-[4/3]" />
+
+        <div className="flex flex-col text-black font-normal text-[16px] leading-[28px] gap-4">
+          <p>Additionally, a new photovoltaic (PV) system with a maximum export limit of 200KW was installed. A 160A external feeder pillar was also installed to serve three double electric vehicle chargers.</p>
+          <p>Mechanically, the refurbishment consisted of Ventilation, Air conditioning, VT & CT Gas Heating, Domestic water services and Sprinkler systems to the new build consisting of teaching spaces. The AC consisted of VRF systems providing heating and cooling throughout majority of the areas, and DX coils were installed along with AHUs. The AHUs were located within the plant room and compounds across the scheme and the MVHR units were installed in the ceiling void, local to the areas they were serving. The toilet areas were also equipped with individual extract fans controlled via PIR. Moreover, the domestic water system consisted of new booster tank and pump set which allowed the cold water main feed to be distributed throughout the building via service voids.</p>
+        </div>
+      </div>
+       {/* Challenges Section */}
+      <div className="flex flex-col gap-8 px-4 md:px-12 pb-16 max-w-6xl mx-auto w-full">
+        <h3 className="text-[#192437] font-semibold text-[40px]">Challenges and Solutions</h3>
+
+        <div className="flex flex-col lg:flex-row gap-8">
+          <div className="lg:w-1/2 flex flex-col gap-4 text-black font-normal text-[16px] leading-[28px]">
+            <p className='text-[#192437] font-[500]'>
+              Due to location and extent, obstacles were overcome through critical thinking, redesign, risk management, and continuous change management.
+            </p>
+            <p>The project faced several key challenges. Firstly, as it involved refurbishing an existing building with reused main containment and distribution systems, the full scope of work only became clear during demolition. This necessitated extensive relocation of original cabling to fit the new layout. Secondly, insufficient information  during the tender stage created significant hurdles, including missing cable and lighting calculations and incomplete drawings. This led to unexpected changes such as installing nine mechanical distribution boards instead of the planned 2, with 5 of these rated at 250A, requiring substantial adjustments. </p>
+          </div>
+
+          <div className="lg:w-1/2">
+            <img src="/images/ty-4.jpg" alt="Ty Menai Challenges" className="w-full object-cover aspect-[4/3]" />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 text-black font-normal text-[16px] leading-[28px]">
+          <p>The complexity and the extensive of the project included managing over 200 client-initiated changes, ranging from minor adjustments to major redesigns of systems like the PV and external lighting, added complexity and adaptation throughout. The multi-disciplinary team based on-site worked closely with Read Construction to deliver the expected outcomes.</p>
+          <p>Throughout the project, numerous challenges were successfully addressed by continuously updating and revising working drawings. A significant aspect involved a complete redesign of the PV system, originally planned as both field-mounted and roof-mounted. The final design focused on maximising roof space to optimise energy generation. Additionally, due to the absence of initial lighting calculations, Signify (Phillips) were approached to verify the adequacy of the original lighting design. This review revealed a need for approximately 400 additional light fittings to ensure project requirements were met effectively.</p>
+          <p>Another challenge included ensuring our services such as ventilation, pipework, electrical cabling and air conditioning were compliant with the fire and compartment strategy regulations of the existing layout building. To make the fire and compartments strategy compliant with regulations was particularly complex, due to the existing building layout. Various methods had to be explored when passing our services through, or to make our services complement one another like vent, pipework, electrical cabling and air conditioning. External fire wall consultants and architects were commissioned to bring additional consultancy. Additional measures were introduced to achieve approved fire safety standards: adding additional and bespoke bracketry systems to ensure compliance with manufacturer’s instructions. Making bespoke plates to support fire dampers within fire curtains. Installing fire rated ductwork from kitchen areas through compartments and risers.</p>
+          <p>Further challenges involved the included of the ventilation kits at the tender stage, which were intended to be retained but once the project commenced they were checked over and found to be insufficient for use. Others issues faced were extensive faults on existing taps and leaks on all plumbing systems, which needed redesign and replacement.</p>
+          <p>A complete lack of phone signal in the area attributable to the remote location of the project, added to the complexity making it difficult to communicate between parts of the business and supply chain both on site and in the office. To counteract this and to avoid mis-communication between the different parts of the business and supply chain both on site and in the office, multiple measures were introduced. A temporary walkie-talkie system for effortless communication was introduced. More weekly site visits were introduced from an early stage, to facilitate smooth multi-disciplinary delivery as a one-stop-shop main contractor. A new high speed Wi-Fi system specific to Athertons was introduced and the supply chain was notified of specific delivery instruction and route to ensure deliveries arrived on time. A bespoke office was built with a whole suite of printing services, laptops, Wi-Fi installations and other technical solutions to manage this complex and diverse build.</p>
+          <p>Despite encountering various challenges, the exemplary service provided by Athertons has solidified our status as industry leaders, ensuring continued commitment in exceeding customer satisfaction whilst delivering complex technical solutions.</p>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ProjectDetail
+export default ProjectDetail;
