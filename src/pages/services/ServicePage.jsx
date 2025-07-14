@@ -225,39 +225,33 @@ const serviceData = {
   },
 };
 
-// Add this SVG as a React component at the top of the file
 
-
-// Add this SVG as a React component for eco_solutions bullets
-const HexBulletIcon = () => (
-  <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block mr-2 align-middle">
-    <path d="M6.5 0.772461L12.1292 4.02246V10.5225L6.5 12.7725L0.870835 10.5225V4.02246L6.5 0.772461Z" fill="#192437"/>
-  </svg>
-);
 
 const ServicePage = () => {
   const { serviceName } = useParams();
   const service = serviceData[serviceName];
 
   if (!service) {
-    return <div className="text-center mt-20">Service not found.</div>;
+    return <div className="text-center mt-20" role="alert" aria-live="polite">Service not found.</div>;
   }
 
   return (
-    <main className="w-full min-h-screen bg-white flex flex-col font-sans">
+    <main className="w-full min-h-screen bg-white flex flex-col font-sans" role="main" aria-label="Service Details">
       {/* Hero Section */}
       <section
         className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] mt-[100px] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: `url(${service.heroImage})` }}
+        role="banner"
+        aria-label={`${service.heading} Hero`}
       >
-        <div className="absolute inset-0 bg-[#192437]/60" />
+        <div className="absolute inset-0 bg-[#192437]/60" aria-hidden="true" />
         <h1 className="relative z-10 text-white text-3xl md:text-[45px] lg:text-[55px] xl:text-[60px] font-bold tracking-wide text-center">
           {service.heading}
         </h1>
       </section>
 
       {/* Content Section */}
-      <section className="w-full flex justify-center py-12 px-4 md:px-14 xl:px-20 bg-white">
+      <section className="w-full flex justify-center py-12 px-4 md:px-14 xl:px-20 bg-white" aria-label="Service Content">
         <div className="max-w-6xl w-full flex flex-col gap-10 items-start">
           {/* Top section: image left, first section text right (side-by-side on md+) */}
           <div className="w-full flex flex-col md:flex-row gap-10 items-start">
@@ -265,7 +259,14 @@ const ServicePage = () => {
             <div className="flex justify-center items-start md:w-1/2 w-full">
               <img
                 src={service.image}
-                alt="Service illustration"
+                alt={
+                  serviceName === 'consultancy_smartdesign' ? 'Consultancy & Smart Design illustration' :
+                  serviceName === 'bms_ems_technology' ? 'BMS & EMS Technology illustration' :
+                  serviceName === 'me_engineering' ? 'M&E Engineering illustration' :
+                  serviceName === 'eco_solutions' ? 'Eco Solutions illustration' :
+                  serviceName === 'light_civil_engineering' ? 'Light Civil Engineering illustration' :
+                  'Service illustration'
+                }
                 className={
                   `object-cover max-w-full max-h-full ` +
                   (serviceName === 'consultancy_smartdesign' ? 'xl:w-[559px] xl:h-[383px]' :
@@ -293,36 +294,36 @@ const ServicePage = () => {
                     {service.sections[0].intro}
                   </p>
                   {/* Our Services */}
-                  <div className="mb-4">
-                    <h3 className="font-semibold text-[36px] leading-[100%] mb-2 text-[#192437]">{service.sections[0].services.title}</h3>
+                  <section className="mb-4" aria-label="Eco Solutions Services">
+                    <h2 className="font-semibold text-[36px] leading-[100%] mb-2 text-[#192437]">{service.sections[0].services.title}</h2>
                     <div className="font-semibold text-[24px] leading-[100%] mb-1 text-[#192437]">{service.sections[0].services.subheading}</div>
-                    <div className="ml-2">
+                    <ul className="ml-2 list-none" aria-label="Service Bullets">
                       {service.sections[0].services.bullets.map((b, i) => (
-                        <div key={i} className="flex items-start mb-1">
+                        <li key={i} className="flex items-start mb-1">
                           <HexBulletIcon />
                           <div>
                             <span className="font-semibold text-[20px] leading-[100%] text-[#192437]">{b.title}</span>
                             <span className="font-normal ml-1 inline text-[#192437]">{b.description}</span>
                           </div>
-                        </div>
+                        </li>
                       ))}
-                    </div>
-                  </div>
+                    </ul>
+                  </section>
                 </>
               ) : serviceName === 'bms_ems_technology' ? (
                 <>
                   {[0,1].map(idx => (
-                    <div key={idx} className="mb-6">
-                      <h3 className="font-semibold text-base md:text-lg mb-1 flex items-center"><HexIcon />{service.sections[idx].title.trim()}</h3>
+                    <section key={idx} className="mb-6" aria-label={service.sections[idx].title?.trim() || `Section ${idx+1}`}>
+                      <h2 className="font-semibold text-base md:text-lg mb-1 flex items-center"><HexIcon />{service.sections[idx].title.trim()}</h2>
                       {service.sections[idx].paragraphs && service.sections[idx].paragraphs.map((para, i) => (
                         <p key={i} className="text-[15px] md:text-base leading-7 md:leading-[28px] font-normal">{para}</p>
                       ))}
-                    </div>
+                    </section>
                   ))}
                 </>
               ) : (
                 service.sections && service.sections[0] && (
-                  <div className="mb-8">
+                  <section className="mb-8" aria-label="Introduction">
                     {serviceName === 'light_civil_engineering' ? (
                       <>
                         {/* Intro paragraph */}
@@ -331,17 +332,17 @@ const ServicePage = () => {
                         ))}
                         {/* Construction and Groundworks */}
                         {[1,2].map(idx => (
-                          <div key={idx} className="mb-6">
-                            <h3 className="text-lg font-semibold mb-2 flex items-center"><HexIcon />{service.sections[idx].title?.trim?.() || ''}</h3>
+                          <section key={idx} className="mb-6" aria-label={service.sections[idx].title?.trim() || `Section ${idx+1}`}>
+                            <h2 className="text-lg font-semibold mb-2 flex items-center"><HexIcon />{service.sections[idx].title?.trim?.() || ''}</h2>
                             {service.sections[idx].paragraphs && service.sections[idx].paragraphs.map((para, i) => (
                               <p key={i} className="mb-4 text-base md:text-[16px] leading-7 md:leading-[28px] font-normal">{para}</p>
                             ))}
-                          </div>
+                          </section>
                         ))}
                       </>
                     ) : (
                       service.sections[0].title && (
-                        <h3 className="text-lg font-semibold mb-2">{service.sections[0].title}</h3>
+                        <h2 className="text-lg font-semibold mb-2">{service.sections[0].title}</h2>
                       )
                     )}
                     {serviceName !== 'light_civil_engineering' && service.sections[0].paragraphs && service.sections[0].paragraphs.map((para, i) => (
@@ -352,7 +353,7 @@ const ServicePage = () => {
                         {para}
                       </p>
                     ))}
-                  </div>
+                  </section>
                 )
               )}
             </div>
@@ -361,7 +362,7 @@ const ServicePage = () => {
           <div className="flex flex-col text-[#192437] lg:mt-12 w-full">
             {serviceName === 'eco_solutions' ? (
               service.sections.slice(1).map((section, idx) => (
-                <div key={idx} className="mb-8">
+                <section key={idx} className="mb-8" aria-label={section.title || `Section ${idx+2}`}>
                   <h3 className="font-semibold text-[24px] leading-[100%] mb-1 text-[#192437]">
                     {section.title}
                   </h3>
@@ -369,32 +370,32 @@ const ServicePage = () => {
                     <p key={i} className="text-[15px] md:text-base leading-7 md:leading-[28px] font-normal text-[#192437]">{para}</p>
                   ))}
                   {section.subbullets && (
-                    <div className="ml-4 mt-2">
+                    <ul className="ml-4 mt-2 list-none" aria-label="Sub Bullets">
                       {section.subbullets.map((sb, sbi) => (
-                        <div key={sbi} className="flex items-start mb-2">
+                        <li key={sbi} className="flex items-start mb-2">
                           <HexBulletIcon />
                           <div>
                             <span className="font-semibold text-[20px] leading-[100%] text-[#192437]">{sb.title}</span>
                             <span className="font-normal ml-1 inline text-[#192437]">{sb.description}</span>
                           </div>
-                        </div>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   )}
-                </div>
+                </section>
               ))
             ) : serviceName === 'bms_ems_technology' ? (
               service.sections.slice(2).map((section, idx) => (
-                <div key={idx} className="mb-8">
+                <section key={idx} className="mb-8" aria-label={section.title?.trim() || `Section ${idx+3}`}>
                   <h3 className="font-semibold text-base md:text-lg mb-1 flex items-center"><HexIcon />{section.title.trim()}</h3>
                   {section.paragraphs && section.paragraphs.map((para, i) => (
                     <p key={i} className="text-[15px] md:text-base leading-7 md:leading-[28px] font-normal">{para}</p>
                   ))}
-                </div>
+                </section>
               ))
             ) : (
               service.sections && service.sections.slice(1).map((section, idx) => (
-                <div key={idx} className="mb-8">
+                <section key={idx} className="mb-8" aria-label={section.title || `Section ${idx+2}`}>
                   {serviceName === 'light_civil_engineering' ? (
                     section.title && (
                       <h3 className="text-lg font-semibold mb-2 flex items-center"><HexIcon />{section.title.trim()}</h3>
@@ -412,7 +413,7 @@ const ServicePage = () => {
                       {para}
                     </p>
                   ))}
-                </div>
+                </section>
               ))
             )}
           </div>

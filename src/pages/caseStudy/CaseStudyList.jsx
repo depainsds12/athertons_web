@@ -1,0 +1,52 @@
+import React from 'react';
+import { projects } from '../../data/projects';
+
+const CaseStudyList = () => {
+  return (
+    <div>
+      <section className="w-full min-h-screen bg-white flex flex-col font-Poppins max-w-[1600px] mx-auto" aria-labelledby="careers-heading">
+        <div
+          className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] mt-[100px] flex items-center justify-center bg-cover bg-center max-w-[1600px] mx-auto"
+          style={{ backgroundImage: `url(/CaseStudyListbg.jpg)` }}
+          role="presentation"
+          aria-hidden="true"
+        >
+          <div className="absolute inset-0 bg-[#192437]/60" aria-hidden="true" />
+          <h2
+            id="careers-heading"
+            className="relative z-10 text-white text-3xl md:text-[45px] lg:text-[55px] xl:text-[60px] font-bold tracking-wide text-center"
+          >
+            CASE STUDIES
+          </h2>
+        </div>
+        {/* Case Studies Grid */}
+        <div className="w-full max-w-6xl mx-auto py-12 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
+          {projects.slice(0, 12).map((project, idx) => (
+            <div key={project.id} className="flex flex-col items-start">
+              <div className="w-[330px] h-[250px] overflow-hidden mb-4 bg-gray-100 flex items-center justify-center border" style={{ borderColor: '#D6D6D6', borderWidth: '1px' }}>
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="w-full h-full object-cover"
+                  style={{ opacity: 1, objectFit: 'cover', objectPosition: 'center', angle: '0deg' }}
+                />
+              </div>
+              <div className="text-[#192437] font-semibold text-[20px] leading-[100%] font-['Open_Sans'] mb-2 text-left w-full">
+                {project.name || 'Lorem Ipsum Title here'}
+              </div>
+              <a
+                href={"/projects/" + project.id}
+                className="text-[#03837E] font-medium text-[18px] leading-[100%] underline underline-offset-2 font-['Open_Sans'] hover:text-[#02635f] cursor-pointer text-left w-full"
+                style={{ textDecorationStyle: 'solid', textDecorationThickness: 0 }}
+              >
+                View Details
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default CaseStudyList;
