@@ -4,7 +4,7 @@ import Footer from "../common/Footer";
 
 const Layout = () => {
   return (
-    <div >
+    <div className="font-poppins">
       <Header />
       <main className="flex-grow">
         <Outlet />

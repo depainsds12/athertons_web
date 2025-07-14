@@ -17,13 +17,7 @@ export const projects = [
     image: "/images/bro-alan-school.png",
     category: "Electrical",
   },
-  {
-    id: "macclesfield-academy",
-    name: "Macclesfield Academy",
-    image: "/images/Macclesfield-Academy.jpg",
-    category: "Mechanical",
-  },
-
+  
   {
     id: "chester-zoo",
     name: "Chester Zoo (The Islands)",
@@ -43,8 +37,8 @@ export const projects = [
     category: "Electrical",
   },
   {
-    id: "gweryllt-primary",
-    name: "Gweryllt Primary School",
+    id: "gwersyllt-primary",
+    name: "Gwersyllt Primary School",
     image: "/images/gwersyllt-primary-school.jpg",
     category: "Mechanical",
   },
@@ -95,6 +89,12 @@ export const projects = [
     name: "University of Liverpool Chadwick...",
     image: "/images/University-of-Liverpool-Chadwick.jpg",
     category: "Electrical",
+  },
+  {
+    id: "macclesfield-academy",
+    name: "Macclesfield Academy",
+    image: "/images/Macclesfield-Academy.jpg",
+    category: "Mechanical",
   },
   {
     id: "Lancaster-University-Charles",
