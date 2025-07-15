@@ -6,7 +6,7 @@ const CaseStudyList = () => {
     <div>
       <section className="w-full min-h-screen bg-white flex flex-col font-Poppins max-w-[1600px] mx-auto" aria-labelledby="careers-heading">
         <div
-          className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] mt-[100px] flex items-center justify-center bg-cover bg-center max-w-[1600px] mx-auto"
+          className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] flex items-center justify-center bg-cover bg-center max-w-[1600px] mx-auto"
           style={{ backgroundImage: `url(/CaseStudyListbg.jpg)` }}
           role="presentation"
           aria-hidden="true"

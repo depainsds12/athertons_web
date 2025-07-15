@@ -52,7 +52,7 @@ const MeetOurTeam = () => {
       <div className="w-full max-w-[1600px]">
         
         <div
-          className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] mt-[100px] flex items-center justify-center bg-cover bg-center"
+          className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] flex items-center justify-center bg-cover bg-center"
           style={{ backgroundImage: `url(${aboutusbg1})` }}
         >
           <div className="absolute inset-0 bg-[#192437] opacity-60 z-10" />

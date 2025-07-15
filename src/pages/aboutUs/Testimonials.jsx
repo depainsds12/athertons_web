@@ -40,7 +40,7 @@ const Testimonials = () => {
       aria-labelledby="testimonials-heading"
     >
       <div
-        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] mt-[100px] flex items-center justify-center bg-cover bg-center"
+        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: `url(${aboutusbg4})` }}
         role="presentation"
         aria-hidden="true"
@@ -61,46 +61,54 @@ const Testimonials = () => {
       </div>
 
       <div className="w-full flex justify-center py-10 px-14 xl:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1600px] w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-[1600px] w-full">
           {testimonials.map((t, idx) => (
             <article
               key={idx}
-              className="bg-[#F4F4F5] pl-7 pr-7 pb-7 flex flex-col h-full min-h-[260px]"
+              className="bg-[#F4F4F5] pl-7 pr-7 pb-7 flex flex-col h-[375px] min-h-[260px]"
               role="article"
               aria-labelledby={`testimonial-name-${idx}`}
             >
-              <div className="flex items-start  gap-x-6 pt-2">
-                <img
-                  src={quote}
-                  alt=""
-                  aria-hidden="true"
-                  className="w-[90px] h-[100px] pl-1.5"
-                />
-                <div>
-                  <div
-                    id={`testimonial-name-${idx}`}
-                    className="text-[#192437] text-lg md:text-[20px] font-sembold leading-7 pt-3"
-                  >
-                    {t.name}
-                  </div>
-                  {t.role && (
+              <div className="flex flex-col my-auto">
+                <div className="flex items-start gap-x-6 pt-2">
+                  <img
+                    src={quote}
+                    alt=""
+                    aria-hidden="true"
+                    className="w-[90px] h-[100px] pl-1.5"
+                  />
+
+                  <div className="flex flex-col my-auto">
                     <div
-                      className="text-[#03837E] text-base leading-7 font-medium italic"
-                      id={`testimonial-role-${idx}`}
+                      id={`testimonial-name-${idx}`}
+                      className="text-[#192437] text-lg md:text-[20px] font-semibold leading-7"
                     >
-                      {t.role}
+                      {t.name}
                     </div>
+
+                    {t.role && (
+                      <div
+                        className="text-[#03837E] text-base leading-7 font-medium italic mt-1"
+                        id={`testimonial-role-${idx}`}
+                      >
+                        {t.role}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <div className="text-[#192437] font-normal text-base leading-7 tracking-normal mt-4">
+                  {t.content}
+                  {t.readMore && (
+                    <span
+                      className="text-[#03837E] font-medium cursor-pointer ml-1 hover:underline"
+                      role="link"
+                      tabIndex={0}
+                    >
+                      Read More
+                    </span>
                   )}
                 </div>
-              </div>
-
-              <div className="text-[#192437] font-normal text-base leading-7 tracking-normal">
-                {t.content}
-                {t.readMore && (
-                  <span className="text-[#03837E] font-medium cursor-pointer ml-1 hover:underline" role="link" tabIndex={0}>
-                    Read More
-                  </span>
-                )}
               </div>
             </article>
           ))}
