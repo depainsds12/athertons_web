@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+const images = [
+  '/images/ty-1.jpg',
+  '/images/ty-2.jpg',
+  '/images/ty-3.jpg',
+  '/images/ty-4.jpg',
+];
 
 const ProjectDetail = () => {
+  const [imgIdx, setImgIdx] = useState(0);
+  const handlePrev = () => setImgIdx((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  const handleNext = () => setImgIdx((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+
   return (
-    <section className="w-full min-h-screen bg-white flex flex-col font-Poppins max-w-[1600px] mx-auto" aria-labelledby="careers-heading">
+    <section className="w-full min-h-screen bg-white flex flex-col font-Poppins w-full" aria-labelledby="careers-heading">
 
       {/* Banner */}
       <div
-        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] flex items-center justify-center bg-cover bg-center"
+        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] flex items-center justify-center bg-cover bg-center w-full"
         style={{ backgroundImage: `url(/images/ty-menai.jpg)` }}
         role="presentation"
         aria-hidden="true"
@@ -21,16 +32,16 @@ const ProjectDetail = () => {
       </div>
 
      {/* Main Content */}
-<div className="flex flex-col lg:flex-row gap-8 px-4 md:px-12 py-10 max-w-6xl mx-auto w-full text-black font-normal text-[16px] leading-[28px]">
+<div className="flex flex-col lg:flex-row gap-8 px-4 md:px-12 py-10 w-full text-black font-normal text-[16px] leading-[28px]">
 
   {/* Left: Image */}
   <div className="flex flex-col lg:w-1/2 w-full items-center">
     <div className="relative w-full max-w-[420px] aspect-[4/3] overflow-hidden mb-4">
-      <img src="/images/ty-1.jpg" alt="Ty Menai Refurbishment 1" className="w-full h-full object-cover" />
-      <button className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 p-2" aria-label="Previous image">
+      <img src={images[imgIdx]} alt={`Ty Menai Refurbishment ${imgIdx + 1}`} className="w-full h-full object-cover transition-all duration-300" />
+      <button onClick={handlePrev} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 p-2" aria-label="Previous image">
         <span className="text-2xl text-[#192437]">&#8592;</span>
       </button>
-      <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 p-2" aria-label="Next image">
+      <button onClick={handleNext} className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 p-2" aria-label="Next image">
         <span className="text-2xl text-[#192437]">&#8594;</span>
       </button>
     </div>
@@ -53,7 +64,7 @@ const ProjectDetail = () => {
 </div>
 
 {/* Paragraph Below Image Full Width */}
-<div className="px-4 md:px-12 max-w-6xl mx-auto w-full text-black font-normal text-[16px] leading-[28px] pb-10">
+<div className="px-4 md:px-12 w-full text-black font-normal text-[16px] leading-[28px] pb-10">
   <p>
     Grŵp Llandrillo Menai appointed North Wales-based Read Construction to carry out the works to the new College Menai Bangor Campus, which is situated on Parc Menai in Bangor, with teaching on the campus due to take place from September 2014. </p>
    <p className='mt-3'> Read Construction appointed Athertons as main contractor to deliver the full refurbishment.
@@ -62,7 +73,7 @@ const ProjectDetail = () => {
 
 
       {/* Summary Section */}
-      <div className="flex flex-col gap-8 px-4 md:px-12 pb-16 max-w-6xl mx-auto w-full">
+      <div className="flex flex-col gap-8 px-4 md:px-12 pb-16 w-full">
         <h3 className="text-[#192437] font-semibold text-[40px] leading-[100%] mb-6">Summary</h3>
 
         <div className="flex flex-col lg:flex-row gap-8 text-black font-normal text-[16px] leading-[28px]">
@@ -103,7 +114,7 @@ const ProjectDetail = () => {
       </div>
 
      {/* Background Section - Image Left, First 2 Paras Right */}
-      <div className="flex flex-col gap-8 px-4 md:px-12 pb-16 max-w-6xl mx-auto w-full">
+      <div className="flex flex-col gap-8 px-4 md:px-12 pb-16 w-full">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:w-1/2">
             <img src="/images/ty-3.jpg" alt="Ty Menai Refurbishment 3" className="w-full object-cover aspect-[4/3]" />
@@ -121,7 +132,7 @@ const ProjectDetail = () => {
         </div>
       </div>
        {/* Challenges Section */}
-      <div className="flex flex-col gap-8 px-4 md:px-12 pb-16 max-w-6xl mx-auto w-full">
+      <div className="flex flex-col gap-8 px-4 md:px-12 pb-16 w-full">
         <h3 className="text-[#192437] font-semibold text-[40px]">Challenges and Solutions</h3>
 
         <div className="flex flex-col lg:flex-row gap-8">

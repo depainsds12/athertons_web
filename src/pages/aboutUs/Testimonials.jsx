@@ -36,11 +36,11 @@ const testimonials = [
 const Testimonials = () => {
   return (
     <section
-      className="w-full max-w-[1600px] mx-auto min-h-screen bg-white flex flex-col font-Poppins"
+      className="min-h-screen bg-white flex flex-col font-Poppins w-full"
       aria-labelledby="testimonials-heading"
     >
       <div
-        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] flex items-center justify-center bg-cover bg-center"
+        className="relative w-full min-h-[150px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: `url(${aboutusbg4})` }}
         role="presentation"
         aria-hidden="true"
@@ -60,32 +60,30 @@ const Testimonials = () => {
         </h3>
       </div>
 
-      <div className="w-full flex justify-center py-10 px-14 xl:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-[1600px] w-full">
+      <div className="w-full flex justify-center py-10 px-6 md:px-14 xl:px-20">
+        <div className="flex flex-wrap gap-8 justify-center w-full max-w-[1500px]">
           {testimonials.map((t, idx) => (
             <article
               key={idx}
-              className="bg-[#F4F4F5] pl-7 pr-7 pb-7 flex flex-col h-[375px] min-h-[260px]"
+              className="bg-[#F4F4F5] flex flex-col justify-between p-6 md:p-7 w-full md:w-[48%] rounded-md"
               role="article"
               aria-labelledby={`testimonial-name-${idx}`}
             >
-              <div className="flex flex-col my-auto">
-                <div className="flex items-start gap-x-6 pt-2">
+              <div className="flex flex-col">
+                <div className="flex items-start gap-x-4">
                   <img
                     src={quote}
                     alt=""
                     aria-hidden="true"
-                    className="w-[90px] h-[100px] pl-1.5"
+                    className="w-[60px] h-[70px] pl-1.5"
                   />
-
-                  <div className="flex flex-col my-auto">
+                  <div>
                     <div
                       id={`testimonial-name-${idx}`}
                       className="text-[#192437] text-lg md:text-[20px] font-semibold leading-7"
                     >
                       {t.name}
                     </div>
-
                     {t.role && (
                       <div
                         className="text-[#03837E] text-base leading-7 font-medium italic mt-1"

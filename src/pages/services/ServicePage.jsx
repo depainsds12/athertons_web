@@ -252,7 +252,7 @@ const ServicePage = () => {
 
       {/* Content Section */}
       <section className="w-full flex justify-center py-12 px-4 md:px-14 xl:px-20 bg-white" aria-label="Service Content">
-        <div className="max-w-6xl w-full flex flex-col gap-10 items-start">
+        <div className="w-full flex flex-col gap-10 items-start">
           {/* Top section: image left, first section text right (side-by-side on md+) */}
           <div className="w-full flex flex-col md:flex-row gap-10 items-start">
             {/* Left Image */}

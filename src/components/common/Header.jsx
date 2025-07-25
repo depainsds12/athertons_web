@@ -1,245 +1,599 @@
-import React from "react";
+"use client";
+
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [aboutDropdown, setAboutDropdown] = useState(false);
+  const [servicesDropdown, setServicesDropdown] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [isMenuOpen]);
+
   return (
-    <header className="max-w-[1600px] w-full bg-[#03837E]">
-      {/* Top bar */}
-      <div className="mx-auto max-w-[1600px] flex items-center justify-between px-4  text-white text-sm lg:h-[50px] h-auto">
-        <div className="flex items-center gap-6">
-          <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal">
-            {/* Location Icon Placeholder */}
-            <span className="inline-block" />
-            <svg
-              width="24"
-              height="25"
-              viewBox="0 0 24 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g clip-path="url(#clip0_68_663)">
-                <path
-                  d="M21 10.5C21 17.5 12 23.5 12 23.5C12 23.5 3 17.5 3 10.5C3 8.11305 3.94821 5.82387 5.63604 4.13604C7.32387 2.44821 9.61305 1.5 12 1.5C14.3869 1.5 16.6761 2.44821 18.364 4.13604C20.0518 5.82387 21 8.11305 21 10.5Z"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M12 13.5C13.6569 13.5 15 12.1569 15 10.5C15 8.84315 13.6569 7.5 12 7.5C10.3431 7.5 9 8.84315 9 10.5C9 12.1569 10.3431 13.5 12 13.5Z"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_68_663">
-                  <rect
-                    width="24"
-                    height="24"
-                    fill="white"
-                    transform="translate(0 0.5)"
+    <>
+      <header
+        className={`w-full bg-[#03837E]${
+          isMenuOpen ? " fixed top-0 left-0 z-[101]" : ""
+        }`}
+        style={isMenuOpen ? { height: "110px" } : {}}
+      >
+        {/* Top bar - responsive layout */}
+        <div className="w-full px-4 text-white text-sm ">
+          {/* Desktop layout */}
+          <div className="hidden sm:flex flex-wrap items-center justify-between lg:h-[50px] h-auto mr-8 ml-8 xl:ml-20 xl:mr-20 py-2">
+            <div className="flex flex-col sm:flex-row items-center gap-y-2 sm:gap-y-0 gap-x-6">
+              <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal">
+                <svg
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21 10.5C21 17.5 12 23.5 12 23.5C12 23.5 3 17.5 3 10.5C3 8.11305 3.94821 5.82387 5.63604 4.13604C7.32387 2.44821 9.61305 1.5 12 1.5C14.3869 1.5 16.6761 2.44821 18.364 4.13604C20.0518 5.82387 21 8.11305 21 10.5Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
-                </clipPath>
-              </defs>
-            </svg>
-            Wirral Office
-          </span>
-          <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal">
-            {/* Location Icon Placeholder */}
-            <span className="inline-block" />
-            <svg
-              width="24"
-              height="25"
-              viewBox="0 0 24 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g clip-path="url(#clip0_68_663)">
-                <path
-                  d="M21 10.5C21 17.5 12 23.5 12 23.5C12 23.5 3 17.5 3 10.5C3 8.11305 3.94821 5.82387 5.63604 4.13604C7.32387 2.44821 9.61305 1.5 12 1.5C14.3869 1.5 16.6761 2.44821 18.364 4.13604C20.0518 5.82387 21 8.11305 21 10.5Z"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M12 13.5C13.6569 13.5 15 12.1569 15 10.5C15 8.84315 13.6569 7.5 12 7.5C10.3431 7.5 9 8.84315 9 10.5C9 12.1569 10.3431 13.5 12 13.5Z"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_68_663">
-                  <rect
-                    width="24"
-                    height="24"
-                    fill="white"
-                    transform="translate(0 0.5)"
+                  <path
+                    d="M12 13.5C13.6569 13.5 15 12.1569 15 10.5C15 8.84315 13.6569 7.5 12 7.5C10.3431 7.5 9 8.84315 9 10.5C9 12.1569 10.3431 13.5 12 13.5Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
-                </clipPath>
-              </defs>
-            </svg>{" "}
-            Wrexham Office
-          </span>
-        </div>
-        <div className="flex items-center gap-6">
-          <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal">
-            {/* Email Icon Placeholder */}
-            <span className="inline-block" />
-            <svg
-              width="24"
-              height="25"
-              viewBox="0 0 24 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4 4.5H20C21.1 4.5 22 5.4 22 6.5V18.5C22 19.6 21.1 20.5 20 20.5H4C2.9 20.5 2 19.6 2 18.5V6.5C2 5.4 2.9 4.5 4 4.5Z"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M22 6.5L12 13.5L2 6.5"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            info@athertons.co.uk
-          </span>
-          <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal">
-            {/* Phone Icon Placeholder */}
-            <span className="inline-block " />
-            <svg
-              width="24"
-              height="25"
-              viewBox="0 0 24 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g clip-path="url(#clip0_68_661)">
-                <path
-                  d="M15.0494 5.5C16.0262 5.69057 16.9238 6.16826 17.6275 6.87194C18.3312 7.57561 18.8089 8.47326 18.9994 9.45M15.0494 1.5C17.0787 1.72544 18.971 2.63417 20.4157 4.07701C21.8603 5.51984 22.7715 7.41101 22.9994 9.44M21.9994 17.42V20.42C22.0006 20.6985 21.9435 20.9742 21.832 21.2293C21.7204 21.4845 21.5567 21.7136 21.3515 21.9019C21.1463 22.0901 20.904 22.2335 20.6402 22.3227C20.3764 22.4119 20.0968 22.4451 19.8194 22.42C16.7423 22.0856 13.7864 21.0341 11.1894 19.35C8.77327 17.8147 6.72478 15.7662 5.18945 13.35C3.49942 10.7412 2.44769 7.77099 2.11944 4.68C2.09446 4.40347 2.12732 4.12476 2.21595 3.86162C2.30457 3.59849 2.44702 3.35669 2.63421 3.15162C2.82141 2.94655 3.04925 2.78271 3.30324 2.67052C3.55722 2.55833 3.83179 2.50026 4.10945 2.5H7.10945C7.59475 2.49522 8.06524 2.66708 8.43321 2.98353C8.80118 3.29999 9.04152 3.73945 9.10944 4.22C9.23607 5.18007 9.47089 6.12273 9.80945 7.03C9.94399 7.38792 9.97311 7.77691 9.89335 8.15088C9.8136 8.52485 9.62831 8.86811 9.35944 9.14L8.08945 10.41C9.513 12.9135 11.5859 14.9864 14.0894 16.41L15.3594 15.14C15.6313 14.8711 15.9746 14.6858 16.3486 14.6061C16.7225 14.5263 17.1115 14.5555 17.4694 14.69C18.3767 15.0286 19.3194 15.2634 20.2794 15.39C20.7652 15.4585 21.2088 15.7032 21.526 16.0775C21.8431 16.4518 22.0116 16.9296 21.9994 17.42Z"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_68_661">
-                  <rect
-                    width="24"
-                    height="24"
-                    fill="white"
-                    transform="translate(0 0.5)"
+                </svg>
+                Wirral Office
+              </span>
+              <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal">
+                <svg
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21 10.5C21 17.5 12 23.5 12 23.5C12 23.5 3 17.5 3 10.5C3 8.11305 3.94821 5.82387 5.63604 4.13604C7.32387 2.44821 9.61305 1.5 12 1.5C14.3869 1.5 16.6761 2.44821 18.364 4.13604C20.0518 5.82387 21 8.11305 21 10.5Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
-                </clipPath>
-              </defs>
-            </svg>
-            0151 670 0666
-          </span>
-        </div>
-      </div>
-      {/* Main nav */}
-      <div className="mx-auto max-w-[1600px] flex items-center justify-between px-4 py-2 bg-white">
-        <div className="flex items-center gap-6">
-          {/* Logo Placeholder */}
-          <div className="w-[115px] h-[107px] flex items-center justify-center">
-            <img
-              src="/logo.png"
-              alt="Athertons Logo"
-              className="h-full object-contain"
-            />
+                  <path
+                    d="M12 13.5C13.6569 13.5 15 12.1569 15 10.5C15 8.84315 13.6569 7.5 12 7.5C10.3431 7.5 9 8.84315 9 10.5C9 12.1569 10.3431 13.5 12 13.5Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                Wrexham Office
+              </span>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6 items-center">
+              <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal">
+                <svg
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 4.5H20C21.1 4.5 22 5.4 22 6.5V18.5C22 19.6 21.1 20.5 20 20.5H4C2.9 20.5 2 19.6 2 18.5V6.5C2 5.4 2.9 4.5 4 4.5Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M22 6.5L12 13.5L2 6.5"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                info@athertons.co.uk
+              </span>
+              <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.0501 5C16.0268 5.19057 16.9244 5.66826 17.6281 6.37194C18.3318 7.07561 18.8095 7.97326 19.0001 8.95M15.0501 1C17.0793 1.22544 18.9716 2.13417 20.4163 3.57701C21.8609 5.01984 22.7721 6.91101 23.0001 8.94M22.0001 16.92V19.92C22.0012 20.1985 21.9441 20.4742 21.8326 20.7293C21.721 20.9845 21.5574 21.2136 21.3521 21.4019C21.1469 21.5901 20.9046 21.7335 20.6408 21.8227C20.377 21.9119 20.0974 21.9451 19.8201 21.92C16.7429 21.5856 13.7871 20.5341 11.1901 18.85C8.77388 17.3147 6.72539 15.2662 5.19006 12.85C3.50003 10.2412 2.4483 7.27099 2.12006 4.18C2.09507 3.90347 2.12793 3.62476 2.21656 3.36162C2.30518 3.09849 2.44763 2.85669 2.63482 2.65162C2.82202 2.44655 3.04986 2.28271 3.30385 2.17052C3.55783 2.05833 3.8324 2.00026 4.11006 2H7.11006C7.59536 1.99522 8.06585 2.16708 8.43382 2.48353C8.80179 2.79999 9.04213 3.23945 9.11005 3.72C9.23668 4.68007 9.47151 5.62273 9.81006 6.53C9.9446 6.88792 9.97372 7.27691 9.89396 7.65088C9.81421 8.02485 9.62892 8.36811 9.36005 8.64L8.09006 9.91C9.51361 12.4135 11.5865 14.4864 14.0901 15.91L15.3601 14.64C15.6319 14.3711 15.9752 14.1858 16.3492 14.1061C16.7231 14.0263 17.1121 14.0555 17.4701 14.19C18.3773 14.5286 19.32 14.7634 20.2801 14.89C20.7658 14.9585 21.2095 15.2032 21.5266 15.5775C21.8437 15.9518 22.0122 16.4296 22.0001 16.92Z"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                0151 670 0666
+              </span>
+            </div>
           </div>
-          <nav className="flex items-center gap-6 text-black font-medium text-base leading-none tracking-normal">
-            <a
-              href="#"
-              className="hover:text-[#03837E] font-medium text-base leading-none tracking-normal"
-            >
-              Home
-            </a>
-            <div className="relative group">
-              <button className="flex items-center gap-1 hover:text-[#03837E] font-medium text-base leading-none tracking-normal">
-                About Us
-                <span className="inline-block align-middle">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 4.5L6 7.5L9 4.5" stroke="black" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-              {/* Dropdown placeholder */}
+
+          {/* Mobile layout - stacked */}
+          <div className="sm:hidden space-y-2">
+            {/* First row - offices */}
+            <div className="flex items-center justify-center gap-6">
+              <span className="flex items-center gap-1 font-medium text-sm">
+                <svg
+                  width="20"
+                  height="21"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21 10.5C21 17.5 12 23.5 12 23.5C12 23.5 3 17.5 3 10.5C3 8.11305 3.94821 5.82387 5.63604 4.13604C7.32387 2.44821 9.61305 1.5 12 1.5C14.3869 1.5 16.6761 2.44821 18.364 4.13604C20.0518 5.82387 21 8.11305 21 10.5Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M12 13.5C13.6569 13.5 15 12.1569 15 10.5C15 8.84315 13.6569 7.5 12 7.5C10.3431 7.5 9 8.84315 9 10.5C9 12.1569 10.3431 13.5 12 13.5Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                Wirral Office
+              </span>
+              <span className="flex items-center gap-1 font-medium text-sm">
+                <svg
+                  width="20"
+                  height="21"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21 10.5C21 17.5 12 23.5 12 23.5C12 23.5 3 17.5 3 10.5C3 8.11305 3.94821 5.82387 5.63604 4.13604C7.32387 2.44821 9.61305 1.5 12 1.5C14.3869 1.5 16.6761 2.44821 18.364 4.13604C20.0518 5.82387 21 8.11305 21 10.5Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M12 13.5C13.6569 13.5 15 12.1569 15 10.5C15 8.84315 13.6569 7.5 12 7.5C10.3431 7.5 9 8.84315 9 10.5C9 12.1569 10.3431 13.5 12 13.5Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                Wrexham Office
+              </span>
             </div>
-            <div className="relative group">
-              <button className="flex items-center gap-1 hover:text-[#03837E] font-medium text-base leading-none tracking-normal">
-                Services
-                <span className="inline-block align-middle">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 4.5L6 7.5L9 4.5" stroke="black" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-              {/* Dropdown placeholder */}
+
+            {/* Second row - contact info */}
+            <div className="flex items-center justify-center gap-6">
+              <span className="flex items-center gap-1 font-medium text-sm">
+                <svg
+                  width="20"
+                  height="21"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 4.5H20C21.1 4.5 22 5.4 22 6.5V18.5C22 19.6 21.1 20.5 20 20.5H4C2.9 20.5 2 19.6 2 18.5V6.5C2 5.4 2.9 4.5 4 4.5Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M22 6.5L12 13.5L2 6.5"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                info@athertons.co.uk
+              </span>
+              <span className="flex items-center gap-1 font-medium text-sm">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.0501 5C16.0268 5.19057 16.9244 5.66826 17.6281 6.37194C18.3318 7.07561 18.8095 7.97326 19.0001 8.95M15.0501 1C17.0793 1.22544 18.9716 2.13417 20.4163 3.57701C21.8609 5.01984 22.7721 6.91101 23.0001 8.94M22.0001 16.92V19.92C22.0012 20.1985 21.9441 20.4742 21.8326 20.7293C21.721 20.9845 21.5574 21.2136 21.3521 21.4019C21.1469 21.5901 20.9046 21.7335 20.6408 21.8227C20.377 21.9119 20.0974 21.9451 19.8201 21.92C16.7429 21.5856 13.7871 20.5341 11.1901 18.85C8.77388 17.3147 6.72539 15.2662 5.19006 12.85C3.50003 10.2412 2.4483 7.27099 2.12006 4.18C2.09507 3.90347 2.12793 3.62476 2.21656 3.36162C2.30518 3.09849 2.44763 2.85669 2.63482 2.65162C2.82202 2.44655 3.04986 2.28271 3.30385 2.17052C3.55783 2.05833 3.8324 2.00026 4.11006 2H7.11006C7.59536 1.99522 8.06585 2.16708 8.43382 2.48353C8.80179 2.79999 9.04213 3.23945 9.11005 3.72C9.23668 4.68007 9.47151 5.62273 9.81006 6.53C9.9446 6.88792 9.97372 7.27691 9.89396 7.65088C9.81421 8.02485 9.62892 8.36811 9.36005 8.64L8.09006 9.91C9.51361 12.4135 11.5865 14.4864 14.0901 15.91L15.3601 14.64C15.6319 14.3711 15.9752 14.1858 16.3492 14.1061C16.7231 14.0263 17.1121 14.0555 17.4701 14.19C18.3773 14.5286 19.32 14.7634 20.2801 14.89C20.7658 14.9585 21.2095 15.2032 21.5266 15.5775C21.8437 15.9518 22.0122 16.4296 22.0001 16.92Z"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                0151 670 0666
+              </span>
             </div>
-            <a
-              href="#"
-              className="hover:text-[#03837E] font-medium text-base leading-none tracking-normal"
-            >
-              Projects
-            </a>
-            <a
-              href="#"
-              className="hover:text-[#03837E] font-medium text-base leading-none tracking-normal"
-            >
-              Case Studies
-            </a>
-            <a
-              href="#"
-              className="hover:text-[#03837E] font-medium text-base leading-none tracking-normal"
-            >
-              Contact Us
-            </a>
-          </nav>
+          </div>
         </div>
-        <div className="flex items-center gap-4">
-          {/* Social Icon Images */}
-          <span className="inline-block w-12 h-12 border border-blue-400 flex items-center justify-center rounded-full">
-            <img
-              src="/images/facebooklogo.png"
-              alt="Facebook"
-              className="w-6.5 h-6.5 object-contain ml-2.5 mt-2.5 "
-            />
-          </span>
-          <span className="inline-block w-12 h-12 border border-pink-400 flex items-center justify-center rounded-full">
-            <img
-              src="/images/instagramlogo.png"
-              alt="Instagram"
-              className="w-6.5 h-6.5 object-contain ml-2.5 mt-2.5"
-            />
-          </span>
-          <span className="inline-block w-12 h-12 border border-black flex items-center justify-center rounded-full">
-            <img
-              src="/images/twitterlogo.png"
-              alt="X"
-              className="w-6.5 h-6.5 object-contain ml-2.5 mt-2.5"
-            />
-          </span>
-          <span className="inline-block w-12 h-12 border border-red-400 flex items-center justify-center rounded-full">
-            <img
-              src="/images/pinterestlogo.png"
-              alt="Pinterest"
-              className="w-8 h-8 object-contain ml-1.75 mt-1.75"
-            />
-          </span>
+
+        {/* Main nav */}
+        <div className="w-full bg-white">
+          <div className="flex items-center justify-between px-0 ">
+            {/* Left: Logo + Navigation */}
+            <div className="flex items-center gap-10">
+  <div className="w-[90px] h-[84px] flex items-center justify-center sm:w-[116px] sm:h-[107px] sm:ml-8 ml-2 xl:ml-20">
+    <img
+      src="/logo.png"
+      alt="Athertons Logo"
+      className="h-full object-contain"
+    />
+  </div>
+
+  <nav className="hidden lg:flex items-center flex-nowrap gap-5 xl:gap-6 text-black font-medium text-[15px] xl:text-base">
+    <Link to="/" className="hover:text-[#03837E]">
+      Home
+    </Link>
+
+    <div className="relative group">
+      <button
+        className="flex items-center gap-1 hover:text-[#03837E] bg-transparent"
+        onClick={() => setAboutDropdown((v) => !v)}
+      >
+        About Us
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path
+            d="M3 4.5L6 7.5L9 4.5"
+            stroke="black"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+
+      {aboutDropdown && (
+        <div className="absolute left-0 top-full mt-2 w-56 bg-white border border-[#D6D6D6] shadow z-50 flex flex-col">
+          <Link
+            to="/aboutus/meetourteam"
+            onClick={() => setAboutDropdown(false)}
+            className="px-4 py-2 text-black hover:bg-[#F4F4F5] border-b border-[#D6D6D6]"
+          >
+            Meet Our Team
+          </Link>
+          <Link
+            to="/aboutus/accreditation_Membership"
+            onClick={() => setAboutDropdown(false)}
+            className="px-4 py-2 text-black hover:bg-[#F4F4F5] border-b border-[#D6D6D6]"
+          >
+            Accreditations and Membership
+          </Link>
+          <Link
+            to="/aboutus/careers"
+            onClick={() => setAboutDropdown(false)}
+            className="px-4 py-2 text-black hover:bg-[#F4F4F5] border-b border-[#D6D6D6]"
+          >
+            Career
+          </Link>
+          <Link
+            to="/aboutus/testimonials"
+            onClick={() => setAboutDropdown(false)}
+            className="px-4 py-2 text-black hover:bg-[#F4F4F5]"
+          >
+            Testimonial
+          </Link>
         </div>
-      </div>
-    </header>
+      )}
+    </div>
+
+    <div className="relative group">
+      <button
+        className="flex items-center gap-1 hover:text-[#03837E] bg-transparent"
+        onClick={() => setServicesDropdown((v) => !v)}
+      >
+        Services
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path
+            d="M3 4.5L6 7.5L9 4.5"
+            stroke="black"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+
+      {servicesDropdown && (
+        <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-[#D6D6D6] shadow z-50 flex flex-col">
+          <Link
+            to="/services/consultancy_smartdesign"
+            onClick={() => setServicesDropdown(false)}
+            className="px-4 py-2 text-black hover:bg-[#F4F4F5] border-b border-[#D6D6D6]"
+          >
+            Consultancy & Smart Design
+          </Link>
+          <Link
+            to="/services/bms_ems_technology"
+            onClick={() => setServicesDropdown(false)}
+            className="px-4 py-2 text-black hover:bg-[#F4F4F5] border-b border-[#D6D6D6]"
+          >
+            BMS & EMS Technology
+          </Link>
+          <Link
+            to="/services/me_engineering"
+            onClick={() => setServicesDropdown(false)}
+            className="px-4 py-2 text-black hover:bg-[#F4F4F5] border-b border-[#D6D6D6]"
+          >
+            M&E Engineering
+          </Link>
+          <Link
+            to="/services/light_civil_engineering"
+            onClick={() => setServicesDropdown(false)}
+            className="px-4 py-2 text-black hover:bg-[#F4F4F5] border-b border-[#D6D6D6]"
+          >
+            Light Civil Engineering
+          </Link>
+          <Link
+            to="/services/eco_solutions"
+            onClick={() => setServicesDropdown(false)}
+            className="px-4 py-2 text-black hover:bg-[#F4F4F5]"
+          >
+            Eco Solutions
+          </Link>
+        </div>
+      )}
+    </div>
+
+    <Link to="/projects" className="hover:text-[#03837E]">
+      Projects
+    </Link>
+    <Link to="/casestudies" className="hover:text-[#03837E]">
+      Case Studies
+    </Link>
+    <Link to="/contactus" className="hover:text-[#03837E]">
+      Contact Us
+    </Link>
+  </nav>
+</div>
+
+
+            {/* Right: Social icons and Hamburger */}
+            <div className="flex items-center gap-4 mr-2 sm:mr-8 lg:mr-6  xl:mr-20">
+              <div className="flex  gap-2 lg:gap-1.5 xl:gap-3">
+                <span className="inline-block w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#3D6AD6] flex items-center justify-center rounded-full">
+                  <img
+                    src="/images/facebooklogo.png"
+                    alt="Facebook"
+                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] object-contain ml-2.5 mt-2.25 "
+                  />
+                </span>
+                <span className="inline-block w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#D73F8C] flex items-center justify-center rounded-full">
+                  <img
+                    src="/images/instagramlogo.png"
+                    alt="Instagram"
+                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]  ml-2.5 mt-2.25 object-contain"
+                  />
+                </span>
+                <span className="inline-block w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-black flex items-center justify-center rounded-full">
+                  <img
+                    src="/images/twitterlogo.png"
+                    alt="X"
+                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]  ml-2.5 mt-2.25 object-contain"
+                  />
+                </span>
+                <span className="inline-block w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#BD081C] flex items-center justify-center rounded-full">
+                  <img
+                    src="/images/pinterestlogo.png"
+                    alt="Pinterest"
+                    className="w-[22px] h-[22px]  md:h-[32px] md:w-[32px] ml-1.75 mt-1.75 object-contain"
+                  />
+                </span>
+              </div>
+
+              <button
+                className="lg:hidden flex flex-col gap-1 p-2"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                <span className="w-6 h-0.5 bg-black transition-all"></span>
+                <span className="w-6 h-0.5 bg-black transition-all"></span>
+                <span className="w-6 h-0.5 bg-black transition-all"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      {/* Overlay and mobile nav below header when menu is open */}
+      {isMenuOpen && (
+        <>
+          {/* Overlay covers everything below header */}
+          <div
+            className="fixed left-0 right-0 bg-white z-[99]"
+            style={{ top: "110px", bottom: 0 }}
+          ></div>
+          {/* Mobile Nav, fixed below header */}
+          <div
+            className="lg:hidden border-t border-gray-200 bg-white z-[100] fixed left-0 right-0"
+            style={{ top: "110px", bottom: 0 }}
+          >
+            <nav className="flex flex-col py-4 px-4 space-y-3">
+              <Link
+                to="/"
+                className="text-black hover:text-[#03837E] py-2 border-b border-[#D6D6D6] mt-20"
+              >
+                Home
+              </Link>
+              {/* Mobile About Us Dropdown */}
+              <div>
+                <button
+                  type="button"
+                  className="w-full flex items-center justify-between py-2 text-black hover:text-[#03837E] border-b border-[#D6D6D6] focus:outline-none"
+                  onClick={() => setMobileAboutOpen((v) => !v)}
+                >
+                  <span>About Us</span>
+                  <span
+                    className={`pr-2 transition-transform duration-200 ${
+                      mobileAboutOpen ? "rotate-180" : ""
+                    }`}
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="black"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                {mobileAboutOpen && (
+                  <div className="flex flex-col bg-white border-b border-[#D6D6D6]">
+                    <Link
+                      to="/aboutus/meetourteam"
+                      className="text-black hover:text-[#03837E] py-2 pl-6 border-b border-[#F4F4F5] text-left"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Meet Our Team
+                    </Link>
+                    <Link
+                      to="/aboutus/accreditation_Membership"
+                      className="text-black hover:text-[#03837E] py-2 pl-6 border-b border-[#F4F4F5] text-left"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Accreditations and Membership
+                    </Link>
+                    <Link
+                      to="/aboutus/careers"
+                      className="text-black hover:text-[#03837E] py-2 pl-6 border-b border-[#F4F4F5] text-left"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Career
+                    </Link>
+                    <Link
+                      to="/aboutus/testimonials"
+                      className="text-black hover:text-[#03837E] py-2 pl-6 text-left"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Testimonial
+                    </Link>
+                  </div>
+                )}
+              </div>
+              {/* Mobile Services Dropdown */}
+              <div>
+                <button
+                  type="button"
+                  className="w-full flex items-center justify-between py-2 text-black hover:text-[#03837E] border-b border-[#D6D6D6] focus:outline-none"
+                  onClick={() => setMobileServicesOpen((v) => !v)}
+                >
+                  <span>Services</span>
+                  <span
+                    className={`pr-2 transition-transform duration-200 ${
+                      mobileServicesOpen ? "rotate-180" : ""
+                    }`}
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="black"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                {mobileServicesOpen && (
+                  <div className="flex flex-col bg-white border-b border-[#D6D6D6]">
+                    <Link
+                      to="/services/consultancy_smartdesign"
+                      className="text-black hover:text-[#03837E] py-2 pl-6 border-b border-[#F4F4F5] text-left"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Consultancy & Smart Design
+                    </Link>
+                    <Link
+                      to="/services/bms_ems_technology"
+                      className="text-black hover:text-[#03837E] py-2 pl-6 border-b border-[#F4F4F5] text-left"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      BMS & EMS Technology
+                    </Link>
+                    <Link
+                      to="/services/me_engineering"
+                      className="text-black hover:text-[#03837E] py-2 pl-6 border-b border-[#F4F4F5] text-left"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      M&E Engineering
+                    </Link>
+                    <Link
+                      to="/services/light_civil_engineering"
+                      className="text-black hover:text-[#03837E] py-2 pl-6 border-b border-[#F4F4F5] text-left"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Light Civil Engineering
+                    </Link>
+                    <Link
+                      to="/services/eco_solutions"
+                      className="text-black hover:text-[#03837E] py-2 pl-6 text-left"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Eco Solutions
+                    </Link>
+                  </div>
+                )}
+              </div>
+              <Link
+                to="/projects"
+                className="text-black hover:text-[#03837E] py-2 border-b border-[#D6D6D6]"
+              >
+                Projects
+              </Link>
+              <Link
+                to="/casestudies"
+                className="text-black hover:text-[#03837E] py-2 border-b border-[#D6D6D6]"
+              >
+                Case Studies
+              </Link>
+              <Link
+                to="/contactus"
+                className="text-black hover:text-[#03837E] py-2 border-b border-[#D6D6D6]"
+              >
+                Contact Us
+              </Link>
+            </nav>
+          </div>
+        </>
+      )}
+    </>
   );
 };
 
