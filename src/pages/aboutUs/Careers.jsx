@@ -6,10 +6,10 @@ const Careers = () => {
   const fileInputRef = useRef();
 
   return (
-    <section className="w-full min-h-screen bg-white flex flex-col font-Poppins max-w-[1600px] mx-auto " aria-labelledby="careers-heading">
+    <section className=" bg-white flex flex-col font-Poppins w-full " aria-labelledby="careers-heading">
       {/* Header Section */}
       <div
-        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] mt-[100px] flex items-center justify-center bg-cover bg-center max-w-[1600px] mx-auto"
+        className="relative min-h-[180px] aspect-[1366/300]  flex items-center justify-center bg-cover bg-center w-full"
         style={{ backgroundImage: `url(${aboutusbg3})` }}
         role="presentation"
         aria-hidden="true"
@@ -17,7 +17,7 @@ const Careers = () => {
         <div className="absolute inset-0 bg-[#192437]/60" aria-hidden="true" />
         <h2
           id="careers-heading"
-          className="relative z-10 text-white text-3xl md:text-[45px] lg:text-[55px] xl:text-[60px] font-bold tracking-wide text-center"
+          className="relative z-10 text-white  text-[20px] sm:text-[36px] md:text-[48px] xl:text-[60px] 2xl:text-[80px] font-bold tracking-wide text-center"
         >
           CAREERS
         </h2>
@@ -32,17 +32,23 @@ const Careers = () => {
       {/* Main Content: Form + Contact Details */}
       <div className="w-full flex flex-col md:flex-row justify-center items-start gap-10 px-4 md:px-10 lg:px-20 xl:px-32 mb-16">
         {/* Form Section */}
-        <form className="bg-[#F4F4F5] p-6 md:p-8 w-full max-w-[628.83px] xl:h-[655px] flex flex-col gap-4" onSubmit={e => e.preventDefault()}>
-          <div className="flex gap-4">
-            <div className="flex flex-col w-1/2">
-              <label className="text-xs md:text-[14px] font-semibold mb-1 text-[#192437]">First Name*</label>
-              <input type="text" required className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px] xl:w-[265px]" />
+        <form className="bg-[#F4F4F5] border border-[#D6D6D6] p-6 md:p-8 w-full xl:h-[655px]  max-w-[629px] flex flex-col gap-4" onSubmit={e => e.preventDefault()}>
+         <div className="flex gap-4">
+    <div className="flex flex-col w-1/2">
+        <label className="text-xs md:text-[14px] font-semibold mb-1 text-[#192437]">First Name*</label>
+        <input type="text" required className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px] xl:w-[265px]" />
+    </div>
+     <div className="flex flex-col w-1/2">
+              <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
+                Last Name*
+              </label>
+              <input
+                type="text"
+                required
+                className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px] "
+              />
             </div>
-            <div className="flex flex-col w-1/2">
-              <label className="text-xs md:text-[14px] font-semibold mb-1 text-[#192437]">Last Name*</label>
-              <input type="text" required className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px] xl:w-[265px] xl:ml-5 " />
-            </div>
-          </div>
+</div>
           <div className="flex flex-col">
             <label className="text-xs md:text-[14px] font-semibold mb-1 text-[#192437]">Phone Number*</label>
             <input type="tel" required className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px] xl:w-[568px] " />
@@ -81,7 +87,8 @@ const Careers = () => {
         </form>
 
         {/* Contact Details Section */}
-        <div className="w-full max-w-[444px] md:mx-auto flex flex-col gap-8 lg:mt-14 md:mt-0 p-2">
+        <div className="w-full md:mx-auto flex flex-col gap-8 lg:mt-14 md:mt-0 p-2">
+
           <h4 className="text-[#192437] text-xl md:text-[36px] font-semibold mb-2">Contact Details</h4>
 
           {/* Email */}

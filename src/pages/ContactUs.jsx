@@ -6,7 +6,7 @@ const ContactUs = () => {
     <>
       {/* Banner Section */}
       <div
-  className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] mt-[100px] flex items-center justify-center bg-cover bg-center max-w-[1600px] mx-auto"
+  className="relative w-full min-h-[150px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center  mx-auto"
   style={{ backgroundImage: `url(/contactusbg.jpg)` }}
   role="presentation"
   aria-hidden="true"
@@ -116,12 +116,12 @@ const ContactUs = () => {
         </form>
 
         {/* Contact Details Section */}
-        <div className="w-full max-w-[444px] flex flex-col gap-8 p-2">
+        <div className="w-full max-w-[444px] flex flex-col gap-8 p-2 mr-1">
           <div className="flex items-center gap-4">
             <span className="flex items-center justify-center w-16 h-16 bg-[#03837E] text-white">
               <svg
                 width="38"
-                height="39"
+                height="38"
                 viewBox="0 0 38 39"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -306,25 +306,26 @@ const ContactUs = () => {
 
       </section>
       {/* Maps Section - below all content */}
-      <div className="w-full flex flex-row items-center gap-8 px-4 md:px-10 lg:px-20 xl:px-32 pb-16 ">
-        <iframe className="w-[570px] h-[489px]"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2379.467926965286!2d-3.0357248!3d53.388569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b2704b55b77e9%3A0x9005aa45577452c!2sGrange%20House%2C%2019-21%20Grange%20Mount%2C%20Birkenhead%2C%20Prenton%20CH43%204XN%2C%20UK!5e0!3m2!1sen!2sin!4v1752507524986!5m2!1sen!2sin"
-          
-          style={{ border: 0 }}
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2398.498874132858!2d-2.994213174363613!3d53.047343147054924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487ac71c2026e3df%3A0xf816ac676895e1af!2sHome%20of%20Offices%20Limited!5e0!3m2!1sen!2sin!4v1752507638201!5m2!1sen!2sin"
-          width="570"
-          height="489"
-          style={{ border: 0 }}
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
+    <div className="w-full flex flex-col md:flex-row items-center gap-6 px-4 md:px-10 lg:px-20 xl:px-32 pb-16">
+  <iframe
+    className="w-full md:w-[48%] h-[300px] md:h-[489px]"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2379.467926965286!2d-3.0357248!3d53.388569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b2704b55b77e9%3A0x9005aa45577452c!2sGrange%20House%2C%2019-21%20Grange%20Mount%2C%20Birkenhead%2C%20Prenton%20CH43%204XN%2C%20UK!5e0!3m2!1sen!2sin!4v1752507524986!5m2!1sen!2sin"
+    style={{ border: 0 }}
+    allowFullScreen=""
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  ></iframe>
+
+  <iframe
+    className="w-full md:w-[48%] h-[300px] md:h-[489px]"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2398.498874132858!2d-2.994213174363613!3d53.047343147054924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487ac71c2026e3df%3A0xf816ac676895e1af!2sHome%20of%20Offices%20Limited!5e0!3m2!1sen!2sin!4v1752507638201!5m2!1sen!2sin"
+    style={{ border: 0 }}
+    allowFullScreen=""
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  ></iframe>
+</div>
+
     </>
   );
 };

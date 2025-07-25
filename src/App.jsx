@@ -34,6 +34,7 @@ function App() {
         { path: '/projects', element: <ProjectList/> },
         { path: '/projects/:projectId', element: <ProjectDetail/> },
         { path: '/casestudies', element: <CaseStudyList/> },
+        { path: '/casestudies', element: <CaseStudyList/> },
         { path: '/contactus', element: <ContactUs/> },
       ],
     },

@@ -239,7 +239,7 @@ const ServicePage = () => {
     <main className="w-full min-h-screen bg-white flex flex-col font-sans" role="main" aria-label="Service Details">
       {/* Hero Section */}
       <section
-        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] mt-[100px] flex items-center justify-center bg-cover bg-center"
+        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: `url(${service.heroImage})` }}
         role="banner"
         aria-label={`${service.heading} Hero`}
@@ -252,7 +252,7 @@ const ServicePage = () => {
 
       {/* Content Section */}
       <section className="w-full flex justify-center py-12 px-4 md:px-14 xl:px-20 bg-white" aria-label="Service Content">
-        <div className="max-w-6xl w-full flex flex-col gap-10 items-start">
+        <div className="w-full flex flex-col gap-10 items-start">
           {/* Top section: image left, first section text right (side-by-side on md+) */}
           <div className="w-full flex flex-col md:flex-row gap-10 items-start">
             {/* Left Image */}

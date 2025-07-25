@@ -57,10 +57,10 @@ const ecoSections = [
 
 const EcoSolutions = () => (
   <div className="w-full bg-white flex justify-center overflow-x-hidden">
-    <div className="w-full max-w-[1600px]">
+    <div className="w-full">
       {/* Hero Section */}
       <section
-        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] mt-[100px] flex items-center justify-center bg-cover bg-center"
+        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: `url(${EcoSolutionsImg})` }}
         aria-labelledby="eco-hero-heading"
         role="banner"
@@ -83,7 +83,7 @@ const EcoSolutions = () => (
         <h2 id="eco-main-heading" className="sr-only">Eco Solutions Main Content</h2>
 
         {/* Intro Row */}
-        <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="flex justify-center items-start">
             <img
               src={EcoSolutionsImg}
@@ -120,7 +120,7 @@ const EcoSolutions = () => (
         </div>
 
         {/* Additional Sections */}
-        <div className="w-full flex flex-col gap-y-10 mt-14 max-w-6xl">
+        <div className="w-full flex flex-col gap-y-10 mt-14">
           {ecoSections.map((section, idx) => (
             <section key={idx} role="region" aria-labelledby={`section-title-${idx}`}>
               {section.title === "Innovative Technologies" ? (

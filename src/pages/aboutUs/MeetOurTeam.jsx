@@ -44,55 +44,55 @@ const teamMembers = [
   { name: "Stephen", role: "Technical Director", img: noimage },
 ];
 
-
-
 const MeetOurTeam = () => {
   return (
     <div className="w-full overflow-x-hidden bg-white flex justify-center">
-      <div className="w-full max-w-[1600px]">
-        
+      <div className="w-full">
+        {/* Banner */}
         <div
-          className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] mt-[100px] flex items-center justify-center bg-cover bg-center"
+          className="relative w-full aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
           style={{ backgroundImage: `url(${aboutusbg1})` }}
         >
           <div className="absolute inset-0 bg-[#192437] opacity-60 z-10" />
           <h1
             id="team-heading"
-            className="relative z-20 text-white text-[28px] sm:text-[36px] md:text-[48px] lg:text-[60px] font-bold leading-[1] text-center mt-2"
+            className="relative z-20 text-white text-[20px] sm:text-[36px] md:text-[48px] xl:text-[60px] 2xl:text-[80px] font-bold leading-[1] text-center mt-2"
           >
             MEET OUR TEAM
           </h1>
         </div>
 
-        {/* Team Grid */}
+        {/* Team Section (Flex Layout) */}
         <section
-          className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-y-12 gap-x-8 py-12 sm:py-14 md:py-16 place-items-center"
+          className="w-full flex flex-wrap justify-center gap-y-12 py-8 sm:py-10 md:py-16 px-4 ml-5 mr-5"
           aria-labelledby="team-heading"
           role="list"
         >
           {teamMembers.map((member, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center"
+              className="w-1/2 sm:w-1/2 md:w-1/3 flex justify-center"
               role="listitem"
             >
-              <img
-                src={member.img}
-                alt={`Portrait of ${member.name}, ${member.role}`}
-                role="img"
-                aria-label={`${member.name}, ${member.role}`}
-                className="rounded-full object-cover relative border border-[#D6D6D6] -top-[4px] -left-[4px]
-                  w-[100px] h-[100px]
-                  sm:w-[150px] sm:h-[150px]
-                  md:w-[200px] md:h-[200px]
-                  lg:w-[280px] lg:h-[280px]
-                  xl:w-[300px] xl:h-[300px]"
-              />
-              <div className="mt-4 text-center text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] xl:text-[32px] font-semibold leading-[1]">
-                {member.name}
-              </div>
-              <div className="mt-1 text-center text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[18px] font-medium leading-[1] text-[#03837E]">
-                {member.role}
+              <div className="flex flex-col items-center">
+                <img
+                  src={member.img}
+                  alt={`Portrait of ${member.name}, ${member.role}`}
+                  role="img"
+                  aria-label={`${member.name}, ${member.role}`}
+                  className="rounded-full object-cover relative border border-[#D6D6D6] -top-[4px] -left-[4px]
+                    w-[135px] h-[135px]
+                    sm:w-[180px] sm:h-[180px]
+                    md:w-[190px] md:h-[190px]
+                    lg:w-[270px] lg:h-[270px]
+                    xl:w-[300px] xl:h-[300px]"
+                />
+                <div className="mt-4 text-center text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] xl:text-[32px] font-semibold leading-[1]">
+                  {member.name}
+                </div>
+                <div className="mt-4 mb-1 text-center text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[18px] font-medium leading-[1] text-[#03837E]">
+                  {member.role}
+                </div>
               </div>
             </div>
           ))}

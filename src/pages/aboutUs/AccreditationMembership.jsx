@@ -11,12 +11,12 @@ import officeForZeroEmissionVehicle from "../../assets/aboutus/officeForZeroEmis
 const AccreditationMembership = () => {
   return (
     <section
-      className="w-full max-w-[1600px] mx-auto min-h-screen bg-white flex flex-col"
+      className=" bg-white flex flex-col w-full"
       aria-labelledby="accreditation-heading"
     >
       {/* Background Header with Decorative Image */}
       <div
-        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] mt-[100px] flex items-center justify-center bg-cover bg-center"
+        className="relative w-full min-h-[180px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: `url(${aboutusbg2})` }}
         role="presentation"
         aria-hidden="true"
@@ -24,7 +24,7 @@ const AccreditationMembership = () => {
         <div className="absolute inset-0 bg-[#192437]/60" aria-hidden="true" />
         <h2
           id="accreditation-heading"
-          className="relative z-10 text-white text-3xl md:text-[45px] lg:text-[55px] xl:text-[60px] font-bold tracking-wide text-center"
+          className="relative z-10 text-white   text-[20px] sm:text-[36px] lg:text-[48px] xl:text-[60px]  font-bold tracking-wide text-center"
         >
           ACCREDITATION & MEMBERSHIPS
         </h2>
@@ -34,7 +34,7 @@ const AccreditationMembership = () => {
       <div className="w-full flex flex-col items-center justify-center py-10 px-0.5">
         {/* First group of accreditation logos */}
         <div
-          className="flex flex-wrap justify-evenly w-full max-w-[1600px] mb-6"
+          className="flex flex-wrap justify-evenly w-full  mb-6 mt-2"
           role="group"
           aria-labelledby="group1-label"
         >
@@ -62,7 +62,7 @@ const AccreditationMembership = () => {
 
         {/* Second group of accreditation logos */}
         <div
-          className="flex flex-wrap justify-evenly w-[75%] max-w-[1400px] mt-3"
+          className="flex flex-wrap justify-evenly w-[75%]  mt-8 lg:mt-12 mb-4"
           role="group"
           aria-labelledby="group2-label"
         >
