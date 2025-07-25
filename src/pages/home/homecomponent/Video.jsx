@@ -1,6 +1,5 @@
-import React from "react";
-import triangleGg from '../../../assets/traingleGg.svg';
-import triangleWw from '../../../assets/triangleWw.svg';
+import triangleGg from "../../../assets/traingleGg.svg";
+import triangleWw from "../../../assets/triangleWw.svg";
 
 const Video = () => {
   return (
@@ -12,39 +11,38 @@ const Video = () => {
       <img
         src="/images/ty-menai.jpg"
         alt="Ty Menai Building"
-        className="w-full h-full object-cover"
+        className="object-cover w-full h-full"
       />
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-[#192437] opacity-50"></div>
 
       {/* Triangles Decorations */}
-      <div className="flex absolute top-0 left-5 flex-row items-start justify-start">
-  <img
-    src={triangleGg}
-    alt="triangle black"
-    className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain"
-  />
-  <img
-    src={triangleWw}
-    alt="triangle white"
-    className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain -ml-6 xl:-ml-13"
-  />
-</div>
+      <div className="absolute top-0 flex flex-row items-start justify-start left-5">
+        <img
+          src={triangleGg}
+          alt="triangle black"
+          className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain"
+        />
+        <img
+          src={triangleWw}
+          alt="triangle white"
+          className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain -ml-6 xl:-ml-13"
+        />
+      </div>
 
-<div className="flex absolute bottom-0 right-5 flex-row items-start justify-start">
-  <img
-    src={triangleGg}
-    alt="triangle black"
-    className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain"
-  />
-  <img
-    src={triangleWw}
-    alt="triangle white"
-    className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain -ml-6 xl:-ml-13"
-  />
-</div>
-
+      <div className="absolute bottom-0 flex flex-row items-start justify-start right-5">
+        <img
+          src={triangleGg}
+          alt="triangle black"
+          className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain"
+        />
+        <img
+          src={triangleWw}
+          alt="triangle white"
+          className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain -ml-6 xl:-ml-13"
+        />
+      </div>
 
       {/* Text */}
       <h2 className="absolute top-[25%] left-1/2 transform -translate-x-1/2 text-white font-poppins font-semibold text-lg md:text-xl">
@@ -53,9 +51,13 @@ const Video = () => {
 
       {/* Play Button */}
       <div className="absolute inset-0 flex items-center justify-center">
+        {/* Ring effect */}
+        <span className="absolute w-20 h-20 rounded-full border-4 border-[#03837E] animate-ping z-0"></span>
+
+        {/* Actual Play Button */}
         <button
           aria-label="Play Ty Menai Project Video"
-          className="w-16 h-16 bg-[#03837E] rounded-full flex items-center justify-center"
+          className="relative z-10 w-16 h-16 bg-[#03837E] rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
         >
           <svg
             width="24"
