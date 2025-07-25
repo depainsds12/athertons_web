@@ -13,11 +13,11 @@ const ProjectDetail = () => {
   const handleNext = () => setImgIdx((prev) => (prev === images.length - 1 ? 0 : prev + 1));
 
   return (
-    <section className="w-full min-h-screen bg-white flex flex-col font-Poppins w-full" aria-labelledby="careers-heading">
+    <section className="w-full  bg-white flex flex-col font-Poppins w-full" aria-labelledby="careers-heading">
 
       {/* Banner */}
       <div
-        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] flex items-center justify-center bg-cover bg-center w-full"
+        className="relative  aspect-[1366/300] flex items-center justify-center bg-cover bg-center w-full"
         style={{ backgroundImage: `url(/images/ty-menai.jpg)` }}
         role="presentation"
         aria-hidden="true"
