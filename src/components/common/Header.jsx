@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -69,11 +69,11 @@ const Header = () => {
         style={isMenuOpen ? { height: "110px" } : {}}
       >
         {/* Top bar - responsive layout */}
-        <div className="w-full px-4 text-white text-sm ">
+        <div className="w-full px-4 text-sm text-white ">
           {/* Desktop layout */}
           <div className="hidden md:flex flex-wrap items-center justify-between lg:h-[50px] h-auto mr-8 ml-8 xl:ml-20 xl:mr-20 py-2">
-            <div className="flex flex-col sm:flex-row items-center gap-y-2 sm:gap-y-0 gap-x-6">
-              <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal cursor-pointer">
+            <div className="flex flex-col items-center sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6">
+              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer">
                 <svg
                   width="24"
                   height="25"
@@ -98,7 +98,7 @@ const Header = () => {
                 </svg>
                 Wirral Office
               </span>
-              <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal cursor-pointer">
+              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer">
                 <svg
                   width="24"
                   height="25"
@@ -124,8 +124,8 @@ const Header = () => {
                 Wrexham Office
               </span>
             </div>
-            <div className="flex flex-col sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6 items-center">
-              <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal cursor-pointer">
+            <div className="flex flex-col items-center sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6">
+              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer">
                 <svg
                   width="24"
                   height="25"
@@ -150,7 +150,7 @@ const Header = () => {
                 </svg>
                 info@athertons.co.uk
               </span>
-              <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal cursor-pointer">
+              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer">
                 <svg
                   width="24"
                   height="24"
@@ -172,10 +172,10 @@ const Header = () => {
           </div>
 
           {/* Mobile layout - stacked */}
-          <div className="md:hidden space-y-2">
+          <div className="space-y-2 md:hidden">
             {/* First row - offices */}
             <div className="flex items-center justify-center gap-6 sm:gap-8">
-              <span className="flex items-center gap-1 font-medium text-base cursor-pointer">
+              <span className="flex items-center gap-1 text-base font-medium cursor-pointer">
                 <svg
                   width="20"
                   height="21"
@@ -200,7 +200,7 @@ const Header = () => {
                 </svg>
                 Wirral Office
               </span>
-              <span className="flex items-center gap-1 font-medium text-sm cursor-pointer">
+              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer">
                 <svg
                   width="20"
                   height="21"
@@ -229,7 +229,7 @@ const Header = () => {
 
             {/* Second row - contact info */}
             <div className="flex items-center justify-center gap-6 sm:gap-8">
-              <span className="flex items-center gap-1 font-medium text-sm cursor-pointer">
+              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer">
                 <svg
                   width="20"
                   height="21"
@@ -254,7 +254,7 @@ const Header = () => {
                 </svg>
                 info@athertons.co.uk
               </span>
-              <span className="flex items-center gap-1 font-medium text-sm cursor-pointer">
+              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer">
                 <svg
                   width="24"
                   height="24"
@@ -281,11 +281,11 @@ const Header = () => {
           <div className="flex items-center justify-between px-0 ">
             {/* Left: Logo + Navigation */}
             <div className="flex items-center gap-10">
-              <div className="w-[90px] h-[84px] flex items-center justify-center sm:w-[116px] sm:h-[107px] sm:ml-8 ml-2 xl:ml-20 cursor-pointer my-1.25">
+              <div className="w-[90px] h-[84px] flex items-center justify-center sm:w-[116px] sm:h-[107px] sm:ml-8 ml-2 xl:ml-20 cursor-pointer group">
                 <img
                   src="/logo.png"
                   alt="Athertons Logo"
-                  className="h-full object-contain"
+                  className="object-contain h-full"
                 />
               </div>
 
@@ -435,7 +435,7 @@ const Header = () => {
             </div>
 
             {/* Right: Social icons and Hamburger */}
-            <div className="flex items-center gap-4 mr-2 sm:mr-8 lg:mr-6  xl:mr-20">
+            <div className="flex items-center gap-4 mr-2 sm:mr-8 lg:mr-6 xl:mr-20">
               <div className="flex gap-2 lg:gap-1.5 xl:gap-3">
                 <span className="inline-block w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#3D6AD6] flex items-center justify-center rounded-full cursor-pointer  ">
                   <img
@@ -468,7 +468,7 @@ const Header = () => {
               </div>
 
               <button
-                className="lg:hidden flex flex-col gap-1 p-2 cursor-pointer"
+                className="flex flex-col gap-1 p-2 cursor-pointer lg:hidden"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Toggle menu"
               >
@@ -493,7 +493,7 @@ const Header = () => {
             className="lg:hidden border-t border-gray-200 bg-white z-[100] fixed left-0 right-0"
             style={{ top: "110px", bottom: 0 }}
           >
-            <nav className="flex flex-col py-4 px-4 space-y-3">
+            <nav className="flex flex-col px-4 py-4 space-y-3">
               <Link
                 to="/"
                 className="text-black hover:text-[#03837E] py-2 border-b border-[#D6D6D6] mt-20"

@@ -22,12 +22,12 @@ const Video = () => {
         <img
           src={triangleGg}
           alt="triangle black"
-          className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain"
+          className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain animate-pulse"
         />
         <img
           src={triangleWw}
           alt="triangle white"
-          className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain -ml-6 xl:-ml-13"
+          className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain -ml-6 xl:-ml-13 animate-pulse"
         />
       </div>
 
@@ -35,12 +35,12 @@ const Video = () => {
         <img
           src={triangleGg}
           alt="triangle black"
-          className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain"
+          className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain animate-pulse"
         />
         <img
           src={triangleWw}
           alt="triangle white"
-          className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain -ml-6 xl:-ml-13"
+          className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain -ml-6 xl:-ml-13 animate-pulse"
         />
       </div>
 
