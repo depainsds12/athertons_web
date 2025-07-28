@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -38,7 +38,7 @@ const Header = () => {
       ) {
         setAboutDropdown(false);
       }
-      
+
       // For Services dropdown
       if (
         servicesDropdownRef.current &&
@@ -52,11 +52,11 @@ const Header = () => {
 
     // Only add listener if dropdown is open
     if (aboutDropdown || servicesDropdown) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [aboutDropdown, servicesDropdown]);
 
@@ -69,11 +69,11 @@ const Header = () => {
         style={isMenuOpen ? { height: "110px" } : {}}
       >
         {/* Top bar - responsive layout */}
-        <div className="w-full px-4 text-white text-sm ">
+        <div className="w-full px-4 text-sm text-white ">
           {/* Desktop layout */}
           <div className="hidden md:flex flex-wrap items-center justify-between lg:h-[50px] h-auto mr-8 ml-8 xl:ml-20 xl:mr-20 py-2">
-            <div className="flex flex-col sm:flex-row items-center gap-y-2 sm:gap-y-0 gap-x-6">
-              <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal cursor-pointer">
+            <div className="flex flex-col items-center sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6">
+              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer">
                 <svg
                   width="24"
                   height="25"
@@ -98,7 +98,7 @@ const Header = () => {
                 </svg>
                 Wirral Office
               </span>
-              <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal cursor-pointer">
+              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer">
                 <svg
                   width="24"
                   height="25"
@@ -124,8 +124,8 @@ const Header = () => {
                 Wrexham Office
               </span>
             </div>
-            <div className="flex flex-col sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6 items-center">
-              <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal cursor-pointer">
+            <div className="flex flex-col items-center sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6">
+              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer">
                 <svg
                   width="24"
                   height="25"
@@ -150,7 +150,7 @@ const Header = () => {
                 </svg>
                 info@athertons.co.uk
               </span>
-              <span className="flex items-center gap-1 font-medium text-base leading-none tracking-normal cursor-pointer">
+              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer">
                 <svg
                   width="24"
                   height="24"
@@ -172,10 +172,10 @@ const Header = () => {
           </div>
 
           {/* Mobile layout - stacked */}
-          <div className="md:hidden space-y-2">
+          <div className="space-y-2 md:hidden">
             {/* First row - offices */}
             <div className="flex items-center justify-center gap-6 sm:gap-8">
-              <span className="flex items-center gap-1 font-medium text-base cursor-pointer">
+              <span className="flex items-center gap-1 text-base font-medium cursor-pointer">
                 <svg
                   width="20"
                   height="21"
@@ -200,7 +200,7 @@ const Header = () => {
                 </svg>
                 Wirral Office
               </span>
-              <span className="flex items-center gap-1 font-medium text-sm cursor-pointer">
+              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer">
                 <svg
                   width="20"
                   height="21"
@@ -229,7 +229,7 @@ const Header = () => {
 
             {/* Second row - contact info */}
             <div className="flex items-center justify-center gap-6 sm:gap-8">
-              <span className="flex items-center gap-1 font-medium text-sm cursor-pointer">
+              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer">
                 <svg
                   width="20"
                   height="21"
@@ -254,7 +254,7 @@ const Header = () => {
                 </svg>
                 info@athertons.co.uk
               </span>
-              <span className="flex items-center gap-1 font-medium text-sm cursor-pointer">
+              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer">
                 <svg
                   width="24"
                   height="24"
@@ -281,11 +281,11 @@ const Header = () => {
           <div className="flex items-center justify-between px-0 ">
             {/* Left: Logo + Navigation */}
             <div className="flex items-center gap-10">
-              <div className="w-[90px] h-[84px] flex items-center justify-center sm:w-[116px] sm:h-[107px] sm:ml-8 ml-2 xl:ml-20 cursor-pointer">
+              <div className="w-[90px] h-[84px] flex items-center justify-center sm:w-[116px] sm:h-[107px] sm:ml-8 ml-2 xl:ml-20 cursor-pointer group">
                 <img
                   src="/logo.png"
                   alt="Athertons Logo"
-                  className="h-full object-contain"
+                  className="object-contain h-full"
                 />
               </div>
 
@@ -294,141 +294,148 @@ const Header = () => {
                   Home
                 </Link>
 
-               {/* About Us Dropdown */}
-<div 
-  className="relative group"
-  ref={aboutDropdownRef}
-  onMouseEnter={() => setAboutDropdown(true)}
-  onMouseLeave={() => setAboutDropdown(false)}
->
-  <button
-    ref={aboutButtonRef}
-    className="flex items-center gap-1 hover:text-[#03837E] bg-transparent cursor-pointer"
-  >
-    About Us
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-      <path
-        d="M3 4.5L6 7.5L9 4.5"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </button>
+                {/* About Us Dropdown */}
+                <div
+                  className="relative group"
+                  ref={aboutDropdownRef}
+                  onMouseEnter={() => setAboutDropdown(true)}
+                  onMouseLeave={() => setAboutDropdown(false)}
+                >
+                  <button
+                    ref={aboutButtonRef}
+                    className="flex items-center gap-1 hover:text-[#03837E] bg-transparent cursor-pointer"
+                  >
+                    About Us
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path
+                        d="M3 4.5L6 7.5L9 4.5"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
 
-  {aboutDropdown && (
-    <div className="absolute left-0 top-full w-56 bg-white border border-[#D6D6D6] shadow z-50 flex flex-col">
-      <Link
-        to="/aboutus/meetourteam"
-        onClick={() => setAboutDropdown(false)}
-        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] border-b border-[#D6D6D6] cursor-pointer transition-colors duration-200"
-      >
-        Meet Our Team
-      </Link>
-      <Link
-        to="/aboutus/accreditation_Membership"
-        onClick={() => setAboutDropdown(false)}
-        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] border-b border-[#D6D6D6] cursor-pointer transition-colors duration-200"
-      >
-        Accreditations and Membership
-      </Link>
-      <Link
-        to="/aboutus/careers"
-        onClick={() => setAboutDropdown(false)}
-        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] border-b border-[#D6D6D6] cursor-pointer transition-colors duration-200"
-      >
-        Career
-      </Link>
-      <Link
-        to="/aboutus/testimonials"
-        onClick={() => setAboutDropdown(false)}
-        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] cursor-pointer transition-colors duration-200"
-      >
-        Testimonial
-      </Link>
-    </div>
-  )}
-</div>
+                  {aboutDropdown && (
+                    <div className="absolute left-0 top-full w-56 bg-white border border-[#D6D6D6] shadow z-50 flex flex-col">
+                      <Link
+                        to="/aboutus/meetourteam"
+                        onClick={() => setAboutDropdown(false)}
+                        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] border-b border-[#D6D6D6] cursor-pointer transition-colors duration-200"
+                      >
+                        Meet Our Team
+                      </Link>
+                      <Link
+                        to="/aboutus/accreditation_Membership"
+                        onClick={() => setAboutDropdown(false)}
+                        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] border-b border-[#D6D6D6] cursor-pointer transition-colors duration-200"
+                      >
+                        Accreditations and Membership
+                      </Link>
+                      <Link
+                        to="/aboutus/careers"
+                        onClick={() => setAboutDropdown(false)}
+                        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] border-b border-[#D6D6D6] cursor-pointer transition-colors duration-200"
+                      >
+                        Career
+                      </Link>
+                      <Link
+                        to="/aboutus/testimonials"
+                        onClick={() => setAboutDropdown(false)}
+                        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] cursor-pointer transition-colors duration-200"
+                      >
+                        Testimonial
+                      </Link>
+                    </div>
+                  )}
+                </div>
 
-{/* Services Dropdown */}
-<div 
-  className="relative group"
-  ref={servicesDropdownRef}
-  onMouseEnter={() => setServicesDropdown(true)}
-  onMouseLeave={() => setServicesDropdown(false)}
->
-  <button
-    ref={servicesButtonRef}
-    className="flex items-center gap-1 hover:text-[#03837E] bg-transparent cursor-pointer"
-  >
-    Services
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-      <path
-        d="M3 4.5L6 7.5L9 4.5"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </button>
+                {/* Services Dropdown */}
+                <div
+                  className="relative group"
+                  ref={servicesDropdownRef}
+                  onMouseEnter={() => setServicesDropdown(true)}
+                  onMouseLeave={() => setServicesDropdown(false)}
+                >
+                  <button
+                    ref={servicesButtonRef}
+                    className="flex items-center gap-1 hover:text-[#03837E] bg-transparent cursor-pointer"
+                  >
+                    Services
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path
+                        d="M3 4.5L6 7.5L9 4.5"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
 
-  {servicesDropdown && (
-    <div className="absolute left-0 top-full w-64 bg-white border border-[#D6D6D6] shadow z-50 flex flex-col">
-      <Link
-        to="/services/consultancy_smartdesign"
-        onClick={() => setServicesDropdown(false)}
-        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] border-b border-[#D6D6D6] cursor-pointer transition-colors duration-200"
-      >
-        Consultancy & Smart Design
-      </Link>
-      <Link
-        to="/services/bms_ems_technology"
-        onClick={() => setServicesDropdown(false)}
-        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] border-b border-[#D6D6D6] cursor-pointer transition-colors duration-200"
-      >
-        BMS & EMS Technology
-      </Link>
-      <Link
-        to="/services/me_engineering"
-        onClick={() => setServicesDropdown(false)}
-        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] border-b border-[#D6D6D6] cursor-pointer transition-colors duration-200"
-      >
-        M&E Engineering
-      </Link>
-      <Link
-        to="/services/light_civil_engineering"
-        onClick={() => setServicesDropdown(false)}
-        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] border-b border-[#D6D6D6] cursor-pointer transition-colors duration-200"
-      >
-        Light Civil Engineering
-      </Link>
-      <Link
-        to="/services/eco_solutions"
-        onClick={() => setServicesDropdown(false)}
-        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] cursor-pointer transition-colors duration-200"
-      >
-        Eco Solutions
-      </Link>
-    </div>
-  )}
-</div>
+                  {servicesDropdown && (
+                    <div className="absolute left-0 top-full w-64 bg-white border border-[#D6D6D6] shadow z-50 flex flex-col">
+                      <Link
+                        to="/services/consultancy_smartdesign"
+                        onClick={() => setServicesDropdown(false)}
+                        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] border-b border-[#D6D6D6] cursor-pointer transition-colors duration-200"
+                      >
+                        Consultancy & Smart Design
+                      </Link>
+                      <Link
+                        to="/services/bms_ems_technology"
+                        onClick={() => setServicesDropdown(false)}
+                        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] border-b border-[#D6D6D6] cursor-pointer transition-colors duration-200"
+                      >
+                        BMS & EMS Technology
+                      </Link>
+                      <Link
+                        to="/services/me_engineering"
+                        onClick={() => setServicesDropdown(false)}
+                        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] border-b border-[#D6D6D6] cursor-pointer transition-colors duration-200"
+                      >
+                        M&E Engineering
+                      </Link>
+                      <Link
+                        to="/services/light_civil_engineering"
+                        onClick={() => setServicesDropdown(false)}
+                        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] border-b border-[#D6D6D6] cursor-pointer transition-colors duration-200"
+                      >
+                        Light Civil Engineering
+                      </Link>
+                      <Link
+                        to="/services/eco_solutions"
+                        onClick={() => setServicesDropdown(false)}
+                        className="px-4 py-2 text-black hover:text-white hover:bg-[#03837E] cursor-pointer transition-colors duration-200"
+                      >
+                        Eco Solutions
+                      </Link>
+                    </div>
+                  )}
+                </div>
 
-
-
-                <Link to="/projects" className="hover:text-[#03837E] cursor-pointer">
+                <Link
+                  to="/projects"
+                  className="hover:text-[#03837E] cursor-pointer"
+                >
                   Projects
                 </Link>
-                <Link to="/casestudies" className="hover:text-[#03837E] cursor-pointer">
+                <Link
+                  to="/casestudies"
+                  className="hover:text-[#03837E] cursor-pointer"
+                >
                   Case Studies
                 </Link>
-                <Link to="/contactus" className="hover:text-[#03837E] cursor-pointer">
+                <Link
+                  to="/contactus"
+                  className="hover:text-[#03837E] cursor-pointer"
+                >
                   Contact Us
                 </Link>
               </nav>
             </div>
 
             {/* Right: Social icons and Hamburger */}
-            <div className="flex items-center gap-4 mr-2 sm:mr-8 lg:mr-6  xl:mr-20">
+            <div className="flex items-center gap-4 mr-2 sm:mr-8 lg:mr-6 xl:mr-20">
               <div className="flex gap-2 lg:gap-1.5 xl:gap-3">
                 <span className="inline-block w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#3D6AD6] flex items-center justify-center rounded-full cursor-pointer  ">
                   <img
@@ -461,7 +468,7 @@ const Header = () => {
               </div>
 
               <button
-                className="lg:hidden flex flex-col gap-1 p-2 cursor-pointer"
+                className="flex flex-col gap-1 p-2 cursor-pointer lg:hidden"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Toggle menu"
               >
@@ -486,7 +493,7 @@ const Header = () => {
             className="lg:hidden border-t border-gray-200 bg-white z-[100] fixed left-0 right-0"
             style={{ top: "110px", bottom: 0 }}
           >
-            <nav className="flex flex-col py-4 px-4 space-y-3">
+            <nav className="flex flex-col px-4 py-4 space-y-3">
               <Link
                 to="/"
                 className="text-black hover:text-[#03837E] py-2 border-b border-[#D6D6D6] mt-20"

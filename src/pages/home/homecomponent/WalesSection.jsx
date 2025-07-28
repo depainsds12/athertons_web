@@ -1,5 +1,3 @@
-import React from 'react';
-
 const WalesSection = () => {
   return (
     <section
@@ -7,7 +5,7 @@ const WalesSection = () => {
       aria-label="Supporting Wales Section"
     >
       {/* Left Block: Video Thumbnail Placeholder */}
-      <div className="flex flex-col w-full xl:w-1/2 items-start md:items-start">
+      <div className="flex flex-col items-start w-full xl:w-1/2 md:items-start">
         <h2 className="font-poppins font-semibold text-[#192437] text-[28px] md:text-[32px] xl:text-[36px] leading-[110%] mb-6 text-left">
           Athertons: <br /> Supporting Wales
         </h2>
@@ -20,17 +18,22 @@ const WalesSection = () => {
           <img
             src="/project-list.jpg"
             alt="Athertons Project Thumbnail"
-            className="w-full h-full object-cover"
+            className="object-cover w-full h-full"
           />
 
           {/* Overlay with 50% opacity #192437 */}
           <div className="absolute inset-0 bg-[#192437] opacity-50"></div>
 
-          {/* Play button on top */}
+         
+          {/* Play Button */}
           <div className="absolute inset-0 flex items-center justify-center">
+            {/* Ring effect */}
+            <span className="absolute w-20 h-20 rounded-full border-4 border-[#03837E] animate-ping z-0"></span>
+
+            {/* Actual Play Button */}
             <button
-              aria-label="Play video"
-              className="w-16 h-16 bg-[#03837E] rounded-full flex items-center justify-center"
+              aria-label="Play Ty Menai Project Video"
+              className="relative z-10 w-16 h-16 bg-[#03837E] rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
             >
               <svg
                 width="24"
@@ -47,7 +50,7 @@ const WalesSection = () => {
       </div>
 
       {/* Right Block: Wales Support Image */}
-      <div className="flex flex-col w-full xl:w-1/2 items-start md:items-start">
+      <div className="flex flex-col items-start w-full xl:w-1/2 md:items-start">
         <h2 className="font-poppins font-semibold text-[#192437] text-[28px] md:text-[32px] xl:text-[36px] leading-[110%] mb-2 text-left">
           Supporting Wales <br /> Infrastructure
         </h2>
@@ -62,7 +65,7 @@ const WalesSection = () => {
           <img
             src="/images/wales.png"
             alt="Wales Flag"
-            className="w-full h-full object-cover"
+            className="object-cover w-full h-full"
           />
         </div>
       </div>

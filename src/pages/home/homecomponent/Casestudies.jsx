@@ -1,9 +1,8 @@
-import React from 'react';
-import { projects } from '../../../data/projects.js';
+import { projects } from "../../../data/projects.js";
 
 const Casestudies = () => {
   return (
-    <section className="w-full px-4 sm:px-8 md:px-12 xl:px-20 2xl:px-40 py-16 mx-auto ">
+    <section className="w-full px-4 py-16 mx-auto sm:px-8 md:px-12 xl:px-20 2xl:px-40 ">
       <h2 className="xl:text-[40px] text-center font-semibold text-[#192437] mb-12">
         Case Studies
       </h2>
@@ -15,20 +14,20 @@ const Casestudies = () => {
             className="flex flex-col items-start w-full max-w-[520px] mx-auto"
           >
             <div
-              className="w-full h-[220px] sm:h-[240px] md:h-[250px] 2xl:h-[400px] overflow-hidden mb-4 bg-gray-100 flex items-center justify-center border"
+              className="hover:animate__animated animate__flipInX w-full h-[220px] sm:h-[240px] md:h-[250px] 2xl:h-[400px] overflow-hidden mb-4 bg-gray-100 flex items-center justify-center border"
               style={{
-                borderColor: '#D6D6D6',
-                borderWidth: '1px',
+                borderColor: "#D6D6D6",
+                borderWidth: "1px",
               }}
             >
               <img
                 src={project.image}
                 alt={project.name}
-                className="w-full h-full object-cover"
+                className="object-cover w-full h-full animate__animated animate__flipInX "
               />
             </div>
             <h3 className="text-[#192437] font-semibold text-[20px] leading-[100%] font-['Open_Sans'] mb-2 text-left w-full">
-              {project.name || 'Lorem Ipsum Title here'}
+              {project.name || "N/A"}
             </h3>
             <a
               href={`/projects/${project.id}`}
@@ -42,9 +41,7 @@ const Casestudies = () => {
 
       <div className="flex items-center justify-center mt-12">
         <button className="w-[283px] h-[48px] bg-[#03837E]  text-white flex items-center justify-center cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] ">
-          <span className="text-lg font-medium">
-            View All Case Studies
-          </span>
+          <span className="text-lg font-medium">View All Case Studies</span>
         </button>
       </div>
     </section>

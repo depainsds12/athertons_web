@@ -30,21 +30,21 @@ export default function HomePage() {
     <div>
       <div className="relative w-full h-screen xl:max-h-[600px] 2xl:max-h-[700px] ">
         <div
-          className="absolute inset-0 transition-all duration-500 bg-center bg-cover"
+          className="absolute inset-0 transition-all duration-500 bg-center bg-cover animate__animated animate__zoomIn"
           style={{ backgroundImage: `url(${images[startIdx]})` }}
         ></div>
 
         <div className="absolute inset-0 bg-[#192437]/60 z-0"></div>
 
         <div className="relative z-10 flex flex-col items-start justify-center h-full px-10 text-white">
-          <p className="mb-4 text-base font-bold sm:text-lg md:text-2xl">
+          <p className="mb-4 text-base font-bold sm:text-lg md:text-2xl animate__animated animate__flipInX">
             DESIGN & INSTALLATION
           </p>
-          <h1 className="text-[28px] sm:text-4xl md:text-6xl font-bold mb-8">
+          <h1 className="text-[28px] sm:text-4xl md:text-6xl font-bold mb-8 animate__animated animate__flipInX">
             TURNKEY SOLUTIONS
           </h1>
 
-          <p className=" text-[12px] sm:text-base md:text-lg w-[50%]">
+          <p className=" text-[12px] sm:text-base md:text-lg w-[50%] animate__animated animate__flipInX">
             Athertons is a highly experienced Mechanical, Electrical, HVAC, Fire
             Protection, Refrigeration. Through our team of mechanical,
             electrical, plumbing, HVAC, and fire protection engineers.
@@ -54,69 +54,69 @@ export default function HomePage() {
             <p className="text-lg font-[500]">Find Out More</p>
           </button>
 
-        <div className="absolute flex items-center gap-6 right-0 bottom-0">
-  <button
-    onClick={handlePrev}
-    className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] flex items-center justify-center bg-white rounded-full transition hover:bg-[#03837E] group mb-4 cursor-pointer"
-    style={{ opacity: 1 }}
-  >
-    <svg
-      width="40"
-      height="40"
-      viewBox="0 0 40 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M31.6667 20H8.33341"
-        stroke="#03837E"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="group-hover:stroke-white transition"
-      />
-      <path
-        d="M20 8.33301L8.33333 19.9997L20 31.6663"
-        stroke="#03837E"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="group-hover:stroke-white transition"
-      />
-    </svg>
-  </button>
+          <div className="absolute bottom-0 right-0 flex items-center gap-6">
+            <button
+              onClick={handlePrev}
+              className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] flex items-center justify-center bg-white rounded-full transition hover:bg-[#03837E] group mb-4 cursor-pointer"
+              style={{ opacity: 1 }}
+            >
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M31.6667 20H8.33341"
+                  stroke="#03837E"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition group-hover:stroke-white"
+                />
+                <path
+                  d="M20 8.33301L8.33333 19.9997L20 31.6663"
+                  stroke="#03837E"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition group-hover:stroke-white"
+                />
+              </svg>
+            </button>
 
-  <button
-    onClick={handleNext}
-    className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] flex items-center justify-center bg-white rounded-full  transition hover:bg-[#03837E] group mb-4 cursor-pointer"
-    style={{ opacity: 1 }}
-  >
-    <svg
-      width="40"
-      height="40"
-      viewBox="0 0 40 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8.33325 20H31.6666"
-        stroke="#03837E"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="group-hover:stroke-white transition"
-      />
-      <path
-        d="M20 8.33301L31.6667 19.9997L20 31.6663"
-        stroke="#03837E"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="group-hover:stroke-white transition"
-      />
-    </svg>
-  </button>
-</div>
+            <button
+              onClick={handleNext}
+              className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] flex items-center justify-center bg-white rounded-full  transition hover:bg-[#03837E] group mb-4 cursor-pointer"
+              style={{ opacity: 1 }}
+            >
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.33325 20H31.6666"
+                  stroke="#03837E"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition group-hover:stroke-white"
+                />
+                <path
+                  d="M20 8.33301L31.6667 19.9997L20 31.6663"
+                  stroke="#03837E"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition group-hover:stroke-white"
+                />
+              </svg>
+            </button>
+          </div>
 
           {/* Pagination Dots */}
           <div className="absolute flex gap-4 bottom-10 left-10">
