@@ -155,8 +155,8 @@ const TestimonialsAndConfidence = () => {
         </div>
 
         <div className="flex justify-center pt-4">
-          <button className="w-[283px] h-[48px] bg-[#03837E] flex items-center justify-center">
-            <span className="text-lg font-medium text-white">View All Testimonials</span>
+          <button className="w-[283px] h-[48px]  bg-[#03837E] flex items-center justify-center   text-white cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E]">
+            <span className="text-lg font-medium">View All Testimonials</span>
           </button>
         </div>
       </div>

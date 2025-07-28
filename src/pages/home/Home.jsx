@@ -50,14 +50,14 @@ export default function HomePage() {
             Athertons is a highly experienced Mechanical, Electrical, HVAC, Fire Protection, Refrigeration. Through our team of mechanical, electrical, plumbing, HVAC, and fire protection engineers.
           </p>
 
-          <button className="bg-[#03837E] w-[170px] h-[40px] md:w-[170px] md:h-[48px] shadow-[0px_4px_10px_0px_#00000080] mt-10">
+          <button className="bg-[#03837E] w-[170px] h-[40px] md:w-[170px] md:h-[48px] shadow-[0px_4px_10px_0px_#00000080] mt-10 cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] ">
             <p className="text-lg font-[500]">Find Out More</p>
           </button>
 
         <div className="absolute flex items-center gap-6 right-0 bottom-0">
   <button
     onClick={handlePrev}
-    className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] flex items-center justify-center bg-white rounded-full transition hover:bg-[#03837E] group mb-4"
+    className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] flex items-center justify-center bg-white rounded-full transition hover:bg-[#03837E] group mb-4 cursor-pointer"
     style={{ opacity: 1 }}
   >
     <svg
@@ -88,7 +88,7 @@ export default function HomePage() {
 
   <button
     onClick={handleNext}
-    className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] flex items-center justify-center bg-white rounded-full  transition hover:bg-[#03837E] group mb-4"
+    className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] flex items-center justify-center bg-white rounded-full  transition hover:bg-[#03837E] group mb-4 cursor-pointer"
     style={{ opacity: 1 }}
   >
     <svg

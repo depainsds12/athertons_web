@@ -1,6 +1,6 @@
 import React from "react";
 import aboutusbg4 from '../../assets/aboutus/aboutusbg4.jpg';
-import quote from '../../assets/aboutus/quote.svg';
+import quote from '../../assets/aboutus/quote.png';
 
 const testimonials = [
   {
@@ -60,12 +60,12 @@ const Testimonials = () => {
         </h3>
       </div>
 
-      <div className="w-full flex justify-center py-10 px-6 md:px-14 xl:px-20">
-        <div className="flex flex-wrap gap-8 justify-center w-full max-w-[1500px]">
+      <div className="w-full flex justify-center py-10 px-4 sm:px-6 md:px-10 xl:px-20">
+        <div className="grid gap-8 w-full max-w-[1500px] grid-cols-1 md:grid-cols-2">
           {testimonials.map((t, idx) => (
             <article
               key={idx}
-              className="bg-[#F4F4F5] flex flex-col justify-between p-6 md:p-7 w-full md:w-[48%] rounded-md"
+              className="bg-[#F4F4F5] flex flex-col justify-between p-6 md:p-7 w-full min-h-[373px] "
               role="article"
               aria-labelledby={`testimonial-name-${idx}`}
             >
@@ -75,7 +75,7 @@ const Testimonials = () => {
                     src={quote}
                     alt=""
                     aria-hidden="true"
-                    className="w-[60px] h-[70px] pl-1.5"
+                    className=" w-[84px] h-[60px] md:w-[106px] md:h-[76px] pl-1.5"
                   />
                   <div>
                     <div
