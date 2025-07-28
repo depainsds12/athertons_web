@@ -115,11 +115,22 @@ const TeamPage = () => {
       <div className="flex flex-col justify-center mb-16 md:flex-row gap-15 lg:gap-28">
         {teamData.topTeam.map((person, idx) => (
           <div className="flex flex-col items-center" key={idx}>
-            <img
-              src={person.img}
-              alt={person.name}
-              className="animate__animated animate__zoomIn hover:opacity-80 rounded-full w-[200px] h-[200px] sm:w-[150px] sm:h-[150px]  md:w-[200px] md:h-[200px] lg:w-[250px] lg:h-[250px] xl:w-[300px] xl:h-[300px] object-cover"
-            />
+            <div className="overflow-hidden rounded-full group">
+              <img
+                src={person.img}
+                alt={person.name}
+                className="animate__animated animate__zoomIn hover:opacity-80 rounded-full 
+                sm:w-[150px] sm:h-[150px]  
+                md:w-[200px] md:h-[200px] 
+                lg:w-[250px] lg:h-[250px] 
+                xl:w-[300px] xl:h-[300px] 
+                object-cover 
+                transition-transform duration-500 ease-in-out 
+                w-[200px] h-[200px] 
+                group-hover:scale-105"
+              />
+            </div>
+
             <h3 className="mt-4 text-white font-semibold text-[32px]">
               {person.name}
             </h3>
@@ -163,15 +174,17 @@ const TeamPage = () => {
                 >
                   {section.members.map((member, i) => (
                     <div key={i} className="flex flex-col items-center">
-                      <img
-                        src={member.img}
-                        alt={member.name}
-                        className={`rounded-full object-cover hover:opacity-80 ${
-                          section.title === "Estimators"
-                            ? "w-[100px] h-[100px]"
-                            : "w-[130px] h-[130px]"
-                        }`}
-                      />
+                      <div className="overflow-hidden rounded-full group">
+                        <img
+                          src={member.img}
+                          alt={member.name}
+                          className={`rounded-full object-cover hover:opacity-80 transition-transform duration-300 ease-in-out group-hover:scale-105 ${
+                            section.title === "Estimators"
+                              ? "w-[100px] h-[100px]"
+                              : "w-[130px] h-[130px]"
+                          }`}
+                        />
+                      </div>
                       <h4
                         className={`text-[20px] font-semibold text-center break-words ${
                           section.title === "Estimators"
@@ -181,7 +194,7 @@ const TeamPage = () => {
                       >
                         {member.name}
                       </h4>
-                      <p className="italic font-medium mb-4 pb-4 text-[12px] text-center  max-w-[150px]">
+                      <p className="italic font-medium mb-4 pb-4 text-[12px] text-center max-w-[150px]">
                         {member.role}
                       </p>
                     </div>

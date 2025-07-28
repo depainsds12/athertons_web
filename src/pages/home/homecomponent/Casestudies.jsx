@@ -14,7 +14,7 @@ const Casestudies = () => {
             className="flex flex-col items-start w-full max-w-[520px] mx-auto"
           >
             <div
-              className="hover:animate__animated animate__flipInX w-full h-[220px] sm:h-[240px] md:h-[250px] 2xl:h-[400px] overflow-hidden mb-4 bg-gray-100 flex items-center justify-center border"
+              className="group hover:shadow-xl w-full h-[220px] sm:h-[240px] md:h-[250px] 2xl:h-[400px] overflow-hidden mb-4 bg-gray-100 flex items-center justify-center border"
               style={{
                 borderColor: "#D6D6D6",
                 borderWidth: "1px",
@@ -23,9 +23,10 @@ const Casestudies = () => {
               <img
                 src={project.image}
                 alt={project.name}
-                className="object-cover w-full h-full animate__animated animate__flipInX "
+                className="object-cover w-full h-full transition-transform duration-500 ease-in-out animate__animated animate__zoomIn group-hover:scale-105"
               />
             </div>
+
             <h3 className="text-[#192437] font-semibold text-[20px] leading-[100%] font-['Open_Sans'] mb-2 text-left w-full">
               {project.name || "N/A"}
             </h3>

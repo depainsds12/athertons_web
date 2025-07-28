@@ -1,8 +1,7 @@
-import React from "react";
-import triangleb from '../../../assets/triangleb.svg';
-import triangleg from '../../../assets/triangleg.svg';
-import trianglew from '../../../assets/trianglepurew.svg';
-import quote from '../../../assets/aboutus/quote.svg';
+import quote from "../../../assets/aboutus/quote.svg";
+import triangleb from "../../../assets/triangleb.svg";
+import triangleg from "../../../assets/triangleg.svg";
+import trianglew from "../../../assets/trianglepurew.svg";
 
 const leftContent = [
   {
@@ -48,15 +47,15 @@ const testimonials = [
 
 const TestimonialsAndConfidence = () => {
   return (
-    <section className="w-full flex flex-col lg:flex-row relative font-poppins">
+    <section className="relative flex flex-col w-full lg:flex-row font-poppins">
       {/* LEFT SIDE */}
       <div className="lg:w-1/2 bg-[#03837E] text-white px-6 xl:px-20 py-10 space-y-8 relative z-10">
-        <h2 className="font-semibold text-2xl">Building Confidence</h2>
-        <div className="relative">
+        <h2 className="text-2xl font-semibold">Building Confidence</h2>
+        <div className="relative overflow-hidden group">
           <img
             src="/images/building.jpg"
             alt="Modern Building"
-            className="w-full max-h-[400px] object-cover"
+            className="w-full max-h-[400px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
           />
           <div className="absolute top-4 left-4 bg-white px-4 py-2 text-[#192437] font-semibold">
             Founded In <br /> 1981
@@ -66,56 +65,73 @@ const TestimonialsAndConfidence = () => {
         <div className="flex flex-col space-y-6">
           {leftContent.map((item, idx) => (
             <article key={idx} className="flex flex-col">
-              <h3 className="font-semibold text-lg text-white">• {item.title}</h3>
+              <h3 className="text-lg font-semibold text-white">
+                • {item.title}
+              </h3>
               <p className="text-sm leading-6 text-white">{item.description}</p>
             </article>
           ))}
         </div>
 
         {/* Top Triangle */}
-        <div className="hidden sm:flex absolute left-0 top-25 flex-col items-start justify-start">
-          <img src={triangleb} alt="triangle black" className="w-[70px] h-[70px] object-contain" />
-          <img src={trianglew} alt="triangle white" className="w-[70px] h-[70px] object-contain -mt-6" />
+        <div className="absolute left-0 flex-col items-start justify-start hidden sm:flex top-25">
+          <img
+            src={triangleb}
+            alt="triangle black"
+            className="w-[70px] h-[70px] object-contain"
+          />
+          <img
+            src={trianglew}
+            alt="triangle white"
+            className="w-[70px] h-[70px] object-contain -mt-6"
+          />
         </div>
 
         {/* Bottom Triangle */}
-        <div className="hidden xl:flex absolute left-0 bottom-25 flex-col items-start justify-start">
-          <img src={triangleb} alt="triangle black" className="w-[70px] h-[70px] object-contain" />
-          <img src={trianglew} alt="triangle white" className="w-[70px] h-[70px] object-contain -mt-6" />
+        <div className="absolute left-0 flex-col items-start justify-start hidden xl:flex bottom-25">
+          <img
+            src={triangleb}
+            alt="triangle black"
+            className="w-[70px] h-[70px] object-contain"
+          />
+          <img
+            src={trianglew}
+            alt="triangle white"
+            className="w-[70px] h-[70px] object-contain -mt-6"
+          />
         </div>
       </div>
 
-
       {/* RIGHT SIDE */}
       <div className="lg:w-1/2 bg-[#F4F4F5] px-6 xl:px-20 py-10 flex flex-col space-y-6 relative">
-        <h2 className="text-[#192437] text-2xl font-semibold">Client Testimonials</h2>
+        <h2 className="text-[#192437] text-2xl font-semibold">
+          Client Testimonials
+        </h2>
 
-          {/**righ triangle */}
-     <div className="sm:flex absolute top-1/2 right-0 transform -translate-y-1/2 flex-col items-start justify-start w-[70px] h-[70px] 2xl:w-[101px] 2xl:h-[101px]">
-  <img
-    src={triangleg}
-    alt="triangle black"
-    className="w-[70px] xl:w-[101px] h-[70px] xl:h-[101px] object-contain"
-  />
-  <img
-    src={trianglew}
-    alt="triangle white"
-    className="w-[70px] xl:w-[101px] h-[70px] xl:h-[101px] object-contain -mt-6"
-  />
-</div>
-
-
+        {/**righ triangle */}
+        <div className="sm:flex absolute top-1/2 right-0 transform -translate-y-1/2 flex-col items-start justify-start w-[70px] h-[70px] 2xl:w-[101px] 2xl:h-[101px]">
+          <img
+            src={triangleg}
+            alt="triangle black"
+            className="w-[70px] xl:w-[101px] h-[70px] xl:h-[101px] object-contain"
+          />
+          <img
+            src={trianglew}
+            alt="triangle white"
+            className="w-[70px] xl:w-[101px] h-[70px] xl:h-[101px] object-contain -mt-6"
+          />
+        </div>
 
         <div className="grid grid-cols-1 gap-8">
           {testimonials.map((t, idx) => (
             <article
               key={idx}
-              className="bg-white pl-7 pr-7 pb-7 pt-4 flex flex-col h-auto"
+              className="flex flex-col h-auto pt-4 bg-white hover:shadow-2xl pl-7 pr-7 pb-7"
               role="article"
               aria-labelledby={`testimonial-name-${idx}`}
             >
               <div className="flex flex-col my-auto">
-                <div className="flex items-start gap-x-6 pt-2">
+                <div className="flex items-start pt-2 gap-x-6">
                   <img
                     src={quote}
                     alt="Quote"

@@ -145,11 +145,11 @@ const Services = () => {
               Read More
             </button>
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center overflow-hidden group">
             <img
               src={activeService.image}
               alt={`${activeService.title} Illustration`}
-              className="w-[200px] sm:w-[250px] lg:w-[464px] lg:h-[344px] object-cover"
+              className="w-[200px] sm:w-[250px] lg:w-[464px] lg:h-[344px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
             />
           </div>
         </div>
