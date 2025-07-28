@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import bmsEmsTechnology from "../../../assets/services/bms_ems_technology.png";
-import meEngineering from "../../../assets/services/me_engineering.png";
 import ecoSolutions from "../../../assets/services/eco_solutions.png";
 import lightCivilEngineering from "../../../assets/services/light_civil_engineering.png";
-import triangleg from '../../../assets/triangleg.svg';
-import trianglew from '../../../assets/trianglew.svg';
+import meEngineering from "../../../assets/services/me_engineering.png";
+import triangleg from "../../../assets/triangleg.svg";
+import trianglew from "../../../assets/trianglew.svg";
 
 const services = [
   {
@@ -59,13 +59,22 @@ const Services = () => {
   const activeService = services.find((service) => service.id === active);
 
   return (
-    <section className="w-full relative flex flex-col items-center mt-2">
-
+    <section className="relative flex flex-col items-center w-full mt-2">
       <div className=" sm:flex absolute top-0 right-0 flex-col items-start justify-start w-[50px] h-[50px]">
-        <img src={triangleg} alt="triangle black" className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px]  object-contain" />
-        <img src={trianglew} alt="triangle white" className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6" />
+        <img
+          src={triangleg}
+          alt="triangle black"
+          className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px]  object-contain"
+        />
+        <img
+          src={trianglew}
+          alt="triangle white"
+          className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6"
+        />
       </div>
-      <h2 className="text-3xl md:text-[40px] font-semibold text-[#192437]  mt-10 mb-8">Our Services</h2>
+      <h2 className="text-3xl md:text-[40px] font-semibold text-[#192437]  mt-10 mb-8">
+        Our Services
+      </h2>
 
       <div
         role="tablist"
@@ -91,7 +100,9 @@ const Services = () => {
               aria-current={active === service.id ? "page" : undefined}
               role="tab"
             >
-              <span className="font-semibold">{service.name}</span>
+              <span className="font-semibold animate__animated animate__zoomIn">
+                {service.name}
+              </span>
             </button>
 
             {active === service.id && (
@@ -125,7 +136,7 @@ const Services = () => {
       </div>
 
       <div className="bg-[#192437] text-white flex flex-col md:flex-row justify-center py-10 w-full max-w-[1070px]">
-        <div className="flex flex-col md:flex-row w-full px-4 sm:px-8 gap-6">
+        <div className="flex flex-col w-full gap-6 px-4 md:flex-row sm:px-8">
           <div className="flex-1">
             <h3 className="text-xl font-semibold">{activeService.title}</h3>
             <p className="italic">{activeService.subtitle}</p>
@@ -134,7 +145,7 @@ const Services = () => {
               Read More
             </button>
           </div>
-          <div className="flex justify-center items-center">
+          <div className="flex items-center justify-center">
             <img
               src={activeService.image}
               alt={`${activeService.title} Illustration`}
@@ -144,11 +155,18 @@ const Services = () => {
         </div>
       </div>
 
-          <div className="hidden xl:flex absolute bottom-30 left-0 flex-col items-start justify-start w-[50px] h-[50px]">
-        <img src={triangleg} alt="triangle black" className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px]  object-contain" />
-        <img src={trianglew} alt="triangle white" className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6" />
+      <div className="hidden xl:flex absolute bottom-30 left-0 flex-col items-start justify-start w-[50px] h-[50px]">
+        <img
+          src={triangleg}
+          alt="triangle black"
+          className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px]  object-contain"
+        />
+        <img
+          src={trianglew}
+          alt="triangle white"
+          className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6"
+        />
       </div>
-
     </section>
   );
 };
