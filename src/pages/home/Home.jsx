@@ -54,7 +54,7 @@ export default function HomePage() {
             <p className="text-lg font-[500]">Find Out More</p>
           </button>
 
-        <div className="absolute flex items-center gap-6 right-0 bottom-0">
+        <div className="absolute flex items-center gap-6 right-5  sm:right-7 xl:right-20 bottom-0">
   <button
     onClick={handlePrev}
     className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] flex items-center justify-center bg-white rounded-full transition hover:bg-[#03837E] group mb-4 cursor-pointer"

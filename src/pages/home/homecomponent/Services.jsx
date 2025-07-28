@@ -138,7 +138,7 @@ const Services = () => {
             <img
               src={activeService.image}
               alt={`${activeService.title} Illustration`}
-              className="max-w-[200px] sm:max-w-[250px] object-cover"
+              className="w-[200px] sm:w-[250px] lg:w-[464px] lg:h-[344px] object-cover"
             />
           </div>
         </div>
