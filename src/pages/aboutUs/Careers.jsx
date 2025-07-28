@@ -126,7 +126,7 @@ const Careers = () => {
 
             <button
               type="submit"
-              className="h-[48px] bg-[#03837E] text-white font-medium mt-4 hover:bg-[#02635e] transition-colors"
+              className="h-[48px] bg-[#03837E] text-white font-medium mt-4  cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] transition-colors"
             >
               Submit
             </button>
