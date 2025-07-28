@@ -64,7 +64,7 @@ const MeetOurTeam = () => {
 
         {/* Team Section (Flex Layout) */}
         <section
-          className="w-full flex flex-wrap justify-center gap-y-12 py-8 sm:py-10 md:py-16 px-4 ml-5 mr-5"
+          className="w-full flex flex-wrap justify-center gap-y-12 py-8 sm:py-10 md:py-16 px-4 "
           aria-labelledby="team-heading"
           role="list"
         >
