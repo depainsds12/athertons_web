@@ -10,7 +10,7 @@ const CaseStudyList = () => {
       >
         {/* Banner */}
         <div
-          className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] flex items-center justify-center bg-cover bg-center"
+          className="relative w-full aspect-[1366/300]  flex items-center justify-center bg-cover bg-center"
           style={{ backgroundImage: `url(/CaseStudyListbg.jpg)` }}
           role="presentation"
           aria-hidden="true"

@@ -64,7 +64,7 @@ const NewandContactus = () => {
   <button
     type="button"
     aria-label="View All News and Insights"
-    className="w-full xl:w-[511px] h-[48px] bg-[#03837E] text-white font-poppins font-medium text-[18px] text-center mt-8"
+    className="w-full xl:w-[511px] h-[48px] bg-[#03837E] text-white cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] font-poppins font-medium text-[18px] text-center mt-8"
   >
     View All News & Insights
   </button>
@@ -181,7 +181,7 @@ const NewandContactus = () => {
           <button
             type="submit"
             aria-label="Submit Contact Us Form"
-            className="h-[48px] bg-[#03837E] text-white font-poppins font-medium text-[18px] text-center mt-4 hover:bg-[#02635e] transition-colors"
+            className="h-[48px] bg-[#03837E] text-white cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] font-poppins font-medium text-[18px] text-center mt-4  transition-colors"
           >
             Contact Us
           </button>

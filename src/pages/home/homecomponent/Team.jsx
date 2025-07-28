@@ -166,7 +166,7 @@ const TeamPage = () => {
         </div>
       </div>
 
-      <button className="mt-12 bg-[#03837E] text-white px-8 py-3 rounded-md font-semibold">
+      <button className="mt-12 bg-[#03837E] text-white px-8 py-3  font-semibold   cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E]">
         View All Teams
       </button>
     </div>
