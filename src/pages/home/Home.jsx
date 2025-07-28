@@ -1,25 +1,19 @@
-import React, { useState } from "react";
-import meEngineering from "../../assets/services/me_engineering.png";
-import lightCivil from "../../assets/services/light_civil_engineering.png";
-import bmsEms from "../../assets/services/bms_ems_technology.png";
+import { useState } from "react";
 import bg1 from "../../assets/services/bg1.png";
+import bmsEms from "../../assets/services/bms_ems_technology.png";
+import lightCivil from "../../assets/services/light_civil_engineering.png";
+import meEngineering from "../../assets/services/me_engineering.png";
 import Accreditation from "./homecomponent/Accreditation";
-import Commercial from "./homecomponent/Commercial";
-import Services from "./homecomponent/Services";
 import Casestudies from "./homecomponent/Casestudies";
-import TestimonialsAndConfidence from "./homecomponent/TestimonialsAndConfidence";
-import Team from "./homecomponent/Team";
+import Commercial from "./homecomponent/Commercial";
 import NewandContactus from "./homecomponent/NewandContactus";
-import WalesSection from "./homecomponent/WalesSection";
+import Services from "./homecomponent/Services";
+import Team from "./homecomponent/Team";
+import TestimonialsAndConfidence from "./homecomponent/TestimonialsAndConfidence";
 import Video from "./homecomponent/Video";
+import WalesSection from "./homecomponent/WalesSection";
 
-const images = [
-  "/project-list.jpg",
-  meEngineering,
-  lightCivil,
-  bmsEms,
-  bg1,
-];
+const images = ["/project-list.jpg", meEngineering, lightCivil, bmsEms, bg1];
 
 export default function HomePage() {
   const [startIdx, setStartIdx] = useState(0);
@@ -36,18 +30,24 @@ export default function HomePage() {
     <div>
       <div className="relative w-full h-screen xl:max-h-[600px] 2xl:max-h-[700px] ">
         <div
-          className="absolute inset-0 bg-cover bg-center transition-all duration-500"
+          className="absolute inset-0 transition-all duration-500 bg-center bg-cover"
           style={{ backgroundImage: `url(${images[startIdx]})` }}
         ></div>
 
         <div className="absolute inset-0 bg-[#192437]/60 z-0"></div>
 
         <div className="relative z-10 flex flex-col items-start justify-center h-full px-10 text-white">
-          <p className="text-base sm:text-lg md:text-2xl font-bold mb-4">DESIGN & INSTALLATION</p>
-          <h1 className="text-[28px] sm:text-4xl md:text-6xl font-bold mb-8">TURNKEY SOLUTIONS</h1>
+          <p className="mb-4 text-base font-bold sm:text-lg md:text-2xl">
+            DESIGN & INSTALLATION
+          </p>
+          <h1 className="text-[28px] sm:text-4xl md:text-6xl font-bold mb-8">
+            TURNKEY SOLUTIONS
+          </h1>
 
           <p className=" text-[12px] sm:text-base md:text-lg w-[50%]">
-            Athertons is a highly experienced Mechanical, Electrical, HVAC, Fire Protection, Refrigeration. Through our team of mechanical, electrical, plumbing, HVAC, and fire protection engineers.
+            Athertons is a highly experienced Mechanical, Electrical, HVAC, Fire
+            Protection, Refrigeration. Through our team of mechanical,
+            electrical, plumbing, HVAC, and fire protection engineers.
           </p>
 
           <button className="bg-[#03837E] w-[170px] h-[40px] md:w-[170px] md:h-[48px] shadow-[0px_4px_10px_0px_#00000080] mt-10 cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] ">
@@ -119,7 +119,7 @@ export default function HomePage() {
 </div>
 
           {/* Pagination Dots */}
-          <div className="absolute bottom-10 left-10 flex gap-4">
+          <div className="absolute flex gap-4 bottom-10 left-10">
             {images.map((_, idx) => (
               <span
                 key={idx}
@@ -131,16 +131,15 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <Services/>
-      <Accreditation/>
-      <Commercial/>
-      <Video/>
-      <Casestudies/>
-      <TestimonialsAndConfidence/>
-      <WalesSection/>
-      <Team/>
-      <NewandContactus/>
-      
+      <Services />
+      <Accreditation />
+      <Commercial />
+      <Video />
+      <Casestudies />
+      <TestimonialsAndConfidence />
+      <WalesSection />
+      <Team />
+      <NewandContactus />
     </div>
   );
-} 
+}
