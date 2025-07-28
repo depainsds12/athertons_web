@@ -131,7 +131,7 @@ const Commercial = () => {
         </div>
 
         <button
-          className="mt-10 bg-[#03837E] text-white w-full max-w-xs py-3 text-center text-lg font-medium mx-auto lg:mx-0"
+          className="mt-10 bg-[#03837E] text-white w-full max-w-xs py-3 text-center text-lg font-medium mx-auto lg:mx-0 cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] "
           aria-label="View all projects"
         >
           View All Projects

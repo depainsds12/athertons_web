@@ -77,7 +77,7 @@ const Services = () => {
               onClick={() => setActive(service.id)}
               className={`
                 aspect-[7/5] min-h-[40px] sm:min-h-[80px]
-                border border-[#D6D6D6]
+                border border-[#D6D6D6] cursor-pointer
                 ${
                   active === service.id
                     ? "bg-[#03837E] text-white border-b-0"
@@ -130,7 +130,7 @@ const Services = () => {
             <h3 className="text-xl font-semibold">{activeService.title}</h3>
             <p className="italic">{activeService.subtitle}</p>
             <p className="mt-2 text-sm">{activeService.description}</p>
-            <button className="mt-4 bg-[#03837E] px-4 py-2 text-white">
+            <button className="mt-4 bg-[#03837E] px-4 py-2 text-white cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] ">
               Read More
             </button>
           </div>

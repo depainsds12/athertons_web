@@ -10,13 +10,13 @@ const Footer = () => {
         </span>
       </div>
 
-      <div className="w-full bg-[#03837E] flex flex-col  md:items-center lg:flex-row lg:items-start lg:justify-between px-6 py-10 gap-8">
+      <div className="w-full bg-[#03837E] flex flex-col  sm:items-center lg:flex-row lg:items-start lg:justify-between px-6 py-10 gap-8">
         {/* 1. Logo */}
         <div className="flex flex-col items-center lg:items-center flex-1">
           <img
             src="/logo.png"
             alt="Athertons Logo"
-            className="w-[100px] h-[90px] md:w-[120px] md:h-[110px] object-contain mb-4"
+            className="w-[100px] h-[90px] sm:w-[120px] sm:h-[110px] object-contain mb-4"
           />
           <div className="flex items-center gap-4 mt-2">
             <span className="inline-block w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#3D6AD6] bg-white flex items-center justify-center rounded-full">
@@ -53,7 +53,7 @@ const Footer = () => {
         {/* 2. Services and Quick Links for small screen side-by-side */}
         <div className="flex flex-row justify-center gap-8 w-full lg:flex-row lg:flex-1">
           {/* Services */}
-          <div className="flex flex-col items-start md:items-center lg:items-start flex-1">
+          <div className="flex flex-col items-start sm:items-center lg:items-start flex-1">
             <span className="text-white font-semibold text-sm md:text-base mb-4">Our Services</span>
             <Link to="/services/consultancy_smartdesign" className="text-white text-sm md:text-base leading-[28px] hover:underline">Smart Design</Link>
             <Link to="/services/bms_ems_technology" className="text-white text-sm md:text-base leading-[28px] hover:underline">BMS & EMS Technology</Link>
@@ -63,7 +63,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="flex flex-col items-start md:items-center lg:items-start flex-1">
+          <div className="flex flex-col items-start sm:items-center lg:items-start flex-1">
             <span className="text-white font-semibold text-sm md:text-base mb-4">Quick Links</span>
             <Link to="/aboutus/meetourteam" className="text-white text-sm md:text-base leading-[28px] hover:underline">Meet Our Team</Link>
             <Link to="/aboutus/accreditation_Membership" className="text-white text-sm md:text-base leading-[28px] hover:underline">Accreditations and Membership</Link>
@@ -73,7 +73,7 @@ const Footer = () => {
         </div>
 
         {/* 3. Contact Us */}
-      <div className="flex flex-col md:items-center items-start justify-start lg:items-start flex-1">
+      <div className="flex flex-col sm:items-center items-start justify-start lg:items-start flex-1">
   <span className="text-white font-semibold text-sm md:text-base mb-4">Contact Us</span>
   
   <span className="flex items-center justify-center lg:justify-start text-white text-sm md:text-base leading-[28px] mb-2">

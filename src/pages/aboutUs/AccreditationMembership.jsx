@@ -11,7 +11,7 @@ import officeForZeroEmissionVehicle from "../../assets/aboutus/officeForZeroEmis
 const AccreditationMembership = () => {
   return (
     <section
-      className=" bg-white flex flex-col w-full"
+      className=" bg-white min-h-screen flex flex-col w-full"
       aria-labelledby="accreditation-heading"
     >
       {/* Background Header with Decorative Image */}

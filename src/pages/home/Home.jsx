@@ -50,73 +50,73 @@ export default function HomePage() {
             electrical, plumbing, HVAC, and fire protection engineers.
           </p>
 
-          <button className="bg-[#03837E] w-[170px] h-[40px] md:w-[170px] md:h-[48px] shadow-[0px_4px_10px_0px_#00000080] mt-10">
+          <button className="bg-[#03837E] w-[170px] h-[40px] md:w-[170px] md:h-[48px] shadow-[0px_4px_10px_0px_#00000080] mt-10 cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] ">
             <p className="text-lg font-[500]">Find Out More</p>
           </button>
 
-          <div className="absolute bottom-0 right-0 flex items-center gap-6">
-            <button
-              onClick={handlePrev}
-              className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] flex items-center justify-center bg-white rounded-full transition hover:bg-[#03837E] group mb-4"
-              style={{ opacity: 1 }}
-            >
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M31.6667 20H8.33341"
-                  stroke="#03837E"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="transition group-hover:stroke-white"
-                />
-                <path
-                  d="M20 8.33301L8.33333 19.9997L20 31.6663"
-                  stroke="#03837E"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="transition group-hover:stroke-white"
-                />
-              </svg>
-            </button>
+        <div className="absolute flex items-center gap-6 right-0 bottom-0">
+  <button
+    onClick={handlePrev}
+    className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] flex items-center justify-center bg-white rounded-full transition hover:bg-[#03837E] group mb-4 cursor-pointer"
+    style={{ opacity: 1 }}
+  >
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M31.6667 20H8.33341"
+        stroke="#03837E"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="group-hover:stroke-white transition"
+      />
+      <path
+        d="M20 8.33301L8.33333 19.9997L20 31.6663"
+        stroke="#03837E"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="group-hover:stroke-white transition"
+      />
+    </svg>
+  </button>
 
-            <button
-              onClick={handleNext}
-              className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] flex items-center justify-center bg-white rounded-full  transition hover:bg-[#03837E] group mb-4"
-              style={{ opacity: 1 }}
-            >
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8.33325 20H31.6666"
-                  stroke="#03837E"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="transition group-hover:stroke-white"
-                />
-                <path
-                  d="M20 8.33301L31.6667 19.9997L20 31.6663"
-                  stroke="#03837E"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="transition group-hover:stroke-white"
-                />
-              </svg>
-            </button>
-          </div>
+  <button
+    onClick={handleNext}
+    className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] flex items-center justify-center bg-white rounded-full  transition hover:bg-[#03837E] group mb-4 cursor-pointer"
+    style={{ opacity: 1 }}
+  >
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.33325 20H31.6666"
+        stroke="#03837E"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="group-hover:stroke-white transition"
+      />
+      <path
+        d="M20 8.33301L31.6667 19.9997L20 31.6663"
+        stroke="#03837E"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="group-hover:stroke-white transition"
+      />
+    </svg>
+  </button>
+</div>
 
           {/* Pagination Dots */}
           <div className="absolute flex gap-4 bottom-10 left-10">
