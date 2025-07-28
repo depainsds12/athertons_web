@@ -44,7 +44,7 @@ export default function ProjectList() {
           {categories.map((cat) => (
             <button
               key={cat}
-  className={`transition-all duration-300 border group 
+  className={`transition-all duration-300 border group cursor-pointer
     ${selectedCategory === cat 
       ? "bg-[#03837E] text-white border-[#03837E]" 
       : "bg-white text-black border-[#03837E] hover:bg-[#E0F4F3]"} 
@@ -189,7 +189,7 @@ function ContactSectionWithSlider() {
             <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">Your Message</label>
             <textarea rows={4} className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white resize-none h-[120px]" />
           </div>
-          <button type="submit" className="h-[48px] bg-[#03837E] text-white font-medium mt-4 hover:bg-[#02635e] transition-colors">Contact Us</button>
+          <button type="submit" className="h-[48px] bg-[#03837E] text-white font-medium mt-4 cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E]  transition-colors">Contact Us</button>
         </form>
       </div>
     </div>
