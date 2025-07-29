@@ -333,9 +333,10 @@ const Header = () => {
                           onClick={() => setAboutDropdown(false)}
                           className={`px-4 py-4 text-[#7f8c99] hover:text-[#03837E] cursor-pointer transition-colors duration-200 ${
                             i < arr.length - 1
-                              ? "border-b border-[#D6D6D6]"
+                              ? "border-b border-[#eeeded]"
                               : ""
                           }`}
+                          style={{ fontWeight: 300 }}
                         >
                           {label}
                         </Link>
@@ -396,9 +397,10 @@ const Header = () => {
                           onClick={() => setServicesDropdown(false)}
                           className={`px-4 py-4 text-[#7f8c99] hover:text-[#03837E]  cursor-pointer transition-colors duration-200 ${
                             i < arr.length - 1
-                              ? "border-b border-[#D6D6D6]"
+                              ? "border-b border-[#eeeded]"
                               : ""
                           }`}
+                          style={{ fontWeight: 300 }}
                         >
                           {label}
                         </Link>
@@ -431,32 +433,32 @@ const Header = () => {
             {/* Right: Social icons and Hamburger */}
             <div className="flex items-center gap-4 mr-2 sm:mr-8 lg:mr-6 xl:mr-20">
               <div className="flex gap-2 lg:gap-1.5 xl:gap-3">
-                <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#3D6AD6] flex items-center justify-center rounded-full cursor-pointer  ">
+                <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-blue-100 border-[#3D6AD6] flex items-center justify-center rounded-full cursor-pointer  ">
                   <img
                     src="/images/facebooklogo.png"
                     alt="Facebook"
-                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] object-contain ml-2.5 mt-2.25"
+                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] object-contain"
                   />
                 </span>
-                <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#D73F8C] flex items-center justify-center rounded-full cursor-pointer ">
+                <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-pink-100 border-[#D73F8C] flex items-center justify-center rounded-full cursor-pointer ">
                   <img
                     src="/images/instagramlogo.png"
                     alt="Instagram"
-                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] ml-2.5 mt-2.25 object-contain"
+                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]  object-contain"
                   />
                 </span>
-                <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-black flex items-center justify-center rounded-full cursor-pointer">
+                <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-gray-100 border-black flex items-center justify-center rounded-full cursor-pointer">
                   <img
                     src="/images/twitterlogo.png"
                     alt="X"
-                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] ml-2.5 mt-2.25 object-contain"
+                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]  object-contain"
                   />
                 </span>
-                <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#BD081C] flex items-center justify-center rounded-full cursor-pointer">
+                <span className="w-[35px] md:w-[48px] hover:bg-red-100 h-[35px] md:h-[48px] border border-[#BD081C] flex items-center justify-center rounded-full cursor-pointer">
                   <img
                     src="/images/pinterestlogo.png"
                     alt="Pinterest"
-                    className="w-[22px] h-[22px] md:h-[32px] md:w-[32px] ml-1.75 mt-1.75 object-contain"
+                    className="w-[22px] h-[22px] md:h-[32px] md:w-[32px] object-contain"
                   />
                 </span>
               </div>
