@@ -125,7 +125,7 @@ const Header = () => {
               </span>
             </div>
             <div className="flex flex-col items-center sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6">
-              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer">
+              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer hover:underline">
                 <svg
                   width="24"
                   height="25"
@@ -150,7 +150,7 @@ const Header = () => {
                 </svg>
                 info@athertons.co.uk
               </span>
-              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer">
+              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer hover:underline">
                 <svg
                   width="24"
                   height="24"
@@ -229,7 +229,7 @@ const Header = () => {
 
             {/* Second row - contact info */}
             <div className="flex items-center justify-center gap-6 sm:gap-8">
-              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer">
+              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer hover:underline">
                 <svg
                   width="20"
                   height="21"
@@ -254,7 +254,7 @@ const Header = () => {
                 </svg>
                 info@athertons.co.uk
               </span>
-              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer">
+              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer hover:underline">
                 <svg
                   width="24"
                   height="24"
@@ -331,12 +331,12 @@ const Header = () => {
                           key={label}
                           to={to}
                           onClick={() => setAboutDropdown(false)}
-                          className={`px-4 py-4 text-[#7f8c99] hover:text-[#03837E] cursor-pointer transition-colors duration-200 ${
+                          className={`px-4 py-4 text-[#343638] hover:text-[#fff] hover:bg-[#03837E] cursor-pointer transition-colors duration-200 ${
                             i < arr.length - 1
                               ? "border-b border-[#eeeded]"
                               : ""
                           }`}
-                          style={{ fontWeight: 300 }}
+                          style={{ fontWeight: 400 }}
                         >
                           {label}
                         </Link>
@@ -395,12 +395,12 @@ const Header = () => {
                           key={label}
                           to={to}
                           onClick={() => setServicesDropdown(false)}
-                          className={`px-4 py-4 text-[#7f8c99] hover:text-[#03837E]  cursor-pointer transition-colors duration-200 ${
+                          className={`px-4 py-4  text-[#343638] hover:text-[#fff] hover:bg-[#03837E]  cursor-pointer transition-colors duration-200 ${
                             i < arr.length - 1
                               ? "border-b border-[#eeeded]"
                               : ""
                           }`}
-                          style={{ fontWeight: 300 }}
+                          style={{ fontWeight: 400 }}
                         >
                           {label}
                         </Link>
