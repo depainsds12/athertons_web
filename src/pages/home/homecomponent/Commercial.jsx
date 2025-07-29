@@ -86,7 +86,7 @@ const Commercial = () => {
           ))}
         </ul>
 
-        <div className="absolute top-0 right-0 flex-col items-start justify-start sm:flex">
+        <div className="absolute top-0 right-0 flex-col items-start justify-start hidden sm:flex">
           <img
             src={triangleg}
             alt="triangle black"

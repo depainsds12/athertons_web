@@ -109,7 +109,7 @@ const TestimonialsAndConfidence = () => {
         </h2>
 
         {/**righ triangle */}
-        <div className="sm:flex absolute top-1/2 right-0 transform -translate-y-1/2 flex-col items-start justify-start w-[70px] h-[70px] 2xl:w-[101px] 2xl:h-[101px]">
+        <div className="hidden sm:flex absolute top-1/2 right-0 transform -translate-y-1/2 flex-col items-start justify-start w-[70px] h-[70px] 2xl:w-[101px] 2xl:h-[101px]">
           <img
             src={triangleg}
             alt="triangle black"
