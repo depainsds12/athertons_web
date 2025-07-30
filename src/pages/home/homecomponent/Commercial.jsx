@@ -85,17 +85,16 @@ const Commercial = () => {
             </li>
           ))}
         </ul>
-
-        <div className="absolute top-0 right-0 flex-col items-start justify-start sm:flex">
+        <div className="hidden xl:flex absolute top-10 right-0 flex-col items-start justify-start w-[50px] h-[50px] mr-0.5">
           <img
             src={triangleg}
             alt="triangle black"
-            className="xl:w-[139px] md:w-[70px] xl:h-[139px] md:h-[70px]  object-contain"
+            className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px]  object-contain"
           />
           <img
             src={trianglew}
             alt="triangle white"
-            className="xl:w-[139px] md: w-[70px] xl:h-[139px] md:h-[70px]   object-contain -mt-6 xl:-mt-13"
+            className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6"
           />
         </div>
       </div>
@@ -140,7 +139,7 @@ const Commercial = () => {
                 </h4>
                 <a
                   href={project.link}
-                  className="text-[#03837E] underline"
+                  className="text-[#03837E] hover:underline "
                   aria-label={`View details for ${project.title}`}
                 >
                   View Details

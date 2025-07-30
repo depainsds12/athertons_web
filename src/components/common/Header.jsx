@@ -125,7 +125,7 @@ const Header = () => {
               </span>
             </div>
             <div className="flex flex-col items-center sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6">
-              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer">
+              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer hover:underline">
                 <svg
                   width="24"
                   height="25"
@@ -150,7 +150,7 @@ const Header = () => {
                 </svg>
                 info@athertons.co.uk
               </span>
-              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer">
+              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer hover:underline">
                 <svg
                   width="24"
                   height="24"
@@ -229,7 +229,7 @@ const Header = () => {
 
             {/* Second row - contact info */}
             <div className="flex items-center justify-center gap-6 sm:gap-8">
-              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer">
+              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer hover:underline">
                 <svg
                   width="20"
                   height="21"
@@ -254,7 +254,7 @@ const Header = () => {
                 </svg>
                 info@athertons.co.uk
               </span>
-              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer">
+              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer hover:underline">
                 <svg
                   width="24"
                   height="24"
@@ -317,25 +317,31 @@ const Header = () => {
                   </button>
 
                   {aboutDropdown && (
-                <div className="absolute left-0 top-full w-56 bg-white border border-[#D6D6D6] shadow z-50 flex flex-col">
-  {[
-    { label: "Meet Our Team", to: "/aboutus/meetourteam" },
-    { label: "Accreditations", to: "/aboutus/accreditation_Membership" },
-    { label: "Career", to: "/aboutus/careers" },
-    { label: "Testimonial", to: "/aboutus/testimonials" }
-  ].map(({ label, to }, i, arr) => (
-    <Link
-      key={label}
-      to={to}
-      onClick={() => setAboutDropdown(false)}
-      className={`px-4 py-4 font-[400] text-[#7f8c99] hover:text-[#03837E] cursor-pointer transition-colors duration-200 ${i < arr.length - 1 ? "border-b border-[#D6D6D6]" : ""}`}
-    >
-      {label}
-    </Link>
-  ))}
-</div>
-
-
+                    <div className="absolute left-0 top-full w-56 bg-white border border-[#D6D6D6] shadow z-50 flex flex-col">
+                      {[
+                        { label: "Meet Our Team", to: "/aboutus/meetourteam" },
+                        {
+                          label: "Accreditations",
+                          to: "/aboutus/accreditation_Membership",
+                        },
+                        { label: "Career", to: "/aboutus/careers" },
+                        { label: "Testimonial", to: "/aboutus/testimonials" },
+                      ].map(({ label, to }, i, arr) => (
+                        <Link
+                          key={label}
+                          to={to}
+                          onClick={() => setAboutDropdown(false)}
+                          className={`px-4 py-4 text-[#343638] hover:text-[#fff] hover:bg-[#03837E] cursor-pointer transition-colors duration-200 ${
+                            i < arr.length - 1
+                              ? "border-b border-[#eeeded]"
+                              : ""
+                          }`}
+                          style={{ fontWeight: 400 }}
+                        >
+                          {label}
+                        </Link>
+                      ))}
+                    </div>
                   )}
                 </div>
 
@@ -362,27 +368,44 @@ const Header = () => {
                   </button>
 
                   {servicesDropdown && (
-                 <div className="absolute left-0 top-full w-64 bg-white border border-[#D6D6D6] shadow z-50 flex flex-col">
-  {[
-    { label: "Smart Design", to: "/services/consultancy_smartdesign" },
-    { label: "BMS & EMS Technology", to: "/services/bms_ems_technology" },
-    { label: "M&E Engineering", to: "/services/me_engineering" },
-    { label: "Light Civil Engineering", to: "/services/light_civil_engineering" },
-    { label: "Eco Solutions", to: "/services/eco_solutions" }
-  ].map(({ label, to }, i, arr) => (
-    <Link
-      key={label}
-      to={to}
-      onClick={() => setServicesDropdown(false)}
-      className={`px-4 py-4 font-[400] text-[#7f8c99] hover:text-[#03837E]  cursor-pointer transition-colors duration-200 ${
-        i < arr.length - 1 ? "border-b border-[#D6D6D6]" : ""
-      }`}
-    >
-      {label}
-    </Link>
-  ))}
-</div>
-
+                    <div className="absolute left-0 top-full w-64 bg-white border border-[#D6D6D6] shadow z-50 flex flex-col">
+                      {[
+                        {
+                          label: "Smart Design",
+                          to: "/services/consultancy_smartdesign",
+                        },
+                        {
+                          label: "BMS & EMS Technology",
+                          to: "/services/bms_ems_technology",
+                        },
+                        {
+                          label: "M&E Engineering",
+                          to: "/services/me_engineering",
+                        },
+                        {
+                          label: "Light Civil Engineering",
+                          to: "/services/light_civil_engineering",
+                        },
+                        {
+                          label: "Eco Solutions",
+                          to: "/services/eco_solutions",
+                        },
+                      ].map(({ label, to }, i, arr) => (
+                        <Link
+                          key={label}
+                          to={to}
+                          onClick={() => setServicesDropdown(false)}
+                          className={`px-4 py-4  text-[#343638] hover:text-[#fff] hover:bg-[#03837E]  cursor-pointer transition-colors duration-200 ${
+                            i < arr.length - 1
+                              ? "border-b border-[#eeeded]"
+                              : ""
+                          }`}
+                          style={{ fontWeight: 400 }}
+                        >
+                          {label}
+                        </Link>
+                      ))}
+                    </div>
                   )}
                 </div>
 
@@ -410,28 +433,28 @@ const Header = () => {
             {/* Right: Social icons and Hamburger */}
             <div className="flex items-center gap-4 mr-2 sm:mr-8 lg:mr-6 xl:mr-20">
               <div className="flex gap-2 lg:gap-1.5 xl:gap-3">
-                <span className="inline-block w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#3D6AD6] flex items-center justify-center rounded-full cursor-pointer  ">
+                <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-blue-100 border-[#3D6AD6] flex items-center justify-center rounded-full cursor-pointer  ">
                   <img
                     src="/images/facebooklogo.png"
                     alt="Facebook"
                     className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]  md:ml-2.5 md:mt-2.25  ml-2 mt-2 object-contain"
                   />
                 </span>
-                <span className="inline-block w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#D73F8C] flex items-center justify-center rounded-full cursor-pointer ">
+                <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-pink-100 border-[#D73F8C] flex items-center justify-center rounded-full cursor-pointer ">
                   <img
                     src="/images/instagramlogo.png"
                     alt="Instagram"
                     className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] md:ml-2.5 md:mt-2.25  ml-2 mt-2 object-contain"
                   />
                 </span>
-                <span className="inline-block w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-black flex items-center justify-center rounded-full cursor-pointer">
+                <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-gray-100 border-black flex items-center justify-center rounded-full cursor-pointer">
                   <img
                     src="/images/twitterlogo.png"
                     alt="X"
                     className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] md:ml-2.5 md:mt-2.25  ml-2 mt-2 object-contain"
                   />
                 </span>
-                <span className="inline-block w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#BD081C] flex items-center justify-center rounded-full cursor-pointer">
+                <span className="w-[35px] md:w-[48px] hover:bg-red-100 h-[35px] md:h-[48px] border border-[#BD081C] flex items-center justify-center rounded-full cursor-pointer">
                   <img
                     src="/images/pinterestlogo.png"
                     alt="Pinterest"

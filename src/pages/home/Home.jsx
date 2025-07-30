@@ -36,7 +36,7 @@ export default function HomePage() {
 
         <div className="absolute inset-0 bg-[#192437]/60 z-0"></div>
 
-        <div className="relative z-10 flex flex-col items-start justify-center h-full px-10 text-white">
+        <div className="relative z-10 flex flex-col items-start justify-center h-full px-10 mx-2 text-white">
           <p className="mb-4 text-base font-bold sm:text-lg md:text-2xl animate__animated animate__flipInX">
             DESIGN & INSTALLATION
           </p>
@@ -53,11 +53,11 @@ export default function HomePage() {
           <button className="bg-[#03837E] w-[170px] h-[40px] md:w-[170px] md:h-[48px] shadow-[0px_4px_10px_0px_#00000080] mt-10 cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] ">
             <p className="text-lg font-[500]">Find Out More</p>
           </button>
-
-          <div className="absolute bottom-0 right-0 flex items-center gap-6">
+          {/* <div className="py-10"> */}
+          <div className="absolute bottom-0 right-0 flex items-center gap-6 ">
             <button
               onClick={handlePrev}
-              className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] flex items-center justify-center bg-white rounded-full transition hover:bg-[#03837E] group mb-4 cursor-pointer"
+              className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[60px] md:h-[60px] flex items-center justify-center bg-white rounded-full transition hover:bg-[#03837E] group mb-4 cursor-pointer"
               style={{ opacity: 1 }}
             >
               <svg
@@ -88,7 +88,7 @@ export default function HomePage() {
 
             <button
               onClick={handleNext}
-              className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] flex items-center justify-center bg-white rounded-full  transition hover:bg-[#03837E] group mb-4 cursor-pointer"
+              className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[60px] md:h-[60px] flex items-center justify-center bg-white rounded-full  transition hover:bg-[#03837E] group mb-4 cursor-pointer"
               style={{ opacity: 1 }}
             >
               <svg
@@ -117,6 +117,7 @@ export default function HomePage() {
               </svg>
             </button>
           </div>
+          {/* </div> */}
 
           {/* Pagination Dots */}
           <div className="absolute flex gap-4 bottom-10 left-10">
