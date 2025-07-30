@@ -12,6 +12,9 @@ import ProjectDetail from "./pages/projects/ProjectDetail.jsx";
 import ProjectList from "./pages/projects/ProjectList.jsx";
 import EcoSolutions from "./pages/services/EcoSolutions.jsx";
 import ServicePage from "./pages/services/ServicePage.jsx";
+import News from "./pages/new/News.jsx";
+import NewsDetail from "./pages/new/NewsDetail.jsx";
+
 
 function App() {
   const router = createBrowserRouter([
@@ -35,6 +38,9 @@ function App() {
         { path: "/casestudies", element: <CaseStudyList /> },
         { path: "/casestudies", element: <CaseStudyList /> },
         { path: "/contactus", element: <ContactUs /> },
+        { path: "/newsandinsight", element: <News /> },
+        { path: "/newsandinsight/:newsId", element: <NewsDetail /> },
+
       ],
     },
   ]);

@@ -1,12 +1,12 @@
-import React from "react";
+// import React from "react";
 
-const BmsEmsTechnology = () => {
-  return (
-    <div>
-      <h2>BMS/EMS Technology</h2>
+// const BmsEmsTechnology = () => {
+//   return (
+//     <div>
+//       <h2>BMS/EMS Technology</h2>
     
-    </div>
-  );
-};
+//     </div>
+//   );
+// };
 
-export default BmsEmsTechnology; 
+// export default BmsEmsTechnology; 

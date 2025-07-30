@@ -36,7 +36,7 @@ export default function HomePage() {
 
         <div className="absolute inset-0 bg-[#192437]/60 z-0"></div>
 
-        <div className="relative z-10 flex flex-col items-start justify-center h-full px-10 mx-2 text-white">
+        <div className="relative z-10 flex flex-col items-start justify-center h-full px-10 mx-2 xl:ml-12 text-white">
           <p className="mb-4 text-base font-bold sm:text-lg md:text-2xl animate__animated animate__flipInX">
             DESIGN & INSTALLATION
           </p>
@@ -54,7 +54,7 @@ export default function HomePage() {
             <p className="text-lg font-[500]">Find Out More</p>
           </button>
           {/* <div className="py-10"> */}
-          <div className="absolute bottom-0 right-0 flex items-center gap-6 ">
+          <div className="absolute bottom-0 right-7 xl:right-15 flex items-center gap-6 ">
             <button
               onClick={handlePrev}
               className=" w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[60px] md:h-[60px] flex items-center justify-center bg-white rounded-full transition hover:bg-[#03837E] group mb-4 cursor-pointer"
