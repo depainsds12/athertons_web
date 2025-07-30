@@ -13,7 +13,7 @@ const ProjectDetail = () => {
   const handleNext = () => setImgIdx((prev) => (prev === images.length - 1 ? 0 : prev + 1));
 
   return (
-    <section className="w-full  bg-white flex flex-col font-Poppins w-full" aria-labelledby="careers-heading">
+    <section className="w-full  bg-white flex flex-col font-Poppins " aria-labelledby="careers-heading">
 
       {/* Banner */}
       <div
@@ -32,11 +32,11 @@ const ProjectDetail = () => {
       </div>
 
      {/* Main Content */}
-<div className="flex flex-col lg:flex-row gap-8 px-4 md:px-12 py-10 w-full text-black font-normal text-[16px] leading-[28px]">
+<div className="flex flex-col lg:flex-row gap-8 px-4 md:px-12 py-10 w-full text-black font-normal text-[16px] leading-[28px] mt-2 ">
 
   {/* Left: Image */}
   <div className="flex flex-col lg:w-1/2 w-full items-center">
-    <div className="relative w-full max-w-[420px] aspect-[4/3] overflow-hidden mb-4">
+    <div className="relative w-full max-w-[720px] aspect-[4/3] overflow-hidden mb-4">
       <img src={images[imgIdx]} alt={`Ty Menai Refurbishment ${imgIdx + 1}`} className="w-full h-full object-cover transition-all duration-300" />
       <button onClick={handlePrev} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 p-2" aria-label="Previous image">
         <span className="text-2xl text-[#192437]">&#8592;</span>
@@ -49,7 +49,7 @@ const ProjectDetail = () => {
 
   {/* Right: Project Info */}
   <div className="flex flex-col gap-2 lg:w-1/2 w-full">
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
       <div className="text-[#192437] font-semibold text-[20px]">Project Name:</div><div>Tŷ Menai Refurbishment</div>
       <div className="text-[#192437] font-semibold text-[20px]">Overall Value:</div><div>£10 million / Ty Menai Transformation</div>
       <div className="text-[#192437] font-semibold text-[20px]">Athertons project size:</div><div>£6m project</div>
@@ -120,7 +120,7 @@ const ProjectDetail = () => {
             <img src="/images/ty-3.jpg" alt="Ty Menai Refurbishment 3" className="w-full object-cover aspect-[4/3]" />
           </div>
           <div className="md:w-1/2 flex flex-col justify-center text-black font-normal text-[16px] leading-[28px] gap-4">
-            <h3 className="text-[#192437] font-bold text-[28px] mb-2">Background of the project</h3>
+            <h3 className="text-[#192437] font-semibold text-[40px] mb-2">Background of the project</h3>
             <p className='text-[#192437] font-[500]'>The project involved refurbishing a large, two-story building, approximately 20 years old, primarily used as office space and meeting rooms. The building features a steel frame, concrete floors, a steel roof, and a raised access floor on the first floor for service routing. An adjacent smaller annex building, intended for the maintenance division, was also fully refurbished.</p>
             <p>The refurbishment included a complete upgrade of all lighting, power, fire alarm, security, CCTV, electric vehicle charging, sound and lighting systems, and data infrastructure. The new lighting system is entirely LED. The existing main distribution system was retained and modified, with the UPS section and battery backups removed to accommodate new distribution cabling. </p>
           </div>

@@ -328,7 +328,7 @@ const Header = () => {
       key={label}
       to={to}
       onClick={() => setAboutDropdown(false)}
-      className={`px-4 py-4 text-[#7f8c99] hover:text-[#03837E] cursor-pointer transition-colors duration-200 ${i < arr.length - 1 ? "border-b border-[#D6D6D6]" : ""}`}
+      className={`px-4 py-4 font-[400] text-[#7f8c99] hover:text-[#03837E] cursor-pointer transition-colors duration-200 ${i < arr.length - 1 ? "border-b border-[#D6D6D6]" : ""}`}
     >
       {label}
     </Link>
@@ -374,7 +374,7 @@ const Header = () => {
       key={label}
       to={to}
       onClick={() => setServicesDropdown(false)}
-      className={`px-4 py-4 text-[#7f8c99] hover:text-[#03837E]  cursor-pointer transition-colors duration-200 ${
+      className={`px-4 py-4 font-[400] text-[#7f8c99] hover:text-[#03837E]  cursor-pointer transition-colors duration-200 ${
         i < arr.length - 1 ? "border-b border-[#D6D6D6]" : ""
       }`}
     >
@@ -414,28 +414,28 @@ const Header = () => {
                   <img
                     src="/images/facebooklogo.png"
                     alt="Facebook"
-                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] object-contain ml-2.5 mt-2.25"
+                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]  md:ml-2.5 md:mt-2.25  ml-2 mt-2 object-contain"
                   />
                 </span>
                 <span className="inline-block w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#D73F8C] flex items-center justify-center rounded-full cursor-pointer ">
                   <img
                     src="/images/instagramlogo.png"
                     alt="Instagram"
-                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] ml-2.5 mt-2.25 object-contain"
+                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] md:ml-2.5 md:mt-2.25  ml-2 mt-2 object-contain"
                   />
                 </span>
                 <span className="inline-block w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-black flex items-center justify-center rounded-full cursor-pointer">
                   <img
                     src="/images/twitterlogo.png"
                     alt="X"
-                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] ml-2.5 mt-2.25 object-contain"
+                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] md:ml-2.5 md:mt-2.25  ml-2 mt-2 object-contain"
                   />
                 </span>
                 <span className="inline-block w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#BD081C] flex items-center justify-center rounded-full cursor-pointer">
                   <img
                     src="/images/pinterestlogo.png"
                     alt="Pinterest"
-                    className="w-[22px] h-[22px] md:h-[32px] md:w-[32px] ml-1.75 mt-1.75 object-contain"
+                    className="w-[22px] h-[22px] md:h-[32px] md:w-[32px] md:ml-1.75 md:mt-1.75  ml-1.5 mt-1.5 object-contain"
                   />
                 </span>
               </div>
