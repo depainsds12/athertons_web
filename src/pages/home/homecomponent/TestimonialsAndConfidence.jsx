@@ -74,7 +74,7 @@ const TestimonialsAndConfidence = () => {
         </div>
 
         {/* Top Triangle */}
-        <div className="absolute left-0 flex-col items-start justify-start hidden sm:flex top-25">
+        <div className="animationcostume2 absolute left-0 flex-col items-start justify-start hidden sm:flex top-25">
           <img
             src={triangleb}
             alt="triangle black"
@@ -88,7 +88,7 @@ const TestimonialsAndConfidence = () => {
         </div>
 
         {/* Bottom Triangle */}
-        <div className="absolute left-0 flex-col items-start justify-start hidden xl:flex bottom-25">
+        {/* <div className="absolute left-0 flex-col items-start justify-start hidden xl:flex bottom-25">
           <img
             src={triangleb}
             alt="triangle black"
@@ -99,7 +99,7 @@ const TestimonialsAndConfidence = () => {
             alt="triangle white"
             className="w-[70px] h-[70px] object-contain -mt-6"
           />
-        </div>
+        </div> */}
       </div>
 
       {/* RIGHT SIDE */}
@@ -109,16 +109,16 @@ const TestimonialsAndConfidence = () => {
         </h2>
 
         {/**righ triangle */}
-        <div className="hidden sm:flex absolute top-1/2 right-0 transform -translate-y-1/2 flex-col items-start justify-start w-[70px] h-[70px] 2xl:w-[101px] 2xl:h-[101px]">
+        <div className="animate-bounce hidden sm:flex absolute top-1/2 right-0 transform -translate-y-1/2 flex-col items-start justify-start w-[70px] h-[70px] 2xl:w-[70px] 2xl:h-[70px]">
           <img
             src={triangleg}
             alt="triangle black"
-            className="w-[70px] xl:w-[101px] h-[70px] xl:h-[101px] object-contain"
+            className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain"
           />
           <img
             src={trianglew}
             alt="triangle white"
-            className="w-[70px] xl:w-[101px] h-[70px] xl:h-[101px] object-contain -mt-6"
+            className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain -mt-6"
           />
         </div>
 

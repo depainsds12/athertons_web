@@ -70,7 +70,7 @@ const NewandContactus = () => {
         </button>
       </div>
 
-      <div className=" sm:flex absolute top-0 right-0 flex-col items-start justify-start w-[50px] h-[50px]">
+      <div className="animate-bounce sm:flex absolute top-0 right-2 flex-col items-start justify-start w-[50px] h-[50px]">
         <img
           src={triangleg}
           alt="triangle black"
@@ -83,7 +83,7 @@ const NewandContactus = () => {
         />
       </div>
 
-      <div className=" sm:flex absolute bottom-30 left-0 flex-col items-start justify-start w-[50px] h-[50px]">
+      <div className="animate-bounce sm:flex absolute bottom-30 left-2 flex-col items-start justify-start w-[50px] h-[50px]">
         <img
           src={triangleg}
           alt="triangle black"

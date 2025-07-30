@@ -60,16 +60,16 @@ const Services = () => {
 
   return (
     <section className="relative flex flex-col items-center w-full mt-2">
-      <div className=" sm:flex absolute top-0 right-0 flex-col items-start justify-start w-[50px] h-[50px]">
-        <img
+      <div className=" sm:flex absolute top-20 right-0 flex-col items-start justify-start w-[50px] h-[50px] animate-bounce">
+        {/* <img
           src={triangleg}
           alt="triangle black"
-          className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px]  object-contain"
-        />
+          className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px] object-contain animate-bounce"
+        /> */}
         <img
           src={trianglew}
           alt="triangle white"
-          className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6"
+          className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6 animate-bounce "
         />
       </div>
       <h2 className="text-3xl md:text-[40px] font-semibold text-[#192437]  mt-10 mb-8">
@@ -159,12 +159,12 @@ const Services = () => {
         <img
           src={triangleg}
           alt="triangle black"
-          className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px]  object-contain"
+          className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px]  object-contain animate-bounce"
         />
         <img
           src={trianglew}
           alt="triangle white"
-          className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6"
+          className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6 animate-bounce"
         />
       </div>
     </section>

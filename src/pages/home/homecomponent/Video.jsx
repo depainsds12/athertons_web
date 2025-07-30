@@ -18,7 +18,7 @@ const Video = () => {
       <div className="absolute inset-0 bg-[#192437] opacity-50"></div>
 
       {/* Triangles Decorations */}
-      <div className="absolute top-0 flex flex-row items-start justify-start left-5">
+      {/* <div className="amimationleftright absolute top-0 flex flex-row items-start justify-start left-5">
         <img
           src={triangleGg}
           alt="triangle black"
@@ -29,18 +29,18 @@ const Video = () => {
           alt="triangle white"
           className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain -ml-6 xl:-ml-13 animate-pulse"
         />
-      </div>
+      </div> */}
 
-      <div className="absolute bottom-0 flex flex-row items-start justify-start right-5">
+      <div className="amimationleftright absolute bottom-0 flex flex-row items-start justify-start right-5">
         <img
           src={triangleGg}
           alt="triangle black"
-          className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain animate-pulse"
+          className="w-[70px] xl:w-[100px] h-[70px] xl:h-[100px] object-contain animate-pulse"
         />
         <img
           src={triangleWw}
           alt="triangle white"
-          className="w-[70px] xl:w-[139px] h-[70px] xl:h-[139px] object-contain -ml-6 xl:-ml-13 animate-pulse"
+          className="w-[70px] xl:w-[100px] h-[70px] xl:h-[100px] object-contain -ml-6 xl:-ml-10 animate-pulse"
         />
       </div>
 
