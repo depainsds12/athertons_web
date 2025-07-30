@@ -78,14 +78,14 @@ const Services = () => {
 
       <div
         role="tablist"
-        className="flex flex-row flex-nowrap w-full max-w-[1070px]"
+        className="flex flex-row flex-nowrap  w-[85%]  xl:w-[90%] max-w-[1600px]"
       >
         {services.map((service) => (
           <div key={service.id} className="relative flex-1">
             <button
               onClick={() => setActive(service.id)}
               className={`
-                aspect-[7/5] min-h-[40px] sm:min-h-[80px]
+               aspect-[1] sm:aspect-[243/168] min-h-[40px] sm:min-h-[70px]  md:min-h-[80px] lg:min-h-[168x]
                 border border-[#D6D6D6] cursor-pointer
                 ${
                   active === service.id
@@ -94,13 +94,13 @@ const Services = () => {
                 }
                 w-full flex items-center justify-center transition-colors
                 hover:bg-[#03837E] hover:text-white focus:outline-none
-                text-[10px] sm:text-xs md:text-sm px-1 sm:px-2 text-center
+                text-[10px] sm:text-xs md:text-sm px-1 sm:px-2 text-center 
               `}
               aria-pressed={active === service.id}
               aria-current={active === service.id ? "page" : undefined}
               role="tab"
             >
-              <span className="font-semibold animate__animated animate__zoomIn">
+              <span className="font-semibold text-[14px] sm:text-base lg:text-[24px] animate__animated my-auto py-auto animate__zoomIn">
                 {service.name}
               </span>
             </button>
@@ -135,7 +135,7 @@ const Services = () => {
         ))}
       </div>
 
-      <div className="bg-[#192437] text-white flex flex-col md:flex-row justify-center py-10 w-full max-w-[1070px]">
+      <div className="bg-[#192437] text-white flex flex-col md:flex-row justify-center py-10  w-[85%]  xl:w-[90%]   max-w-[1600px] ">
         <div className="flex flex-col w-full gap-6 px-4 md:flex-row sm:px-8">
           <div className="flex-1">
             <h3 className="text-xl font-semibold">{activeService.title}</h3>

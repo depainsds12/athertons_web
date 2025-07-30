@@ -62,7 +62,7 @@ const Footer = () => {
         <div className="flex flex-row justify-center gap-8 w-full lg:flex-row lg:flex-1">
           {/* Services */}
           <div className="flex flex-col items-start sm:items-center lg:items-start flex-1">
-            <span className="text-white font-semibold text-sm md:text-base mb-4">Our Services</span>
+            <span className="text-white font-semibold text-base md:text-[20px] mb-4">Our Services</span>
             <Link to="/services/consultancy_smartdesign" className="text-white text-sm md:text-base leading-[28px] hover:underline">Smart Design</Link>
             <Link to="/services/bms_ems_technology" className="text-white text-sm md:text-base leading-[28px] hover:underline">BMS & EMS Technology</Link>
             <Link to="/services/me_engineering" className="text-white text-sm md:text-base leading-[28px] hover:underline">M&E Engineering</Link>

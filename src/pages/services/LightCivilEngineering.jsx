@@ -1,12 +1,12 @@
-import React from "react";
+// import React from "react";
 
-const LightCivilEngineering = () => {
-  return (
-    <div>
-      <h2>Light Civil Engineering</h2>
+// const LightCivilEngineering = () => {
+//   return (
+//     <div>
+//       <h2>Light Civil Engineering</h2>
      
-    </div>
-  );
-};
+//     </div>
+//   );
+// };
 
-export default LightCivilEngineering; 
+// export default LightCivilEngineering; 

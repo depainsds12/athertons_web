@@ -437,7 +437,7 @@ const Header = () => {
                   <img
                     src="/images/facebooklogo.png"
                     alt="Facebook"
-                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] object-contain"
+                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]   object-contain"
                   />
                 </span>
                 <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-pink-100 border-[#D73F8C] flex items-center justify-center rounded-full cursor-pointer ">
@@ -458,7 +458,7 @@ const Header = () => {
                   <img
                     src="/images/pinterestlogo.png"
                     alt="Pinterest"
-                    className="w-[22px] h-[22px] md:h-[32px] md:w-[32px] object-contain"
+                    className="w-[22px] h-[22px] md:h-[32px] md:w-[32px]  object-contain"
                   />
                 </span>
               </div>
