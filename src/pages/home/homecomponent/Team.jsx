@@ -86,29 +86,29 @@ const TeamPage = () => {
         The Team
       </h2>
 
-      <div className="sm:flex absolute top-7 right-2 flex-col items-start justify-start w-[70px] h-[70px] xl:w-[101px] xl:h-[101px]">
+      <div className="animationcostume sm:flex absolute top-7 right-10 flex-col items-start justify-start w-[70px] h-[70px] xl:w-[70px] xl:h-[70px]">
         <img
           src={triangleg}
           alt="triangle black"
-          className="w-[70px] h-[70px] xl:w-[101px] xl:h-[101px] object-contain"
+          className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain"
         />
         <img
           src={trianglew}
           alt="triangle white"
-          className="w-[70px] h-[70px] xl:w-[101px] xl:h-[101px] object-contain -mt-6 xl:-mt-9.5"
+          className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain -mt-6 xl:-mt-9.5"
         />
       </div>
 
-      <div className="sm:flex absolute bottom-[100px] left-2 flex-col items-start justify-start w-[70px] h-[70px] xl:w-[101px] xl:h-[101px]">
+      <div className="animationcostume2 sm:flex absolute bottom-[100px] left-10 flex-col items-start justify-start w-[70px] h-[70px] xl:w-[80px] xl:h-[80px]">
         <img
           src={triangleg}
           alt="triangle black"
-          className="w-[70px] h-[70px] xl:w-[101px] xl:h-[101px] object-contain"
+          className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain"
         />
         <img
           src={trianglew}
           alt="triangle white"
-          className="w-[70px] h-[70px] xl:w-[101px] xl:h-[101px] object-contain -mt-6 xl:-mt-9.5"
+          className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain -mt-6 xl:-mt-9.5"
         />
       </div>
 

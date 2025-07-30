@@ -85,11 +85,11 @@ const Commercial = () => {
             </li>
           ))}
         </ul>
-        <div className="hidden xl:flex absolute top-10 right-0 flex-col items-start justify-start w-[50px] h-[50px] mr-0.5">
+        <div className="animationcostume hidden xl:flex absolute top-10 right-10 flex-col items-start justify-start w-[50px] h-[50px] mr-0.5">
           <img
             src={triangleg}
             alt="triangle black"
-            className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px]  object-contain"
+            className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px]  object-contain "
           />
           <img
             src={trianglew}
@@ -98,7 +98,7 @@ const Commercial = () => {
           />
         </div>
       </div>
-      <div className="hidden xl:flex absolute bottom-30 left-0 flex-col items-start justify-start w-[50px] h-[50px] mr-0.5">
+      <div className="animationcostume2 hidden xl:flex absolute bottom-30 left-10 flex-col items-start justify-start w-[50px] h-[50px] mr-0.5">
         <img
           src={triangleg}
           alt="triangle black"
