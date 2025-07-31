@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import gasSafe from "../../../assets/aboutus/gasSafe.png";
 import chasLogo from "../../../assets/aboutus/chasLogo.png";
 import BESAlogo from "../../../assets/aboutus/BESAlogo.png";
@@ -24,23 +24,22 @@ const Accreditation = () => {
         Accreditation & Memberships
       </p>
 
-      <div className="flex flex-wrap w-full ">
+      <div className="flex flex-wrap w-full max-w-[1800px] mx-auto justify-center">
         {images.map((img, index) => (
           <div
             key={index}
-            className="flex-1  flex justify-center items-center py-4"
+            className="w-1/2 sm:w-1/2 md:w-1/3 lg:flex-1 flex justify-center items-center py-4"
           >
-            <div className=' bg-[#FFFFFF] w-[140px] h-[78px]'>
-            <img
-              src={img}
-              alt="Accreditation Logo"
-              className="object-contain p-1.75"
-              style={{
-                width: '140px',
-               
-                height: '78px',
-              }}
-            />
+            <div className="bg-[#FFFFFF] w-[140px] h-[78px] flex items-center justify-center m-1">
+              <img
+                src={img}
+                alt="Accreditation Logo"
+                className="object-contain "
+                style={{
+                  width: "140px",
+                  height: "78px",
+                }}
+              />
             </div>
           </div>
         ))}
