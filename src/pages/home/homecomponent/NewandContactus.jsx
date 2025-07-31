@@ -4,7 +4,7 @@ import trianglew from "../../../assets/trianglew.svg";
 const NewandContactus = () => {
   return (
     <section
-      className=" relative flex flex-col xl:flex-row w-full justify-between px-6 xl:px-[101px] pb-12 mt-16"
+      className=" relative flex flex-col xl:flex-row w-full justify-between px-6 xl:px-[101px] pb-12 mt-16 max-w-[1700px] mx-auto"
       aria-label="News and Contact Section"
     >
       {/* Left Section: News & Insights */}
@@ -64,7 +64,7 @@ const NewandContactus = () => {
         <button
           type="button"
           aria-label="View All News and Insights"
-          className="w-full xl:w-[511px] h-[48px] bg-[#03837E] text-white cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] font-poppins font-medium text-[18px] text-center mt-8"
+          className="w-full  xl:w-[511px] h-[48px] bg-[#03837E] text-white cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] font-poppins font-medium text-[18px] text-center mt-8"
         >
           View All News & Insights
         </button>
@@ -99,14 +99,14 @@ const NewandContactus = () => {
       {/* Right Section: Contact Us */}
       <div className="flex flex-col items-center w-full mt-12 xl:w-1/2 xl:mt-0 xl:items-end">
         <h2
-          className="font-poppins font-semibold text-[#192437] text-[28px] md:text-[32px] xl:text-[36px] leading-[100%] mb-8 self-center xl:self-start xl:ml-6"
+          className="font-poppins font-semibold text-[#192437] text-[28px] md:text-[32px] xl:text-[36px] leading-[100%] mb-8 self-center xl:self-center xl:ml-6"
           aria-label="Contact Us"
         >
           Contact Us
         </h2>
         <form
           aria-label="Contact Us Form"
-          className="bg-[#F4F4F5] p-6 md:p-8 w-full max-w-[500px] flex flex-col gap-4"
+          className="bg-[#F4F4F5] p-6 md:p-8 w-full max-w-[600px] flex flex-col gap-4"
           onSubmit={(e) => e.preventDefault()}
         >
           <div className="flex gap-4">
