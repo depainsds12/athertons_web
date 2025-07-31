@@ -6,10 +6,7 @@ import jimmy from "../../../assets/jimmy.jpg";
 import karen from "../../../assets/karen.jpg";
 import kieron from "../../../assets/kieron.jpg";
 import nick from "../../../assets/nick.jpg";
-import {
-  default as ian,
-  default as noimage,
-} from "../../../assets/noimage.png";
+import { default as ian, default as noimage } from "../../../assets/noimage.png";
 import paul from "../../../assets/paul.png";
 import robbie from "../../../assets/robbie.jpg";
 import ronson from "../../../assets/ronson.jpg";
@@ -82,37 +79,22 @@ const teamData = {
 const TeamPage = () => {
   return (
     <div className="bg-[#192437] relative text-white w-full flex flex-col items-center py-12 px-6 mx-auto">
-      <h2 className="text-white font-semibold text-4xl xl:text-[40px] mb-10">
-        The Team
-      </h2>
+      <h2 className="text-white font-semibold text-4xl xl:text-[40px] mb-10">The Team</h2>
 
+      {/* Triangle Top Right */}
       <div className="animationcostume sm:flex absolute top-7 right-10 flex-col items-start justify-start w-[70px] h-[70px] xl:w-[70px] xl:h-[70px]">
-        <img
-          src={triangleg}
-          alt="triangle black"
-          className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain"
-        />
-        <img
-          src={trianglew}
-          alt="triangle white"
-          className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain -mt-6 xl:-mt-9.5"
-        />
+        <img src={triangleg} alt="triangle black" className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain" />
+        <img src={trianglew} alt="triangle white" className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain -mt-6 xl:-mt-9.5" />
       </div>
 
+      {/* Triangle Bottom Left */}
       <div className="animationcostume2 sm:flex absolute bottom-[100px] left-10 flex-col items-start justify-start w-[70px] h-[70px] xl:w-[80px] xl:h-[80px]">
-        <img
-          src={triangleg}
-          alt="triangle black"
-          className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain"
-        />
-        <img
-          src={trianglew}
-          alt="triangle white"
-          className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain -mt-6 xl:-mt-9.5"
-        />
+        <img src={triangleg} alt="triangle black" className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain" />
+        <img src={trianglew} alt="triangle white" className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain -mt-6 xl:-mt-9.5" />
       </div>
 
-      <div className="flex flex-col justify-center mb-16 md:flex-row gap-15 lg:gap-28">
+      {/* Top Team */}
+      <div className="flex flex-col items-center justify-center mb-16 md:flex-row gap-10 lg:gap-28 max-w-[1800px] mx-auto">
         {teamData.topTeam.map((person, idx) => (
           <div className="flex flex-col items-center" key={idx}>
             <div className="overflow-hidden rounded-full group">
@@ -120,56 +102,48 @@ const TeamPage = () => {
                 src={person.img}
                 alt={person.name}
                 className="animate__animated animate__zoomIn hover:opacity-80 rounded-full 
-                sm:w-[150px] sm:h-[150px]  
-                md:w-[200px] md:h-[200px] 
-                lg:w-[250px] lg:h-[250px] 
-                xl:w-[300px] xl:h-[300px] 
-                object-cover 
+                w-[160px] h-[160px] md:w-[200px] md:h-[200px] 
+                lg:w-[240px] lg:h-[240px] xl:w-[300px] xl:h-[300px] 
+                2xl:w-[350px] 2xl:h-[350px] object-cover 
                 transition-transform duration-500 ease-in-out 
-                w-[200px] h-[200px] 
                 group-hover:scale-105"
               />
             </div>
-
-            <h3 className="mt-4 text-white font-semibold text-[32px]">
-              {person.name}
-            </h3>
-            <p className="text-[18px] italic font-medium text-white">
-              {person.role}
-            </p>
+            <h3 className="mt-4 font-semibold text-[24px] sm:text-[28px] md:text-[32px] text-center">{person.name}</h3>
+            <p className="text-[16px] sm:text-[18px] italic font-medium text-center">{person.role}</p>
           </div>
         ))}
       </div>
 
-      <div className="w-full border-t border-[#6A778D] pt-10">
-        <h2 className="text-white font-semibold text-center mx-auto text-4xl xl:text-[40px] mb-8">
+      {/* Head Office */}
+      <div className="w-[92%] px-4 md:px-10 border-t border-[#6A778D] pt-10 max-w-[1800px]">
+        <h2 className="text-white font-semibold text-center text-4xl xl:text-[40px] mb-8">
           Head Office Team
         </h2>
 
-        <div className="flex flex-wrap w-full">
+        <div className="flex flex-col lg:flex-row lg:flex-wrap w-full">
           {teamData.sections.map((section, idx) => {
             const isRightCol = idx % 2 === 1;
             const isLastRow = idx >= teamData.sections.length - 2;
 
             return (
               <div
-                key={idx}
-                className={`w-full text-center lg:tex-left md:w-1/2 p-2 lg:p-8 ${
-                  isRightCol ? "md:border-l" : ""
-                } ${!isLastRow ? "border-b" : ""} border-[#6A778D]`}
-              >
-                <h3 className="text-[32px] font-semibold mb-6">
-                  {section.title}
-                </h3>
+  key={idx}
+  className={`w-full lg:w-1/2 px-4 py-8 
+    ${isRightCol ? "lg:border-l lg:pl-10 2xl:pl-22" : "2xl:pl-5"} 
+    ${section.title === "PDQ Team" ? "border-b lg:border-b-0" : !isLastRow ? "border-b" : ""} 
+    border-[#6A778D] text-center lg:text-left`}
+>
+
+                <h3 className="text-[28px] font-semibold mb-6">{section.title}</h3>
 
                 <div
                   className={`${
                     section.title === "Estimators"
-                      ? "flex flex-row gap-4 2xl:gap-6 justify-center sm:justify-start flex-wrap"
-                      : section.title === "PDQ Team" ||
-                        section.title === "Operations Team"
-                      ? "flex flex-row gap-6 2xl:gap-14 justify-center sm:justify-start flex-wrap"
-                      : "flex flex-wrap flex-col sm:flex-row gap-6 2xl:gap-8"
+                      ? "flex flex-wrap justify-center lg:justify-start gap-4 2xl:gap-6"
+                      : section.title === "PDQ Team" || section.title === "Operations Team"
+                      ? "flex flex-wrap justify-center lg:justify-start gap-8 2xl:gap-16"
+                      : "flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-6 2xl:gap-10"
                   }`}
                 >
                   {section.members.map((member, i) => (
@@ -179,32 +153,16 @@ const TeamPage = () => {
                           src={member.img}
                           alt={member.name}
                           className={`rounded-full object-cover hover:opacity-80 transition-transform duration-300 ease-in-out group-hover:scale-105 ${
-                            section.title === "Estimators" ||
-                            "PDQ Team" ||
-                            "Operations Team"
-                              ? "w-[100px] h-[100px]"
-                              : "w-[130px] h-[130px]"
+                            section.title === "Estimators"
+                              ? "w-[100px] h-[100px] 2xl:w-[130px] 2xl:h-[130px]"
+                              : "w-[130px] h-[130px] 2xl:w-[150px] 2xl:h-[150px]"
                           }`}
                         />
                       </div>
-                      <h4
-                        className={`text-[20px] font-semibold text-center break-words ${
-                          section.title === "Estimators" ||
-                          "PDQ Team" ||
-                          "Operations Team"
-                            ? "max-w-[100px]"
-                            : "max-w-[130px]"
-                        }`}
-                      >
+                      <h4 className="text-[18px] sm:text-[20px] font-semibold text-center break-words mt-2">
                         {member.name}
                       </h4>
-                      <p
-                        className={`italic font-medium mb-4 pb-4 text-[12px] text-center w-full ${
-                          section.title === "Operations Team"
-                            ? "max-w-[100px]"
-                            : "w-full"
-                        } sm:max-w-[150px]`}
-                      >
+                      <p className="italic font-medium text-[12px] text-center max-w-[150px] mt-1 mb-4">
                         {member.role}
                       </p>
                     </div>
@@ -216,7 +174,7 @@ const TeamPage = () => {
         </div>
       </div>
 
-      <button className="lg:mt-12 mt-5 bg-[#03837E] text-white px-8 py-3  font-semibold   cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E]">
+      <button className="mt-12 bg-[#03837E] text-white px-8 py-3 font-semibold hover:border hover:border-[#03837E] hover:bg-[#FFFFFF] hover:text-[#03837E]">
         View All Teams
       </button>
     </div>
