@@ -30,6 +30,7 @@ const Accreditation = () => {
             key={index}
             className="flex-1  flex justify-center items-center py-4"
           >
+            <div className=' bg-[#FFFFFF] w-[140px] h-[78px]'>
             <img
               src={img}
               alt="Accreditation Logo"
@@ -40,6 +41,7 @@ const Accreditation = () => {
                 height: '78px',
               }}
             />
+            </div>
           </div>
         ))}
       </div>
