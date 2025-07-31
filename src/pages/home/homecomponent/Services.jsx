@@ -59,7 +59,7 @@ const Services = () => {
   const activeService = services.find((service) => service.id === active);
 
   return (
-    <section className="relative flex flex-col items-center w-full mt-2">
+    <section className="relative flex flex-col items-center w-full mt-2 sm:mb-15">
       <div className=" sm:flex absolute top-20 right-0 flex-col items-start justify-start w-[50px] h-[50px] animate-bounce">
         {/* <img
           src={triangleg}
@@ -78,14 +78,15 @@ const Services = () => {
 
       <div
         role="tablist"
-        className="flex flex-row flex-nowrap  w-[85%]  xl:w-[90%] max-w-[1600px]"
+        className="flex flex-row flex-nowrap   w-full sm:w-[85%]  xl:w-[90%] max-w-[1600px]"
       >
         {services.map((service) => (
           <div key={service.id} className="relative flex-1">
             <button
               onClick={() => setActive(service.id)}
               className={`
-               aspect-[1] sm:aspect-[243/168] min-h-[40px] sm:min-h-[70px]  md:min-h-[80px] lg:min-h-[168x]
+             h-[70px] sm:h-[90px] md:h-[110px] lg:h-[130px] xl:h-[168px]
+
                 border border-[#D6D6D6] cursor-pointer
                 ${
                   active === service.id
@@ -100,7 +101,7 @@ const Services = () => {
               aria-current={active === service.id ? "page" : undefined}
               role="tab"
             >
-              <span className="font-semibold text-[14px] sm:text-base lg:text-[24px] animate__animated my-auto py-auto animate__zoomIn">
+              <span className="font-semibold   sm:text-base lg:text-[18px]  xl:text-[24px] animate__animated  animate__zoomIn">
                 {service.name}
               </span>
             </button>
@@ -135,27 +136,30 @@ const Services = () => {
         ))}
       </div>
 
-      <div className="bg-[#192437] text-white flex flex-col md:flex-row justify-center py-10  w-[85%]  xl:w-[90%]   max-w-[1600px] ">
+      <div className="bg-[#192437] text-white flex flex-col md:flex-row justify-center py-10  w-full sm:w-[85%] xl:w-[90%]   max-w-[1600px] ">
         <div className="flex flex-col w-full gap-6 px-4 md:flex-row sm:px-8">
           <div className="flex-1">
-            <h3 className="text-xl font-semibold">{activeService.title}</h3>
-            <p className="italic">{activeService.subtitle}</p>
-            <p className="mt-2 text-sm">{activeService.description}</p>
-            <button className="mt-4 bg-[#03837E] px-4 py-2 text-white cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] ">
+            <h3 className="text-xl  lg:text-[28px]   xl:text-[36px] mt-1 font-semibold">{activeService.title}</h3>
+            <p className="italic  font-[600] lg:text-[18px] xl:text-[20px] mt-3.5">{activeService.subtitle}</p>
+    <p className="mt-2.5 xl:mt-3.5  font-normal text-[16px] leading-[28px] tracking-[0]">
+  {activeService.description}
+</p>
+
+            <button className="mt-10 bg-[#03837E] px-4 py-2 text-white cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E]  ">
               Read More
             </button>
           </div>
-          <div className="flex items-center justify-center overflow-hidden group">
+          <div className="flex items-center justify-end overflow-hidden group">
             <img
               src={activeService.image}
               alt={`${activeService.title} Illustration`}
-              className="w-[200px] sm:w-[250px] lg:w-[464px] lg:h-[344px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+              className=" aspect-[464/344] w-[200px] md:w-[310px]  lg:w-[400px] xl:w-[464px] xl:h-[344px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
             />
           </div>
         </div>
       </div>
 
-      <div className="hidden xl:flex absolute bottom-30 left-0 flex-col items-start justify-start w-[50px] h-[50px]">
+      <div className=" hidden sm:flex absolute bottom-30 left-0 flex-col items-start justify-start w-[50px] h-[50px]">
         <img
           src={triangleg}
           alt="triangle black"
