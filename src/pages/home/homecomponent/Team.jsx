@@ -6,7 +6,10 @@ import jimmy from "../../../assets/jimmy.jpg";
 import karen from "../../../assets/karen.jpg";
 import kieron from "../../../assets/kieron.jpg";
 import nick from "../../../assets/nick.jpg";
-import { default as ian, default as noimage } from "../../../assets/noimage.png";
+import {
+  default as ian,
+  default as noimage,
+} from "../../../assets/noimage.png";
 import paul from "../../../assets/paul.png";
 import robbie from "../../../assets/robbie.jpg";
 import ronson from "../../../assets/ronson.jpg";
@@ -79,18 +82,36 @@ const teamData = {
 const TeamPage = () => {
   return (
     <div className="bg-[#192437] relative text-white w-full flex flex-col items-center py-12 px-6 mx-auto">
-      <h2 className="text-white font-semibold text-4xl xl:text-[40px] mb-10">The Team</h2>
+      <h2 className="text-white font-semibold text-4xl xl:text-[40px] mb-10">
+        The Team
+      </h2>
 
       {/* Triangle Top Right */}
       <div className="animationcostume sm:flex absolute top-7 right-10 flex-col items-start justify-start w-[70px] h-[70px] xl:w-[70px] xl:h-[70px]">
-        <img src={triangleg} alt="triangle black" className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain" />
-        <img src={trianglew} alt="triangle white" className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain -mt-6 xl:-mt-9.5" />
+        <img
+          src={triangleg}
+          alt="triangle black"
+          className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain"
+        />
+        <img
+          src={trianglew}
+          alt="triangle white"
+          className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain -mt-6 xl:-mt-9.5"
+        />
       </div>
 
       {/* Triangle Bottom Left */}
       <div className="animationcostume2 sm:flex absolute bottom-[100px] left-10 flex-col items-start justify-start w-[70px] h-[70px] xl:w-[80px] xl:h-[80px]">
-        <img src={triangleg} alt="triangle black" className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain" />
-        <img src={trianglew} alt="triangle white" className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain -mt-6 xl:-mt-9.5" />
+        <img
+          src={triangleg}
+          alt="triangle black"
+          className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain"
+        />
+        <img
+          src={trianglew}
+          alt="triangle white"
+          className="w-[70px] h-[70px] xl:w-[80px] xl:h-[80px] object-contain -mt-6 xl:-mt-9.5"
+        />
       </div>
 
       {/* Top Team */}
@@ -109,8 +130,12 @@ const TeamPage = () => {
                 group-hover:scale-105"
               />
             </div>
-            <h3 className="mt-4 font-semibold text-[24px] sm:text-[28px] md:text-[32px] text-center">{person.name}</h3>
-            <p className="text-[16px] sm:text-[18px] italic font-medium text-center">{person.role}</p>
+            <h3 className="mt-4 font-semibold text-[24px] sm:text-[28px] md:text-[32px] text-center">
+              {person.name}
+            </h3>
+            <p className="text-[16px] sm:text-[18px] italic font-medium text-center">
+              {person.role}
+            </p>
           </div>
         ))}
       </div>
@@ -128,20 +153,28 @@ const TeamPage = () => {
 
             return (
               <div
-  key={idx}
-  className={`w-full lg:w-1/2 px-4 py-8 
+                key={idx}
+                className={`w-full lg:w-1/2 px-4 py-8 
     ${isRightCol ? "lg:border-l lg:pl-10 2xl:pl-22" : "2xl:pl-5"} 
-    ${section.title === "PDQ Team" ? "border-b lg:border-b-0" : !isLastRow ? "border-b" : ""} 
+    ${
+      section.title === "PDQ Team"
+        ? "border-b lg:border-b-0"
+        : !isLastRow
+        ? "border-b"
+        : ""
+    } 
     border-[#6A778D] text-center lg:text-left`}
->
-
-                <h3 className="text-[28px] font-semibold mb-6">{section.title}</h3>
+              >
+                <h3 className="text-[28px] font-semibold mb-6">
+                  {section.title}
+                </h3>
 
                 <div
                   className={`${
                     section.title === "Estimators"
                       ? "flex flex-wrap justify-center lg:justify-start gap-4 2xl:gap-6"
-                      : section.title === "PDQ Team" || section.title === "Operations Team"
+                      : section.title === "PDQ Team" ||
+                        section.title === "Operations Team"
                       ? "flex flex-wrap justify-center lg:justify-start gap-8 2xl:gap-16"
                       : "flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-6 2xl:gap-10"
                   }`}
@@ -174,7 +207,7 @@ const TeamPage = () => {
         </div>
       </div>
 
-      <button className="mt-12 bg-[#03837E] text-white px-8 py-3 font-semibold hover:border hover:border-[#03837E] hover:bg-[#FFFFFF] hover:text-[#03837E]">
+      <button className="mt-12 bg-[#03837E] text-white px-8 py-3 font-semibold hover:border hover:border-[#03837E] hover:bg-[#FFFFFF] hover:text-[#03837E] cursor-pointer">
         View All Teams
       </button>
     </div>

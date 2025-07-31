@@ -50,7 +50,7 @@ const TestimonialsAndConfidence = () => {
     <section className="relative flex flex-col w-full lg:flex-row font-poppins">
       {/* LEFT SIDE */}
       <div className="lg:w-1/2 bg-[#03837E] text-white px-6 xl:px-20 py-10 space-y-8 relative z-10">
-        <h2 className="text-2xl font-semibold">Building Confidence</h2>
+        <h2 className="text-[28px] font-semibold">Building Confidence</h2>
         <div className="relative group w-[90%] mx-auto max-w-[600px] overflow-hidden">
           <img
             src="/images/building.jpg"
@@ -61,7 +61,6 @@ const TestimonialsAndConfidence = () => {
             Founded In <br /> 1981
           </div>
         </div>
-
 
         <div className="flex flex-col space-y-6">
           {leftContent.map((item, idx) => (
@@ -82,11 +81,12 @@ const TestimonialsAndConfidence = () => {
                 </svg>
                 {item.title}
               </h3>
-              <p className=" mt-2 text-base leading-[28px] text-white">{item.description}</p>
+              <p className=" mt-2 text-base leading-[28px] text-white">
+                {item.description}
+              </p>
             </article>
           ))}
         </div>
-
 
         {/* Top Triangle */}
         <div className="animationcostume2 absolute left-0 flex-col items-start justify-start hidden sm:flex top-25">
@@ -119,7 +119,7 @@ const TestimonialsAndConfidence = () => {
 
       {/* RIGHT SIDE */}
       <div className="lg:w-1/2 bg-[#F4F4F5] px-6 xl:px-20 py-10 flex flex-col space-y-6 relative">
-        <h2 className="text-[#192437] text-2xl font-semibold">
+        <h2 className="text-[#192437] text-[28px] font-semibold">
           Client Testimonials
         </h2>
 

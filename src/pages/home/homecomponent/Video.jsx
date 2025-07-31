@@ -44,7 +44,7 @@ const Video = () => {
         />
       </div>
 
-       <div className="amimationrightleft absolute top-0 flex flex-row items-start justify-start left-5">
+      <div className="amimationrightleft absolute top-0 flex flex-row items-start justify-start left-5">
         <img
           src={triangleGg}
           alt="triangle black"
@@ -65,16 +65,16 @@ const Video = () => {
       {/* Play Button */}
       <div className="absolute inset-0 flex items-center justify-center">
         {/* Ring effect */}
-        <span className="absolute w-20 h-20 rounded-full border-4 border-[#03837E] animate-ping z-0"></span>
+        <span className="absolute w-20 h-20 rounded-full border-12 border-white animate-ping z-0"></span>
 
         {/* Actual Play Button */}
         <button
           aria-label="Play Ty Menai Project Video"
-          className="relative z-10 w-16 h-16 bg-[#03837E] rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
+          className="relative z-10 w-16 h-16 lg:w-[110px] lg:h-[110px] bg-[#03837E] rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer border-4 border-white"
         >
           <svg
-            width="24"
-            height="24"
+            width="47"
+            height="41"
             viewBox="0 0 24 24"
             fill="white"
             xmlns="http://www.w3.org/2000/svg"
