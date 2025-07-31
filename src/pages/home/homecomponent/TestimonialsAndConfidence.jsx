@@ -51,41 +51,41 @@ const TestimonialsAndConfidence = () => {
       {/* LEFT SIDE */}
       <div className="lg:w-1/2 bg-[#03837E] text-white px-6 xl:px-20 py-10 space-y-8 relative z-10">
         <h2 className="text-2xl font-semibold">Building Confidence</h2>
-      <div className="relative group w-[90%] mx-auto max-w-[600px] overflow-hidden">
-  <img
-    src="/images/building.jpg"
-    alt="Modern Building"
-    className="aspect-[518/392] w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-  />
-  <div className="absolute top-4 left-4 bg-white px-4 py-2 text-[#03837E] text-[20px] font-semibold">
-    Founded In <br /> 1981
-  </div>
-</div>
-
-
-       <div className="flex flex-col space-y-6">
-  {leftContent.map((item, idx) => (
-    <article key={idx} className="flex flex-col">
-      <h3 className="text-[20px] font-semibold text-white flex items-center gap-2 ">
-        <svg
-          width="13"
-          height="13"
-          viewBox="0 0 13 13"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="flex-shrink-0"
-        >
-          <path
-            d="M6.5 0L12.1292 3.25V9.75L6.5 13L0.870835 9.75V3.25L6.5 0Z"
-            fill="white"
+        <div className="relative group w-[90%] mx-auto max-w-[600px] overflow-hidden">
+          <img
+            src="/images/building.jpg"
+            alt="Modern Building"
+            className="aspect-[518/392] w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
           />
-        </svg>
-        {item.title}
-      </h3>
-      <p className=" mt-2 text-base leading-[28px] text-white">{item.description}</p>
-    </article>
-  ))}
-</div>
+          <div className="absolute top-4 left-4 bg-white px-4 py-2 text-[#03837E] text-[20px] font-semibold">
+            Founded In <br /> 1981
+          </div>
+        </div>
+
+
+        <div className="flex flex-col space-y-6">
+          {leftContent.map((item, idx) => (
+            <article key={idx} className="flex flex-col">
+              <h3 className="text-[20px] font-semibold text-white flex items-center gap-2 ">
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 13 13"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-shrink-0"
+                >
+                  <path
+                    d="M6.5 0L12.1292 3.25V9.75L6.5 13L0.870835 9.75V3.25L6.5 0Z"
+                    fill="white"
+                  />
+                </svg>
+                {item.title}
+              </h3>
+              <p className=" mt-2 text-base leading-[28px] text-white">{item.description}</p>
+            </article>
+          ))}
+        </div>
 
 
         {/* Top Triangle */}

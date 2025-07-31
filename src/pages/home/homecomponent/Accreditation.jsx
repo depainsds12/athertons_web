@@ -30,7 +30,7 @@ const Accreditation = () => {
             key={index}
             className="w-1/2 sm:w-1/2 md:w-1/3 lg:flex-1 flex justify-center items-center py-4"
           >
-            <div className="bg-[#FFFFFF] w-[140px] h-[78px] flex items-center justify-center m-1">
+            <div className="w-[140px] h-[78px] flex items-center justify-center m-1">
               <img
                 src={img}
                 alt="Accreditation Logo"
