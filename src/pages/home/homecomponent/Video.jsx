@@ -4,7 +4,7 @@ import triangleWw from "../../../assets/triangleWw.svg";
 const Video = () => {
   return (
     <section
-      className="relative w-full  mx-auto h-[278px] md:h-[346px] overflow-hidden border border-[#D6D6D6]"
+      className="relative w-full  mx-auto min-h-[278px] aspect-[1366/515]  max-h-[600px] overflow-hidden border border-[#D6D6D6]"
       aria-label="Ty Menai Project Video"
     >
       {/* Thumbnail Image */}
@@ -45,7 +45,7 @@ const Video = () => {
       </div>
 
       {/* Text */}
-      <h2 className="absolute top-[25%] left-1/2 transform -translate-x-1/2 text-white font-poppins font-semibold text-lg md:text-xl">
+      <h2 className="absolute top-[25%] left-1/2 transform -translate-x-1/2 text-white  font-semibold text-lg md:text-[40px]">
         Ty Menai Project Video
       </h2>
 

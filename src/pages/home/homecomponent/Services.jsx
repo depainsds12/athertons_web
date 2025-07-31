@@ -153,7 +153,7 @@ const Services = () => {
             <img
               src={activeService.image}
               alt={`${activeService.title} Illustration`}
-              className=" aspect-[464/344] w-[200px] md:w-[310px]  lg:w-[400px] xl:w-[464px] xl:h-[344px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+              className=" aspect-[464/344] w-[300px] md:w-[310px]  lg:w-[400px] xl:w-[464px] xl:h-[344px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
             />
           </div>
         </div>
