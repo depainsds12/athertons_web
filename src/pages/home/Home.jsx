@@ -51,14 +51,14 @@ export default function HomePage() {
         const response = await getAxios().get(getHomePage);
 
         // Process the data to include full image URLs
-        const processedData =
-          response?.data?.data?.services?.map((service) => ({
-            ...service,
-            // Add your base URL here (replace with your actual base URL)
-            image: `https://athertonsweb.sdssoftltd.co.uk/admin/api/${service.image}`,
-          })) || [];
+        // const processedData =
+        //   response?.data?.data?.services?.map((service) => ({
+        //     ...service,
+        //     // Add your base URL here (replace with your actual base URL)
+        //     image: `https://athertonsweb.sdssoftltd.co.uk/admin/api/${service.image}`,
+        //   })) || [];
 
-        setServicesData(processedData);
+        setServicesData(response?.data?.data?.services);
       } catch (error) {
         console.error("Failed to fetch Home API:", error);
       }

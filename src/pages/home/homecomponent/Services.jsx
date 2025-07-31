@@ -18,9 +18,9 @@ const Services = ({ servicesData = [] }) => {
   if (!servicesData.length) {
     return (
       <section className="relative flex flex-col items-center w-full mt-2 sm:mb-15">
-        <div className="text-center py-10">
+        {/* <div className="text-center py-10">
           <p>No services data available</p>
-        </div>
+        </div> */}
       </section>
     );
   }
@@ -131,7 +131,7 @@ const Services = ({ servicesData = [] }) => {
           <div className="flex items-center justify-end overflow-hidden group">
             {activeService.image ? (
               <img
-                src={activeService.image}
+                // src={activeService.image}
                 alt={`${activeService.title} Illustration`}
                 className="aspect-[464/344] w-[200px] md:w-[310px] lg:w-[400px] xl:w-[464px] xl:h-[344px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                 onError={(e) => {
