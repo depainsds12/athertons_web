@@ -24,7 +24,7 @@ const Accreditation = () => {
         Accreditation & Memberships
       </p>
 
-      <div className="flex flex-wrap w-full ">
+      <div className="flex flex-wrap w-full max-w-[1800px] mx-auto ">
         {images.map((img, index) => (
           <div
             key={index}

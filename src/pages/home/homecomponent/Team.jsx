@@ -112,7 +112,7 @@ const TeamPage = () => {
         />
       </div>
 
-      <div className="flex flex-col justify-center mb-16 md:flex-row gap-15 lg:gap-28">
+      <div className="flex flex-col justify-center mb-16 md:flex-row gap-15 lg:gap-28 max-w-[1800px] mx-auto">
         {teamData.topTeam.map((person, idx) => (
           <div className="flex flex-col items-center" key={idx}>
             <div className="overflow-hidden rounded-full group">
@@ -122,8 +122,9 @@ const TeamPage = () => {
                 className="animate__animated animate__zoomIn hover:opacity-80 rounded-full 
                 sm:w-[150px] sm:h-[150px]  
                 md:w-[200px] md:h-[200px] 
-                lg:w-[250px] lg:h-[250px] 
+                lg:w-[240px] lg:h-[240px] 
                 xl:w-[300px] xl:h-[300px] 
+                2xl:w-[350px] 2xl:h-[350px]
                 object-cover 
                 transition-transform duration-500 ease-in-out 
                 w-[200px] h-[200px] 
@@ -141,23 +142,24 @@ const TeamPage = () => {
         ))}
       </div>
 
-      <div className="w-full border-t border-[#6A778D] pt-10">
+      <div className="w-[90%] max-w-[1800px] mx-auto border-t border-[#6A778D] pt-10">
         <h2 className="text-white font-semibold text-center mx-auto text-4xl xl:text-[40px] mb-8">
           Head Office Team
         </h2>
 
-        <div className="flex flex-wrap w-full">
+        <div className="flex flex-wrap w-full max-w-[1800px] mx-auto">
           {teamData.sections.map((section, idx) => {
             const isRightCol = idx % 2 === 1;
             const isLastRow = idx >= teamData.sections.length - 2;
 
             return (
-              <div
-                key={idx}
-                className={`w-full md:w-1/2 p-8 ${
-                  isRightCol ? "md:border-l" : ""
-                } ${!isLastRow ? "border-b" : ""} border-[#6A778D]`}
-              >
+            <div
+  key={idx}
+  className={`w-[90%] max-w-[1800px] md:w-1/2 2xl:pl-6 py-8 ${
+    isRightCol ? "md:border-l md:pl-2 xl:pl-10 2xl:pl-25" : ""
+  } ${!isLastRow ? "border-b" : ""} border-[#6A778D]`}
+>
+
                 <h3 className="text-[32px] font-semibold mb-6">
                   {section.title}
                 </h3>
@@ -165,11 +167,11 @@ const TeamPage = () => {
                 <div
                   className={`${
                     section.title === "Estimators"
-                      ? "flex flex-row gap-4 2xl:gap-6 justify-start flex-wrap"
+                      ? "flex flex-row gap-4 2xl:gap-6 justify-center  md:justify-start flex-wrap"
                       : section.title === "PDQ Team" ||
                         section.title === "Operations Team"
-                      ? "flex flex-row gap-12 2xl:gap-14 justify-start flex-wrap"
-                      : "flex flex-wrap gap-6 2xl:gap-8"
+                      ? "flex flex-row gap-12 2xl:gap-16 md:justify-start flex-wrap"
+                      : "flex flex-wrap gap-6 2xl:gap-10"
                   }`}
                 >
                   {section.members.map((member, i) => (
@@ -180,8 +182,8 @@ const TeamPage = () => {
                           alt={member.name}
                           className={`rounded-full object-cover hover:opacity-80 transition-transform duration-300 ease-in-out group-hover:scale-105 ${
                             section.title === "Estimators"
-                              ? "w-[100px] h-[100px]"
-                              : "w-[130px] h-[130px]"
+                              ? "w-[100px] h-[100px] 2xl:w-[130px] 2xl:h-[130px]"
+                              : "w-[130px] h-[130px]  2xl:w-[160px] 2xl:h-[160px]"
                           }`}
                         />
                       </div>
