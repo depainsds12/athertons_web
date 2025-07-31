@@ -15,29 +15,8 @@ const Services = ({ servicesData = [] }) => {
     servicesData.find((service) => service.title === active) ||
     (servicesData.length > 0 ? servicesData[0] : null);
 
-  if (!servicesData.length) {
-    return (
-      <section className="relative flex flex-col items-center w-full mt-2 sm:mb-15">
-        {/* <div className="text-center py-10">
-          <p>No services data available</p>
-        </div> */}
-      </section>
-    );
-  }
-
-  if (!activeService) {
-    return (
-      <section className="relative flex flex-col items-center w-full mt-2 sm:mb-15">
-        <div className="text-center py-10">
-          <p>Loading services...</p>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section className="relative flex flex-col items-center w-full mt-2 sm:mb-15">
-      {/* Top triangle decoration */}
       <div className="sm:flex absolute top-20 right-0 flex-col items-start justify-start w-[50px] h-[50px] animate-bounce">
         <img
           src={trianglew}
@@ -50,7 +29,6 @@ const Services = ({ servicesData = [] }) => {
         Our Services
       </h2>
 
-      {/* Service tabs */}
       <div
         role="tablist"
         className="flex flex-row flex-nowrap w-full sm:w-[85%] xl:w-[90%] max-w-[1600px]"
@@ -69,7 +47,7 @@ const Services = ({ servicesData = [] }) => {
                 }
                 w-full flex items-center justify-center transition-colors
                 hover:bg-[#03837E] hover:text-white focus:outline-none
-                text-[10px] sm:text-xs md:text-sm px-1 sm:px-2 text-center 
+                text-[10px] sm:text-xs md:text-sm px-1 sm:px-2 text-center
               `}
               aria-pressed={active === service.title}
               aria-current={active === service.title ? "page" : undefined}
@@ -110,7 +88,6 @@ const Services = ({ servicesData = [] }) => {
         ))}
       </div>
 
-      {/* Active service content */}
       <div className="bg-[#192437] text-white flex flex-col md:flex-row justify-center py-10 w-full sm:w-[85%] xl:w-[90%] max-w-[1600px]">
         <div className="flex flex-col w-full gap-6 px-4 md:flex-row sm:px-8">
           <div className="flex-1">
@@ -131,7 +108,7 @@ const Services = ({ servicesData = [] }) => {
           <div className="flex items-center justify-end overflow-hidden group">
             {activeService.image ? (
               <img
-                // src={activeService.image}
+                src={activeService.image}
                 alt={`${activeService.title} Illustration`}
                 className="aspect-[464/344] w-full md:w-[310px] lg:w-[400px] xl:w-[464px] xl:h-[344px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                 onError={(e) => {
@@ -148,7 +125,6 @@ const Services = ({ servicesData = [] }) => {
         </div>
       </div>
 
-      {/* Bottom triangle decoration */}
       <div className="hidden sm:flex absolute bottom-30 left-0 flex-col items-start justify-start w-[50px] h-[50px]">
         <img
           src={triangleg}
