@@ -34,9 +34,10 @@ export default function HomePage() {
     const fetchHomePageData = async () => {
       try {
         const response = await getAxios().get(getHomePage);
-        setHomePageData(response?.data?.data?.homepage_content);
+
         setServicesData(response?.data?.data?.services);
         setMembershipImages(response?.data?.data?.memberships);
+        setHomePageData(response?.data?.data?.homepage_content);
       } catch (error) {
         console.error("Failed to fetch Home API:", error);
       }
