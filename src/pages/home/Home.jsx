@@ -77,15 +77,15 @@ export default function HomePage() {
 
         <div className="absolute inset-0 bg-[#192437]/60 z-0"></div>
 
-        <div className="relative z-10 flex flex-col items-start justify-center h-full px-10 mx-2 xl:ml-12 text-white">
-          <p className="mb-4 text-base font-bold sm:text-lg md:text-2xl animate__animated animate__flipInX">
+        <div className="relative z-10 flex flex-col items-start justify-center min-h-[480px] h-full px-4 pr-7 lg:px-10 mx-2 xl:ml-12 text-white">
+          <p className="lg:mb-4 text-base font-bold sm:text-lg md:text-2xl animate__animated animate__flipInX">
             DESIGN & INSTALLATION
           </p>
-          <h1 className="text-[28px] sm:text-4xl md:text-6xl font-bold lg:mb-8 animate__animated animate__flipInX">
+          <h1 className="text-[28px] mb-3 sm:text-4xl md:text-6xl font-bold lg:mb-8 animate__animated animate__flipInX">
             TURNKEY SOLUTIONS
           </h1>
 
-          <p className=" text-[12px] sm:text-base md:text-lg w-[50%] animate__animated animate__flipInX">
+          <p className=" text-[12px] sm:text-base md:text-lg w-full md:w-[50%] animate__animated animate__flipInX">
             Athertons is a highly experienced Mechanical, Electrical, HVAC, Fire
             Protection, Refrigeration. Through our team of mechanical,
             electrical, plumbing, HVAC, and fire protection engineers.
