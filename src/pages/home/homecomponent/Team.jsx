@@ -154,7 +154,7 @@ const TeamPage = () => {
             return (
               <div
                 key={idx}
-                className={`w-full md:w-1/2 p-8 ${
+                className={`w-full text-center lg:tex-left md:w-1/2 p-2 lg:p-8 ${
                   isRightCol ? "md:border-l" : ""
                 } ${!isLastRow ? "border-b" : ""} border-[#6A778D]`}
               >
@@ -165,11 +165,11 @@ const TeamPage = () => {
                 <div
                   className={`${
                     section.title === "Estimators"
-                      ? "flex flex-row gap-4 2xl:gap-6 justify-start flex-wrap"
+                      ? "flex flex-row gap-4 2xl:gap-6 justify-center sm:justify-start flex-wrap"
                       : section.title === "PDQ Team" ||
                         section.title === "Operations Team"
-                      ? "flex flex-row gap-12 2xl:gap-14 justify-start flex-wrap"
-                      : "flex flex-wrap gap-6 2xl:gap-8"
+                      ? "flex flex-row gap-6 2xl:gap-14 justify-center sm:justify-start flex-wrap"
+                      : "flex flex-wrap flex-col sm:flex-row gap-6 2xl:gap-8"
                   }`}
                 >
                   {section.members.map((member, i) => (
@@ -179,7 +179,9 @@ const TeamPage = () => {
                           src={member.img}
                           alt={member.name}
                           className={`rounded-full object-cover hover:opacity-80 transition-transform duration-300 ease-in-out group-hover:scale-105 ${
-                            section.title === "Estimators"
+                            section.title === "Estimators" ||
+                            "PDQ Team" ||
+                            "Operations Team"
                               ? "w-[100px] h-[100px]"
                               : "w-[130px] h-[130px]"
                           }`}
@@ -187,14 +189,22 @@ const TeamPage = () => {
                       </div>
                       <h4
                         className={`text-[20px] font-semibold text-center break-words ${
-                          section.title === "Estimators"
+                          section.title === "Estimators" ||
+                          "PDQ Team" ||
+                          "Operations Team"
                             ? "max-w-[100px]"
                             : "max-w-[130px]"
                         }`}
                       >
                         {member.name}
                       </h4>
-                      <p className="italic font-medium mb-4 pb-4 text-[12px] text-center max-w-[150px]">
+                      <p
+                        className={`italic font-medium mb-4 pb-4 text-[12px] text-center w-full ${
+                          section.title === "Operations Team"
+                            ? "max-w-[100px]"
+                            : "w-full"
+                        } sm:max-w-[150px]`}
+                      >
                         {member.role}
                       </p>
                     </div>
@@ -206,7 +216,7 @@ const TeamPage = () => {
         </div>
       </div>
 
-      <button className="mt-12 bg-[#03837E] text-white px-8 py-3  font-semibold   cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E]">
+      <button className="lg:mt-12 mt-5 bg-[#03837E] text-white px-8 py-3  font-semibold   cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E]">
         View All Teams
       </button>
     </div>
