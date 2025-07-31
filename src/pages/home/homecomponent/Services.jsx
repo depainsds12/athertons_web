@@ -46,7 +46,7 @@ const Services = ({ servicesData = [] }) => {
         />
       </div>
 
-      <h2 className="text-3xl md:text-[40px] font-semibold text-[#192437] mt-10 mb-8">
+      <h2 className="text-[28px] md:text-[40px] font-semibold text-[#192437] my-4 lg:mt-10 lg:mb-8">
         Our Services
       </h2>
 
@@ -133,7 +133,7 @@ const Services = ({ servicesData = [] }) => {
               <img
                 // src={activeService.image}
                 alt={`${activeService.title} Illustration`}
-                className="aspect-[464/344] w-[200px] md:w-[310px] lg:w-[400px] xl:w-[464px] xl:h-[344px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                className="aspect-[464/344] w-full md:w-[310px] lg:w-[400px] xl:w-[464px] xl:h-[344px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                 onError={(e) => {
                   e.target.src =
                     "https://via.placeholder.com/464x344?text=Image+Not+Available";
