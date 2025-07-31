@@ -69,7 +69,7 @@ const Header = () => {
         style={isMenuOpen ? { height: "110px" } : {}}
       >
         {/* Top bar - responsive layout */}
-        <div className="w-full px-4 text-sm text-white ">
+        <div className="w-full px-4 pt-1 pb-2 text-sm text-white ">
           {/* Desktop layout */}
           <div className="hidden md:flex flex-wrap items-center justify-between lg:h-[50px] h-auto mr-8 ml-8 xl:ml-20 xl:mr-20 py-2">
             <div className="flex flex-col items-center sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6">
@@ -278,7 +278,7 @@ const Header = () => {
 
         {/* Main nav */}
         <div className="w-full bg-white">
-          <div className="flex items-center justify-between px-0 ">
+          <div className="flex items-center justify-between px-2 ">
             {/* Left: Logo + Navigation */}
             <div className="flex items-center gap-10">
               <div className="w-[90px] h-[84px] flex items-center justify-center sm:w-[116px] sm:h-[107px] sm:ml-8 ml-2 xl:ml-20 cursor-pointer group my-1">
