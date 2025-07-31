@@ -44,6 +44,19 @@ const Video = () => {
         />
       </div>
 
+       <div className="amimationleftright absolute top-0 flex flex-row items-start justify-start left-5">
+        <img
+          src={triangleGg}
+          alt="triangle black"
+          className="w-[70px] xl:w-[100px] h-[70px] xl:h-[100px] object-contain animate-pulse"
+        />
+        <img
+          src={triangleWw}
+          alt="triangle white"
+          className="w-[70px] xl:w-[100px] h-[70px] xl:h-[100px] object-contain -ml-6 xl:-ml-10 animate-pulse"
+        />
+      </div>
+
       {/* Text */}
       <h2 className="absolute top-[25%] left-1/2 transform -translate-x-1/2 text-white  font-semibold text-lg md:text-[40px]">
         Ty Menai Project Video
