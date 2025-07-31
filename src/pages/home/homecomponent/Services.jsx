@@ -1,95 +1,69 @@
-import { useState } from "react";
-import bmsEmsTechnology from "../../../assets/services/bms_ems_technology.png";
-import ecoSolutions from "../../../assets/services/eco_solutions.png";
-import lightCivilEngineering from "../../../assets/services/light_civil_engineering.png";
-import meEngineering from "../../../assets/services/me_engineering.png";
+import { useState, useEffect } from "react";
 import triangleg from "../../../assets/triangleg.svg";
 import trianglew from "../../../assets/trianglew.svg";
 
-const services = [
-  {
-    id: "bms-ems",
-    name: "BMS & EMS Technology",
-    image: bmsEmsTechnology,
-    title: "BMS & EMS Technology",
-    subtitle: "Integrated Mechanical and Electrical Systems",
-    description:
-      "Our Building Management Systems (BMS) and Energy Management Systems (EMS) offer seamless integration of mechanical and electrical systems. Designed to optimise performance and efficiency, our solutions ensure that all building systems work harmoniously to provide a comfortable and productive environment.",
-  },
-  {
-    id: "me-engineering",
-    name: "M&E Engineering",
-    image: meEngineering,
-    title: "M&E Engineering",
-    subtitle: "Mechanical and Electrical Excellence",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae orci nec nulla luctus eleifend. Phasellus ac finibus lorem.",
-  },
-  {
-    id: "eco-solutions",
-    name: "Eco Solutions",
-    image: ecoSolutions,
-    title: "Eco Solutions",
-    subtitle: "Sustainable Innovations",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet neque eget nisl dignissim efficitur. Nulla facilisi.",
-  },
-  {
-    id: "light-civil",
-    name: "Light Civil Engineering",
-    image: lightCivilEngineering,
-    title: "Light Civil Engineering",
-    subtitle: "Smart Civil Engineering Solutions",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed urna et sapien posuere vulputate non a diam.",
-  },
-  {
-    id: "smart-design",
-    name: "Smart Design",
-    image: bmsEmsTechnology,
-    title: "Smart Design",
-    subtitle: "Innovative & Modern Concepts",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In suscipit massa et suscipit vehicula. Vivamus sit amet nulla nec ex hendrerit posuere.",
-  },
-];
+const Services = ({ servicesData = [] }) => {
+  const [active, setActive] = useState("");
 
-const Services = () => {
-  const [active, setActive] = useState("bms-ems");
-  const activeService = services.find((service) => service.id === active);
+  useEffect(() => {
+    if (servicesData.length > 0 && !active) {
+      setActive(servicesData[0].title);
+    }
+  }, [servicesData, active]);
+
+  const activeService =
+    servicesData.find((service) => service.title === active) ||
+    (servicesData.length > 0 ? servicesData[0] : null);
+
+  if (!servicesData.length) {
+    return (
+      <section className="relative flex flex-col items-center w-full mt-2 sm:mb-15">
+        {/* <div className="text-center py-10">
+          <p>No services data available</p>
+        </div> */}
+      </section>
+    );
+  }
+
+  if (!activeService) {
+    return (
+      <section className="relative flex flex-col items-center w-full mt-2 sm:mb-15">
+        <div className="text-center py-10">
+          <p>Loading services...</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="relative flex flex-col items-center w-full mt-2 sm:mb-15">
-      <div className=" sm:flex absolute top-20 right-0 flex-col items-start justify-start w-[50px] h-[50px] animate-bounce">
-        {/* <img
-          src={triangleg}
-          alt="triangle black"
-          className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px] object-contain animate-bounce"
-        /> */}
+      {/* Top triangle decoration */}
+      <div className="sm:flex absolute top-20 right-0 flex-col items-start justify-start w-[50px] h-[50px] animate-bounce">
         <img
           src={trianglew}
           alt="triangle white"
-          className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6 animate-bounce "
+          className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px] object-contain -mt-6 xl:-mt-6 animate-bounce"
         />
       </div>
-      <h2 className="text-3xl md:text-[40px] font-semibold text-[#192437]  mt-10 mb-8">
+
+      <h2 className="text-3xl md:text-[40px] font-semibold text-[#192437] mt-10 mb-8">
         Our Services
       </h2>
 
+      {/* Service tabs */}
       <div
         role="tablist"
-        className="flex flex-row flex-nowrap   w-full sm:w-[85%]  xl:w-[90%] max-w-[1600px]"
+        className="flex flex-row flex-nowrap w-full sm:w-[85%] xl:w-[90%] max-w-[1600px]"
       >
-        {services.map((service) => (
-          <div key={service.id} className="relative flex-1">
+        {servicesData.map((service) => (
+          <div key={service.title} className="relative flex-1">
             <button
-              onClick={() => setActive(service.id)}
+              onClick={() => setActive(service.title)}
               className={`
-             h-[70px] sm:h-[90px] md:h-[110px] lg:h-[130px] xl:h-[168px]
-
+                h-[70px] sm:h-[90px] md:h-[110px] lg:h-[130px] xl:h-[168px]
                 border border-[#D6D6D6] cursor-pointer
                 ${
-                  active === service.id
+                  active === service.title
                     ? "bg-[#03837E] text-white border-b-0"
                     : "bg-white text-[#192437]"
                 }
@@ -97,16 +71,16 @@ const Services = () => {
                 hover:bg-[#03837E] hover:text-white focus:outline-none
                 text-[10px] sm:text-xs md:text-sm px-1 sm:px-2 text-center 
               `}
-              aria-pressed={active === service.id}
-              aria-current={active === service.id ? "page" : undefined}
+              aria-pressed={active === service.title}
+              aria-current={active === service.title ? "page" : undefined}
               role="tab"
             >
-              <span className="font-semibold   sm:text-base lg:text-[18px]  xl:text-[24px] animate__animated  animate__zoomIn">
-                {service.name}
+              <span className="font-semibold sm:text-base lg:text-[18px] xl:text-[24px] animate__animated animate__zoomIn">
+                {service.title}
               </span>
             </button>
 
-            {active === service.id && (
+            {active === service.title && (
               <>
                 <div className="block sm:hidden absolute left-1/2 transform -translate-x-1/2 -bottom-[6px] z-10">
                   <svg
@@ -136,39 +110,55 @@ const Services = () => {
         ))}
       </div>
 
-      <div className="bg-[#192437] text-white flex flex-col md:flex-row justify-center py-10  w-full sm:w-[85%] xl:w-[90%]   max-w-[1600px] ">
+      {/* Active service content */}
+      <div className="bg-[#192437] text-white flex flex-col md:flex-row justify-center py-10 w-full sm:w-[85%] xl:w-[90%] max-w-[1600px]">
         <div className="flex flex-col w-full gap-6 px-4 md:flex-row sm:px-8">
           <div className="flex-1">
-            <h3 className="text-xl  lg:text-[28px]   xl:text-[36px] mt-1 font-semibold">{activeService.title}</h3>
-            <p className="italic  font-[600] lg:text-[18px] xl:text-[20px] mt-3.5">{activeService.subtitle}</p>
-    <p className="mt-2.5 xl:mt-3.5  font-normal text-[16px] leading-[28px] tracking-[0]">
-  {activeService.description}
-</p>
+            <h3 className="text-xl lg:text-[28px] xl:text-[36px] mt-1 font-semibold">
+              {activeService.title}
+            </h3>
+            <p className="italic font-[600] lg:text-[18px] xl:text-[20px] mt-3.5">
+              {activeService.subtitle}
+            </p>
+            <p className="mt-2.5 xl:mt-3.5 font-normal text-[16px] leading-[28px] tracking-[0]">
+              {activeService.description}
+            </p>
 
-            <button className="mt-10 bg-[#03837E] px-4 py-2 text-white cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E]  ">
+            <button className="mt-10 bg-[#03837E] px-4 py-2 text-white cursor-pointer hover:border hover:border-[#03837E] hover:bg-[#FFFFFF] hover:text-[#03837E]">
               Read More
             </button>
           </div>
           <div className="flex items-center justify-end overflow-hidden group">
-            <img
-              src={activeService.image}
-              alt={`${activeService.title} Illustration`}
-              className=" aspect-[464/344] w-[300px] md:w-[310px]  lg:w-[400px] xl:w-[464px] xl:h-[344px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-            />
+            {activeService.image ? (
+              <img
+                // src={activeService.image}
+                alt={`${activeService.title} Illustration`}
+                className="aspect-[464/344] w-[200px] md:w-[310px] lg:w-[400px] xl:w-[464px] xl:h-[344px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                onError={(e) => {
+                  e.target.src =
+                    "https://via.placeholder.com/464x344?text=Image+Not+Available";
+                }}
+              />
+            ) : (
+              <div className="aspect-[464/344] w-[200px] md:w-[310px] lg:w-[400px] xl:w-[464px] xl:h-[344px] bg-gray-200 flex items-center justify-center">
+                <span>Image not available</span>
+              </div>
+            )}
           </div>
         </div>
       </div>
 
-      <div className=" hidden sm:flex absolute bottom-30 left-0 flex-col items-start justify-start w-[50px] h-[50px]">
+      {/* Bottom triangle decoration */}
+      <div className="hidden sm:flex absolute bottom-30 left-0 flex-col items-start justify-start w-[50px] h-[50px]">
         <img
           src={triangleg}
           alt="triangle black"
-          className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px]  object-contain animate-bounce"
+          className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px] object-contain animate-bounce"
         />
         <img
           src={trianglew}
           alt="triangle white"
-          className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6 animate-bounce"
+          className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px] object-contain -mt-6 xl:-mt-6 animate-bounce"
         />
       </div>
     </section>
