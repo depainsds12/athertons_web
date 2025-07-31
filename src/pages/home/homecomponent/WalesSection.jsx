@@ -25,7 +25,7 @@ const WalesSection = () => {
             />
             <div className="absolute inset-0 bg-[#192437] opacity-50"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="absolute w-20 h-20 rounded-full border-4 border-[#03837E] animate-ping z-0"></span>
+              <span className="absolute w-20 h-20 rounded-full border-4  border-[#03837E] animate-ping z-0"></span>
               <button
                 aria-label="Play Ty Menai Project Video"
                 className="relative z-10 w-16 h-16 bg-[#03837E] rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"

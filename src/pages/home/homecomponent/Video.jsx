@@ -44,7 +44,7 @@ const Video = () => {
         />
       </div>
 
-       <div className="amimationleftright absolute top-0 flex flex-row items-start justify-start left-5">
+       <div className="amimationrightleft absolute top-0 flex flex-row items-start justify-start left-5">
         <img
           src={triangleGg}
           alt="triangle black"
@@ -58,7 +58,7 @@ const Video = () => {
       </div>
 
       {/* Text */}
-      <h2 className="absolute top-[25%] left-1/2 transform -translate-x-1/2 text-white  font-semibold text-lg md:text-[40px]">
+      <h2 className="absolute top-[20%] left-1/2 transform -translate-x-1/2 text-white  font-semibold text-base md:text-[40px]">
         Ty Menai Project Video
       </h2>
 
