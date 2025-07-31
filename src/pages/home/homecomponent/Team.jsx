@@ -153,13 +153,12 @@ const TeamPage = () => {
             const isLastRow = idx >= teamData.sections.length - 2;
 
             return (
-            <div
-  key={idx}
-  className={`w-[90%] max-w-[1800px] md:w-1/2 2xl:pl-6 py-8 ${
-    isRightCol ? "md:border-l md:pl-2 xl:pl-10 2xl:pl-25" : ""
-  } ${!isLastRow ? "border-b" : ""} border-[#6A778D]`}
->
-
+              <div
+                key={idx}
+                className={`w-full text-center lg:tex-left md:w-1/2 p-2 lg:p-8 ${
+                  isRightCol ? "md:border-l" : ""
+                } ${!isLastRow ? "border-b" : ""} border-[#6A778D]`}
+              >
                 <h3 className="text-[32px] font-semibold mb-6">
                   {section.title}
                 </h3>
@@ -167,11 +166,11 @@ const TeamPage = () => {
                 <div
                   className={`${
                     section.title === "Estimators"
-                      ? "flex flex-row gap-4 2xl:gap-6 justify-center  md:justify-start flex-wrap"
+                      ? "flex flex-row gap-4 2xl:gap-6 justify-center sm:justify-start flex-wrap"
                       : section.title === "PDQ Team" ||
                         section.title === "Operations Team"
-                      ? "flex flex-row gap-12 2xl:gap-16 md:justify-start flex-wrap"
-                      : "flex flex-wrap gap-6 2xl:gap-10"
+                      ? "flex flex-row gap-6 2xl:gap-14 justify-center sm:justify-start flex-wrap"
+                      : "flex flex-wrap flex-col sm:flex-row gap-6 2xl:gap-8"
                   }`}
                 >
                   {section.members.map((member, i) => (
@@ -181,22 +180,32 @@ const TeamPage = () => {
                           src={member.img}
                           alt={member.name}
                           className={`rounded-full object-cover hover:opacity-80 transition-transform duration-300 ease-in-out group-hover:scale-105 ${
-                            section.title === "Estimators"
-                              ? "w-[100px] h-[100px] 2xl:w-[130px] 2xl:h-[130px]"
-                              : "w-[130px] h-[130px]  2xl:w-[160px] 2xl:h-[160px]"
+                            section.title === "Estimators" ||
+                            "PDQ Team" ||
+                            "Operations Team"
+                              ? "w-[100px] h-[100px]"
+                              : "w-[130px] h-[130px]"
                           }`}
                         />
                       </div>
                       <h4
                         className={`text-[20px] font-semibold text-center break-words ${
-                          section.title === "Estimators"
+                          section.title === "Estimators" ||
+                          "PDQ Team" ||
+                          "Operations Team"
                             ? "max-w-[100px]"
                             : "max-w-[130px]"
                         }`}
                       >
                         {member.name}
                       </h4>
-                      <p className="italic font-medium mb-4 pb-4 text-[12px] text-center max-w-[150px]">
+                      <p
+                        className={`italic font-medium mb-4 pb-4 text-[12px] text-center w-full ${
+                          section.title === "Operations Team"
+                            ? "max-w-[100px]"
+                            : "w-full"
+                        } sm:max-w-[150px]`}
+                      >
                         {member.role}
                       </p>
                     </div>
@@ -208,7 +217,7 @@ const TeamPage = () => {
         </div>
       </div>
 
-      <button className="mt-12 bg-[#03837E] text-white px-8 py-3  font-semibold   cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E]">
+      <button className="lg:mt-12 mt-5 bg-[#03837E] text-white px-8 py-3  font-semibold   cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E]">
         View All Teams
       </button>
     </div>
