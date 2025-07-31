@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import bg1 from "../../assets/services/bg1.png";
 import bmsEms from "../../assets/services/bms_ems_technology.png";
 import lightCivil from "../../assets/services/light_civil_engineering.png";
@@ -12,12 +12,14 @@ import Team from "./homecomponent/Team";
 import TestimonialsAndConfidence from "./homecomponent/TestimonialsAndConfidence";
 import Video from "./homecomponent/Video";
 import WalesSection from "./homecomponent/WalesSection";
+import { getHomePage } from "../../api/routes";
+import { getAxios } from "../../api/config";
 
 const images = ["/project-list.jpg", meEngineering, lightCivil, bmsEms, bg1];
 
 export default function HomePage() {
   const [startIdx, setStartIdx] = useState(0);
-
+  const [servicesData, setServicesData] = useState([]);
   const handlePrev = () => {
     setStartIdx((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
@@ -26,9 +28,48 @@ export default function HomePage() {
     setStartIdx((prev) => (prev + 1) % images.length);
   };
 
+  // useEffect(() => {
+  //   const fetchHomePageData = async () => {
+  //     try {
+  //       const response = await getAxios().get(getHomePage);
+  //       const processedData = response?.data?.data?.services.map((service) => ({
+  //         ...service,
+  //         image: `https://athertonsweb.sdssoftltd.co.uk/admin/api/${service.image}`,
+  //       }));
+  //       setServicesData(processedData || []);
+  //     } catch (error) {
+  //       console.error("Failed to fetch Home API:", error);
+  //     }
+  //   };
+
+  //   fetchHomePageData();
+  // }, []);
+
+  useEffect(() => {
+    const fetchHomePageData = async () => {
+      try {
+        const response = await getAxios().get(getHomePage);
+
+        // Process the data to include full image URLs
+        const processedData =
+          response?.data?.data?.services?.map((service) => ({
+            ...service,
+            // Add your base URL here (replace with your actual base URL)
+            image: `https://athertonsweb.sdssoftltd.co.uk/admin/api/${service.image}`,
+          })) || [];
+
+        setServicesData(processedData);
+      } catch (error) {
+        console.error("Failed to fetch Home API:", error);
+      }
+    };
+
+    fetchHomePageData();
+  }, []);
+
   return (
     <div>
-      <div className="relative w-full h-screen xl:max-h-[600px] 2xl:max-h-[700px] ">
+      <div className="relative w-full min-h-[500px] flex justify-center items-center lg:h-screen xl:max-h-[600px] 2xl:max-h-[700px] ">
         <div
           className="absolute inset-0 transition-all duration-500 bg-center bg-cover animate__animated animate__zoomIn"
           style={{ backgroundImage: `url(${images[startIdx]})` }}
@@ -40,7 +81,7 @@ export default function HomePage() {
           <p className="mb-4 text-base font-bold sm:text-lg md:text-2xl animate__animated animate__flipInX">
             DESIGN & INSTALLATION
           </p>
-          <h1 className="text-[28px] sm:text-4xl md:text-6xl font-bold mb-8 animate__animated animate__flipInX">
+          <h1 className="text-[28px] sm:text-4xl md:text-6xl font-bold lg:mb-8 animate__animated animate__flipInX">
             TURNKEY SOLUTIONS
           </h1>
 
@@ -53,7 +94,7 @@ export default function HomePage() {
           <button className="bg-[#03837E] w-[170px] h-[40px] md:w-[170px] md:h-[48px] shadow-[0px_4px_10px_0px_#00000080] mt-10 cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] ">
             <p className="text-lg font-[500]">Find Out More</p>
           </button>
-          {/* <div className="py-10"> */}
+
           <div className="absolute bottom-0 right-7 xl:right-15 flex items-center gap-6 ">
             <button
               onClick={handlePrev}
@@ -117,9 +158,7 @@ export default function HomePage() {
               </svg>
             </button>
           </div>
-          {/* </div> */}
 
-          {/* Pagination Dots */}
           <div className="absolute flex gap-4 bottom-10 left-10">
             {images.map((_, idx) => (
               <span
@@ -132,7 +171,8 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <Services />
+
+      <Services servicesData={servicesData} />
       <Accreditation />
       <Commercial />
       <Video />
