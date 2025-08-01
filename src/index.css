@@ -5,7 +5,7 @@
   --font-poppins: 'Poppins', sans-serif;
   --breakpoint-xs: 400px;
 
-  --layout-width:1680px;
+  --layout-width:1400px;
 }
 
 .animationcostume {
@@ -27,9 +27,9 @@
   }
 
   .section_padding{
-    @apply px-4 sm:px-6 lg:px-8 mx-auto ;
+    @apply px-4 sm:px-6 lg:px-8 mx-auto max-w-(--layout-width);
   }
-  /* --layout-width */
+
 }
 
 @keyframes leftright {

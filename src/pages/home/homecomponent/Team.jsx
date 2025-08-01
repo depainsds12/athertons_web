@@ -1,85 +1,97 @@
-import clive from "../../../assets/clive.jpg";
-import dave from "../../../assets/dave.jpg";
-import dita from "../../../assets/dita.jpg";
-import grant from "../../../assets/grant.jpg";
-import jimmy from "../../../assets/jimmy.jpg";
-import karen from "../../../assets/karen.jpg";
-import kieron from "../../../assets/kieron.jpg";
-import nick from "../../../assets/nick.jpg";
-import {
-  default as ian,
-  default as noimage,
-} from "../../../assets/noimage.png";
-import paul from "../../../assets/paul.png";
-import robbie from "../../../assets/robbie.jpg";
-import ronson from "../../../assets/ronson.jpg";
-import russell from "../../../assets/russell.jpg";
-import russell2 from "../../../assets/russell2.jpg";
-import sandhu from "../../../assets/sandhu.jpg";
-import satel from "../../../assets/satel.jpg";
-import stuart from "../../../assets/staurt.jpg";
-import tom from "../../../assets/tom.jpg";
+import React, { useState, useEffect } from "react";
 import triangleg from "../../../assets/triangleg.svg";
 import trianglew from "../../../assets/trianglew.svg";
-
-const teamData = {
-  topTeam: [
-    { name: "Satel Naik", role: "Co-Owner And CTO", img: satel },
-    { name: "Dita Naik", role: "Co-Owner And CCO", img: dita },
-    { name: "Paul", role: "Managing Director", img: paul },
-  ],
-  sections: [
-    {
-      title: "Mechanical Team",
-      members: [
-        { name: "Russell", role: "Senior Contracts Manager", img: russell2 },
-        { name: "Jimmy", role: "Contracts Manager", img: jimmy },
-        { name: "Grant", role: "Mechanical Contracts Manager", img: grant },
-      ],
-    },
-    {
-      title: "Electrical Team",
-      members: [
-        { name: "Robbie", role: "Electrical Contracts Manager", img: robbie },
-        { name: "Stuart", role: "Electrical Contracts Manager", img: stuart },
-        { name: "Lee", role: "Electrical Contracts Manager", img: noimage },
-      ],
-    },
-    {
-      title: "Estimators",
-      members: [
-        { name: "Nick", role: "Electrical Estimator", img: nick },
-        { name: "Dave", role: "Mechanical Estimator", img: dave },
-        { name: "Ian", role: "Electrical Estimator", img: ian },
-        { name: "Liam", role: "Mechanical Estimator", img: noimage },
-      ],
-    },
-    {
-      title: "Finance Team",
-      members: [
-        { name: "Karen", role: "Business Operations Manager", img: karen },
-        { name: "Kieron", role: "Accounts Payable Specialist", img: kieron },
-        { name: "Clive", role: "Financial Controller", img: clive },
-      ],
-    },
-    {
-      title: "PDQ Team",
-      members: [
-        { name: "Sandhu", role: "PDQ Specialist", img: sandhu },
-        { name: "Ronson", role: "PDQ Manager", img: ronson },
-      ],
-    },
-    {
-      title: "Operations Team",
-      members: [
-        { name: "Tom", role: "Commercial Director", img: tom },
-        { name: "Russell", role: "MEP Buyer", img: russell },
-      ],
-    },
-  ],
-};
+import noimage from "../../../assets/noimage.png";
+import { getHomePage } from "../../../api/routes";
+import { getAxios } from "../../../api/config";
 
 const TeamPage = () => {
+  const [teamData, setTeamData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTeamData = async () => {
+      try {
+        const response = await getAxios().get(getHomePage);
+        setTeamData(response?.data?.data?.teams);
+      } catch (error) {
+        console.error("Error fetching team data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTeamData();
+  }, []);
+
+  // Transform API data into the structure expected by the component
+  const transformData = (data) => {
+    if (!data) return null;
+
+    const transformed = {
+      topTeam: [],
+      sections: [],
+    };
+
+    // Process each department
+    Object.entries(data).forEach(([department, members]) => {
+      // Handle top team (empty department)
+      if (department === "") {
+        transformed.topTeam = members.map((member) => ({
+          name: member.name,
+          role: member.job_title,
+          img: member.image || noimage,
+        }));
+      } else {
+        // Handle other departments
+        transformed.sections.push({
+          title: `${department} Team`,
+          members: members.map((member) => ({
+            name: member.name,
+            role: member.job_title,
+            img: member.image || noimage,
+          })),
+        });
+      }
+    });
+
+    // Ensure the sections are in the correct order
+    const sectionOrder = [
+      "Mechanical",
+      "Electrical",
+      "Estimators",
+      "Finance",
+      "PDQ",
+      "Operations",
+    ];
+
+    transformed.sections.sort((a, b) => {
+      const aIndex = sectionOrder.indexOf(a.title.replace(" Team", ""));
+      const bIndex = sectionOrder.indexOf(b.title.replace(" Team", ""));
+      return aIndex - bIndex;
+    });
+
+    return transformed;
+  };
+
+  const transformedData = transformData(teamData);
+
+  if (loading) {
+    return (
+      <div className="bg-[#192437] min-h-screen flex items-center justify-center text-white">
+        Loading team data...
+      </div>
+    );
+  }
+
+  if (!transformedData) {
+    return (
+      <div className="bg-[#192437] min-h-screen flex items-center justify-center text-white">
+        Failed to load team data
+      </div>
+    );
+  }
+
   return (
     <div className="bg-[#192437] relative text-white w-full flex flex-col items-center py-12 px-6 mx-auto">
       <h2 className="text-white font-semibold text-4xl xl:text-[40px] mb-10">
@@ -116,18 +128,22 @@ const TeamPage = () => {
 
       {/* Top Team */}
       <div className="flex flex-col items-center justify-center mb-16 md:flex-row gap-10 lg:gap-28 max-w-[1800px] mx-auto">
-        {teamData.topTeam.map((person, idx) => (
+        {transformedData.topTeam.map((person, idx) => (
           <div className="flex flex-col items-center" key={idx}>
             <div className="overflow-hidden rounded-full group">
               <img
                 src={person.img}
                 alt={person.name}
-                className="animate__animated animate__zoomIn hover:opacity-80 rounded-full 
-                w-[160px] h-[160px] md:w-[200px] md:h-[200px] 
-                lg:w-[240px] lg:h-[240px] xl:w-[300px] xl:h-[300px] 
-                2xl:w-[350px] 2xl:h-[350px] object-cover 
-                transition-transform duration-500 ease-in-out 
+                className="animate__animated animate__zoomIn hover:opacity-80 rounded-full
+                w-[160px] h-[160px] md:w-[200px] md:h-[200px]
+                lg:w-[240px] lg:h-[240px] xl:w-[300px] xl:h-[300px]
+                2xl:w-[350px] 2xl:h-[350px] object-cover
+                transition-transform duration-500 ease-in-out
                 group-hover:scale-105"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = noimage;
+                }}
               />
             </div>
             <h3 className="mt-4 font-semibold text-[24px] sm:text-[28px] md:text-[32px] text-center">
@@ -147,23 +163,23 @@ const TeamPage = () => {
         </h2>
 
         <div className="flex flex-col lg:flex-row lg:flex-wrap w-full">
-          {teamData.sections.map((section, idx) => {
+          {transformedData.sections.map((section, idx) => {
             const isRightCol = idx % 2 === 1;
-            const isLastRow = idx >= teamData.sections.length - 2;
+            const isLastRow = idx >= transformedData.sections.length - 2;
 
             return (
               <div
                 key={idx}
-                className={`w-full lg:w-1/2 px-4 py-8 
-    ${isRightCol ? "lg:border-l lg:pl-10 2xl:pl-22" : "2xl:pl-5"} 
-    ${
-      section.title === "PDQ Team"
-        ? "border-b lg:border-b-0"
-        : !isLastRow
-        ? "border-b"
-        : ""
-    } 
-    border-[#6A778D] text-center lg:text-left`}
+                className={`w-full lg:w-1/2 px-4 py-8
+                  ${isRightCol ? "lg:border-l lg:pl-10 2xl:pl-22" : "2xl:pl-5"}
+                  ${
+                    section.title.includes("PDQ Team")
+                      ? "border-b lg:border-b-0"
+                      : !isLastRow
+                      ? "border-b"
+                      : ""
+                  }
+                  border-[#6A778D] text-center lg:text-left`}
               >
                 <h3 className="text-[28px] font-semibold mb-6">
                   {section.title}
@@ -171,10 +187,10 @@ const TeamPage = () => {
 
                 <div
                   className={`${
-                    section.title === "Estimators"
+                    section.title.includes("Estimators")
                       ? "flex flex-wrap justify-center lg:justify-start gap-4 2xl:gap-6"
-                      : section.title === "PDQ Team" ||
-                        section.title === "Operations Team"
+                      : section.title.includes("PDQ Team") ||
+                        section.title.includes("Operations Team")
                       ? "flex flex-wrap justify-center lg:justify-start gap-8 2xl:gap-16"
                       : "flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-6 2xl:gap-10"
                   }`}
@@ -186,10 +202,14 @@ const TeamPage = () => {
                           src={member.img}
                           alt={member.name}
                           className={`rounded-full object-cover hover:opacity-80 transition-transform duration-300 ease-in-out group-hover:scale-105 ${
-                            section.title === "Estimators"
+                            section.title.includes("Estimators")
                               ? "w-[100px] h-[100px] 2xl:w-[130px] 2xl:h-[130px]"
                               : "w-[130px] h-[130px] 2xl:w-[150px] 2xl:h-[150px]"
                           }`}
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = noimage;
+                          }}
                         />
                       </div>
                       <h4 className="text-[18px] sm:text-[20px] font-semibold text-center break-words mt-2">
