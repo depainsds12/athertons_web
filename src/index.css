@@ -4,17 +4,32 @@
 @theme {
   --font-poppins: 'Poppins', sans-serif;
   --breakpoint-xs: 400px;
+
+  --layout-width:1680px;
 }
 
 .animationcostume {
   animation: costume 16s infinite;
 }
 
+
+
 .animationcostume2 {
   animation: costume2 16s infinite;
 }
 .amimationleftright{
   animation: leftright 16s infinite;
+}
+
+@layer base{
+  .layout_padding{
+    @apply mx-auto px-4 sm:px-6 lg:px-8
+  }
+
+  .section_padding{
+    @apply px-4 sm:px-6 lg:px-8 mx-auto ;
+  }
+  /* --layout-width */
 }
 
 @keyframes leftright {
