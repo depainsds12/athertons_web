@@ -1,7 +1,7 @@
 import triangleGg from "../../../assets/traingleGg.svg";
 import triangleWw from "../../../assets/triangleWw.svg";
 
-const Video = () => {
+const Video = ({ apiData }) => {
   return (
     <section
       className="relative w-full  mx-auto min-h-[278px] aspect-[1366/515]  max-h-[600px] overflow-hidden border border-[#D6D6D6]"
@@ -9,7 +9,7 @@ const Video = () => {
     >
       {/* Thumbnail Image */}
       <img
-        src="/images/ty-menai.jpg"
+        src={apiData.cta_background_image}
         alt="Ty Menai Building"
         className="object-cover w-full h-full"
       />
@@ -59,7 +59,8 @@ const Video = () => {
 
       {/* Text */}
       <h2 className="absolute top-[20%] left-1/2 transform -translate-x-1/2 text-white  font-semibold text-base md:text-[40px]">
-        Ty Menai Project Video
+        {/* Ty Menai Project Video */}
+        {apiData.cta_title}
       </h2>
 
       {/* Play Button */}

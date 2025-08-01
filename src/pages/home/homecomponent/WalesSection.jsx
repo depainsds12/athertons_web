@@ -1,4 +1,4 @@
-const WalesSection = () => {
+const WalesSection = ({ apiData }) => {
   return (
     <section
       className="w-full flex justify-center px-4 sm:px-6 lg:px-10 py-12"
@@ -8,7 +8,8 @@ const WalesSection = () => {
         {/* Left Block */}
         <div className="flex flex-col items-center lg:items-start w-full max-w-[563px]">
           <h2 className="font-poppins font-semibold text-[28px] md:text-[40px] leading-[125%] tracking-[0] text-[#192437] mb-6 text-center lg:text-left">
-            Athertons: <br /> Supporting Wales
+            {/* Athertons: <br /> Supporting Wales */}
+            {apiData.supporting_wales_left_title}
           </h2>
 
           <div
@@ -17,7 +18,7 @@ const WalesSection = () => {
             className="relative border border-[#D6D6D6] sm:w-full  w-[300px] sm:h-[346px] overflow-hidden"
           >
             <img
-              src="/project-list.jpg"
+              src={apiData.supporting_wales_left_video_thumbnail_image}
               alt="Athertons Project Thumbnail"
               className="object-cover w-full h-full"
             />
@@ -45,11 +46,13 @@ const WalesSection = () => {
         {/* Right Block */}
         <div className="flex flex-col items-center lg:items-start w-full max-w-[513px]">
           <h2 className="font-poppins font-semibold text-[28px] md:text-[40px]  leading-[125%] tracking-[0] text-[#192437] mb-2 text-center lg:text-left">
-            Supporting Wales <br /> Infrastructure
+            {/* Supporting Wales <br /> Infrastructure */}
+            {apiData.supporting_wales_right_title}
           </h2>
 
           <p className="text-[#03837E] font-poppins font-semibold text-[18px] lg:text-[20px] mb-5 text-center lg:text-left mt-1">
-            Cefnogi Seilwaith Cymru
+            {/* Cefnogi Seilwaith Cymru */}
+            {apiData.supporting_wales_right_sub_title}
           </p>
           <div
             role="img"
@@ -57,7 +60,7 @@ const WalesSection = () => {
             className="border border-[#D6D6D6] sm:w-full sm:h-[308px] w-[300px] overflow-hidden"
           >
             <img
-              src="/images/wales.png"
+              src={apiData.supporting_wales_right_image}
               alt="Wales Flag"
               className="object-cover sm:w-full sm:h-full  "
             />
