@@ -102,9 +102,9 @@ const NewandContactus = () => {
       </div>
 
       {/* Right Section: Contact Us */}
-      <div className="flex flex-col items-center w-full mt-12 xl:w-1/2 xl:mt-0 xl:items-end">
+      <div className="flex flex-col items-center w-full mt-12 xl:w-1/2 text-left xl:mt-0 ">
         <h2
-          className="font-poppins font-semibold text-[#192437] text-[28px] md:text-[32px] xl:text-[36px] leading-[100%] mb-8 self-center xl:self-center xl:ml-6"
+          className="font-poppins font-semibold text-[#192437] text-[28px] md:text-[32px] xl:text-[36px] leading-[100%] mb-8 xl:ml-6"
           aria-label="Contact Us"
         >
           Contact Us

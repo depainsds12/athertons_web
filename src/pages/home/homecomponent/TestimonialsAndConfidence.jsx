@@ -51,7 +51,7 @@ const TestimonialsAndConfidence = () => {
       {/* LEFT SIDE */}
       <div className="lg:w-1/2 bg-[#03837E] text-white px-6 xl:px-20 py-10 space-y-8 relative z-10">
         <h2 className="text-[28px] font-semibold">Building Confidence</h2>
-        <div className="relative group w-[90%] mx-auto max-w-[600px] overflow-hidden">
+        <div className="relative group w-[90%] max-w-[600px] overflow-hidden">
           <img
             src="/images/building.jpg"
             alt="Modern Building"
