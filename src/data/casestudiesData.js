@@ -4,7 +4,7 @@ import solutionImg1 from "../assets/solution1.jpg";
 
 const casestudiesData = [
   {
-    id: "1",
+    id: "ty-menai-college",
     title: "LOREM IPSUM",
     bannerImage: bannerImage1,
     description:
