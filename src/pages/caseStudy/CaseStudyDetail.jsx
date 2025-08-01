@@ -46,7 +46,7 @@ const CaseStudyDetail = () => {
 
   return (
     <section className="font-Poppins text-black">
-    
+      {/* Banner */}
       <div
         className="relative w-full min-h-[200px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: `url(${caseStudy.bannerImage})` }}
@@ -57,8 +57,9 @@ const CaseStudyDetail = () => {
         </h2>
       </div>
 
+      {/* Main Content */}
       <div className="max-w-[1440px] mx-auto px-4 py-12 space-y-20">
-        
+        {/* Project Overview */}
         <div>
           <h3 className="text-2xl lg:text-[40px] xl:text-[40px] text-center font-semibold mb-4">
             Project Overview
@@ -68,7 +69,7 @@ const CaseStudyDetail = () => {
           </p>
         </div>
 
-        
+        {/* Challenges */}
         <div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <img
@@ -76,7 +77,6 @@ const CaseStudyDetail = () => {
               alt="Challenge"
               className="w-full object-cover xl:w-[556px] xl:h-[431px]"
             />
-
             <div className="space-y-4 text-black">
               <h3 className="text-2xl lg:text-[40px] xl:text-[40px] font-semibold mb-8">
                 Challenges
@@ -95,7 +95,7 @@ const CaseStudyDetail = () => {
           </div>
         </div>
 
-      
+        {/* Solutions */}
         <div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <div className="space-y-6 order-1 text-black">
@@ -115,7 +115,6 @@ const CaseStudyDetail = () => {
                 ))}
               </div>
             </div>
-
             <div className="order-2">
               <img
                 src={caseStudy.solutions.image}
@@ -125,9 +124,11 @@ const CaseStudyDetail = () => {
             </div>
           </div>
         </div>
+      </div>
 
-        
-        <div className="bg-[#03837E]  py-14 px-6 relative">
+      
+      <div className="w-full max-w-[1440px] mx-auto bg-[#03837E] py-14 relative">
+        <div className="max-w-[1440px] mx-auto px-4">
           <h3 className="text-2xl lg:text-[40px] xl:text-[40px] font-semibold mb-10 text-white text-center">
             Outcome
           </h3>
@@ -139,36 +140,38 @@ const CaseStudyDetail = () => {
               </li>
             ))}
           </ul>
-
-          {/* Decorative triangles */}
-          <div className="animate-bounce hidden lg:flex absolute top-8 right-8 flex-col items-start justify-start">
-            <img
-              src={triangleb}
-              alt="triangle black"
-              className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain"
-            />
-            <img
-              src={trianglepurew}
-              alt="triangle white"
-              className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain -mt-6"
-            />
-          </div>
-
-          <div className="animate-bounce hidden lg:flex absolute bottom-8 left-8 flex-col items-start justify-start">
-            <img
-              src={triangleb}
-              alt="triangle black"
-              className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain"
-            />
-            <img
-              src={trianglepurew}
-              alt="triangle white"
-              className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain -mt-6"
-            />
-          </div>
+              {/* Decorative triangles */}
+        <div className="animate-bounce hidden lg:flex absolute top-8 right-8 flex-col items-start justify-start">
+          <img
+            src={triangleb}
+            alt="triangle black"
+            className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain"
+          />
+          <img
+            src={trianglepurew}
+            alt="triangle white"
+            className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain -mt-6"
+          />
+        </div>
+        <div className="animate-bounce hidden lg:flex absolute bottom-8 left-8 flex-col items-start justify-start">
+          <img
+            src={triangleb}
+            alt="triangle black"
+            className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain"
+          />
+          <img
+            src={trianglepurew}
+            alt="triangle white"
+            className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain -mt-6"
+          />
+        </div>
         </div>
 
-        
+    
+      </div>
+
+      {/* Explore More */}
+      <div className="max-w-[1440px] mx-auto px-4 py-12 space-y-20">
         <div>
           <h3 className="text-center text-2xl lg:text-[40px] xl:text-[40px] font-semibold mb-10">
             Explore More Case Studies
@@ -206,7 +209,6 @@ const CaseStudyDetail = () => {
             ))}
           </div>
 
-          
           <div className="flex justify-center mt-10">
             <button
               className="bg-[#03837E] text-white text-lg font-medium"
