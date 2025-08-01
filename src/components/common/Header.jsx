@@ -73,7 +73,12 @@ const Header = () => {
           {/* Desktop layout */}
           <div className="hidden md:flex flex-wrap items-center justify-between lg:h-[50px] h-auto mr-8 ml-8 xl:ml-20 xl:mr-20 py-2">
             <div className="flex flex-col items-center sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6">
-              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Wirral+Office+Full+Address"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer"
+              >
                 <svg
                   width="24"
                   height="25"
@@ -97,8 +102,13 @@ const Header = () => {
                   />
                 </svg>
                 Wirral Office
-              </span>
-              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer">
+              </a>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Your+Office+Address,Wrexham"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer"
+              >
                 <svg
                   width="24"
                   height="25"
@@ -122,10 +132,13 @@ const Header = () => {
                   />
                 </svg>
                 Wrexham Office
-              </span>
+              </a>
             </div>
             <div className="flex flex-col items-center sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6">
-              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer hover:underline">
+              <Link
+                to="mailto:info@athertons.co.uk"
+                className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer hover:underline"
+              >
                 <svg
                   width="24"
                   height="25"
@@ -149,8 +162,11 @@ const Header = () => {
                   />
                 </svg>
                 info@athertons.co.uk
-              </span>
-              <span className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer hover:underline">
+              </Link>
+              <Link
+                to="tel:0151 670 0666"
+                className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer hover:underline"
+              >
                 <svg
                   width="24"
                   height="24"
@@ -167,7 +183,7 @@ const Header = () => {
                   />
                 </svg>
                 0151 670 0666
-              </span>
+              </Link>
             </div>
           </div>
 
@@ -282,11 +298,14 @@ const Header = () => {
             {/* Left: Logo + Navigation */}
             <div className="flex items-center gap-10">
               <div className="w-[90px] h-[84px] flex items-center justify-center sm:w-[116px] sm:h-[107px] sm:ml-8 ml-2 xl:ml-20 cursor-pointer group my-1">
-                <img
-                  src="/logo.png"
-                  alt="Athertons Logo"
-                  className="object-contain h-full"
-                />
+                <a href="/">
+                  {" "}
+                  <img
+                    src="/logo.png"
+                    alt="Athertons Logo"
+                    className="object-contain h-full"
+                  />
+                </a>
               </div>
 
               <nav className="hidden lg:flex items-center flex-nowrap gap-5 xl:gap-11 2xl:gap-14 text-black font-medium text-[15px] xl:text-base">

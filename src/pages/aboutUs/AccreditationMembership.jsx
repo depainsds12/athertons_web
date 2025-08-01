@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import aboutusbg2 from "../../assets/aboutusbg2.jpg";
 import gasSafe from "../../assets/aboutus/gasSafe.png";
 import chasLogo from "../../assets/aboutus/chasLogo.png";
@@ -7,8 +8,24 @@ import trustmarkLogo from "../../assets/aboutus/trustmarkLogo.png";
 import constructionlineLogo from "../../assets/aboutus/constructionlineLogo.png";
 import creditsafeLogo from "../../assets/aboutus/creditsafeLogo.png";
 import officeForZeroEmissionVehicle from "../../assets/aboutus/officeForZeroEmissionVehicle.png";
+import { getAccreditationPage } from "../../api/routes";
+import { getAxios } from "../../api/config";
 
 const AccreditationMembership = () => {
+  const [apiData, setApiData] = useState({});
+  useEffect(() => {
+    const fetchAccreditationPageData = async () => {
+      try {
+        const response = await getAxios().get(getAccreditationPage);
+        console.log("data is", response?.data?.data);
+        setApiData(response?.data?.data);
+      } catch (error) {
+        console.error("Failed to fetch Accreditation Page API:", error);
+      }
+    };
+
+    fetchAccreditationPageData();
+  }, []);
   return (
     <section
       className=" bg-white min-h-screen flex flex-col w-full"
@@ -17,7 +34,7 @@ const AccreditationMembership = () => {
       {/* Background Header with Decorative Image */}
       <div
         className="relative w-full min-h-[180px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
-        style={{ backgroundImage: `url(${aboutusbg2})` }}
+        style={{ backgroundImage: `url(${apiData?.banner_image})` }}
         role="presentation"
         aria-hidden="true"
       >
@@ -26,7 +43,8 @@ const AccreditationMembership = () => {
           id="accreditation-heading"
           className="relative z-10 text-white   text-[20px] sm:text-[36px] lg:text-[48px] xl:text-[60px]  font-bold tracking-wide text-center"
         >
-          ACCREDITATION & MEMBERSHIPS
+          {/* ACCREDITATION & MEMBERSHIPS */}
+          {apiData?.banner_title}
         </h2>
       </div>
 

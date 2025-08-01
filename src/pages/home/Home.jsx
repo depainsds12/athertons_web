@@ -20,6 +20,8 @@ const images = ["/project-list.jpg", meEngineering, lightCivil, bmsEms, bg1];
 export default function HomePage() {
   const [startIdx, setStartIdx] = useState(0);
   const [servicesData, setServicesData] = useState([]);
+  const [membershipImages, setMembershipImages] = useState([]);
+  const [homepageData, setHomePageData] = useState({});
   const handlePrev = () => {
     setStartIdx((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
@@ -28,37 +30,14 @@ export default function HomePage() {
     setStartIdx((prev) => (prev + 1) % images.length);
   };
 
-  // useEffect(() => {
-  //   const fetchHomePageData = async () => {
-  //     try {
-  //       const response = await getAxios().get(getHomePage);
-  //       const processedData = response?.data?.data?.services.map((service) => ({
-  //         ...service,
-  //         image: `https://athertonsweb.sdssoftltd.co.uk/admin/api/${service.image}`,
-  //       }));
-  //       setServicesData(processedData || []);
-  //     } catch (error) {
-  //       console.error("Failed to fetch Home API:", error);
-  //     }
-  //   };
-
-  //   fetchHomePageData();
-  // }, []);
-
   useEffect(() => {
     const fetchHomePageData = async () => {
       try {
         const response = await getAxios().get(getHomePage);
 
-        // Process the data to include full image URLs
-        // const processedData =
-        //   response?.data?.data?.services?.map((service) => ({
-        //     ...service,
-        //     // Add your base URL here (replace with your actual base URL)
-        //     image: `https://athertonsweb.sdssoftltd.co.uk/admin/api/${service.image}`,
-        //   })) || [];
-
         setServicesData(response?.data?.data?.services);
+        setMembershipImages(response?.data?.data?.memberships);
+        setHomePageData(response?.data?.data?.homepage_content);
       } catch (error) {
         console.error("Failed to fetch Home API:", error);
       }
@@ -173,7 +152,7 @@ export default function HomePage() {
       </div>
 
       <Services servicesData={servicesData} />
-      <Accreditation />
+      <Accreditation membershipsData={membershipImages} />
       <Commercial />
       <Video />
       <Casestudies />

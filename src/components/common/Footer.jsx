@@ -14,11 +14,14 @@ const Footer = () => {
       <div className="w-full bg-[#03837E] flex flex-col  sm:items-center lg:flex-row lg:items-start lg:justify-between px-6 py-10 gap-8">
         {/* 1. Logo */}
         <div className="flex flex-col items-center lg:items-center flex-1">
-          <img
-            src="/logo.png"
-            alt="Athertons Logo"
-            className="w-[100px] h-[90px] sm:w-[120px] sm:h-[110px] object-contain mb-4"
-          />
+          <a href="/">
+            {" "}
+            <img
+              src="/logo.png"
+              alt="Athertons Logo"
+              className="w-[100px] h-[90px] sm:w-[120px] sm:h-[110px] object-contain mb-4"
+            />
+          </a>
           <div className="flex items-center gap-3 sm:gap-4 mt-2">
             <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#3D6AD6] bg-white flex items-center justify-center rounded-full hover:bg-blue-100">
               <a href="#">
@@ -136,7 +139,12 @@ const Footer = () => {
             Contact Us
           </span>
 
-          <span className="flex items-start sm:items-center justify-center lg:justify-start text-white text-sm md:text-base leading-[28px] mb-2">
+          <a
+            href="https://www.google.com/maps/place/19-21+Grange+Mount,+Birkenhead,+Prenton+CH43+4XN,+UK"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-start sm:items-center hover:underline justify-center lg:justify-start text-white text-sm md:text-base leading-[28px] mb-2"
+          >
             <div className="mt-1 sm:mt-0">
               <svg
                 className="mr-2.5"
@@ -175,9 +183,12 @@ const Footer = () => {
               </svg>
             </div>
             19-21 Grange Mount, Birkenhead, Prenton CH43 4XN, UK
-          </span>
+          </a>
 
-          <span className="flex items-center justify-center lg:justify-start text-white text-sm md:text-base leading-[28px] mb-2">
+          <Link
+            to="mailto:info@athertons.co.uk"
+            className="flex items-center hover:underline justify-center lg:justify-start text-white text-sm md:text-base leading-[28px] mb-2"
+          >
             <svg
               className="mr-2.5"
               width="18"
@@ -202,9 +213,12 @@ const Footer = () => {
               />
             </svg>
             info@athertons.co.uk
-          </span>
+          </Link>
 
-          <span className="flex items-center justify-center lg:justify-start text-white text-sm md:text-base leading-[28px]">
+          <Link
+            to="tel:0151 670 0666"
+            className="flex items-center hover:underline justify-center lg:justify-start text-white text-sm md:text-base leading-[28px]"
+          >
             <svg
               className="mr-2.5"
               width="18"
@@ -234,14 +248,21 @@ const Footer = () => {
               </defs>
             </svg>
             0151 670 0666
-          </span>
+          </Link>
         </div>
       </div>
 
       <div className="w-full bg-white h-auto flex flex-col sm:flex-row items-center justify-between gap-2 px-4 py-2 text-xs md:text-sm border-t border-[#e5e7eb] text-center sm:text-left">
         <span>Copyright © 2025 Athertons. All Rights Reserved.</span>
-        <span className="text-center sm:text-right">
-          Website By: sdsoftwares.co.uk
+        <span className="text-center  sm:text-right">
+          Website By:{" "}
+          <a
+            href="https://sdssoftwares.co.uk/"
+            target="_blank"
+            className="hover:underline"
+          >
+            sdsoftwares.co.uk
+          </a>
         </span>
       </div>
     </footer>

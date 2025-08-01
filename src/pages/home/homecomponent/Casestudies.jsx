@@ -2,13 +2,12 @@ import { projects } from "../../../data/projects.js";
 
 const Casestudies = () => {
   return (
-    <section className="w-full px-4 py-16 max-w-[1700px] mx-auto sm:px-8 md:px-12 xl:px-20 2xl:px-40">
-      <h2 className="xl:text-[40px] text-center font-semibold text-[#192437] mb-12">
+    <section className="w-full px-4 py-5 lg:py-16 max-w-[1700px] mx-auto sm:px-8 md:px-12 xl:px-20 2xl:px-40">
+      <h2 className=" text-[28px] lg:text-[40px] text-center font-semibold text-[#192437] mb-3 lg:mb-12">
         Case Studies
       </h2>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-16 xl:gap-x-18">
-
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-7 lg:gap-y-16 xl:gap-x-18">
         {projects.slice(0, 3).map((project) => (
           <div
             key={project.id}

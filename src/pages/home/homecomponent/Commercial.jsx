@@ -40,7 +40,7 @@ const Commercial = () => {
       <div className="w-full max-w-xl text-center lg:text-left">
         <h2
           id="commercial-heading"
-          className="text-3xl xl:text-[40px] 2xl:text-5xl font-semibold text-[#192437] mb-4"
+          className="text-[28px] xl:text-[40px] 2xl:text-5xl font-semibold text-[#192437] mb-4"
         >
           Commercial Market Leader
         </h2>
@@ -116,45 +116,45 @@ const Commercial = () => {
         className="flex flex-col justify-center w-full max-w-xl text-center lg:text-left"
         aria-label="Recent Projects"
       >
-      <h3 className="text-3xl xl:text-[40px] 2xl:text-5xl font-semibold text-[#192437] mb-8">
-              Our Recent Projects
-            </h3>
+        <h3 className="text-[28px] xl:text-[40px] 2xl:text-5xl font-semibold text-[#192437] mb-8">
+          Our Recent Projects
+        </h3>
 
-            <div className="space-y-6">
-              {recentProjects.map((project) => (
-                <div
-                  key={project.id}
-                  className="flex flex-col items-center sm:text-left gap-4 sm:flex-row sm:items-center"
-                >
-                  <div className="group w-[216px] h-[164px] overflow-hidden border border-[#D6D6D6] hover:shadow-xl transition-shadow duration-500 ease-in-out mr-4">
-                    <img
-                      src={project.image}
-                      alt={`Preview of ${project.title}`}
-                      className="object-cover w-full h-full transition-transform duration-500 ease-in-out shadow-2xl group-hover:scale-105"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[20px] text-[#192437]">
-                      {project.title}
-                    </h4>
-                    <a
-                      href={project.link}
-                      className="text-[#03837E] text-[18px] font-[500] underline cursor-pointer"
-                      aria-label={`View details for ${project.title}`}
-                    >
-                      View Details
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <button
-              className="mt-10 bg-[#03837E] text-white w-full max-w-[511px] py-3 text-lg font-medium mx-auto xl:mx-0 hover:border hover:border-[#03837E] hover:bg-white hover:text-[#03837E]"
-              aria-label="View all projects"
+        <div className="space-y-6">
+          {recentProjects.map((project) => (
+            <div
+              key={project.id}
+              className="flex flex-col items-center sm:text-left gap-4 sm:flex-row sm:items-center"
             >
-              View All Projects
-            </button>
+              <div className="group w-[216px] h-[164px] overflow-hidden border border-[#D6D6D6] hover:shadow-xl transition-shadow duration-500 ease-in-out mr-4">
+                <img
+                  src={project.image}
+                  alt={`Preview of ${project.title}`}
+                  className="object-cover w-full h-full transition-transform duration-500 ease-in-out shadow-2xl group-hover:scale-105"
+                />
+              </div>
+              <div>
+                <h4 className="font-semibold text-[20px] text-[#192437]">
+                  {project.title}
+                </h4>
+                <a
+                  href={project.link}
+                  className="text-[#03837E] text-[18px] font-[500] underline cursor-pointer"
+                  aria-label={`View details for ${project.title}`}
+                >
+                  View Details
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <button
+          className="mt-10 bg-[#03837E] text-white w-full max-w-[511px] py-3 text-lg font-medium mx-auto xl:mx-0 hover:border hover:border-[#03837E] hover:bg-white hover:text-[#03837E] cursor-pointer"
+          aria-label="View all projects"
+        >
+          View All Projects
+        </button>
       </aside>
     </section>
   );
