@@ -4,7 +4,7 @@ import newsImage2 from "../assets/news/2.jpg";
 
 const newsData = [
   {
-    id: "1",
+    id: "ty-menai-college",
     title: "NEWS DETAILS",
     bannerImage: liverpoolbg,
     image: newsImage1,
