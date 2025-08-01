@@ -3,57 +3,39 @@ import triangleb from "../../../assets/triangleb.svg";
 import triangleg from "../../../assets/triangleg.svg";
 import trianglew from "../../../assets/trianglepurew.svg";
 
-const leftContent = [
-  {
-    title: "Quality Assurance",
-    description:
-      "At ATHERTONS, we pride ourselves on maintaining the highest quality standards. Our critical mass, along with a team of skilled professionals and cutting-edge design tools, positions us to compete with the best in the industry. We are committed to delivering exceptional service to our clients, ensuring their satisfaction at every stage of a project. Our directors and senior management actively engage from concept to completion, reinforcing our client-focused approach.",
-  },
-  {
-    title: "Collaborative Partnership",
-    description:
-      "Our reputation is built on long-standing client relationships. We value quality and understand that collaborative partnerships are essential. At ATHERTONS, we work closely with our clients, architects, and other stakeholders to achieve successful outcomes. Our commitment to excellence drives us to deliver results that exceed expectations. Directors and senior management play an active role in project development, ensuring seamless collaboration throughout.",
-  },
-  {
-    title: "360 Approach",
-    description:
-      "ATHERTONS takes a holistic view of engineering design. Our team combines technical expertise with an understanding of architectural and structural nuances. Whether it’s designing HVAC systems, electrical layouts, or sustainable solutions, we adhere to regulations while maintaining the overall design integrity. Our 360-degree approach ensures comprehensive solutions that meet both functional and aesthetic requirements.",
-  },
-];
+const TestimonialsAndConfidence = ({ apiData, testimonialData }) => {
+  const renderHtmlContent = (html) => {
+    return { __html: html || "" };
+  };
+  const parseContent = (htmlContent) => {
+    if (!htmlContent) return [];
 
-const testimonials = [
-  {
-    name: "Knowsley Lane School and the wider Academy",
-    role: "Lead Site Manager",
-    content:
-      "I am based in Knowsley Lane Primary School where Athertons have just completed a boiler replacement and a replacement of all the domestic water supply in the whole school. I have overseen many works within our 9 schools and usually it's not a pleasant experience, but on this occasion the whole process has been amazing. The lads were excellent, polite and professional throughout, even switching over...",
-    readMore: true,
-  },
-  {
-    name: "Lee Bell",
-    role: "Site Manager, Read Construction",
-    content:
-      "Gents, I just wanted to take this opportunity to thank you all for your help and hard work to get the Bro Alun school extension not only complete but to a very high standard under difficult circumstances. We have had great feedback from the client, School as well as our head office. Your expertise and dedication may be sometimes be taken for granted after years of working together but be assured...",
-    readMore: true,
-  },
-  {
-    name: "Kroll Corlett Construction",
-    role: "",
-    content:
-      "Just a quick email to say thank you for Athertons work on the Liverpool University M.I.F Building. Please send my thanks to Alan and the wider team. We had a really good handover and the client and end user are delighted with the end product. They also send their thanks. Looking forward to our next project very soon.",
-    readMore: false,
-  },
-];
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = htmlContent;
 
-const TestimonialsAndConfidence = () => {
+    const listItems = tempDiv.querySelectorAll("li");
+
+    return Array.from(listItems).map((item) => {
+      const content = item.innerHTML.split("<br>");
+      return {
+        title: content[0]?.trim() || "",
+        description: content.slice(1).join(" ")?.trim() || "",
+      };
+    });
+  };
+
+  const leftContent = apiData?.building_confidence_description
+    ? parseContent(apiData.building_confidence_description)
+    : [""];
   return (
     <section className="relative flex flex-col w-full lg:flex-row font-poppins">
-      {/* LEFT SIDE */}
       <div className="lg:w-1/2 bg-[#03837E] text-white px-6 xl:px-20 py-10 space-y-8 relative z-10">
-        <h2 className="text-[28px] font-semibold">Building Confidence</h2>
+        <h2 className="text-[28px] font-semibold">
+          {apiData?.building_confidence_title || "Building Confidence"}
+        </h2>
         <div className="relative group w-[90%] max-w-[600px] overflow-hidden">
           <img
-            src="/images/building.jpg"
+            src={apiData?.building_confidence_image}
             alt="Modern Building"
             className="aspect-[518/392] w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
           />
@@ -88,7 +70,6 @@ const TestimonialsAndConfidence = () => {
           ))}
         </div>
 
-        {/* Top Triangle */}
         <div className="animationcostume2 absolute left-0 flex-col items-start justify-start hidden sm:flex top-25">
           <img
             src={triangleb}
@@ -117,14 +98,12 @@ const TestimonialsAndConfidence = () => {
         </div> */}
       </div>
 
-      {/* RIGHT SIDE */}
       <div className="lg:w-1/2 bg-[#F4F4F5] px-6 xl:px-20 py-10 flex flex-col space-y-6 relative">
         <h2 className="text-[#192437] text-[28px] font-semibold">
           Client Testimonials
         </h2>
 
-        {/**righ triangle */}
-        <div className="animate-bounce hidden sm:flex absolute top-1/2 right-0 transform -translate-y-1/2 flex-col items-start justify-start w-[70px] h-[70px] 2xl:w-[70px] 2xl:h-[70px]">
+        {/* <div className="animate-bounce animationcostume2 hidden sm:flex absolute top-1/2 right-0 transform -translate-y-1/2 flex-col items-start justify-start w-[70px] h-[70px] 2xl:w-[70px] 2xl:h-[70px]">
           <img
             src={triangleg}
             alt="triangle black"
@@ -135,12 +114,12 @@ const TestimonialsAndConfidence = () => {
             alt="triangle white"
             className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain -mt-6"
           />
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-1 gap-8">
-          {testimonials.map((t, idx) => (
+          {testimonialData.map((t, idx) => (
             <article
-              key={idx}
+              key={t.id}
               className="flex flex-col h-auto pt-4 bg-white hover:shadow-2xl pl-7 pr-7 pb-7"
               role="article"
               aria-labelledby={`testimonial-name-${idx}`}
@@ -155,31 +134,32 @@ const TestimonialsAndConfidence = () => {
                   />
                   <div className="flex flex-col my-auto">
                     <div
-                      id={`testimonial-name-${idx}`}
+                      id={`testimonial-name-${t.id}`}
                       className="text-[#192437] text-lg md:text-[20px] font-semibold leading-7"
                     >
                       {t.name}
                     </div>
-                    {t.role && (
+                    {t.job_title && (
                       <div className="text-[#03837E] text-base leading-7 font-medium italic mt-1">
-                        {t.role}
+                        {t.job_title}
                       </div>
                     )}
                   </div>
                 </div>
 
-                <div className="text-[#192437] font-normal text-base leading-7 mt-4">
-                  {t.content}
-                  {t.readMore && (
-                    <span
-                      className="text-[#03837E] font-medium cursor-pointer ml-1 hover:underline"
-                      role="link"
-                      tabIndex={0}
-                    >
-                      Read More
-                    </span>
-                  )}
-                </div>
+                <div
+                  dangerouslySetInnerHTML={renderHtmlContent(t.message)}
+                  className="text-[#192437] font-normal text-base leading-7 mt-4"
+                />
+                {t.readMore && (
+                  <span
+                    className="text-[#03837E] font-medium cursor-pointer hover:underline mt-2"
+                    role="link"
+                    tabIndex={0}
+                  >
+                    Read More
+                  </span>
+                )}
               </div>
             </article>
           ))}
