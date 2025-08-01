@@ -14,6 +14,7 @@ import EcoSolutions from "./pages/services/EcoSolutions.jsx";
 import ServicePage from "./pages/services/ServicePage.jsx";
 import News from "./pages/new/News.jsx";
 import NewsDetail from "./pages/new/NewsDetail.jsx";
+import CaseStudyDetail from "./pages/caseStudy/CaseStudyDetail.jsx";
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
         { path: "/projects", element: <ProjectList /> },
         { path: "/projects/:projectId", element: <ProjectDetail /> },
         { path: "/casestudies", element: <CaseStudyList /> },
-        { path: "/casestudies", element: <CaseStudyList /> },
+        { path: "/casestudies/:id", element: <CaseStudyDetail /> },
         { path: "/contactus", element: <ContactUs /> },
         { path: "/newsandinsight", element: <News /> },
         { path: "/newsandinsight/:newsId", element: <NewsDetail /> },
