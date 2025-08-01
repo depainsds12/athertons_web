@@ -9,7 +9,7 @@ const HexIcon = () => (
     viewBox="0 0 13 13"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="inline-block mr-2 align-middle"
+    className="inline-block mr-2 align-middle flex-shrink-0"
     aria-hidden="true"
   >
     <path
@@ -44,6 +44,7 @@ const ServicePage = () => {
       role="main"
       aria-label="Service Details"
     >
+      {/* Banner Section */}
       <section
         className="relative w-full min-h-[200px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: `url(${service.heroImage})` }}
@@ -56,19 +57,22 @@ const ServicePage = () => {
         </h1>
       </section>
 
+      {/* Content Section */}
       <section
         className="w-full max-w-[1600px] mx-auto flex flex-col py-14 px-4 md:px-14 xl:px-20"
         aria-label="Service Content"
       >
         <div className="w-full flex flex-col gap-10 lg:flex-row lg:items-start 2xl:items-center">
+          {/* Left Image */}
           <div className="flex justify-center items-start lg:w-1/2 w-full">
             <img
               src={service.image}
               alt={`${service.heading} illustration`}
-              className="object-cover w-full h-auto"
+              className="object-cover w-full lg:min-h-[450px] h-auto"
             />
           </div>
 
+          {/* Right Content */}
           <div className="flex flex-col lg:w-1/2 w-full space-y-8 h-full">
             {rightSections.map((section, idx) => (
               <section
@@ -76,20 +80,37 @@ const ServicePage = () => {
                 role="region"
                 aria-labelledby={`right-section-${idx}`}
               >
+                {/* Title  */}
                 {section.title && (
                   <h2
                     id={`right-section-${idx}`}
-                    className="text-lg font-semibold flex items-center"
+                    className="text-[20px] font-semibold flex items-center"
                   >
                     <HexIcon />
                     {section.title}
                   </h2>
                 )}
+
+                {/* Heading  */}
+                {section.heading && (
+                  <h2 className="text-xl md:text-[36px] font-semibold mt-4">{section.heading}</h2>
+                )}
+
+                {/* Subheading (no icon) */}
+                {section.subheading && (
+                  <h3 className="text-[24px]  font-semibold mt-2">
+                    {section.subheading}
+                  </h3>
+                )}
+
+                {/* Paragraphs */}
                 {section.paragraphs &&
                   section.paragraphs.map((p, i) => (
                     <p
                       key={i}
-                      className={`${i > 0 ? "mt-4" : ""} text-base leading-7 md:leading-[28px]`}
+                      className={`${
+                        i > 0 ? "mt-4" : ""
+                      } text-base leading-7 md:leading-[28px]`}
                     >
                       {p}
                     </p>
@@ -99,6 +120,7 @@ const ServicePage = () => {
           </div>
         </div>
 
+        {/* Below Sections */}
         <div className="flex flex-col w-full mt-10 space-y-10">
           {belowSections.map((section, idx) => (
             <section
@@ -106,20 +128,37 @@ const ServicePage = () => {
               role="region"
               aria-labelledby={`below-section-${idx}`}
             >
+              {/* Title it will have hex */}
               {section.title && (
                 <h3
                   id={`below-section-${idx}`}
-                  className="text-lg font-semibold flex items-center"
+                  className="text-[20px] font-semibold flex items-center"
                 >
                   <HexIcon />
                   {section.title}
                 </h3>
               )}
+
+              {/* Heading  */}
+              {section.heading && (
+                <h2 className="text-xl md:text-[36px] font-bold mt-4">{section.heading}</h2>
+              )}
+
+              {/* Subheading */}
+              {section.subheading && (
+                <h4 className="text-[24px] font-semibold">
+                  {section.subheading}
+                </h4>
+              )}
+
+              {/* Paragraphs */}
               {section.paragraphs &&
                 section.paragraphs.map((p, i) => (
                   <p
                     key={i}
-                    className={`${i > 0 ? "mt-4" : ""} text-base leading-7 md:leading-[28px]`}
+                    className={`${
+                      i > 0 ? "mt-4" : ""
+                    } text-base leading-7 md:leading-[28px]`}
                   >
                     {p}
                   </p>
