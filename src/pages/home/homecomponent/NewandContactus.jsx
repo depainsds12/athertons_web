@@ -18,46 +18,51 @@ const NewandContactus = () => {
 
         <ul className="space-y-6" role="list" aria-labelledby="news-list">
           {[1, 2, 3].map((item) => (
-            <li
-              key={item}
-              role="listitem"
-              className="flex flex-col items-start gap-4 sm:flex-row"
-              aria-label="News Item"
-            >
-              <img
-                src="/images/ty-menai.jpg"
-                alt="Tŷ Menai Project"
-                className="
-            border border-[#D6D6D6]
-            object-cover
-            w-full h-[200px]
-            sm:w-[220px] sm:h-[165px]
-            xl:w-[234px] xl:h-[177px]
-          "
-              />
-              <div className="flex flex-col gap-2">
-                <h3
-                  className="font-poppins font-semibold text-[20px] leading-[100%]"
-                  aria-label="News Heading"
-                >
-                  Lorem Ipsum dummy Heading Text
-                </h3>
-                <p
-                  className="font-poppins font-normal text-[16px] leading-[28px]"
-                  aria-label="News Description"
-                >
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-                <a
-                  href="#"
-                  aria-label="View Details"
-                  className="underline text-[#03837E] font-poppins font-medium text-[18px] leading-[100%]"
-                >
-                  View Details
-                </a>
-              </div>
-            </li>
+       <li
+  key={item}
+  role="listitem"
+  className="group flex flex-col items-start gap-4 sm:flex-row"
+  aria-label="News Item"
+>
+  <img
+    src="/images/ty-menai.jpg"
+    alt="Tŷ Menai Project"
+    className="
+      object-cover
+      w-full h-[200px]
+      sm:w-[220px] sm:h-[165px]
+      xl:w-[234px] xl:h-[177px]
+      transition-transform duration-500 ease-in-out
+      animate__animated animate__zoomIn
+      group-hover:scale-105
+    "
+  />
+
+  <div className="flex flex-col gap-2">
+    <h3
+      className="font-poppins font-semibold text-[20px] leading-[100%]"
+      aria-label="News Heading"
+    >
+      Lorem Ipsum dummy Heading Text
+    </h3>
+    <p
+      className="font-poppins font-normal text-[16px] leading-[28px]"
+      aria-label="News Description"
+    >
+      Lorem Ipsum is simply dummy text of the printing and
+      typesetting industry.
+    </p>
+    <a
+      href="#"
+      aria-label="View Details"
+      className="underline text-[#03837E] font-poppins font-medium text-[18px] leading-[100%] hover:text-[#02635f] cursor-pointer"
+    >
+      View Details
+    </a>
+  </div>
+</li>
+
+
           ))}
         </ul>
 
