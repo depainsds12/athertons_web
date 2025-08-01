@@ -106,68 +106,80 @@ export const serviceData = {
     ],
   },
 
-  eco_solutions: {
-    heading: "ECO SOLUTIONS",
-    heroImage: EcoSolutionsImg,
-    image: EcoSolutionsImg,
-    upperBlockSections: [
-      {
-        intro: "We specialise in delivering cutting-edge ecological solutions for both retrofit and new build projects. Our mission is to create sustainable, energy-efficient buildings that not only meet but exceed modern environmental standards.",
-        services: {
-          title: "Our Services:",
-          subheading: "Retrofit and new build Consultancy",
-          bullets: [
-            {
-              title: "Energy-Efficient Materials",
-              description:
-                "We use the latest in sustainable materials, including advanced insulation and recycled components, to enhance the energy performance of existing structures.",
-            },
-          ],
-        },
-      },
-    ],
-    bottomBlockSections: [
-      {
-        title: "Innovative Technologies",
-        paragraphs: [
-          "Our retrofit projects incorporate state-of-the-art technologies such as Building Information Modeling (BIM) and smart automation systems to optimise energy use and reduce carbon footprints.",
-        ],
-      },
-      {
-        title: "New Build Projects",
-        subbullets: [
+
+eco_solutions: {
+  heading: "ECO SOLUTIONS",
+  heroImage: EcoSolutionsImg,
+  image: EcoSolutionsImg,
+  upperBlockSections: [
+    {
+      paragraphs: [
+        "We specialise in delivering cutting-edge ecological solutions for both retrofit and new build projects. Our mission is to create sustainable, energy-efficient buildings that not only meet but exceed modern environmental standards."
+      ],
+    },
+    {
+      heading: "Our Services",
+     
+    },
+    {
+      subheading: "Retrofit and New Build Consultancy",
+    },
+          {
+            title: "Energy-Efficient Materials",
+            paragraphs:[
+              "We use the latest in sustainable materials, including advanced insulation and recycled components, to enhance the energy performance of existing structures."]
+          },
+         
+        
+      
+    
+  ],
+  bottomBlockSections: [
+     {
+            title: "Innovative Technologies",
+            paragraphs:[
+              "Our retrofit projects incorporate state-of-the-art technologies such as Building Information Modeling (BIM) and smart automation systems to optimise energy use and reduce carbon footprints."]
+          },
+    {
+      subheading: "New Build Projects",
+      
+    },
           {
             title: "Sustainable Construction",
-            description:
-              "From the ground up, our new builds are designed with sustainability in mind. We integrate renewable energy sources like solar panels and geothermal systems to ensure long-term energy savings.",
+            paragraphs:[
+              "From the ground up, our new builds are designed with sustainability in mind. We integrate renewable energy sources like solar panels and geothermal systems to ensure long-term energy savings."]
           },
           {
             title: "Advanced Equipment",
-            description:
-              "Utilising the latest in construction technology, including 3D printing and robotics, we deliver precision and efficiency in every project.",
+            paragraphs:[
+              "Utilising the latest in construction technology, including 3D printing and robotics, we deliver precision and efficiency in every project."]
           },
-        ],
-      },
-      {
-        title: "Expertise",
-        paragraphs: [
-          "With years of experience in the construction industry, our team is equipped with the knowledge and skills to handle complex ecological projects.",
-        ],
-      },
-      {
-        title: "Innovation",
-        paragraphs: [
-          "We stay ahead of the curve by continuously adopting the latest technologies and materials to provide the best solutions for our clients.",
-        ],
-      },
-      {
-        title: "Sustainability",
-        paragraphs: [
-          "Our commitment to the environment allows us to implement practices that reduce waste, conserve resources, and promote energy efficiency controlled centrally by our Building and Energy Management Systems.",
-        ],
-      },
-    ],
-  },
+        
+      
+    
+    {
+      subheading: "Expertise",
+      paragraphs: [
+        "With years of experience in the construction industry, our team is equipped with the knowledge and skills to handle complex ecological projects."
+      ]
+    },
+    {
+      subheading: "Innovation",
+      paragraphs: [
+        "We stay ahead of the curve by continuously adopting the latest technologies and materials to provide the best solutions for our clients."
+      ]
+    },
+    {
+      subheading: "Sustainability",
+      paragraphs: [
+        "Our commitment to the environment allows us to implement practices that reduce waste, conserve resources, and promote energy efficiency controlled centrally by our Building and Energy Management Systems."
+      ]
+    }
+  ]
+},
+
+
+
 
   light_civil_engineering: {
     heading: "LIGHT CIVIL ENGINEERING",

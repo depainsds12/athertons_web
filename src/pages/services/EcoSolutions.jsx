@@ -58,7 +58,6 @@ const ecoSections = [
 const EcoSolutions = () => (
   <div className="w-full bg-white flex justify-center overflow-x-hidden">
     <div className="w-full">
-      {/* Hero Section */}
       <section
         className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: `url(${EcoSolutionsImg})` }}
@@ -74,7 +73,6 @@ const EcoSolutions = () => (
         </h1>
       </section>
 
-      {/* Main Content */}
       <section
         className="w-full flex flex-col items-center py-12 px-4 md:px-14 xl:px-20"
         role="region"
@@ -82,13 +80,12 @@ const EcoSolutions = () => (
       >
         <h2 id="eco-main-heading" className="sr-only">Eco Solutions Main Content</h2>
 
-        {/* Intro Row */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="flex justify-center items-start">
             <img
               src={EcoSolutionsImg}
               alt="Illustration showing eco solutions in building projects"
-              className="object-cover w-full max-w-[629px] h-auto xl:h-[431px]"
+              className="object-cover w-full  h-auto lg:min-h-[450px] xl:min-h-auto"
             />
           </div>
           <div className="flex flex-col justify-start text-[#192437]">
@@ -119,7 +116,6 @@ const EcoSolutions = () => (
           </div>
         </div>
 
-        {/* Additional Sections */}
         <div className="w-full flex flex-col gap-y-10 mt-14">
           {ecoSections.map((section, idx) => (
             <section key={idx} role="region" aria-labelledby={`section-title-${idx}`}>
@@ -140,14 +136,12 @@ const EcoSolutions = () => (
                 </h3>
               )}
 
-              {/* Paragraphs */}
               {section.paragraphs?.map((para, i) => (
                 <p key={i} className="text-[15px] md:text-base leading-7 md:leading-[28px] font-normal text-[#192437] mb-2">
                   {para}
                 </p>
               ))}
 
-              {/* Subbullets */}
               {section.subbullets && (
                 <div className="mt-6 flex flex-col gap-y-8">
                   {section.subbullets.map((sb, sbi) => (

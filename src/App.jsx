@@ -33,7 +33,7 @@ function App() {
         { path: "/aboutus/testimonials", element: <Testimonials /> },
         // { path: '/services/consultancy_smartdesign', element: <SmartDesign/> },
         { path: "/services/:serviceName", element: <ServicePage /> },
-        { path: "/services/eco_solutions", element: <EcoSolutions /> },
+        //{ path: "/services/eco_solutions", element: <EcoSolutions /> },
         { path: "/projects", element: <ProjectList /> },
         { path: "/projects/:projectId", element: <ProjectDetail /> },
         { path: "/casestudies", element: <CaseStudyList /> },
