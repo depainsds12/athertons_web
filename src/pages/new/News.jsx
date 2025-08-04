@@ -67,8 +67,8 @@ const News = () => {
                 alt={`News: ${item.title}`}
                 className="
                   object-cover
-                  w-[287px] h-[188px] mx-auto
-                  sm:mx-0
+                  w-full px-4 mx-auto
+                  sm:mx-0 sm:px-0
                   sm:w-[150px] sm:h-[130px]
                   md:w-[180px] md:h-[140px]
                   lg:w-[200px] lg:h-[165px]
@@ -78,9 +78,9 @@ const News = () => {
                 "
               />
               {/* Text content */}
-              <div className="flex flex-col flex-1 justify-between h-full">
+              <div className="flex flex-col flex-1 justify-between h-full px-4  sm:px-2 lg:px-0  ">
                 <div>
-                  <h3 className=" text-[#192437]  font-semibold text-[18px] sm:text-[20px] leading-snug">
+                  <h3 className=" text-[#192437]  font-semibold text-[18px] sm:text-[20px] leading-snug ">
                     {item.title}
                   </h3>
                   <p className="font-normal text-[14px] sm:text-[16px] leading-[24px] sm:leading-[28px] mt-1.5 lg:mt-0.5 xl:mt-1.5">
