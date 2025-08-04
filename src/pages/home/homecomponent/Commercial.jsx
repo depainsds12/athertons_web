@@ -1,30 +1,12 @@
+
+
 import commercialMarketLeader from "../../../assets/commercialMarketLeader.png";
 import triangleg from "../../../assets/triangleg.svg";
 import trianglew from "../../../assets/trianglew.svg";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-const recentProjects = [
-  {
-    id: 1,
-    title: "Tŷ Menai College Refurbishment",
-    image: "/images/ty-menai.jpg",
-    link: "#",
-  },
-  {
-    id: 2,
-    title: "St Johns Church Presbytery",
-    image: "/images/st-johns-church.png",
-    link: "#",
-  },
-  {
-    id: 3,
-    title: "Bro Alun School Wrexham",
-    image: "/images/bro-alan-school.png",
-    link: "#",
-  },
-];
-
-const  Commercial = ({ apiData }) => {
+const Commercial = ({ apiData, projectData }) => {
   const features = [
     "Project Management",
     "Procurement",
@@ -34,39 +16,17 @@ const  Commercial = ({ apiData }) => {
 
   const [descriptionText, setDescriptionText] = useState("");
   const [listItems, setListItems] = useState([]);
-
-  // useEffect(() => {
-  //   if (apiData?.market_leader_description2) {
-  //     // Create a temporary DOM element to parse the HTML
-  //     const tempDiv = document.createElement("div");
-  //     tempDiv.innerHTML = DOMPurify.sanitize(
-  //       apiData.market_leader_description2
-  //     );
-
-  //     // Extract paragraph content (text before the first ul)
-  //     const paragraphs = tempDiv.querySelectorAll("p");
-  //     setDescriptionText(paragraphs[0]?.textContent || "");
-
-  //     // Extract list items
-  //     const items = Array.from(tempDiv.querySelectorAll("li")).map(
-  //       (li) => li.textContent
-  //     );
-  //     setListItems(items);
-  //   }
-  // }, [apiData]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (apiData?.market_leader_description2) {
-      // Simple parsing without DOMPurify
       const htmlString = apiData.market_leader_description2;
 
-      // Extract text before <ul> (paragraph content)
       const textBeforeList = htmlString.split("<ul>")[0];
       const tempDiv = document.createElement("div");
       tempDiv.innerHTML = textBeforeList;
       setDescriptionText(tempDiv.textContent || "");
 
-      // Extract list items
       const listMatch = htmlString.match(/<ul>(.*?)<\/ul>/s);
       if (listMatch) {
         const listContent = listMatch[1];
@@ -79,12 +39,27 @@ const  Commercial = ({ apiData }) => {
     }
   }, [apiData]);
 
+  // Function to generate project URL slug
+  const generateProjectSlug = (title) => {
+    return title
+      .toLowerCase()
+      .replace(/[^\w\s]/g, '') // Remove special characters
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/--+/g, '-') // Replace multiple hyphens with single
+      .trim();
+  };
+
+  // Function to handle project detail navigation
+  const handleProjectClick = (projectTitle) => {
+    const slug = generateProjectSlug(projectTitle);
+    navigate(`/projects/${slug}`);
+  };
+
   return (
     <section
       className="relative flex flex-col items-center justify-between w-full gap-10 px-6 py-16 mx-auto xl:flex-row xl:items-start 2xl:gap-32 xl:px-20 2xl:px-40 max-w-[1600px]"
       aria-labelledby="commercial-heading"
     >
-      {/* Left Side */}
       <div className="w-full max-w-xl text-center lg:text-left">
         <h2
           id="commercial-heading"
@@ -93,8 +68,6 @@ const  Commercial = ({ apiData }) => {
           {apiData.market_leader_title}
         </h2>
         <p className="text-[#192437] font-medium text-[20px] italic mb-8">
-          {/* At Athertons we make sure that we are on time, even when working to
-          tight deadlines. */}
           {apiData.market_leader_description}
         </p>
 
@@ -106,38 +79,9 @@ const  Commercial = ({ apiData }) => {
           />
         </div>
 
-        {/* <p className="mt-6 text-[#192437]">
-          Our people are dedicated to making sure all your needs are met no
-          matter what the project challenge:
-          {apiData.market_leader_description2}
-        </p> */}
         {descriptionText && (
           <p className="mt-6 text-[#192437]">{descriptionText}</p>
         )}
-
-        {/* <ul
-          className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-[#192437] text-left mx-auto md:mx-auto lg:mx-0 w-fit"
-          aria-label="Project challenge areas"
-        >
-          {features.map((feature, idx) => (
-            <li key={idx} className="flex items-center gap-2">
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 13 13"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="flex-shrink-0"
-              >
-                <path
-                  d="M6.5 0L12.1292 3.25V9.75L6.5 13L0.870835 9.75V3.25L6.5 0Z"
-                  fill="#03837E"
-                />
-              </svg>
-              {feature}
-            </li>
-          ))}
-        </ul> */}
 
         {listItems.length > 0 && (
           <ul
@@ -191,7 +135,6 @@ const  Commercial = ({ apiData }) => {
         />
       </div>
 
-      {/* Right Side - Recent Projects */}
       <aside
         className="flex flex-col justify-center w-full max-w-xl text-center lg:text-left"
         aria-label="Recent Projects"
@@ -201,29 +144,29 @@ const  Commercial = ({ apiData }) => {
         </h3>
 
         <div className="space-y-6">
-          {recentProjects.map((project) => (
+          {projectData.map((project) => (
             <div
               key={project.id}
               className="flex flex-col items-center sm:text-left gap-4 sm:flex-row sm:items-center"
             >
               <div className="group w-[216px] h-[164px] overflow-hidden border border-[#D6D6D6] hover:shadow-xl transition-shadow duration-500 ease-in-out mr-4">
                 <img
-                  src={project.image}
-                  alt={`Preview of ${project.title}`}
+                  src={project.featured_image}
+                  alt={`Preview of ${project.project_title}`}
                   className="object-cover w-full h-full transition-transform duration-500 ease-in-out shadow-2xl group-hover:scale-105"
                 />
               </div>
               <div>
                 <h4 className="font-semibold text-[20px] text-[#192437]">
-                  {project.title}
+                  {project.project_title}
                 </h4>
-                <a
-                  href={project.link}
+                <button
+                  onClick={() => handleProjectClick(project.project_title)}
                   className="text-[#03837E] text-[18px] font-[500] underline cursor-pointer"
-                  aria-label={`View details for ${project.title}`}
+                  aria-label={`View details for ${project.project_title}`}
                 >
                   View Details
-                </a>
+                </button>
               </div>
             </div>
           ))}
@@ -231,7 +174,8 @@ const  Commercial = ({ apiData }) => {
 
         <button
           className="mt-10 bg-[#03837E] text-white w-full max-w-[511px] py-3 text-lg font-medium mx-auto xl:mx-0 hover:border hover:border-[#03837E] hover:bg-white hover:text-[#03837E] cursor-pointer"
-          aria-label="View all projects" onClick={() => window.location.href = "/projects"}
+          aria-label="View all projects"
+          onClick={() => navigate("/projects")}
         >
           View All Projects
         </button>

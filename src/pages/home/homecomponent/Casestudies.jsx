@@ -31,7 +31,7 @@ const Casestudies = () => {
               {project.name || "N/A"}
             </h3>
             <a
-              href={`/projects/${project.id}`}
+              href={`/casestudies/${project.id}`}
               className="text-[#03837E] font-medium text-[18px] leading-[100%] underline underline-offset-2 font-['Open_Sans'] hover:text-[#02635f] cursor-pointer text-left w-full"
             >
               View Details
