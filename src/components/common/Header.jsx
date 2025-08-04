@@ -77,11 +77,11 @@ const Header = () => {
                 href="https://www.google.com/maps/search/?api=1&query=Wirral+Office+Full+Address"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer"
+                className="flex items-center gap-1 text-[15px] lg:text-base  font-medium leading-none tracking-normal cursor-pointer"
               >
                 <svg
                   width="24"
-                  height="25"
+                  height="24"
                   viewBox="0 0 24 25"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -107,11 +107,11 @@ const Header = () => {
                 href="https://www.google.com/maps/search/?api=1&query=Your+Office+Address,Wrexham"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer"
+                className="flex items-center gap-1 text-[15px] lg:text-base font-medium leading-none tracking-normal cursor-pointer"
               >
                 <svg
                   width="24"
-                  height="25"
+                  height="24"
                   viewBox="0 0 24 25"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -137,11 +137,11 @@ const Header = () => {
             <div className="flex flex-col items-center sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6">
               <Link
                 to="mailto:info@athertons.co.uk"
-                className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer hover:underline"
+                className="flex items-center gap-1 text-[15px] lg:text-base font-medium leading-none tracking-normal cursor-pointer hover:underline"
               >
                 <svg
                   width="24"
-                  height="25"
+                  height="24"
                   viewBox="0 0 24 25"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -165,7 +165,7 @@ const Header = () => {
               </Link>
               <Link
                 to="tel:0151 670 0666"
-                className="flex items-center gap-1 text-base font-medium leading-none tracking-normal cursor-pointer hover:underline"
+                className="flex items-center gap-1 text-[15px] lg:text-base font-medium leading-none tracking-normal cursor-pointer hover:underline"
               >
                 <svg
                   width="24"
