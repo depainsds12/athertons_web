@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -10,13 +8,13 @@ const Header = () => {
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
-  // Refs for dropdown containers and buttons
+
   const aboutDropdownRef = useRef(null);
   const servicesDropdownRef = useRef(null);
   const aboutButtonRef = useRef(null);
   const servicesButtonRef = useRef(null);
 
-  // Lock body scroll when mobile menu is open
+ 
   useEffect(() => {
     if (isMenuOpen) {
       document.body.classList.add("overflow-hidden");
@@ -26,10 +24,10 @@ const Header = () => {
     return () => document.body.classList.remove("overflow-hidden");
   }, [isMenuOpen]);
 
-  // Close dropdowns when clicking outside
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // For About dropdown
+      
       if (
         aboutDropdownRef.current &&
         !aboutDropdownRef.current.contains(event.target) &&
@@ -39,7 +37,7 @@ const Header = () => {
         setAboutDropdown(false);
       }
 
-      // For Services dropdown
+   
       if (
         servicesDropdownRef.current &&
         !servicesDropdownRef.current.contains(event.target) &&
@@ -50,7 +48,6 @@ const Header = () => {
       }
     };
 
-    // Only add listener if dropdown is open
     if (aboutDropdown || servicesDropdown) {
       document.addEventListener("mousedown", handleClickOutside);
     }
@@ -68,7 +65,7 @@ const Header = () => {
         }`}
         style={isMenuOpen ? { height: "110px" } : {}}
       >
-        {/* Top bar - responsive layout */}
+        
         <div className="w-full px-4 pt-1 pb-2 text-sm text-white ">
           {/* Desktop layout */}
           <div className="hidden md:flex flex-wrap items-center justify-between lg:h-[50px] h-auto mr-8 ml-8 xl:ml-20 xl:mr-20 py-2">
@@ -451,45 +448,58 @@ const Header = () => {
 
             {/* Right: Social icons and Hamburger */}
             <div className="flex items-center gap-4 mr-2 sm:mr-8 lg:mr-6 xl:mr-20">
-              <div className="flex gap-2 lg:gap-1.5 xl:gap-3">
-                <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-blue-100 border-[#3D6AD6] flex items-center justify-center rounded-full cursor-pointer  ">
-                  <img
-                    src="/images/facebooklogo.png"
-                    alt="Facebook"
-                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]   object-contain"
-                  />
-                </span>
-                <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-pink-100 border-[#D73F8C] flex items-center justify-center rounded-full cursor-pointer ">
-                  <img
-                    src="/images/instagramlogo.png"
-                    alt="Instagram"
-                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]  object-contain"
-                  />
-                </span>
-                <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-gray-100 border-black flex items-center justify-center rounded-full cursor-pointer">
-                  <img
-                    src="/images/twitterlogo.png"
-                    alt="X"
-                    className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]  object-contain"
-                  />
-                </span>
-                <span className="w-[35px] md:w-[48px] hover:bg-red-100 h-[35px] md:h-[48px] border border-[#BD081C] flex items-center justify-center rounded-full cursor-pointer">
-                  <img
-                    src="/images/pinterestlogo.png"
-                    alt="Pinterest"
-                    className="w-[22px] h-[22px] md:h-[32px] md:w-[32px]  object-contain"
-                  />
-                </span>
-              </div>
+              {/* Social icons - hidden when menu is open on mobile */}
+              {!isMenuOpen && (
+                <div className="flex gap-2 lg:gap-1.5 xl:gap-3">
+                  <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-blue-100 border-[#3D6AD6] flex items-center justify-center rounded-full cursor-pointer  ">
+                    <img
+                      src="/images/facebooklogo.png"
+                      alt="Facebook"
+                      className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]   object-contain"
+                    />
+                  </span>
+                  <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-pink-100 border-[#D73F8C] flex items-center justify-center rounded-full cursor-pointer ">
+                    <img
+                      src="/images/instagramlogo.png"
+                      alt="Instagram"
+                      className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]  object-contain"
+                    />
+                  </span>
+                  <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-gray-100 border-black flex items-center justify-center rounded-full cursor-pointer">
+                    <img
+                      src="/images/twitterlogo.png"
+                      alt="X"
+                      className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]  object-contain"
+                    />
+                  </span>
+                  <span className="w-[35px] md:w-[48px] hover:bg-red-100 h-[35px] md:h-[48px] border border-[#BD081C] flex items-center justify-center rounded-full cursor-pointer">
+                    <img
+                      src="/images/pinterestlogo.png"
+                      alt="Pinterest"
+                      className="w-[22px] h-[22px] md:h-[32px] md:w-[32px]  object-contain"
+                    />
+                  </span>
+                </div>
+              )}
 
               <button
                 className="flex flex-col gap-1 p-2 cursor-pointer lg:hidden"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-label="Toggle menu"
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               >
-                <span className="w-6 h-0.5 bg-black transition-all"></span>
-                <span className="w-6 h-0.5 bg-black transition-all"></span>
-                <span className="w-6 h-0.5 bg-black transition-all"></span>
+                {isMenuOpen ? (
+                  <img
+                    src="/cross.svg"
+                    alt="Close menu"
+                    className="w-8 h-8"
+                  />
+                ) : (
+                  <>
+                    <span className="w-6 h-0.5 bg-black transition-all"></span>
+                    <span className="w-6 h-0.5 bg-black transition-all"></span>
+                    <span className="w-6 h-0.5 bg-black transition-all"></span>
+                  </>
+                )}
               </button>
             </div>
           </div>

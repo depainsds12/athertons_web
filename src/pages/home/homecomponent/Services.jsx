@@ -84,7 +84,7 @@ const Services = ({ servicesData = [] }) => {
         </h2>
         
        
-        <div className="w-full">
+        <div className="w-full flex justify-center items-center">
           <div role="tablist" className="flex flex-row flex-nowrap w-full sm:w-[85%] lg:w-full">
             {servicesData.map((service) => (
               <div key={service.title} className="relative flex-1">
@@ -129,7 +129,7 @@ const Services = ({ servicesData = [] }) => {
 
       
         {activeService && (
-          <div className="w-full">
+          <div className="w-full  flex justify-center items-center">
             <div className="bg-[#192437] text-white flex flex-col md:flex-row justify-center py-10 w-full sm:w-[85%] lg:w-full">
               <div className="flex flex-col w-full gap-6 px-4 md:flex-row sm:px-8">
                 <div className="flex-1">

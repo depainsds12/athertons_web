@@ -13,7 +13,7 @@ const Footer = () => {
 
       <div className="w-full bg-[#03837E] flex flex-col  sm:items-center lg:flex-row lg:items-start lg:justify-between px-6 py-10 gap-8">
         {/* 1. Logo */}
-        <div className="flex flex-col items-center lg:items-center flex-1">
+        <div className="flex flex-col items-center lg:items-center flex-1 lg:max-w-[270px] xl:max-w-[290px] 2xl:max-w-full">
           <a href="/">
             {" "}
             <img
@@ -134,7 +134,7 @@ const Footer = () => {
         </div>
 
         {/* 3. Contact Us */}
-        <div className="flex flex-col sm:items-center items-start justify-start lg:items-start flex-1">
+        <div className="flex flex-col sm:items-center items-start justify-start lg:items-start flex-1 ">
           <span className="text-white font-semibold text-base md:text-[20px] mb-4">
             Contact Us
           </span>
