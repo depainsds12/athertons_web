@@ -58,7 +58,7 @@ const CaseStudyDetail = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-[1440px] mx-auto px-4 py-12 space-y-20">
+      <div className="max-w-[1440px] mx-auto px-4 py-12 lg:px-8 space-y-20">
         {/* Project Overview */}
         <div>
           <h3 className="text-2xl lg:text-[40px] xl:text-[40px] text-center font-semibold mb-4">
