@@ -1,5 +1,6 @@
 import { projects } from "../../../data/projects.js";
 import { useNavigate } from "react-router-dom";
+import casestudiesData from "../../../data/casestudiesData.js";
 const Casestudies = () => {
   const navigate = useNavigate();
     const generateProjectSlug = (title) => {

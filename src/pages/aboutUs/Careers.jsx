@@ -3,6 +3,7 @@ import aboutusbg3 from "../../assets/aboutus/aboutusbg3.jpg";
 import { getCareersContactDetail } from "../../api/routes";
 import { getAxios } from "../../api/config";
 import { axiosInstance } from "../../api/config";
+import Popup from "../../components/common/Popup";
 
 const Careers = () => {
   const [resumeFile, setResumeFile] = useState(null);
@@ -19,6 +20,7 @@ const Careers = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [apiData, setApiData] = useState(null);
+   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -80,8 +82,10 @@ const Careers = () => {
       }
     });
 
-    console.log('Response:', response.data);
-    alert('Form submitted successfully!');
+      setShowSuccessPopup(true);
+
+    // console.log('Response:', response.data);
+    // alert('Form submitted successfully!');
     
 
     setFormData({
@@ -116,6 +120,12 @@ const Careers = () => {
       className="bg-white flex flex-col font-Poppins w-full"
       aria-labelledby="careers-heading"
     >
+       {showSuccessPopup && (
+        <Popup
+          message="Details saved successfully!" 
+          onClose={() => setShowSuccessPopup(false)} 
+        />
+      )}
  
       <div
         className="relative min-h-[180px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center w-full"

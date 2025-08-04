@@ -13,7 +13,7 @@ export const projects = [
   },
   {
     id: "bro-alan-school-wrexham",
-    name: "Bro Alun School Wrexham",
+    name: "Bro Alan School Wrexham",
     image: "/images/bro-alan-school.png",
     category: "Electrical",
   },

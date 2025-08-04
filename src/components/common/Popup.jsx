@@ -1,37 +1,36 @@
 import React, { useState } from 'react';
 
-const Popup = () => {
-  const [showPopup, setShowPopup] = useState(false);
+const Popup = ({ message, onClose }) => {
+//   const [showPopup, setShowPopup] = useState(false);
 
-  const handleSubmit = () => {
-    // Your submit logic here
-    setShowPopup(true);
+//   const handleSubmit = () => {
+//     // Your submit logic here
+//     setShowPopup(true);
     
-    // Hide the popup after 3 seconds
-    setTimeout(() => {
-      setShowPopup(false);
-    }, 4000);
-  };
+//     // Hide the popup after 3 seconds
+//     setTimeout(() => {
+//       setShowPopup(false);
+//     }, 4000);
+//   };
 
   return (
-    <div className="relative">
-      {/* Submit Button */}
-      <button 
-        className="px-5 py-2.5 bg-teal-700 text-white rounded-md hover:bg-teal-800 transition-colors cursor-pointer text-base"
-        onClick={handleSubmit}
-      >
-        Submit
-      </button>
-
-      {/* Popup Overlay */}
-      {showPopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center pt-10 z-50">
-          {/* Popup Content */}
-          <div className="bg-white p-5 rounded-lg shadow-lg animate-fade-in">
-            <p className="text-lg font-medium">Details Submitted Successfully</p>
-          </div>
+      <div className="fixed inset-0 bg-opacity-50 flex justify-center items-start pt-10 z-50">
+      <div className="bg-[#03837E] p-6 rounded-lg shadow-lg max-w-md w-full mx-4 animate-fade-in">
+        <div className="flex justify-between items-center">
+           <p className="text-white text-[20px] font-medium">{message}</p>
+          {/* <h3 className="text-lg font-semibold text-white">Success</h3> */}
+          <button 
+            onClick={onClose}
+            className="text-white cursor-pointer"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
-      )}
+       
+        
+      </div>
     </div>
   );
 };
