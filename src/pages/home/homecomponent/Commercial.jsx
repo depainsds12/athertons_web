@@ -39,17 +39,17 @@ const Commercial = ({ apiData, projectData }) => {
     }
   }, [apiData]);
 
-  // Function to generate project URL slug
+
   const generateProjectSlug = (title) => {
     return title
       .toLowerCase()
-      .replace(/[^\w\s]/g, '') // Remove special characters
-      .replace(/\s+/g, '-') // Replace spaces with hyphens
-      .replace(/--+/g, '-') // Replace multiple hyphens with single
+      .replace(/[^\w\s]/g, '') 
+      .replace(/\s+/g, '-') 
+      .replace(/--+/g, '-') 
       .trim();
   };
 
-  // Function to handle project detail navigation
+
   const handleProjectClick = (projectTitle) => {
     const slug = generateProjectSlug(projectTitle);
     navigate(`/projects/${slug}`);
