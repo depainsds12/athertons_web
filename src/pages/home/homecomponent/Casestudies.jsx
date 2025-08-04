@@ -1,6 +1,22 @@
 import { projects } from "../../../data/projects.js";
-
+import { useNavigate } from "react-router-dom";
 const Casestudies = () => {
+  const navigate = useNavigate();
+    const generateProjectSlug = (title) => {
+    return title
+      .toLowerCase()
+      .replace(/[^\w\s]/g, '') 
+      .replace(/\s+/g, '-') 
+      .replace(/--+/g, '-') 
+      .trim();
+  };
+
+
+  const handleProjectClick = (projectTitle) => {
+    const slug = generateProjectSlug(projectTitle);
+    navigate(`/casestudies/${slug}`);
+  };
+
   return (
     <section className="w-full px-4 py-5 lg:py-16 max-w-[1700px] mx-auto sm:px-8 md:px-12 xl:px-20 2xl:px-40">
       <h2 className=" text-[28px] lg:text-[40px] text-center font-semibold text-[#192437] mb-3 lg:mb-12">
@@ -31,7 +47,8 @@ const Casestudies = () => {
               {project.name || "N/A"}
             </h3>
             <a
-              href={`/casestudies/${project.id}`}
+             onClick={() => handleProjectClick(project.name)}
+              // href={`/casestudies/${project.id}`}
               className="text-[#03837E] font-medium text-[18px] leading-[100%] underline underline-offset-2 font-['Open_Sans'] hover:text-[#02635f] cursor-pointer text-left w-full"
             >
               View Details
