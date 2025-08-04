@@ -32,10 +32,13 @@ const ProjectDetail = () => {
       </div>
 
      {/* Main Content */}
-<div className="flex flex-col lg:flex-row gap-8 px-4 md:px-12 py-10 w-full text-black font-normal text-[16px] leading-[28px] mt-2 ">
+
+     <div className='w-full max-w-[1600px] mx-auto'>
+<div className=" 
+ flex flex-col lg:flex-row gap-8 px-4 md:px-12 py-10  text-black font-normal text-[16px] leading-[28px] mt-2 ">
 
   {/* Left: Image */}
-  <div className="flex flex-col lg:w-1/2 w-full items-center">
+  <div className="flex flex-col lg:w-1/2 w-full h-auto items-center">
     <div className="relative w-full max-w-[720px] aspect-[4/3] overflow-hidden mb-4">
       <img src={images[imgIdx]} alt={`Ty Menai Refurbishment ${imgIdx + 1}`} className="w-full h-full object-cover transition-all duration-300" />
       <button onClick={handlePrev} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 p-2" aria-label="Previous image">
@@ -156,6 +159,7 @@ const ProjectDetail = () => {
           <p>A complete lack of phone signal in the area attributable to the remote location of the project, added to the complexity making it difficult to communicate between parts of the business and supply chain both on site and in the office. To counteract this and to avoid mis-communication between the different parts of the business and supply chain both on site and in the office, multiple measures were introduced. A temporary walkie-talkie system for effortless communication was introduced. More weekly site visits were introduced from an early stage, to facilitate smooth multi-disciplinary delivery as a one-stop-shop main contractor. A new high speed Wi-Fi system specific to Athertons was introduced and the supply chain was notified of specific delivery instruction and route to ensure deliveries arrived on time. A bespoke office was built with a whole suite of printing services, laptops, Wi-Fi installations and other technical solutions to manage this complex and diverse build.</p>
           <p>Despite encountering various challenges, the exemplary service provided by Athertons has solidified our status as industry leaders, ensuring continued commitment in exceeding customer satisfaction whilst delivering complex technical solutions.</p>
         </div>
+      </div>
       </div>
     </section>
   );

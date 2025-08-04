@@ -36,7 +36,7 @@ const NewsDetail = () => {
             <img
               src={data.image}
               alt={`Illustration for ${data.title}`}
-              className="w-full max-w-[556px] h-auto object-cover lg:w-[556px] lg:h-[422px]"
+              className="w-full max-w-[556px] h-auto object-cover xl:w-[556px] xl:h-[422px]"
             />
           </div>
 

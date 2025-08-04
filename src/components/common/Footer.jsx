@@ -17,9 +17,9 @@ const Footer = () => {
           <a href="/">
             {" "}
             <img
-              src="/logo.png"
+              src="/logof.png"
               alt="Athertons Logo"
-              className="w-[100px] h-[90px] sm:w-[120px] sm:h-[110px] object-contain mb-4"
+              className="w-[100px] h-[90px] sm:w-[122px] sm:h-[122px] object-contain mb-4"
             />
           </a>
           <div className="flex items-center gap-3 sm:gap-4 mt-2">
@@ -103,7 +103,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="flex flex-col items-start sm:items-center lg:items-start flex-1">
-            <span className="text-white font-semibold text-sm md:text-base mb-4">
+            <span className="text-white font-semibold ttext-base md:text-[20px] mb-4">
               Quick Links
             </span>
             <Link
@@ -135,7 +135,7 @@ const Footer = () => {
 
         {/* 3. Contact Us */}
         <div className="flex flex-col sm:items-center items-start justify-start lg:items-start flex-1">
-          <span className="text-white font-semibold text-sm md:text-base mb-4">
+          <span className="text-white font-semibold text-base md:text-[20px] mb-4">
             Contact Us
           </span>
 
