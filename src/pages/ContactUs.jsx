@@ -19,7 +19,8 @@ const ContactUs = () => {
           CONTACT US
         </h2>
       </div>
-      <section className="w-full flex flex-col lg:flex-row px-4 md:px-10 lg:px-20 xl:px-32 py-16 gap-10 ">
+      <section className="w-full max-w-[1600px] mx-auto ">
+      <section className=" flex flex-col lg:flex-row px-4 md:px-10 lg:px-20 xl:px-32 py-16 gap-10 ">
         {/* Form Container */}
         <div className="w-full xl:w-1/2 flex justify-center items-center">
           <form
@@ -250,6 +251,7 @@ const ContactUs = () => {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
+      </section>
 
     </>
   );
