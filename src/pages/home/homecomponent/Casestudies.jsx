@@ -41,7 +41,7 @@ const Casestudies = () => {
       </div>
 
       <div className="flex items-center justify-center mt-12">
-        <button className="w-[283px] h-[48px] bg-[#03837E] text-white flex items-center justify-center cursor-pointer hover:border hover:border-[#03837E] hover:bg-[#FFFFFF] hover:text-[#03837E]">
+        <button onClick={()=>{window.location.href = "/casestudies"}} className="w-[283px] h-[48px] bg-[#03837E] text-white flex items-center justify-center cursor-pointer hover:border hover:border-[#03837E] hover:bg-[#FFFFFF] hover:text-[#03837E]">
           <span className="text-lg font-medium">View All Case Studies</span>
         </button>
       </div>

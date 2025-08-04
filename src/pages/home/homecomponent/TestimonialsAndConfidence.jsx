@@ -166,7 +166,7 @@ const TestimonialsAndConfidence = ({ apiData, testimonialData }) => {
         </div>
 
         <div className="flex justify-center pt-4">
-          <button className="w-full max-w-[511px] h-[48px]  bg-[#03837E] flex items-center justify-center   text-white cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E]">
+          <button onClick={()=>{window.location.href = "/aboutus/testimonials"}} className="w-full max-w-[511px] h-[48px]  bg-[#03837E] flex items-center justify-center   text-white cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E]">
             <span className="text-lg font-medium">View All Testimonials</span>
           </button>
         </div>
