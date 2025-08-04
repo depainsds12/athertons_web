@@ -19,6 +19,7 @@ export default function HomePage() {
   const [testimonialData, setTestimonialData] = useState([]);
   const [sliderData, setSliderData] = useState([]);
   const [teamData, setTeamData] = useState([]);
+  const [recentProjects, setRecentProjects] = useState([]);
 
   useEffect(() => {
     const fetchHomePageData = async () => {
@@ -31,6 +32,7 @@ export default function HomePage() {
         setTestimonialData(response?.data?.data?.testimonials);
         setSliderData(response?.data?.data?.sliders);
         setTeamData(response?.data?.data?.teams);
+        setRecentProjects(response?.data?.data?.latest_projects);
       } catch (error) {
         console.error("Failed to fetch Home API:", error);
       }
@@ -45,7 +47,7 @@ export default function HomePage() {
 
       <Services servicesData={servicesData} />
       <Accreditation membershipsData={membershipImages} />
-      <Commercial apiData={homepageData} />
+      <Commercial apiData={homepageData} projectData={recentProjects}  />
       <Video apiData={homepageData} />
       <Casestudies />
       <TestimonialsAndConfidence

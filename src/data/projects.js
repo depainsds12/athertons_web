@@ -1,18 +1,18 @@
 export const projects = [
   {
-    id: "ty-menai-college",
+    id: "ty-menai-college-refurbishment",
     name: "Ty Menai College Refurbishment",
     image: "/images/ty-menai.jpg",
     category: "Mechanical",
   },
   { 
-    id: "st-johns-church",
+    id: "st-johns-church-presbytery",
     name: "St Johns Church Presbytery",
     image: "/images/st-johns-church.png",
     category: "Mechanical",
   },
   {
-    id: "bro-alan-school",
+    id: "bro-alan-school-wrexham",
     name: "Bro Alun School Wrexham",
     image: "/images/bro-alan-school.png",
     category: "Electrical",
