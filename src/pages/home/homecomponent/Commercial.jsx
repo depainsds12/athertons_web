@@ -24,7 +24,7 @@ const recentProjects = [
   },
 ];
 
-const Commercial = ({ apiData }) => {
+const  Commercial = ({ apiData }) => {
   const features = [
     "Project Management",
     "Procurement",
@@ -231,7 +231,7 @@ const Commercial = ({ apiData }) => {
 
         <button
           className="mt-10 bg-[#03837E] text-white w-full max-w-[511px] py-3 text-lg font-medium mx-auto xl:mx-0 hover:border hover:border-[#03837E] hover:bg-white hover:text-[#03837E] cursor-pointer"
-          aria-label="View all projects"
+          aria-label="View all projects" onClick={() => window.location.href = "/projects"}
         >
           View All Projects
         </button>

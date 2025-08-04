@@ -1,4 +1,5 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider ,useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Layout from "./components/layout/Layout.jsx";
 import "./index.css";
 import AccreditationMembership from "./pages/aboutUs/AccreditationMembership.jsx";
@@ -17,11 +18,26 @@ import NewsDetail from "./pages/new/NewsDetail.jsx";
 import CaseStudyDetail from "./pages/caseStudy/CaseStudyDetail.jsx";
 
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout />,
+      element:(
+        <>
+          <ScrollToTop />
+          <Layout />
+        </>
+      ),
       children: [
         { path: "/", element: <Home /> },
         { path: "/aboutus/meetourteam", element: <MeetOurTeam /> },

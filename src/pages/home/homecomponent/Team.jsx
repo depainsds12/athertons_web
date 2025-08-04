@@ -227,7 +227,7 @@ const TeamPage = () => {
         </div>
       </div>
 
-      <button className="mt-12 bg-[#03837E] text-white px-8 py-3 font-semibold hover:border hover:border-[#03837E] hover:bg-[#FFFFFF] hover:text-[#03837E] cursor-pointer">
+      <button onClick={()=>{window.location.href = "/aboutus/meetourteam"}} className="mt-12 bg-[#03837E] border-[#03837E] border-1 text-white px-8 py-3 font-semibold hover:border hover:border-[#03837E] hover:bg-[#FFFFFF] hover:text-[#03837E] cursor-pointer">
         View All Teams
       </button>
     </div>

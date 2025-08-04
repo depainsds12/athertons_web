@@ -67,6 +67,7 @@ const NewandContactus = () => {
         </ul>
 
         <button
+        onClick={()=>{window.location.href = " /newsandinsight"}}
           type="button"
           aria-label="View All News and Insights"
           className="w-full  xl:w-[511px] h-[48px] bg-[#03837E] text-white cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] font-poppins font-medium text-[18px] text-center mt-8"
