@@ -65,7 +65,7 @@ const HomeSlider = ({ sliderData = [] }) => {
         )}
 
         {sliderData[currentIndex]?.title && (
-          <h1 className="text-[28px] mb-3 sm:text-4xl md:text-6xl font-bold lg:mb-8 animate__animated animate__flipInX">
+          <h1 className="text-[28px] mb-3 sm:text-4xl md:text-5xl lg:text-6xl font-bold lg:mb-8 animate__animated animate__flipInX">
             {sliderData[currentIndex].title}
           </h1>
         )}
@@ -75,7 +75,7 @@ const HomeSlider = ({ sliderData = [] }) => {
             dangerouslySetInnerHTML={renderHtmlContent(
               sliderData[currentIndex].description
             )}
-            className="text-[12px] sm:text-base md:text-lg w-full md:w-[50%] animate__animated animate__flipInX"
+            className="text-[12px] sm:text-base  lg:text-lg w-full md:w-[50%] animate__animated animate__flipInX"
           />
         )}
 
