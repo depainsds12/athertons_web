@@ -21,6 +21,11 @@
   animation: leftright 16s infinite;
 }
 
+.amimationrightleft{
+  animation: rightleft 16s infinite;
+}
+
+
 @layer base{
   .layout_padding{
     @apply mx-auto px-4 sm:px-6 lg:px-8
@@ -46,6 +51,21 @@
     transform: translateX(0);
   }
 }
+@keyframes rightleft {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(85vw);
+    scale: 0.5;
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
 
 @keyframes costume {
   0% {
