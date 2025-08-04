@@ -1,6 +1,7 @@
 import React from 'react';
-import { projects } from '../../data/projects';
+// import { projects } from '../../data/projects';
 import { Link } from 'react-router-dom';
+import { caseStudies } from '../../data/caseStudies';
 
 const CaseStudyList = () => {
   return (
@@ -27,7 +28,7 @@ const CaseStudyList = () => {
 
         
         <div className="w-full mx-auto flex flex-wrap justify-center gap-y-12 py-12 px-4">
-          {projects.map((project, idx) => (
+          {caseStudies.map((project, idx) => (
             <div
               key={project.id}
               className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 flex justify-center"
