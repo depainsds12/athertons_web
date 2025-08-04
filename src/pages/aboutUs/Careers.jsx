@@ -1,19 +1,125 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState ,useEffect } from "react";
 import aboutusbg3 from "../../assets/aboutus/aboutusbg3.jpg";
+import { getCareersContactDetail } from "../../api/routes";
+import { getAxios } from "../../api/config";
+import { axiosInstance } from "../../api/config";
 
 const Careers = () => {
   const [resumeFile, setResumeFile] = useState(null);
-  const fileInputRef = useRef();
+ 
+   const fileInputRef = useRef(null);
+  const [formData, setFormData] = useState({
+    first_name: '',
+    last_name: '',
+    phone: '',
+    email: '',
+    company_name: '',
+    subject: '',
+    resume: null
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [apiData, setApiData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getAxios().get(getCareersContactDetail);
+       console.log(response.data.data);
+       setApiData(response.data.data);
+     
+      } catch (error) {
+        console.error("Failed to fetch Home API:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+   const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleFileChange = (e) => {
+    setFormData(prev => ({
+      ...prev,
+      resume: e.target.files[0]
+    }));
+  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  
+  try {
+  
+    const formDataToSend = new FormData();
+    formDataToSend.append('first_name', formData.first_name);
+    formDataToSend.append('last_name', formData.last_name);
+    formDataToSend.append('phone', formData.phone);
+    formDataToSend.append('email', formData.email);
+    formDataToSend.append('company_name', formData.company_name);
+    formDataToSend.append('subject', formData.subject);
+    
+    if (formData.resume) {
+      formDataToSend.append('resume', formData.resume);
+    }
+
+  
+    for (let [key, value] of formDataToSend.entries()) {
+      console.log(key, value);
+    }
+
+
+    const response = await axiosInstance.post('/contactus/store', formDataToSend, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+
+    console.log('Response:', response.data);
+    alert('Form submitted successfully!');
+    
+
+    setFormData({
+      first_name: '',
+      last_name: '',
+      phone: '',
+      email: '',
+      company_name: '',
+      subject: '',
+      resume: null
+    });
+    
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+    
+  } catch (error) {
+    console.error('Error submitting form:', error);
+  
+    
+   
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
+
+
 
   return (
     <section
       className="bg-white flex flex-col font-Poppins w-full"
       aria-labelledby="careers-heading"
     >
-      {/* Header */}
+ 
       <div
         className="relative min-h-[180px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center w-full"
-        style={{ backgroundImage: `url(${aboutusbg3})` }}
+        style={{ backgroundImage: `url(${apiData?.banner_image})` }}
         role="presentation"
         aria-hidden="true"
       >
@@ -21,12 +127,11 @@ const Careers = () => {
         <h2
           id="careers-heading"
           className="relative z-10 text-white text-[20px] sm:text-[36px] md:text-[48px] xl:text-[60px] 2xl:text-[80px] font-bold tracking-wide text-center"
-        >
-          CAREERS
+        >     
+          {apiData?.banner_title || "CAREERS"}
         </h2>
       </div>
 
-      {/* Register Interest */}
       <div className="w-full flex flex-col items-center mt-10">
         <h3 className="text-[#192437] text-2xl md:text-[40px] font-semibold text-center">
           Register Your Interest
@@ -36,111 +141,143 @@ const Careers = () => {
         </p>
       </div>
 
-      {/* Main Content */}
+  
       <div className="w-full flex flex-col lg:flex-row justify-center items-center gap-10 px-4 mb-16 max-w-[1600px] mx-auto">
-        {/* Form Section */}
+  
         <div className="w-full lg:w-1/2 flex justify-center">
-          <form
-            className="bg-[#F4F4F5] border border-[#D6D6D6] p-6 md:p-8 w-full max-w-[629px] flex flex-col gap-4"
-            onSubmit={(e) => e.preventDefault()}
+        
+           <form
+      className="bg-[#F4F4F5] border border-[#D6D6D6] p-6 md:p-8 w-full max-w-[629px] flex flex-col gap-4"
+      onSubmit={handleSubmit}
+    >
+      <div className="flex gap-4 xl:gap-8">
+        <div className="flex flex-col w-1/2">
+          <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
+            First Name*
+          </label>
+          <input
+            type="text"
+            name="first_name"
+            required
+            value={formData.first_name}
+            onChange={handleInputChange}
+            className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
+          />
+        </div>
+        <div className="flex flex-col w-1/2">
+          <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
+            Last Name*
+          </label>
+          <input
+            type="text"
+            name="last_name"
+            required
+            value={formData.last_name}
+            onChange={handleInputChange}
+            className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col">
+        <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
+          Phone Number*
+        </label>
+        <input
+          type="tel"
+          name="phone"
+          required
+          value={formData.phone}
+          onChange={handleInputChange}
+          className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
+        />
+      </div>
+
+      <div className="flex flex-col">
+        <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
+          Email Address*
+        </label>
+        <input
+          type="email"
+          name="email"
+          required
+          value={formData.email}
+          onChange={handleInputChange}
+          className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
+        />
+      </div>
+
+      <div className="flex flex-col">
+        <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
+          Company Name
+        </label>
+        <input
+          type="text"
+          name="company_name"
+          value={formData.company_name}
+          onChange={handleInputChange}
+          className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
+        />
+      </div>
+
+      <div className="flex flex-col">
+        <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
+          Upload Resume*
+        </label>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            className="border border-[#D6D6D6] py-2 mt-3 text-sm bg-white font-medium cursor-pointer hover:bg-[#e0e0e0] focus:outline-none text-[#192437] text-center h-[50px] w-full max-w-[425px]"
+            onClick={() => fileInputRef.current.click()}
           >
-            <div className="flex gap-4 xl:gap-8">
-              <div className="flex flex-col w-1/2">
-                <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
-                  First Name*
-                </label>
-                <input
-                  type="text"
-                  required
-                  className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
-                />
-              </div>
-              <div className="flex flex-col w-1/2">
-                <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
-                  Last Name*
-                </label>
-                <input
-                  type="text"
-                  required
-                  className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
-                />
-              </div>
-            </div>
+            Choose File
+          </button>
+          <input
+            type="file"
+            required
+            ref={fileInputRef}
+            className="hidden"
+            onChange={handleFileChange}
+          />
+          <span className="text-xs md:text-sm font-semibold text-[#192437] whitespace-nowrap ml-2">
+            {formData.resume ? formData.resume.name : "No file chosen"}
+          </span>
+        </div>
+      </div>
 
-            <div className="flex flex-col">
-              <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
-                Phone Number*
-              </label>
-              <input
-                type="tel"
-                required
-                className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
-              />
-            </div>
+      <div className="flex flex-col">
+        <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
+          Your Message
+        </label>
+        <textarea
+          name="subject"
+          rows={4}
+          value={formData.subject}
+          onChange={handleInputChange}
+          className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white resize-none h-[120px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
+        />
+      </div>
 
-            <div className="flex flex-col">
-              <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
-                Email Address*
-              </label>
-              <input
-                type="email"
-                required
-                className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
-              />
-            </div>
-
-            <div className="flex flex-col">
-              <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
-                Upload Resume*
-              </label>
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  className="border border-[#D6D6D6] py-2 mt-3 text-sm bg-white font-medium cursor-pointer hover:bg-[#e0e0e0] focus:outline-none text-[#192437] text-center h-[50px] w-full max-w-[425px]"
-                  onClick={() => fileInputRef.current.click()}
-                >
-                  Choose File
-                </button>
-                <input
-                  type="file"
-                  required
-                  ref={fileInputRef}
-                  className="hidden"
-                  onChange={(e) => setResumeFile(e.target.files[0])}
-                />
-                <span className="text-xs md:text-sm font-semibold text-[#192437] whitespace-nowrap ml-2">
-                  {resumeFile ? resumeFile.name : "Not Chosen File"}
-                </span>
-              </div>
-            </div>
-
-            <div className="flex flex-col">
-              <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
-                Your Message
-              </label>
-              <textarea
-                rows={4}
-                className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white resize-none h-[120px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="h-[48px] bg-[#03837E] text-white font-medium mt-4  cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] transition-colors"
-            >
-              Submit
-            </button>
-          </form>
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className={`h-[48px] bg-[#03837E] text-white font-medium mt-4 cursor-pointer hover:border hover:border-[#03837E] hover:bg-[#FFFFFF] hover:text-[#03837E] transition-colors ${
+          isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+        }`}
+      >
+        {isSubmitting ? 'Submitting...' : 'Submit'}
+      </button>
+    </form>
         </div>
 
-        {/* Contact Details Section */}
+   
         <div className="w-full lg:w-1/2 flex justify-center self-center">
           <div className="w-full max-w-[500px] xl:max-w-[568px] flex flex-col gap-8 p-2">
             <h4 className="text-[#192437] text-xl md:text-[36px] font-semibold mb-2">
               Contact Details
             </h4>
 
-            {/* Email */}
+         
             <div className="flex items-center gap-4">
               <span className="flex items-center justify-center w-16 h-16 xl:w-20 xl:h-20 mr-4 bg-[#03837E]">
                 <svg
@@ -170,16 +307,18 @@ const Careers = () => {
                 <div className="text-[#192437] text-sm md:text-[20px] font-semibold mb-2 ">
                   Send Email
                 </div>
-                <a
-                  href="mailto:info@athertons.co.uk"
-                  className="text-[#03837E] text-sm md:text-[20px] font-semibold hover:underline"
-                >
-                  info@athertons.co.uk
-                </a>
+                 <a
+                    href={`mailto:${apiData?.contact_details?.send_email || ""}`}
+                      target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#03837E] text-sm md:text-[20px] font-semibold hover:underline"
+                      >
+                       {apiData?.contact_details?.send_email}
+                      </a>
               </div>
             </div>
 
-            {/* Phone */}
+   
             <div className="flex items-center gap-4">
               <span className="flex items-center justify-center w-16 h-16 xl:w-20 xl:h-20 mr-4 bg-[#03837E]">
                 <svg width="38" height="38" viewBox="0 0 38 39" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -198,18 +337,21 @@ const Careers = () => {
                 <div className="text-[#192437] text-sm md:text-[20px] font-semibold mb-2 ">
                   Call Us
                 </div>
+             
                 <a
-                  href="tel:01516700666"
-                  className="text-[#03837E] text-sm md:text-[20px] font-semibold hover:underline"
-                >
-                  0151 670 0666
-                </a>
+                    href={`tel:${apiData?.contact_details?.call_us|| ""}`}
+                      target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#03837E] text-sm md:text-[20px] font-semibold hover:underline"
+                      >
+                       {apiData?.contact_details?.call_us}
+                      </a>
               </div>
             </div>
 
-            {/* Location */}
+          
             <div className="flex items-center gap-4">
-              <span className="flex items-center justify-center w-16 h-16 xl:w-20 xl:h-20 mr-4 bg-[#03837E]">
+              <span className="flex items-center justify-center  w-full max-w-[80px] mr-4 h-16 xl:w-20 xl:h-20 bg-[#03837E]">
               <svg width="38" height="38" viewBox="0 0 38 39" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_71_1245)">
 <path d="M33.25 16.0996C33.25 27.1829 19 36.6829 19 36.6829C19 36.6829 4.75 27.1829 4.75 16.0996C4.75 12.3203 6.25133 8.69573 8.92373 6.02334C11.5961 3.35094 15.2207 1.84961 19 1.84961C22.7793 1.84961 26.4039 3.35094 29.0763 6.02334C31.7487 8.69573 33.25 12.3203 33.25 16.0996Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -220,8 +362,9 @@ const Careers = () => {
 <rect width="38" height="38" fill="white" transform="translate(0 0.266602)"/>
 </clipPath>
 </defs>
-</svg>
+              </svg>    
 
+                
               </span>
               <div>
                 <div className="text-[#192437] text-sm md:text-[20px] font-semibold mb-2">
@@ -233,9 +376,8 @@ const Careers = () => {
                   rel="noopener noreferrer"
                   className="text-[#03837E] text-sm md:text-[20px] font-semibold hover:underline"
                 >
-                  19–21 Grange Mount, Birkenhead,
-                  <br />
-                  Prenton CH43 4XN, UK
+                 
+                    {apiData?.contact_details?.visit}
                 </a>
               </div>
             </div>
@@ -247,3 +389,5 @@ const Careers = () => {
 };
 
 export default Careers;
+
+
