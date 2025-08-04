@@ -13,13 +13,13 @@ const NewsDetail = () => {
       {/* Banner */}
       <div
         role="banner"
-        className="relative w-full aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
+        className="relative w-full min-h-[200px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: `url(${data.bannerImage})` }}
       >
         <div className="absolute inset-0 bg-[#192437] opacity-60 z-10" />
         <h1
           id="news-heading"
-          className="relative z-20 text-white text-[36px] sm:text-[48px] font-bold text-center"
+          className="relative z-20 text-white text-[36px] sm:text-[48px]  md:text-[60px] font-bold text-center"
         >
           {data.title}
         </h1>
@@ -27,7 +27,7 @@ const NewsDetail = () => {
 
       {/* Content */}
       <section
-        className="px-6 py-10 bg-white xl:mx-20 mx-6 lg:mx-14"
+        className=" w-full bg-white  max-w-[1600px] mx-auto  py-14 xl:py px-4 md:px-14 xl:px-20"
         aria-labelledby="news-content-heading"
       >
         <div className="flex flex-col lg:flex-row gap-8">
