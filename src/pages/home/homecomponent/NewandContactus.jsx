@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import triangleg from "../../../assets/triangleg.svg";
 import trianglew from "../../../assets/trianglew.svg";
 
@@ -52,13 +53,13 @@ const NewandContactus = () => {
       Lorem Ipsum is simply dummy text of the printing and
       typesetting industry.
     </p>
-    <a
-      href="#"
+    <Link
+      to={"/newsandinsight/1"}
       aria-label="View Details"
       className="underline text-[#03837E] font-poppins font-medium text-[18px] leading-[100%] hover:text-[#02635f] cursor-pointer"
     >
       View Details
-    </a>
+    </Link>
   </div>
 </li>
 
@@ -76,7 +77,7 @@ const NewandContactus = () => {
         </button>
       </div>
 
-      <div className="animate-bounce sm:flex absolute top-0 right-2 flex-col items-start justify-start w-[50px] h-[50px]">
+      <div className="animationcostume sm:flex absolute top-0 right-2 flex-col items-start justify-start w-[50px] h-[50px]">
         <img
           src={triangleg}
           alt="triangle black"
@@ -89,7 +90,7 @@ const NewandContactus = () => {
         />
       </div>
 
-      <div className="animate-bounce sm:flex absolute bottom-30 left-2 flex-col items-start justify-start w-[50px] h-[50px]">
+      <div className="animationcostume2 sm:flex absolute bottom-30 left-2 flex-col items-start justify-start w-[50px] h-[50px]">
         <img
           src={triangleg}
           alt="triangle black"
