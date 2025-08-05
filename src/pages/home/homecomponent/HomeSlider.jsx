@@ -57,7 +57,7 @@ const HomeSlider = ({ sliderData = [] }) => {
 
       <div className="absolute inset-0 bg-[#192437]/60 z-0"></div>
 
-      <div className="relative z-10 flex flex-col items-start justify-center min-h-[480px] h-full px-4 pr-7 lg:px-10 mx-2 xl:ml-12 text-white">
+      <div className="relative z-10 flex flex-col items-start justify-center min-h-[480px] h-full section_padding text-white">
         {sliderData[currentIndex]?.subtitle && (
           <p className="lg:mb-4 text-base font-bold sm:text-lg md:text-2xl animate__animated animate__flipInX">
             {sliderData[currentIndex].subtitle}
@@ -150,7 +150,7 @@ const HomeSlider = ({ sliderData = [] }) => {
         )}
 
         {sliderData.length > 1 && (
-          <div className="absolute flex gap-4 bottom-10 left-10">
+          <div className="absolute flex gap-4 bottom-10 left-5 sm:left-7 md:left-10  lg:left-21">
             {sliderData.map((_, idx) => (
               <button
                 key={idx}

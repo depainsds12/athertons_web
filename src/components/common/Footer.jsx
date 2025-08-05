@@ -3,17 +3,18 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-white text-[#192437]">
-      <div className="w-full bg-[#192437] sm:h-[52px] py-3 sm:py-0 flex items-center justify-center px-2 text-center">
-        <span className="text-white text-sm md:text-base lg:text-[20px] font-semibold leading-[20px] mx-1">
+    <footer className="w-full bg-white text-[#192437] ">
+      <div className="w-full bg-[#192437] sm:h-[52px] py-3 sm:py-0 flex items-center justify-center  text-center">
+        <span className="text-white text-sm md:text-base lg:text-[20px] font-semibold leading-[20px] mx-1 section_padding">
           Athertons is the trading name for Atherton{" "}
           <br className="sm:hidden" /> & Partners Limited (01579933)
         </span>
       </div>
 
-      <div className="w-full bg-[#03837E] flex flex-col  sm:items-center lg:flex-row lg:items-start lg:justify-between px-6 py-10 gap-8">
+<div className="w-full bg-[#03837E]">
+      <div className=" w-full  bg-[#03837E] flex flex-col  sm:items-center lg:flex-row lg:items-start lg:justify-between section_padding py-10 gap-8">
         {/* 1. Logo */}
-        <div className="flex flex-col items-center lg:items-center flex-1 lg:max-w-[270px] xl:max-w-[290px] 2xl:max-w-full">
+        <div className="flex flex-col items-center lg:items-center flex-1 lg:max-w-[270px] xl:max-w-[290px] ">
           <a href="/">
             {" "}
             <img
@@ -251,20 +252,19 @@ const Footer = () => {
           </Link>
         </div>
       </div>
+</div>
+<div className="w-full bg-white border-t border-[#e5e7eb]">
+  <div className="w-full h-auto flex flex-col sm:flex-row items-center justify-between gap-2 section_padding py-2 text-xs md:text-sm text-center sm:text-left mx-auto">
+    <span>Copyright © 2025 Athertons. All Rights Reserved.</span>
+    <span className="text-center sm:text-right">
+      Website By:{" "}
+      <a href="https://sdssoftwares.co.uk/" target="_blank" className="hover:underline">
+        sdsoftwares.co.uk
+      </a>
+    </span>
+  </div>
+</div>
 
-      <div className="w-full bg-white h-auto flex flex-col sm:flex-row items-center justify-between gap-2 px-4 py-2 text-xs md:text-sm border-t border-[#e5e7eb] text-center sm:text-left">
-        <span>Copyright © 2025 Athertons. All Rights Reserved.</span>
-        <span className="text-center  sm:text-right">
-          Website By:{" "}
-          <a
-            href="https://sdssoftwares.co.uk/"
-            target="_blank"
-            className="hover:underline"
-          >
-            sdsoftwares.co.uk
-          </a>
-        </span>
-      </div>
     </footer>
   );
 };

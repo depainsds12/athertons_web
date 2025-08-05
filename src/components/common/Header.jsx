@@ -68,7 +68,7 @@ const Header = () => {
         
         <div className="w-full px-4 pt-1 pb-2 text-sm text-white ">
           {/* Desktop layout */}
-          <div className="hidden md:flex flex-wrap items-center justify-between lg:h-[50px] h-auto mr-8 ml-8 xl:ml-20 xl:mr-20 py-2">
+          <div className="hidden md:flex flex-wrap items-center justify-between lg:h-[50px] h-auto  py-2 section_padding">
             <div className="flex flex-col items-center sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6">
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Wirral+Office+Full+Address"
@@ -291,10 +291,10 @@ const Header = () => {
 
         {/* Main nav */}
         <div className="w-full bg-white">
-          <div className="flex items-center justify-between px-2 ">
+          <div className="flex items-center justify-between section_padding ">
             {/* Left: Logo + Navigation */}
             <div className="flex items-center gap-10">
-              <div className="w-[90px] h-[84px] flex items-center justify-center sm:w-[116px] sm:h-[107px] sm:ml-8 ml-2 xl:ml-20 cursor-pointer group my-1">
+              <div className="w-[90px] h-[84px] flex items-center justify-center sm:w-[116px] sm:h-[107px]    cursor-pointer group my-1">
                 <a href="/">
                   {" "}
                   <img
@@ -447,7 +447,7 @@ const Header = () => {
             </div>
 
             {/* Right: Social icons and Hamburger */}
-            <div className="flex items-center gap-4 mr-2 sm:mr-8 lg:mr-6 xl:mr-20">
+            <div className="flex items-center gap-4 ">
               {/* Social icons - hidden when menu is open on mobile */}
               {!isMenuOpen && (
                 <div className="flex gap-2 lg:gap-1.5 xl:gap-3">

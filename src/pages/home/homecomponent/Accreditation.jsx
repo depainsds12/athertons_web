@@ -2,13 +2,13 @@ import React from "react";
 
 const Accreditation = ({ membershipsData }) => {
   return (
-    <div className="bg-[#F4F4F5] px-3 py-5 md:py-12 md:px-6">
+    <div className="bg-[#F4F4F5]  py-5 md:py-12 ">
       <p className="font-semibold text-center text-[28px] md:text-3xl xl:text-[40px] text-[#192437] mb-3 lg:mb-8">
         Accreditation & Memberships
       </p>
 
       {membershipsData.length > 0 ? (
-        <div className="flex flex-wrap w-full max-w-[1700px] mx-auto justify-center">
+        <div className="flex flex-wrap w-full section_padding mx-auto justify-center">
           {membershipsData.map((item, index) => (
             <div
               key={index}

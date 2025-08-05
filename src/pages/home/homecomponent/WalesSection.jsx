@@ -1,7 +1,7 @@
 const WalesSection = ({ apiData }) => {
   return (
     <section
-      className="w-full flex justify-center px-4 sm:px-6 lg:px-10 py-12"
+      className="w-full flex justify-center section_padding py-12"
       aria-label="Supporting Wales Section"
     >
       <div className="w-full max-w-[1700px] flex flex-col lg:flex-row items-center lg:items-start justify-center gap-16 2xl:gap-30">
@@ -15,7 +15,7 @@ const WalesSection = ({ apiData }) => {
           <div
             role="img"
             aria-label="Project list thumbnail"
-            className="relative border border-[#D6D6D6] sm:w-full  w-[300px] sm:h-[346px] overflow-hidden"
+            className="relative border border-[#D6D6D6] sm:w-full  w-[300px] sm:h-auto overflow-hidden aspect-[513/308]"
           >
             <img
               src={apiData.supporting_wales_left_video_thumbnail_image}
@@ -44,7 +44,7 @@ const WalesSection = ({ apiData }) => {
         </div>
 
         {/* Right Block */}
-        <div className="flex flex-col items-center lg:items-start w-full max-w-[513px]">
+        <div className="flex flex-col items-center lg:items-start w-full ">
           <h2 className="font-poppins font-semibold text-[28px] md:text-[40px]  leading-[125%] tracking-[0] text-[#192437] mb-2 text-center lg:text-left">
             {/* Supporting Wales <br /> Infrastructure */}
             {apiData.supporting_wales_right_title}
@@ -57,7 +57,7 @@ const WalesSection = ({ apiData }) => {
           <div
             role="img"
             aria-label="Wales Flag Supporting Infrastructure"
-            className="border border-[#D6D6D6] sm:w-full sm:h-[308px] w-[300px] overflow-hidden"
+            className="border border-[#D6D6D6] sm:w-full sm:h-auto w-[300px] overflow-hidden"
           >
             <img
               src={apiData.supporting_wales_right_image}

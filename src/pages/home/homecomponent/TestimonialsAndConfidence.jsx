@@ -28,8 +28,10 @@ const TestimonialsAndConfidence = ({ apiData, testimonialData }) => {
     ? parseContent(apiData.building_confidence_description)
     : [""];
   return (
-    <section className="relative flex flex-col w-full lg:flex-row font-poppins">
-      <div className="lg:w-1/2 bg-[#03837E] text-white px-6 xl:px-20 py-10 space-y-8 relative z-10">
+    <section className="relative flex flex-col w-full lg:flex-row font-poppins ">
+<div className=" lg:w-1/2 bg-[#03837E] flex justify-end ">
+
+      <div className="lg:max-w-[800px] w-full text-white px-6 xl:px-20 py-10 space-y-8 relative z-10 ">
         <h2 className="text-[28px] font-semibold">
           {apiData?.building_confidence_title || "Building Confidence"}
         </h2>
@@ -39,7 +41,7 @@ const TestimonialsAndConfidence = ({ apiData, testimonialData }) => {
             alt="Modern Building"
             className="aspect-[518/392] w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
           />
-          <div className="absolute top-4 left-4 bg-white px-4 py-2 text-[#03837E] text-[20px] font-semibold">
+          <div className="absolute  top-2.5 left-2.5 sm:top-4 sm:left-4 bg-white px-4 py-2 text-[#03837E] text-[10px] sm:text-[14px] md:text-[20px] font-semibold">
             Founded In <br /> 1981
           </div>
         </div>
@@ -74,12 +76,12 @@ const TestimonialsAndConfidence = ({ apiData, testimonialData }) => {
           <img
             src={triangleb}
             alt="triangle black"
-            className="w-[70px] h-[70px] object-contain"
+            className="w-[50px] h-[50px] object-contain"
           />
           <img
             src={trianglew}
             alt="triangle white"
-            className="w-[70px] h-[70px] object-contain -mt-6"
+            className="w-[50px] h-[50px] object-contain -mt-4.5"
           />
         </div>
 
@@ -97,24 +99,27 @@ const TestimonialsAndConfidence = ({ apiData, testimonialData }) => {
           />
         </div> */}
       </div>
+    </div>
 
-      <div className="lg:w-1/2 bg-[#F4F4F5] px-6 xl:px-20 py-10 flex flex-col space-y-6 relative">
+    <div className=" lg:w-1/2 bg-[#F4F4F5]">
+      <div className="max-w-[800px] px-6 xl:px-20 py-10 flex flex-col space-y-6 relative">
         <h2 className="text-[#192437] text-[28px] font-semibold">
           Client Testimonials
         </h2>
 
-        {/* <div className="animate-bounce animationcostume2 hidden sm:flex absolute top-1/2 right-0 transform -translate-y-1/2 flex-col items-start justify-start w-[70px] h-[70px] 2xl:w-[70px] 2xl:h-[70px]">
-          <img
-            src={triangleg}
-            alt="triangle black"
-            className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain"
-          />
-          <img
-            src={trianglew}
-            alt="triangle white"
-            className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain -mt-6"
-          />
-        </div> */}
+        <div className="animationcostume absolute right-0 flex-col items-start justify-start hidden sm:flex top-25">
+  <img
+    src={triangleg}
+    alt="triangle black"
+    className="w-[55px] h-[55px] object-contain"
+  />
+  <img
+    src={trianglew}
+    alt="triangle white"
+    className="w-[55px] h-[55px] object-contain -mt-4.5"
+  />
+</div>
+ 
 
         <div className="grid grid-cols-1 gap-8">
           {testimonialData.map((t, idx) => (
@@ -170,6 +175,7 @@ const TestimonialsAndConfidence = ({ apiData, testimonialData }) => {
             <span className="text-lg font-medium">View All Testimonials</span>
           </button>
         </div>
+      </div>
       </div>
     </section>
   );

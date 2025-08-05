@@ -19,7 +19,7 @@ const Casestudies = () => {
   };
 
   return (
-    <section className="w-full px-4 py-5 lg:py-16 max-w-[1700px] mx-auto sm:px-8 md:px-12 xl:px-20 2xl:px-40">
+    <section className="w-full  py-5 lg:py-16 section_padding mx-auto ">
       <h2 className=" text-[28px] lg:text-[40px] text-center font-semibold text-[#192437] mb-3 lg:mb-12">
         Case Studies
       </h2>

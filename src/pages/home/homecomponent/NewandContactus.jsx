@@ -5,7 +5,7 @@ import trianglew from "../../../assets/trianglew.svg";
 const NewandContactus = () => {
   return (
     <section
-      className=" relative flex flex-col xl:flex-row w-full justify-between px-6 xl:px-[101px] pb-12 mt-16 max-w-[1700px] mx-auto"
+      className=" relative flex flex-col xl:flex-row w-full justify-between  pb-12 mt-16 section_padding mx-auto"
       aria-label="News and Contact Section"
     >
       {/* Left Section: News & Insights */}
