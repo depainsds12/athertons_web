@@ -42,7 +42,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <HomeSlider sliderData={sliderData} />
 
       <Services servicesData={servicesData} />
