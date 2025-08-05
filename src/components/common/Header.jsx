@@ -293,7 +293,7 @@ const Header = () => {
         <div className="w-full bg-white">
           <div className="flex items-center justify-between section_padding ">
             {/* Left: Logo + Navigation */}
-            <div className="flex items-center gap-10">
+            <div className="flex items-center gap-5 xl:gap-10">
               <div className="w-[90px] h-[84px] flex items-center justify-center sm:w-[116px] sm:h-[107px]    cursor-pointer group my-1">
                 <a href="/">
                   {" "}
@@ -305,7 +305,7 @@ const Header = () => {
                 </a>
               </div>
 
-              <nav className="hidden lg:flex items-center flex-nowrap gap-5 xl:gap-11 2xl:gap-14 text-black font-medium text-[15px] xl:text-base">
+              <nav className="hidden lg:flex items-center flex-nowrap gap-4 xl:gap-11 2xl:gap-14 text-black font-medium text-[14px] xl:text-base">
                 <Link to="/" className="hover:text-[#03837E] cursor-pointer">
                   Home
                 </Link>
