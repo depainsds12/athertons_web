@@ -93,7 +93,8 @@ const TeamPage = () => {
   }
 
   return (
-    <div className="bg-[#192437] relative text-white w-full flex flex-col items-center py-12 px-6 mx-auto">
+    <div className="bg-[#192437] w-full">
+    <div className=" section_padding relative text-white w-full flex flex-col items-center py-12  mx-auto">
       <h2 className="text-white font-semibold text-4xl xl:text-[40px] mb-10">
         The Team
       </h2>
@@ -157,7 +158,7 @@ const TeamPage = () => {
       </div>
 
       {/* Head Office */}
-      <div className="w-[92%] px-4 md:px-10 border-t border-[#6A778D] pt-10 max-w-[1800px]">
+      <div className="w-[100%]  border-t border-[#6A778D] pt-10 max-w-[1800px]">
         <h2 className="text-white font-semibold text-center text-4xl xl:text-[40px] mb-8">
           Head Office Team
         </h2>
@@ -170,8 +171,8 @@ const TeamPage = () => {
             return (
               <div
                 key={idx}
-                className={`w-full lg:w-1/2 px-4 py-8
-                  ${isRightCol ? "lg:border-l lg:pl-10 2xl:pl-22" : "2xl:pl-5"}
+                className={`w-full lg:w-1/2  py-8
+                  ${isRightCol ? "lg:border-l lg:pl-10 2xl:pl-22" : "lg:pr-10 2xl:pl-5"}
                   ${
                     section.title.includes("PDQ Team")
                       ? "border-b lg:border-b-0"
@@ -230,6 +231,7 @@ const TeamPage = () => {
       <button onClick={()=>{window.location.href = "/aboutus/meetourteam"}} className="mt-12 bg-[#03837E] border-[#03837E] border-1 text-white px-8 py-3 font-semibold hover:border hover:border-[#03837E] hover:bg-[#FFFFFF] hover:text-[#03837E] cursor-pointer">
         View All Teams
       </button>
+    </div>
     </div>
   );
 };

@@ -57,7 +57,7 @@ const Commercial = ({ apiData, projectData }) => {
 
   return (
     <section
-      className="relative flex flex-col items-center justify-between w-full gap-10 px-6 py-16 mx-auto xl:flex-row xl:items-start 2xl:gap-32 xl:px-20 2xl:px-40 max-w-[1600px]"
+      className="relative flex flex-col items-center justify-between w-full gap-10  py-16 mx-auto xl:flex-row xl:items-start 2xl:gap-3 max-w-[1600px] section_padding"
       aria-labelledby="commercial-heading"
     >
       <div className="w-full max-w-xl text-center lg:text-left">
@@ -109,20 +109,20 @@ const Commercial = ({ apiData, projectData }) => {
           </ul>
         )}
 
-        <div className="animationcostume hidden xl:flex absolute top-10 right-10 flex-col items-start justify-start w-[50px] h-[50px] mr-0.5">
+        <div className="animationcostume hidden lg:flex absolute top-10 right-0  2xl:-right-20 flex-col items-start justify-start w-[50px] h-[50px] 2xl:w-[139px] 2xl:h-[139px] mr-0.5">
           <img
             src={triangleg}
             alt="triangle black"
-            className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px]  object-contain "
+            className="lg:w-[101px] md:w-[70px] lg:h-[101px] md:h-[70px]  object-contain "
           />
           <img
             src={trianglew}
             alt="triangle white"
-            className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6"
+            className="lg:w-[101px] md:w-[70px] lg:h-[101px] md:h-[70px]   object-contain -mt-6 2xl:-mt-10"
           />
         </div>
       </div>
-      <div className="animationcostume2 hidden xl:flex absolute bottom-30 left-10 flex-col items-start justify-start w-[50px] h-[50px] mr-0.5">
+      <div className="animationcostume hidden xl:flex absolute top-[50%] left-0 2xl:-left-20 flex-col items-start justify-start w-[50px] h-[50px] 2xl:w-[101px] 2xl:h-[101px] mr-0.5">
         <img
           src={triangleg}
           alt="triangle black"
@@ -131,7 +131,7 @@ const Commercial = ({ apiData, projectData }) => {
         <img
           src={trianglew}
           alt="triangle white"
-          className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6"
+          className="xl:w-[101px] md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 2xl:-mt-10"
         />
       </div>
 

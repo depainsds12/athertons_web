@@ -64,21 +64,23 @@ const Services = ({ servicesData = [] }) => {
   }
 
   return (
-    <div className="w-full flex items-center justify-center">
-      <section className="relative flex flex-col max-w-(--layout-width) items-center w-full mt-2 sm:mb-15">
-        <div className="animationcostume2 hidden xl:flex absolute top-20 right-10 flex-col items-start mr-0.5 justify-start w-[50px] h-[50px]">
-          <img
-            src={triangleg}
-            alt="triangle black"
-            className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px] object-contain"
-          />
-          <img
-            src={trianglew}
-            alt="triangle white"
-            className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px] object-contain -mt-6 xl:-mt-6"
-          />
-        </div>
+    <div className="w-full relative flex items-center justify-center section_padding">
+     
+             {/* <div className="animationcostume hidden lg:flex absolute top-10 right-0 flex-col items-start justify-start w-[50px] h-[50px] 2xl:w-[101px] 2xl:h-[101px] ">
+               <img
+                 src={triangleg}
+                 alt="triangle black"
+                 className="lg:w-[101px] md:w-[70px] lg:h-[101px] md:h-[70px]  object-contain "
+               />
+               <img
+                 src={trianglew}
+                 alt="triangle white"
+                 className="lg:w-[101px] md:w-[70px] lg:h-[101px] md:h-[70px]   object-contain -mt-6 2xl:-mt-10"
+               />
+             </div> */}
 
+      <section className="relative flex flex-col max-w-(--layout-width) items-center w-full mt-2 sm:mb-15">
+      
         <h2 className="text-[28px] md:text-[40px] font-semibold text-[#192437] my-4 lg:mt-10 lg:mb-8">
           Our Services
         </h2>
