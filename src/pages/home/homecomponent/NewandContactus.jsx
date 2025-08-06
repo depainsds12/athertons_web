@@ -77,7 +77,7 @@ const NewandContactus = () => {
         </button>
       </div>
 
-      <div className="animationcostume sm:flex absolute top-0 right-2 flex-col items-start justify-start w-[50px] h-[50px]">
+      {/* <div className="animationcostume sm:flex absolute top-0 right-2 flex-col items-start justify-start w-[50px] h-[50px]">
         <img
           src={triangleg}
           alt="triangle black"
@@ -88,9 +88,9 @@ const NewandContactus = () => {
           alt="triangle white"
           className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6"
         />
-      </div>
+      </div> */}
 
-      <div className="animationcostume2 sm:flex absolute bottom-30 left-2 flex-col items-start justify-start w-[50px] h-[50px]">
+      {/* <div className="animationcostume2 sm:flex absolute bottom-0 left-2 flex-col items-start justify-start w-[50px] h-[50px]">
         <img
           src={triangleg}
           alt="triangle black"
@@ -101,7 +101,7 @@ const NewandContactus = () => {
           alt="triangle white"
           className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6"
         />
-      </div>
+      </div> */}
 
       {/* Right Section: Contact Us */}
       <div className="flex flex-col items-center w-full mt-12 xl:w-1/2 text-left xl:mt-0 ">

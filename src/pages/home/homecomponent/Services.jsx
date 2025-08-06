@@ -45,7 +45,7 @@ const Services = ({ servicesData = [] }) => {
 
   if (isLoading) {
     return (
-      <section className="relative flex flex-col items-center w-full mt-2 sm:mb-15">
+      <section className="relative flex flex-col items-center w-full mt-2 sm:mb-15 overflow-hidden">
         <div className="text-center py-10">
           <p>Loading services...</p>
         </div>
