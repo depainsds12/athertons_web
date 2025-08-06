@@ -361,7 +361,7 @@ const Careers = () => {
 
           
             <div className="flex items-center gap-4">
-              <span className="flex items-center justify-center  w-full max-w-[80px] mr-4 h-16 xl:w-20 xl:h-20 bg-[#03837E]">
+              <span className="flex items-center justify-center  w-full max-w-16 xl:min-w-20 xl:max-w-[80px] mr-4 h-16 xl:w-20 xl:h-20 bg-[#03837E]">
               <svg width="38" height="38" viewBox="0 0 38 39" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_71_1245)">
 <path d="M33.25 16.0996C33.25 27.1829 19 36.6829 19 36.6829C19 36.6829 4.75 27.1829 4.75 16.0996C4.75 12.3203 6.25133 8.69573 8.92373 6.02334C11.5961 3.35094 15.2207 1.84961 19 1.84961C22.7793 1.84961 26.4039 3.35094 29.0763 6.02334C31.7487 8.69573 33.25 12.3203 33.25 16.0996Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
