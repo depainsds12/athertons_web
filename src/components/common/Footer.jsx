@@ -296,7 +296,7 @@ const Footer = () => {
       {data.copyright_text}
       </span>
     <span className="text-center sm:text-right">
-      Website By:{" "}
+    
       <a href="https://sdssoftwares.co.uk/" target="_blank" className="hover:underline">
         {/* sdsoftwares.co.uk */}
         {data.website_by}
