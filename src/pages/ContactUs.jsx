@@ -2,9 +2,27 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { getAxios } from "../api/config";
 import { getContactusPage } from "../api/routes";
+import { axiosInstance } from "../api/config";
+import Popup from "../components/common/Popup";
 
 const ContactUs = () => {
   const [data, setData] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+
+  const [formData, setFormData] = useState({
+      first_name: "",
+      last_name: "",
+      phone: "",
+      email: "",
+      company_name: "",
+      subject: "",
+      your_message:"",
+    });
+
+    const [apiData, setApiData] = useState(null);
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+    
   
      useEffect(() => {
         const fetchContactusData = async () => {
@@ -19,6 +37,79 @@ const ContactUs = () => {
     
         fetchContactusData();
       }, []);
+
+      useEffect(() => {
+  if (showSuccessPopup) {
+    const timer = setTimeout(() => {
+      setShowSuccessPopup(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }
+}, [showSuccessPopup]);
+
+      
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+   const handleSubmit = async (e) => {
+      e.preventDefault();
+      setIsSubmitting(true);
+  
+      try {
+        const formDataToSend = new FormData();
+        formDataToSend.append("first_name", formData.first_name);
+        formDataToSend.append("last_name", formData.last_name);
+        formDataToSend.append("phone", formData.phone);
+        formDataToSend.append("email", formData.email);
+        formDataToSend.append("company_name", formData.company_name);
+        formDataToSend.append("subject", formData.subject);
+        formDataToSend.append("your_message", formData.your_message);
+  
+       
+  
+        for (let [key, value] of formDataToSend.entries()) {
+          console.log(key, value);
+        }
+  
+        const response = await axiosInstance.post(
+          "/contactus/store",
+          formDataToSend,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+  
+        setShowSuccessPopup(true);
+  
+        // console.log('Response:', response.data);
+        // alert('Form submitted successfully!');
+  
+        setFormData({
+          first_name: "",
+          last_name: "",
+          phone: "",
+          email: "",
+          company_name: "",
+          subject: "",
+          your_message:"",
+        });
+  
+        
+      } catch (error) {
+        console.error("Error submitting form:", error);
+      } finally {
+        setIsSubmitting(false);
+      }
+    };
+
   return (
     <>
       {/* Banner Section */}
@@ -37,13 +128,21 @@ const ContactUs = () => {
             {data?.banner_title || "CONTACT US"}
         </h2>
       </div>
+
+       {showSuccessPopup && (
+        <Popup
+          message="Details saved successfully!"
+          onClose={() => setShowSuccessPopup(false)}
+        />
+      )}
+
       <section className="w-full max-w-[1600px] mx-auto ">
       <section className=" flex flex-col xl:flex-row px-4 md:px-10 lg:px-20 xl:px-32 py-16 gap-10 ">
         {/* Form Container */}
         <div className="w-full xl:w-1/2 flex justify-center items-center">
           <form
             className="bg-[#F4F4F5] p-6 md:p-8 w-full max-w-[629px] flex flex-col gap-4"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
           >
             {/* Name Inputs */}
             <div className="flex gap-4 xl:gap-8.75">
@@ -53,18 +152,24 @@ const ContactUs = () => {
                 </label>
                 <input
                   type="text"
+                  name="first_name"
                   required
+                  value={formData.first_name}
+                  onChange={handleInputChange}
                   className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px]"
                 />
               </div>
               <div className="flex flex-col w-1/2">
                 <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
-                  Last Name*
-                </label>
-                <input
-                  type="text"
-                  required
-                  className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px]"
+                   Last Name*
+                  </label>
+                  <input
+                    type="text"
+                    name="last_name"
+                    required
+                    value={formData.last_name}
+                    onChange={handleInputChange}
+                    className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
                 />
               </div>
             </div>
@@ -73,22 +178,28 @@ const ContactUs = () => {
             <div className="flex gap-4 xl:gap-8.75">
               <div className="flex flex-col w-1/2">
                 <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
-                  Your Email*
+                  Email Address*
                 </label>
                 <input
                   type="email"
+                  name="email"
                   required
-                  className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px]"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
                 />
               </div>
               <div className="flex flex-col w-1/2">
                 <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
-                  Phone*
+                  Phone Number*
                 </label>
                 <input
                   type="tel"
+                  name="phone"
                   required
-                  className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px]"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
                 />
               </div>
             </div>
@@ -97,12 +208,14 @@ const ContactUs = () => {
             <div className="flex gap-4 xl:gap-8.75">
               <div className="flex flex-col w-1/2">
                 <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
-                  Company Name*
+                 Company Name
                 </label>
                 <input
                   type="text"
-                  required
-                  className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px]"
+                  name="company_name"
+                  value={formData.company_name}
+                  onChange={handleInputChange}
+                  className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
                 />
               </div>
               <div className="flex flex-col w-1/2">
@@ -110,9 +223,10 @@ const ContactUs = () => {
                   Subject*
                 </label>
                 <input
-                  type="text"
-                  required
-                  className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px]"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
                 />
               </div>
             </div>
@@ -123,17 +237,23 @@ const ContactUs = () => {
                 Your Message
               </label>
               <textarea
-                rows={4}
-                className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white resize-none h-[120px]"
+                  name="your_message"
+                  rows={4}
+                  value={formData.your_message}
+                  onChange={handleInputChange}
+                  className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white resize-none h-[120px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
               />
             </div>
 
             {/* Submit */}
             <button
               type="submit"
-              className="h-[48px] bg-[#03837E] text-white font-medium mt-4  cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] transition-colors"
+              disabled={isSubmitting}
+             className={`h-10 sm:h-[50px] bg-[#03837E] text-white font-medium mt-4 cursor-pointer hover:border hover:border-[#03837E] hover:bg-[#FFFFFF] hover:text-[#03837E] transition-colors ${
+                  isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+                }`}
             >
-              Contact Us
+              {isSubmitting ? "Submitting..." : "Contact Us"}
             </button>
           </form>
         </div>

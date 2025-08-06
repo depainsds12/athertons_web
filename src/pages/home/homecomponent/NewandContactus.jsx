@@ -1,14 +1,92 @@
 import { Link } from "react-router-dom";
 import triangleg from "../../../assets/triangleg.svg";
 import trianglew from "../../../assets/trianglew.svg";
+import { axiosInstance } from "../../../api/config";
+import Popup from "../../../components/common/Popup";
+import { useState, useEffect } from "react";
 
-const NewandContactus = () => {
+const NewandContactus = ({ apiData }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    first_name: "",
+    last_name: "",
+    phone: "",
+    email: "",
+    company_name: "",
+    subject: "",
+    your_message: "",
+  });
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
+  useEffect(() => {
+    if (showSuccessPopup) {
+      const timer = setTimeout(() => {
+        setShowSuccessPopup(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [showSuccessPopup]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append("first_name", formData.first_name);
+      formDataToSend.append("last_name", formData.last_name);
+      formDataToSend.append("phone", formData.phone);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("company_name", formData.company_name);
+      formDataToSend.append("subject", formData.subject);
+      formDataToSend.append("your_message", formData.your_message);
+
+      for (let [key, value] of formDataToSend.entries()) {
+        console.log(key, value);
+      }
+
+      await axiosInstance.post("/contactus/store", formDataToSend, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      setShowSuccessPopup(true);
+
+      setFormData({
+        first_name: "",
+        last_name: "",
+        phone: "",
+        email: "",
+        company_name: "",
+        subject: "",
+        your_message: "",
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section
       className=" relative flex flex-col xl:flex-row w-full justify-between  pb-12 mt-16 section_padding mx-auto"
       aria-label="News and Contact Section"
     >
-      {/* Left Section: News & Insights */}
+      {showSuccessPopup && (
+        <Popup
+          message="Your message has been sent successfully!"
+          onClose={() => setShowSuccessPopup(false)}
+        />
+      )}
       <div className="w-full xl:w-1/2 pr-0 xl:pr-[60px]">
         <h2
           className="font-poppins font-semibold text-[#192437] text-[28px] md:text-[32px] xl:text-[36px] leading-[100%] mb-8"
@@ -18,93 +96,56 @@ const NewandContactus = () => {
         </h2>
 
         <ul className="space-y-6" role="list" aria-labelledby="news-list">
-          {[1, 2, 3].map((item) => (
-       <li
-  key={item}
-  role="listitem"
-  className="group flex flex-col items-start gap-4 sm:flex-row"
-  aria-label="News Item"
->
-  <img
-    src="/images/ty-menai.jpg"
-    alt="Tŷ Menai Project"
-    className="
-      object-cover
-      w-full h-[200px]
-      sm:w-[220px] sm:h-[165px]
-      xl:w-[234px] xl:h-[177px]
-      transition-transform duration-500 ease-in-out
-      animate__animated animate__zoomIn
-      group-hover:scale-105
-    "
-  />
-
-  <div className="flex flex-col gap-2">
-    <h3
-      className="font-poppins font-semibold text-[20px] leading-[100%]"
-      aria-label="News Heading"
-    >
-      Lorem Ipsum dummy Heading Text
-    </h3>
-    <p
-      className="font-poppins font-normal text-[16px] leading-[28px]"
-      aria-label="News Description"
-    >
-      Lorem Ipsum is simply dummy text of the printing and
-      typesetting industry.
-    </p>
-    <Link
-      to={"/newsandinsight/1"}
-      aria-label="View Details"
-      className="underline text-[#03837E] font-poppins font-medium text-[18px] leading-[100%] hover:text-[#02635f] cursor-pointer"
-    >
-      View Details
-    </Link>
-  </div>
-</li>
-
-
+          {apiData.map((item) => (
+            <li
+              key={item.id}
+              role="listitem"
+              className="group flex flex-col items-start gap-4 sm:flex-row"
+              aria-label="News Item"
+            >
+              <img
+                src={item.featured_image}
+                alt="Tŷ Menai Project"
+                className="object-cover w-full h-[200px] sm:w-[220px] sm:h-[165px] xl:w-[234px] xl:h-[177px] transition-transform duration-500 ease-in-out animate__animated animate__zoomIn group-hover:scale-105"
+              />
+              <div className="flex flex-col gap-2">
+                <h3
+                  className="font-poppins font-semibold text-[20px] leading-[100%]"
+                  aria-label="News Heading"
+                >
+                  {item.title}
+                </h3>
+                <p
+                  className="font-poppins font-normal text-[16px] leading-[28px]"
+                  aria-label="News Description"
+                >
+                  {item.excerpt}
+                </p>
+                <Link
+                  to={"/newsandinsight/1"}
+                  aria-label="View Details"
+                  className="underline text-[#03837E] font-poppins font-medium text-[18px] leading-[100%] hover:text-[#02635f] cursor-pointer"
+                >
+                  View Details
+                </Link>
+              </div>
+            </li>
           ))}
         </ul>
 
         <button
-        onClick={()=>{window.location.href = " /newsandinsight"}}
+          onClick={() => {
+            window.location.href = "/newsandinsight";
+          }}
           type="button"
           aria-label="View All News and Insights"
-          className="w-full  xl:w-[511px] h-[48px] bg-[#03837E] text-white cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] font-poppins font-medium text-[18px] text-center mt-8"
+          className="w-full xl:w-[511px] h-[48px] bg-[#03837E] text-white cursor-pointer hover:border hover:border-[#03837E] hover:bg-[#FFFFFF] hover:text-[#03837E] font-poppins font-medium text-[18px] text-center mt-8"
         >
           View All News & Insights
         </button>
       </div>
 
-      {/* <div className="animationcostume sm:flex absolute top-0 right-2 flex-col items-start justify-start w-[50px] h-[50px]">
-        <img
-          src={triangleg}
-          alt="triangle black"
-          className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px]  object-contain"
-        />
-        <img
-          src={trianglew}
-          alt="triangle white"
-          className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6"
-        />
-      </div> */}
-
-      {/* <div className="animationcostume2 sm:flex absolute bottom-0 left-2 flex-col items-start justify-start w-[50px] h-[50px]">
-        <img
-          src={triangleg}
-          alt="triangle black"
-          className="xl:w-[101px] md:w-[70px] xl:h-[101px] md:h-[70px]  object-contain"
-        />
-        <img
-          src={trianglew}
-          alt="triangle white"
-          className="xl:w-[101px]md: w-[70px] xl:h-[101px] md:h-[70px]   object-contain -mt-6 xl:-mt-6"
-        />
-      </div> */}
-
-      {/* Right Section: Contact Us */}
-      <div className="flex flex-col items-center w-full mt-12 xl:w-1/2 text-left xl:mt-0 ">
+      <div className="flex flex-col items-center w-full mt-12 xl:w-1/2 text-left xl:mt-0">
         <h2
           className="font-poppins font-semibold text-[#192437] text-[28px] md:text-[32px] xl:text-[36px] leading-[100%] mb-8 xl:ml-6"
           aria-label="Contact Us"
@@ -114,7 +155,7 @@ const NewandContactus = () => {
         <form
           aria-label="Contact Us Form"
           className="bg-[#F4F4F5] p-6 md:p-8 w-full max-w-[600px] flex flex-col gap-4"
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={handleSubmit}
         >
           <div className="flex gap-4">
             <div className="flex flex-col w-1/2">
@@ -125,9 +166,11 @@ const NewandContactus = () => {
                 First Name*
               </label>
               <input
-                id="firstName"
                 type="text"
+                name="first_name"
                 required
+                value={formData.first_name}
+                onChange={handleInputChange}
                 className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px]"
               />
             </div>
@@ -141,8 +184,11 @@ const NewandContactus = () => {
               <input
                 id="lastName"
                 type="text"
+                name="last_name"
                 required
-                className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px]"
+                value={formData.last_name}
+                onChange={handleInputChange}
+                className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
               />
             </div>
           </div>
@@ -157,8 +203,11 @@ const NewandContactus = () => {
             <input
               id="email"
               type="email"
+              name="email"
               required
-              className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px]"
+              value={formData.email}
+              onChange={handleInputChange}
+              className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
             />
           </div>
 
@@ -171,9 +220,11 @@ const NewandContactus = () => {
             </label>
             <input
               id="phone"
-              type="tel"
+              name="phone"
               required
-              className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px]"
+              value={formData.phone}
+              onChange={handleInputChange}
+              className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
             />
           </div>
 
@@ -188,8 +239,10 @@ const NewandContactus = () => {
               <input
                 id="company"
                 type="text"
-                required
-                className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px]"
+                name="company_name"
+                value={formData.company_name}
+                onChange={handleInputChange}
+                className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
               />
             </div>
             <div className="flex flex-col w-1/2">
@@ -202,8 +255,10 @@ const NewandContactus = () => {
               <input
                 id="subject"
                 type="text"
-                required
-                className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px]"
+                name="subject"
+                value={formData.subject}
+                onChange={handleInputChange}
+                className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
               />
             </div>
           </div>
@@ -218,16 +273,22 @@ const NewandContactus = () => {
             <textarea
               id="message"
               rows={4}
-              className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white resize-none h-[120px]"
+              name="your_message"
+              value={formData.your_message}
+              onChange={handleInputChange}
+              className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white resize-none h-[120px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
             />
           </div>
 
           <button
             type="submit"
             aria-label="Submit Contact Us Form"
-            className="h-[48px] bg-[#03837E] text-white cursor-pointer  hover:border hover:border-[#03837E]  hover:bg-[#FFFFFF] hover:text-[#03837E] font-poppins font-medium text-[18px] text-center mt-4  transition-colors"
+            disabled={isSubmitting}
+            className={`h-10 sm:h-[48px] bg-[#03837E] text-white font-medium mt-4 cursor-pointer hover:border hover:border-[#03837E] hover:bg-[#FFFFFF] hover:text-[#03837E] transition-colors ${
+              isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+            }`}
           >
-            Contact Us
+            {isSubmitting ? "Submitting..." : "Contact Us"}
           </button>
         </form>
       </div>

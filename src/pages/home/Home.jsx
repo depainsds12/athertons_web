@@ -20,6 +20,8 @@ export default function HomePage() {
   const [sliderData, setSliderData] = useState([]);
   const [teamData, setTeamData] = useState([]);
   const [recentProjects, setRecentProjects] = useState([]);
+  const [news, setNews] = useState([]);
+
 
   useEffect(() => {
     const fetchHomePageData = async () => {
@@ -33,6 +35,7 @@ export default function HomePage() {
         setSliderData(response?.data?.data?.sliders);
         setTeamData(response?.data?.data?.teams);
         setRecentProjects(response?.data?.data?.latest_projects);
+        setNews(response?.data?.data?.news_insights);
       } catch (error) {
         console.error("Failed to fetch Home API:", error);
       }
@@ -40,7 +43,7 @@ export default function HomePage() {
 
     fetchHomePageData();
   }, []);
-
+  console.log('news data is',news)
   return (
     <div className="overflow-x-hidden">
       <HomeSlider sliderData={sliderData} />
@@ -56,7 +59,7 @@ export default function HomePage() {
       />
       <WalesSection apiData={homepageData} />
       <Team teamData={teamData} />
-      <NewandContactus />
+      <NewandContactus apiData={news} />
     </div>
   );
 }

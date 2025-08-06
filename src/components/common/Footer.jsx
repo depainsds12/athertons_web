@@ -46,53 +46,63 @@ const Footer = () => {
           </a>
          <div className="flex items-center gap-3 sm:gap-4 mt-2">
  {Array.isArray(data?.social_data) &&
-                    data.social_data.map((social) => {
-                      let borderColor = "border-black";
-                      let hoverBg = "hover:bg-gray-100";
-                      let imgSize = "w-[17px] h-[17px] md:w-[26px] md:h-[26px]";
-                      let imgSrc = "";
-                      switch (social.title) {
-                        case "Facebook":
-                          borderColor = "border-[#3D6AD6]";
-                          hoverBg = "hover:bg-blue-100";
-                          imgSrc = "/images/facebooklogo.png";
-                          break;
-                        case "Instagram":
-                          borderColor = "border-[#D73F8C]";
-                          hoverBg = "hover:bg-pink-100";
-                          imgSrc = "/images/instagramlogo.png";
-                          break;
-                        case "X":
-                          borderColor = "border-black";
-                          hoverBg = "hover:bg-gray-100";
-                          imgSrc = "/images/twitterlogo.png";
-                          break;
-                        case "Pinterest":
-                          borderColor = "border-[#BD081C]";
-                          hoverBg = "hover:bg-red-100";
-                          imgSrc = "/images/pinterestlogo.png";
-                          imgSize = "w-[22px] h-[22px] md:h-[32px] md:w-[32px]";
-                          break;
-                        default:
-                          imgSrc = "";
-                      }
+                  data.social_data.map((social) => {
+  let borderColor = "border-black";
+  let hoverShadow = "hover:shadow-md";
+  let hoverScale = "hover:scale-110";
+  let imgSize = "w-[20px] h-[20px] md:w-[28px] md:h-[28px]";
+  let imgSrc = "";
 
-                      return (
-                        <a
-                          key={social.title}
-                          href={social.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`w-[35px] md:w-[48px] h-[35px] md:h-[48px] border ${borderColor} ${hoverBg} bg-white flex items-center justify-center rounded-full cursor-pointer`}
-                        >
-                          <img
-                            src={imgSrc}
-                            alt={social.title}
-                            className={`${imgSize} object-contain`}
-                          />
-                        </a>
-                      );
-                    })}
+  switch (social.title) {
+    case "Facebook":
+      borderColor = "border-[#3D6AD6]";
+      hoverShadow = "hover:shadow-[0_0_10px_#3D6AD6]";
+      imgSrc = "/images/facebooklogo.png";
+      break;
+    case "Instagram":
+      borderColor = "border-[#D73F8C]";
+      hoverShadow = "hover:shadow-[0_0_10px_#D73F8C]";
+      imgSrc = "/images/instagramlogo.png";
+      break;
+    case "X":
+      borderColor = "border-black";
+      hoverShadow = "hover:shadow-[0_0_8px_black]";
+      imgSrc = "/images/twitterlogo.png";
+      break;
+    case "Pinterest":
+      borderColor = "border-[#BD081C]";
+      hoverShadow = "hover:shadow-[0_0_10px_#BD081C]";
+      imgSrc = "/images/pinterestlogo.png";
+      imgSize = "w-[24px] h-[24px] md:w-[32px] md:h-[32px]";
+      break;
+    default:
+      imgSrc = "";
+  }
+
+  return (
+    <a
+      key={social.title}
+      href={social.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`
+        w-[40px] md:w-[52px] h-[40px] md:h-[52px]
+        border ${borderColor}
+        ${hoverShadow} ${hoverScale}
+        bg-white flex items-center justify-center rounded-full cursor-pointer
+        transition-all duration-300 ease-in-out
+      `}
+    >
+      <img
+        src={imgSrc}
+        alt={social.title}
+        className={`${imgSize} object-contain`}
+      />
+    </a>
+  );
+})
+
+}
 </div>
 
         </div>
