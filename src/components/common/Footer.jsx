@@ -45,54 +45,56 @@ const Footer = () => {
             />
           </a>
          <div className="flex items-center gap-3 sm:gap-4 mt-2">
-  {data.social_data?.map((social, index) => {
-    let borderColor = "border-black";
-    let hoverBg = "hover:bg-gray-100";
-    let logoSize = "w-[17px] h-[17px] md:w-[26px] md:h-[26px]";
-    let logoPath = "";
+ {Array.isArray(data?.social_data) &&
+                    data.social_data.map((social) => {
+                      let borderColor = "border-black";
+                      let hoverBg = "hover:bg-gray-100";
+                      let imgSize = "w-[17px] h-[17px] md:w-[26px] md:h-[26px]";
+                      let imgSrc = "";
 
-    switch (social.title.toLowerCase()) {
-      case "facebook":
-        borderColor = "border-[#3D6AD6]";
-        hoverBg = "hover:bg-blue-100";
-        logoPath = "/images/facebooklogo.png";
-        break;
-      case "instagram":
-        borderColor = "border-[#D73F8C]";
-        hoverBg = "hover:bg-pink-100";
-        logoPath = "/images/instagramlogo.png";
-        break;
-      case "x":
-        borderColor = "border-black";
-        hoverBg = "hover:bg-gray-100";
-        logoPath = "/images/twitterlogo.png";
-        break;
-      case "pinterest":
-        borderColor = "border-[#BD081C]";
-        hoverBg = "hover:bg-red-100";
-        logoPath = "/images/pinterestlogo.png";
-        logoSize = "w-[22px] h-[22px] md:w-[32px] md:h-[32px]";
-        break;
-      default:
-        logoPath = "";
-    }
 
-    return (
-      <a
-        key={index}
-        href={social.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`w-[35px] md:w-[48px] h-[35px] md:h-[48px] ${borderColor} ${hoverBg} bg-white flex items-center justify-center rounded-full`}
-      >
-        <img
-          src={logoPath}
-          alt={social.title}
-          className={`${logoSize} object-contain`}
-        />
-      </a>
-    );
-  })}
+                      switch (social.title) {
+                        case "Facebook":
+                          borderColor = "border-[#3D6AD6]";
+                          hoverBg = "hover:bg-blue-100";
+                          imgSrc = "/images/facebooklogo.png";
+                          break;
+                        case "Instagram":
+                          borderColor = "border-[#D73F8C]";
+                          hoverBg = "hover:bg-pink-100";
+                          imgSrc = "/images/instagramlogo.png";
+                          break;
+                        case "X":
+                          borderColor = "border-black";
+                          hoverBg = "hover:bg-gray-100";
+                          imgSrc = "/images/twitterlogo.png";
+                          break;
+                        case "Pinterest":
+                          borderColor = "border-[#BD081C]";
+                          hoverBg = "hover:bg-red-100";
+                          imgSrc = "/images/pinterestlogo.png";
+                          imgSize = "w-[22px] h-[22px] md:h-[32px] md:w-[32px]";
+                          break;
+                        default:
+                          imgSrc = "";
+                      }
+
+                      return (
+                        <a
+                          key={social.title}
+                          href={social.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`w-[35px] md:w-[48px] h-[35px] md:h-[48px] border ${borderColor} ${hoverBg} bg-white flex items-center justify-center rounded-full cursor-pointer`}
+                        >
+                          <img
+                            src={imgSrc}
+                            alt={social.title}
+                            className={`${imgSize} object-contain`}
+                          />
+                        </a>
+                      );
+                    })}
 </div>
 
         </div>
