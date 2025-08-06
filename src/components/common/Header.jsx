@@ -83,7 +83,9 @@ const Header = () => {
           <div className="hidden md:flex flex-wrap items-center justify-between lg:h-[50px] h-auto  py-2 section_padding">
             <div className="flex flex-col items-center sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6">
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Wirral+Office+Full+Address"
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                  data.office1
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 text-[15px] lg:text-base  font-medium leading-none tracking-normal cursor-pointer"
@@ -114,7 +116,9 @@ const Header = () => {
                 {data.office1}
               </a>
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Your+Office+Address,Wrexham"
+                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                  data.office2
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 text-[15px] lg:text-base font-medium leading-none tracking-normal cursor-pointer"
@@ -146,8 +150,8 @@ const Header = () => {
               </a>
             </div>
             <div className="flex flex-col items-center sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6">
-              <Link
-                to="mailto:info@athertons.co.uk"
+              <a
+               href={`mailto:${data.email}`}
                 className="flex items-center gap-1 text-[15px] lg:text-base font-medium leading-none tracking-normal cursor-pointer hover:underline"
               >
                 <svg
@@ -174,9 +178,9 @@ const Header = () => {
                 </svg>
                 {/* info@athertons.co.uk */}
                 {data.email}
-              </Link>
-              <Link
-                to="tel:0151 670 0666"
+              </a>
+              <a
+                 href={`tel:${data.phone_number}`}
                 className="flex items-center gap-1 text-[15px] lg:text-base font-medium leading-none tracking-normal cursor-pointer hover:underline"
               >
                 <svg
@@ -196,7 +200,7 @@ const Header = () => {
                 </svg>
                 {/* 0151 670 0666 */}
                 {data.phone_number}
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -272,8 +276,8 @@ const Header = () => {
 
             {/* Second row - contact info */}
             <div className="flex items-center justify-center gap-6 sm:gap-8">
-              <Link
-                to={`mailto:${data.email}`}
+              <a
+                href={`mailto:${data.email}`}
                 className="flex items-center gap-1 text-sm font-medium cursor-pointer hover:underline"
               >
                 <svg
@@ -299,9 +303,9 @@ const Header = () => {
                   />
                 </svg>
                 {data.email}
-              </Link>
-              <Link
-                // to={`tel:${data.phone_number.replace(/\s/g, "")}`} // Remove spaces for tel link
+              </a>
+              <a
+                href={`tel:${data.phone_number}`} 
                 className="flex items-center gap-1 text-sm font-medium cursor-pointer hover:underline"
               >
                 <svg
@@ -320,7 +324,7 @@ const Header = () => {
                   />
                 </svg>
                 {data.phone_number}
-              </Link>
+              </a>
             </div>
           </div>
         </div>
