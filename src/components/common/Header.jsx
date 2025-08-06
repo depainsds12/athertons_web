@@ -301,7 +301,7 @@ const Header = () => {
                 {data.email}
               </Link>
               <Link
-                to={`tel:${data.phone_number.replace(/\s/g, "")}`} // Remove spaces for tel link
+                // to={`tel:${data.phone_number.replace(/\s/g, "")}`} // Remove spaces for tel link
                 className="flex items-center gap-1 text-sm font-medium cursor-pointer hover:underline"
               >
                 <svg
@@ -498,7 +498,7 @@ const Header = () => {
                       switch (social.title) {
                         case "Facebook":
                           borderColor = "border-[#3D6AD6]";
-                          hoverBg = "hover:bg-blue-100";
+                          hoverBg = "hover:bg-blue-100 ";
                           imgSrc = "/images/facebooklogo.png";
                           break;
                         case "Instagram":
