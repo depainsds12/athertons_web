@@ -57,18 +57,18 @@ const Header = () => {
   }, [aboutDropdown, servicesDropdown]);
 
   useEffect(() => {
-       const fetchHeaderFooterData = async () => {
-         try {
-           const response = await getAxios().get(getHeaderFooterDetails);
-           console.log("data of Header and Footer is", response?.data?.data);
-           setData(response?.data?.data);
-         } catch (error) {
-           console.error("Failed to fetch Header and  Footer API:", error);
-         }
-       };
-   
-       fetchHeaderFooterData();
-     }, []);
+    const fetchHeaderFooterData = async () => {
+      try {
+        const response = await getAxios().get(getHeaderFooterDetails);
+        console.log("data of Header and Footer is", response?.data?.data);
+        setData(response?.data?.data);
+      } catch (error) {
+        console.error("Failed to fetch Header and  Footer API:", error);
+      }
+    };
+
+    fetchHeaderFooterData();
+  }, []);
 
   return (
     <>
@@ -116,7 +116,7 @@ const Header = () => {
                 {data.office1}
               </a>
               <a
-                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
                   data.office2
                 )}`}
                 target="_blank"
@@ -151,7 +151,7 @@ const Header = () => {
             </div>
             <div className="flex flex-col items-center sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6">
               <a
-               href={`mailto:${data.email}`}
+                href={`mailto:${data.email}`}
                 className="flex items-center gap-1 text-[15px] lg:text-base font-medium leading-none tracking-normal cursor-pointer hover:underline"
               >
                 <svg
@@ -180,7 +180,7 @@ const Header = () => {
                 {data.email}
               </a>
               <a
-                 href={`tel:${data.phone_number}`}
+                href={`tel:${data.phone_number}`}
                 className="flex items-center gap-1 text-[15px] lg:text-base font-medium leading-none tracking-normal cursor-pointer hover:underline"
               >
                 <svg
@@ -305,7 +305,7 @@ const Header = () => {
                 {data.email}
               </a>
               <a
-                href={`tel:${data.phone_number}`} 
+                href={`tel:${data.phone_number}`}
                 className="flex items-center gap-1 text-sm font-medium cursor-pointer hover:underline"
               >
                 <svg
@@ -497,7 +497,6 @@ const Header = () => {
                       let hoverBg = "hover:bg-gray-100";
                       let imgSize = "w-[17px] h-[17px] md:w-[26px] md:h-[26px]";
                       let imgSrc = "";
-
 
                       switch (social.title) {
                         case "Facebook":
