@@ -45,7 +45,7 @@ const HomeSlider = ({ sliderData = [] }) => {
   }
 
   return (
-    <div className="relative w-full flex justify-center items-center  lg:max-h-[470px] overflow-hidden">
+    <div className="relative w-full flex justify-center items-center  lg:max-h-[480px] overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 transition-all duration-500 bg-center bg-cover animate__animated animate__zoomIn h-full"
@@ -58,7 +58,7 @@ const HomeSlider = ({ sliderData = [] }) => {
       <div className="absolute inset-0 bg-[#192437]/60 z-0"></div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-start justify-center min-h-[380px] h-full section_padding text-white">
+      <div className="relative z-10 flex flex-col items-start justify-center min-h-[400px] h-full section_padding text-white">
         {sliderData[currentIndex]?.subtitle && (
           <p className="lg:mb-4 text-base font-bold sm:text-lg md:text-2xl animate__animated animate__flipInX">
             {sliderData[currentIndex].subtitle}
