@@ -51,8 +51,6 @@ const Footer = () => {
                       let hoverBg = "hover:bg-gray-100";
                       let imgSize = "w-[17px] h-[17px] md:w-[26px] md:h-[26px]";
                       let imgSrc = "";
-
-
                       switch (social.title) {
                         case "Facebook":
                           borderColor = "border-[#3D6AD6]";
