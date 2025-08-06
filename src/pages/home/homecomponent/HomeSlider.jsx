@@ -45,19 +45,20 @@ const HomeSlider = ({ sliderData = [] }) => {
   }
 
   return (
-    <div className="relative w-full min-h-[500px] flex justify-center items-center lg:h-screen xl:max-h-[600px] 2xl:max-h-[700px]">
+    <div className="relative w-full flex justify-center items-center  lg:max-h-[470px] overflow-hidden">
+      {/* Background Image */}
       <div
-        className="absolute inset-0 transition-all duration-500 bg-center bg-cover animate__animated animate__zoomIn"
+        className="absolute inset-0 transition-all duration-500 bg-center bg-cover animate__animated animate__zoomIn h-full"
         style={{
           backgroundImage: `url(${sliderData[currentIndex]?.image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
         }}
       ></div>
 
+      {/* Overlay */}
       <div className="absolute inset-0 bg-[#192437]/60 z-0"></div>
 
-      <div className="relative z-10 flex flex-col items-start justify-center min-h-[480px] h-full section_padding text-white">
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-start justify-center min-h-[380px] h-full section_padding text-white">
         {sliderData[currentIndex]?.subtitle && (
           <p className="lg:mb-4 text-base font-bold sm:text-lg md:text-2xl animate__animated animate__flipInX">
             {sliderData[currentIndex].subtitle}
@@ -65,7 +66,7 @@ const HomeSlider = ({ sliderData = [] }) => {
         )}
 
         {sliderData[currentIndex]?.title && (
-          <h1 className="text-[28px] mb-3 sm:text-4xl md:text-5xl lg:text-6xl font-bold lg:mb-8 animate__animated animate__flipInX">
+          <h1 className="text-[28px] mb-3 sm:text-4xl md:text-5xl lg:text-[55px] font-bold lg:mb-2  animate__animated animate__flipInX">
             {sliderData[currentIndex].title}
           </h1>
         )}
@@ -75,14 +76,15 @@ const HomeSlider = ({ sliderData = [] }) => {
             dangerouslySetInnerHTML={renderHtmlContent(
               sliderData[currentIndex].description
             )}
-            className="text-[12px] sm:text-base  lg:text-lg w-full md:w-[50%] animate__animated animate__flipInX"
+            className="text-[12px] sm:text-base lg:text-base w-full md:w-[50%] animate__animated animate__flipInX"
           />
         )}
 
-        <button className="bg-[#03837E] w-[170px] h-[40px] md:w-[170px] md:h-[48px] shadow-[0px_4px_10px_0px_#00000080] mt-10 cursor-pointer hover:border hover:border-[#03837E] hover:bg-[#FFFFFF] hover:text-[#03837E]">
+        <button className="bg-[#03837E] w-[170px] h-[40px] md:w-[170px] md:h-[48px] shadow-[0px_4px_10px_0px_#00000080] mt-5 cursor-pointer hover:border hover:border-[#03837E] hover:bg-[#FFFFFF] hover:text-[#03837E]">
           <p className="text-lg font-[500]">Find Out More</p>
         </button>
 
+        {/* Navigation Arrows */}
         {sliderData.length > 1 && (
           <div className="absolute bottom-0 right-7 xl:right-15 flex items-center gap-6">
             <button
@@ -149,8 +151,9 @@ const HomeSlider = ({ sliderData = [] }) => {
           </div>
         )}
 
+        {/* Dots */}
         {sliderData.length > 1 && (
-          <div className="absolute flex gap-4 bottom-10 left-5 sm:left-7 md:left-10  lg:left-21">
+          <div className="absolute flex gap-4 bottom-10 md:bottom-5 left-5 sm:left-7 md:left-10 lg:left-21">
             {sliderData.map((_, idx) => (
               <button
                 key={idx}

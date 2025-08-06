@@ -1,13 +1,34 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { getHeaderFooterDetails } from "../../api/routes";
+import { getAxios } from "../../api/config";
 
 const Footer = () => {
+
+  const [data, setData] = useState({});
+
+   useEffect(() => {
+      const fetchHeaderFooterData = async () => {
+        try {
+          const response = await getAxios().get(getHeaderFooterDetails);
+          console.log("data of Header and Footer is", response?.data?.data);
+          setData(response?.data?.data);
+        } catch (error) {
+          console.error("Failed to fetch Header and  Footer API:", error);
+        }
+      };
+  
+      fetchHeaderFooterData();
+    }, []);
+
   return (
     <footer className="w-full bg-white text-[#192437] ">
       <div className="w-full bg-[#192437] sm:h-[52px] py-3 sm:py-0 flex items-center justify-center  text-center">
         <span className="text-white text-sm md:text-base lg:text-[20px] font-semibold leading-[20px] mx-1 section_padding">
-          Athertons is the trading name for Atherton{" "}
-          <br className="sm:hidden" /> & Partners Limited (01579933)
+          {/* Athertons is the trading name for Atherton{" "}
+          <br className="sm:hidden" /> & Partners Limited (01579933) */}
+          {data.description}
         </span>
       </div>
 
@@ -18,49 +39,62 @@ const Footer = () => {
           <a href="/">
             {" "}
             <img
-              src="/logof.png"
+              src={data.footer_logo_iamge}
               alt="Athertons Logo"
               className="w-[100px] h-[90px] sm:w-[122px] sm:h-[122px] object-contain mb-4"
             />
           </a>
-          <div className="flex items-center gap-3 sm:gap-4 mt-2">
-            <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#3D6AD6] bg-white flex items-center justify-center rounded-full hover:bg-blue-100">
-              <a href="#">
-                <img
-                  src="/images/facebooklogo.png"
-                  alt="Facebook"
-                  className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] object-contain"
-                />
-              </a>
-            </span>
-            <span className=" w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-[#D73F8C] hover:bg-pink-100 bg-white flex items-center justify-center rounded-full">
-              <a href="#">
-                <img
-                  src="/images/instagramlogo.png"
-                  alt="Instagram"
-                  className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] object-contain"
-                />
-              </a>
-            </span>
-            <span className=" w-[35px] md:w-[48px] h-[35px] md:h-[48px] border border-black bg-white hover:bg-gray-100 flex items-center justify-center rounded-full">
-              <a href="#">
-                <img
-                  src="/images/twitterlogo.png"
-                  alt="X"
-                  className="md:w-[26px] md:h-[26px] w-[17px] h-[17px] object-contain"
-                />
-              </a>
-            </span>
-            <span className=" w-[35px] hover:bg-red-100 md:w-[48px] h-[35px] md:h-[48px] border border-[#BD081C] bg-white flex items-center justify-center rounded-full">
-              <a href="#">
-                <img
-                  src="/images/pinterestlogo.png"
-                  alt="Pinterest"
-                  className="w-[22px] h-[22px] md:w-[32px] md:h-[32px] object-contain"
-                />
-              </a>
-            </span>
-          </div>
+         <div className="flex items-center gap-3 sm:gap-4 mt-2">
+  {data.social_data?.map((social, index) => {
+    let borderColor = "border-black";
+    let hoverBg = "hover:bg-gray-100";
+    let logoSize = "w-[17px] h-[17px] md:w-[26px] md:h-[26px]";
+    let logoPath = "";
+
+    switch (social.title.toLowerCase()) {
+      case "facebook":
+        borderColor = "border-[#3D6AD6]";
+        hoverBg = "hover:bg-blue-100";
+        logoPath = "/images/facebooklogo.png";
+        break;
+      case "instagram":
+        borderColor = "border-[#D73F8C]";
+        hoverBg = "hover:bg-pink-100";
+        logoPath = "/images/instagramlogo.png";
+        break;
+      case "x":
+        borderColor = "border-black";
+        hoverBg = "hover:bg-gray-100";
+        logoPath = "/images/twitterlogo.png";
+        break;
+      case "pinterest":
+        borderColor = "border-[#BD081C]";
+        hoverBg = "hover:bg-red-100";
+        logoPath = "/images/pinterestlogo.png";
+        logoSize = "w-[22px] h-[22px] md:w-[32px] md:h-[32px]";
+        break;
+      default:
+        logoPath = "";
+    }
+
+    return (
+      <a
+        key={index}
+        href={social.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`w-[35px] md:w-[48px] h-[35px] md:h-[48px] ${borderColor} ${hoverBg} bg-white flex items-center justify-center rounded-full`}
+      >
+        <img
+          src={logoPath}
+          alt={social.title}
+          className={`${logoSize} object-contain`}
+        />
+      </a>
+    );
+  })}
+</div>
+
         </div>
 
         {/* 2. Services and Quick Links for small screen side-by-side */}
@@ -140,12 +174,11 @@ const Footer = () => {
             Contact Us
           </span>
 
-          <a
-            href="https://www.google.com/maps/place/19-21+Grange+Mount,+Birkenhead,+Prenton+CH43+4XN,+UK"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-start sm:items-center hover:underline justify-center lg:justify-start text-white text-sm md:text-base leading-[28px] mb-2"
-          >
+         <a
+  href={`https://www.google.com/maps/place/${encodeURIComponent(data.address)}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-start sm:items-center hover:underline justify-center lg:justify-start text-white text-sm md:text-base leading-[28px] mb-2">
             <div className="mt-1 sm:mt-0">
               <svg
                 className="mr-2.5"
@@ -183,11 +216,12 @@ const Footer = () => {
                 </defs>
               </svg>
             </div>
-            19-21 Grange Mount, Birkenhead, Prenton CH43 4XN, UK
+            {/* 19-21 Grange Mount, Birkenhead, Prenton CH43 4XN, UK */}
+            {data.address}
           </a>
 
-          <Link
-            to="mailto:info@athertons.co.uk"
+          <a 
+           href={`mailto:${data.email}`}
             className="flex items-center hover:underline justify-center lg:justify-start text-white text-sm md:text-base leading-[28px] mb-2"
           >
             <svg
@@ -213,11 +247,12 @@ const Footer = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            info@athertons.co.uk
-          </Link>
+            {/* info@athertons.co.uk */}
+            {data.email}
+          </a>
 
-          <Link
-            to="tel:0151 670 0666"
+          <a
+           href={`tel:${data.phone_number}`}
             className="flex items-center hover:underline justify-center lg:justify-start text-white text-sm md:text-base leading-[28px]"
           >
             <svg
@@ -248,18 +283,23 @@ const Footer = () => {
                 </clipPath>
               </defs>
             </svg>
-            0151 670 0666
-          </Link>
+            {/* 0151 670 0666 */}
+            {data.phone_number}
+          </a>
         </div>
       </div>
 </div>
 <div className="w-full bg-white border-t border-[#e5e7eb]">
   <div className="w-full h-auto flex flex-col sm:flex-row items-center justify-between gap-2 section_padding py-2 text-xs md:text-sm text-center sm:text-left mx-auto">
-    <span>Copyright © 2025 Athertons. All Rights Reserved.</span>
+    <span>
+      {/* Copyright © 2025 Athertons. All Rights Reserved. */}
+      {data.copyright_text}
+      </span>
     <span className="text-center sm:text-right">
       Website By:{" "}
       <a href="https://sdssoftwares.co.uk/" target="_blank" className="hover:underline">
-        sdsoftwares.co.uk
+        {/* sdsoftwares.co.uk */}
+        {data.website_by}
       </a>
     </span>
   </div>
