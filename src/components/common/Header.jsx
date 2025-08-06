@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { getHeaderFooterDetails } from "../../api/routes";
+import { getAxios } from "../../api/config";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,13 +10,13 @@ const Header = () => {
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
-
   const aboutDropdownRef = useRef(null);
   const servicesDropdownRef = useRef(null);
   const aboutButtonRef = useRef(null);
   const servicesButtonRef = useRef(null);
 
- 
+  const [data, setData] = useState({});
+
   useEffect(() => {
     if (isMenuOpen) {
       document.body.classList.add("overflow-hidden");
@@ -24,10 +26,8 @@ const Header = () => {
     return () => document.body.classList.remove("overflow-hidden");
   }, [isMenuOpen]);
 
-  
   useEffect(() => {
     const handleClickOutside = (event) => {
-      
       if (
         aboutDropdownRef.current &&
         !aboutDropdownRef.current.contains(event.target) &&
@@ -37,7 +37,6 @@ const Header = () => {
         setAboutDropdown(false);
       }
 
-   
       if (
         servicesDropdownRef.current &&
         !servicesDropdownRef.current.contains(event.target) &&
@@ -57,6 +56,20 @@ const Header = () => {
     };
   }, [aboutDropdown, servicesDropdown]);
 
+  useEffect(() => {
+       const fetchHeaderFooterData = async () => {
+         try {
+           const response = await getAxios().get(getHeaderFooterDetails);
+           console.log("data of Header and Footer is", response?.data?.data);
+           setData(response?.data?.data);
+         } catch (error) {
+           console.error("Failed to fetch Header and  Footer API:", error);
+         }
+       };
+   
+       fetchHeaderFooterData();
+     }, []);
+     
   return (
     <>
       <header
@@ -65,7 +78,6 @@ const Header = () => {
         }`}
         style={isMenuOpen ? { height: "110px" } : {}}
       >
-        
         <div className="w-full px-4 pt-1 pb-2 text-sm text-white ">
           {/* Desktop layout */}
           <div className="hidden md:flex flex-wrap items-center justify-between lg:h-[50px] h-auto  py-2 section_padding">
@@ -98,7 +110,8 @@ const Header = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                Wirral Office
+                {/* Wirral Office */}
+                {data.office1}
               </a>
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Your+Office+Address,Wrexham"
@@ -128,7 +141,8 @@ const Header = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                Wrexham Office
+                {/* Wrexham Office */}
+                {data.office2}
               </a>
             </div>
             <div className="flex flex-col items-center sm:flex-row gap-y-2 sm:gap-y-0 gap-x-6">
@@ -158,7 +172,8 @@ const Header = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                info@athertons.co.uk
+                {/* info@athertons.co.uk */}
+                {data.email}
               </Link>
               <Link
                 to="tel:0151 670 0666"
@@ -179,7 +194,8 @@ const Header = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                0151 670 0666
+                {/* 0151 670 0666 */}
+                {data.phone_number}
               </Link>
             </div>
           </div>
@@ -188,7 +204,14 @@ const Header = () => {
           <div className="space-y-2 md:hidden">
             {/* First row - offices */}
             <div className="flex items-center justify-center gap-6 sm:gap-8">
-              <span className="flex items-center gap-1 text-base font-medium cursor-pointer">
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                  data.office1
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-base font-medium cursor-pointer"
+              >
                 <svg
                   width="20"
                   height="21"
@@ -211,9 +234,16 @@ const Header = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                Wirral Office
-              </span>
-              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer">
+                {data.office1}
+              </a>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                  data.office2
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-sm font-medium cursor-pointer"
+              >
                 <svg
                   width="20"
                   height="21"
@@ -236,13 +266,16 @@ const Header = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                Wrexham Office
-              </span>
+                {data.office2}
+              </a>
             </div>
 
             {/* Second row - contact info */}
             <div className="flex items-center justify-center gap-6 sm:gap-8">
-              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer hover:underline">
+              <Link
+                to={`mailto:${data.email}`}
+                className="flex items-center gap-1 text-sm font-medium cursor-pointer hover:underline"
+              >
                 <svg
                   width="20"
                   height="21"
@@ -265,9 +298,12 @@ const Header = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                info@athertons.co.uk
-              </span>
-              <span className="flex items-center gap-1 text-sm font-medium cursor-pointer hover:underline">
+                {data.email}
+              </Link>
+              <Link
+                to={`tel:${data.phone_number.replace(/\s/g, "")}`} // Remove spaces for tel link
+                className="flex items-center gap-1 text-sm font-medium cursor-pointer hover:underline"
+              >
                 <svg
                   width="24"
                   height="24"
@@ -283,8 +319,8 @@ const Header = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                0151 670 0666
-              </span>
+                {data.phone_number}
+              </Link>
             </div>
           </div>
         </div>
@@ -298,7 +334,7 @@ const Header = () => {
                 <a href="/">
                   {" "}
                   <img
-                    src="/logo.png"
+                    src={data.header_logo_iamge}
                     alt="Athertons Logo"
                     className="object-contain h-full"
                   />
@@ -451,34 +487,55 @@ const Header = () => {
               {/* Social icons - hidden when menu is open on mobile */}
               {!isMenuOpen && (
                 <div className="flex gap-2 lg:gap-1.5 xl:gap-3">
-                  <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-blue-100 border-[#3D6AD6] flex items-center justify-center rounded-full cursor-pointer  ">
-                    <img
-                      src="/images/facebooklogo.png"
-                      alt="Facebook"
-                      className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]   object-contain"
-                    />
-                  </span>
-                  <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-pink-100 border-[#D73F8C] flex items-center justify-center rounded-full cursor-pointer ">
-                    <img
-                      src="/images/instagramlogo.png"
-                      alt="Instagram"
-                      className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]  object-contain"
-                    />
-                  </span>
-                  <span className="w-[35px] md:w-[48px] h-[35px] md:h-[48px] border hover:bg-gray-100 border-black flex items-center justify-center rounded-full cursor-pointer">
-                    <img
-                      src="/images/twitterlogo.png"
-                      alt="X"
-                      className="md:w-[26px] md:h-[26px] w-[17px] h-[17px]  object-contain"
-                    />
-                  </span>
-                  <span className="w-[35px] md:w-[48px] hover:bg-red-100 h-[35px] md:h-[48px] border border-[#BD081C] flex items-center justify-center rounded-full cursor-pointer">
-                    <img
-                      src="/images/pinterestlogo.png"
-                      alt="Pinterest"
-                      className="w-[22px] h-[22px] md:h-[32px] md:w-[32px]  object-contain"
-                    />
-                  </span>
+                  {Array.isArray(data?.social_data) &&
+                    data.social_data.map((social) => {
+                      let borderColor = "border-black";
+                      let hoverBg = "hover:bg-gray-100";
+                      let imgSize = "w-[17px] h-[17px] md:w-[26px] md:h-[26px]";
+                      let imgSrc = "";
+
+                      switch (social.title) {
+                        case "Facebook":
+                          borderColor = "border-[#3D6AD6]";
+                          hoverBg = "hover:bg-blue-100";
+                          imgSrc = "/images/facebooklogo.png";
+                          break;
+                        case "Instagram":
+                          borderColor = "border-[#D73F8C]";
+                          hoverBg = "hover:bg-pink-100";
+                          imgSrc = "/images/instagramlogo.png";
+                          break;
+                        case "X":
+                          borderColor = "border-black";
+                          hoverBg = "hover:bg-gray-100";
+                          imgSrc = "/images/twitterlogo.png";
+                          break;
+                        case "Pinterest":
+                          borderColor = "border-[#BD081C]";
+                          hoverBg = "hover:bg-red-100";
+                          imgSrc = "/images/pinterestlogo.png";
+                          imgSize = "w-[22px] h-[22px] md:h-[32px] md:w-[32px]";
+                          break;
+                        default:
+                          imgSrc = "";
+                      }
+
+                      return (
+                        <a
+                          key={social.title}
+                          href={social.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`w-[35px] md:w-[48px] h-[35px] md:h-[48px] border ${borderColor} ${hoverBg} flex items-center justify-center rounded-full cursor-pointer`}
+                        >
+                          <img
+                            src={imgSrc}
+                            alt={social.title}
+                            className={`${imgSize} object-contain`}
+                          />
+                        </a>
+                      );
+                    })}
                 </div>
               )}
 
@@ -488,11 +545,7 @@ const Header = () => {
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               >
                 {isMenuOpen ? (
-                  <img
-                    src="/cross.svg"
-                    alt="Close menu"
-                    className="w-8 h-8"
-                  />
+                  <img src="/cross.svg" alt="Close menu" className="w-8 h-8" />
                 ) : (
                   <>
                     <span className="w-6 h-0.5 bg-black transition-all"></span>
