@@ -14,7 +14,7 @@ const NewandContactus = ({ apiData }) => {
     email: "",
     company_name: "",
     subject: "",
-    your_message: "",
+    message: "",
   });
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
@@ -22,7 +22,7 @@ const NewandContactus = ({ apiData }) => {
     if (showSuccessPopup) {
       const timer = setTimeout(() => {
         setShowSuccessPopup(false);
-      }, 5000);
+      }, 15000);
       return () => clearTimeout(timer);
     }
   }, [showSuccessPopup]);
@@ -46,7 +46,7 @@ const NewandContactus = ({ apiData }) => {
       formDataToSend.append("email", formData.email);
       formDataToSend.append("company_name", formData.company_name);
       formDataToSend.append("subject", formData.subject);
-      formDataToSend.append("your_message", formData.your_message);
+      formDataToSend.append("message", formData.your_message);
 
       for (let [key, value] of formDataToSend.entries()) {
         console.log(key, value);
@@ -67,7 +67,7 @@ const NewandContactus = ({ apiData }) => {
         email: "",
         company_name: "",
         subject: "",
-        your_message: "",
+        message: "",
       });
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -83,7 +83,7 @@ const NewandContactus = ({ apiData }) => {
     >
       {showSuccessPopup && (
         <Popup
-          message="Your message has been sent successfully!"
+          message="Thanks! Your message was sent successfully."
           onClose={() => setShowSuccessPopup(false)}
         />
       )}
@@ -221,9 +221,17 @@ const NewandContactus = ({ apiData }) => {
             <input
               id="phone"
               name="phone"
+              inputMode="numeric"
               required
+              pattern="^\d{7,15}$"
+              maxLength={15}
               value={formData.phone}
               onChange={handleInputChange}
+              onInvalid={(e) =>
+                e.target.setCustomValidity(
+                  "Please enter a valid phone number (7–15 digits only)"
+                )
+              }
               className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
             />
           </div>
@@ -240,6 +248,7 @@ const NewandContactus = ({ apiData }) => {
                 id="company"
                 type="text"
                 name="company_name"
+                required
                 value={formData.company_name}
                 onChange={handleInputChange}
                 className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
@@ -256,6 +265,7 @@ const NewandContactus = ({ apiData }) => {
                 id="subject"
                 type="text"
                 name="subject"
+                required
                 value={formData.subject}
                 onChange={handleInputChange}
                 className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
@@ -273,8 +283,8 @@ const NewandContactus = ({ apiData }) => {
             <textarea
               id="message"
               rows={4}
-              name="your_message"
-              value={formData.your_message}
+              name="message"
+              value={formData.message}
               onChange={handleInputChange}
               className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white resize-none h-[120px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
             />
