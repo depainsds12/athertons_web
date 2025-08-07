@@ -1,51 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import liam from "../../assets/liam.jpg";
-import dave from "../../assets/dave.jpg";
-import grant from "../../assets/grant.jpg";
-import clive from "../../assets/clive.jpg";
-import jimmy from "../../assets/jimmy.jpg";
-import russell from "../../assets/russell.jpg";
-import russell2 from "../../assets/russell2.jpg";
-import kieron from "../../assets/kieron.jpg";
-import ronson from "../../assets/ronson.jpg";
-import staurt from "../../assets/staurt.jpg";
-import sandhu from "../../assets/sandhu.jpg";
-import nick from "../../assets/nick.jpg";
-import paul from "../../assets/paul.png";
-import dita from "../../assets/dita.jpg";
-import satel from "../../assets/satel.jpg";
-import tom from "../../assets/tom.jpg";
-import robbie from "../../assets/robbie.jpg";
-import karen from "../../assets/karen.jpg";
-import noimage from "../../assets/noimage.png";
-import aboutusbg1 from "../../assets/aboutusbg1test.jpg";
 import { getMeetOurTeam } from "../../api/routes";
 import { getAxios } from "../../api/config";
 
-const teamMembers = [
-  { name: "Liam", role: "Mechanical Estimator", img: liam },
-  { name: "Dave", role: "Electrical Estimator", img: dave },
-  { name: "Grant", role: "Mechanical Contracts Manager", img: grant },
-  { name: "Leo", role: "Electrical Contracts Manager", img: noimage },
-  { name: "Clive", role: "Financial Controller", img: clive },
-  { name: "Jimmy", role: "Contracts Manager", img: jimmy },
-  { name: "Russell", role: "MEP Buyer", img: russell },
-  { name: "Russell", role: "Senior Contracts Manager", img: russell2 },
-  { name: "Kieron", role: "Accounts Payable Specialist", img: kieron },
-  { name: "Ronson", role: "PDQ Manager", img: ronson },
-  { name: "Stuart", role: "Electrical Contracts Manager", img: staurt },
-  { name: "Sandhu", role: "PDQ Specialist", img: sandhu },
-  { name: "Nick", role: "Electrical Estimator", img: nick },
-  { name: "Ian", role: "Electrical Estimator", img: noimage },
-  { name: "Paul", role: "Managing Director", img: paul },
-  { name: "Dita Naik", role: "Co-Owner And CCO", img: dita },
-  { name: "Satel Naik", role: "Co-Owner And CTO", img: satel },
-  { name: "Tom", role: "Commercial Director", img: tom },
-  { name: "Robbie", role: "Electrical Contracts Manager", img: robbie },
-  { name: "Karen", role: "Business Operations Manager", img: karen },
-  { name: "Stephen", role: "Technical Director", img: noimage },
-];
 
 const MeetOurTeam = () => {
   const [teamData, setTeamData] = useState();
@@ -75,7 +32,7 @@ const MeetOurTeam = () => {
             id="team-heading"
             className="relative z-20 text-white text-[20px] sm:text-[36px] md:text-[48px] xl:text-[60px] 2xl:text-[80px] font-bold leading-[1] text-center mt-2"
           >
-            {/* MEET OUR TEAM */}
+            
             {teamData?.banner_title || "MEET OUR TEAM"}
           </h1>
         </div>

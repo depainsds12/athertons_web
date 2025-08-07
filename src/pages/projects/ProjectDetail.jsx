@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-
+import React, { useState ,useEffect } from "react";
+import { getAxios } from "../../api/config";
+import { useParams } from "react-router-dom";
 const images = [
   "/images/ty-1.jpg",
   "/images/ty-2.jpg",
@@ -8,11 +9,27 @@ const images = [
 ];
 
 const ProjectDetail = () => {
+
   const [imgIdx, setImgIdx] = useState(0);
+  const { id } = useParams();
   const handlePrev = () =>
     setImgIdx((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   const handleNext = () =>
     setImgIdx((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+   const [data, setData] = useState();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getAxios().get(`/projectdetailpage/${1}`);
+        console.log("data  is", response?.data?.data);
+        setData(response?.data?.data);
+      } catch (error) {
+        console.error("Failed to fetch Meet Our team API:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <section

@@ -9,6 +9,7 @@ export const getSmartDesignPage = "/smartdesignpage";
 export const getBmsEmsTechnologyPage = "/bmsEmstechnologypage";
 export const getMeEngineeringPage = "/meEngineering";
 export const getEcoSolutionsPage = "/ecosolutionspage";
+export const getLightCivilPage = "/lightcivilpage";
 export const getHeaderFooterDetails= "/headerfooter";
-
 export const getContactusPage="/contactuspage";
+export const getProjectList = "/projectlistpage";
