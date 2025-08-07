@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 
 const Popup = ({ message, onClose }) => {
-//   const [showPopup, setShowPopup] = useState(false);
+  // const [showPopup, setShowPopup] = useState(false);
 
-//   const handleSubmit = () => {
-//     // Your submit logic here
-//     setShowPopup(true);
+  // const handleSubmit = () => {
+  //   // Your submit logic here
+  //   setShowPopup(true);
     
-//     // Hide the popup after 3 seconds
-//     setTimeout(() => {
-//       setShowPopup(false);
-//     }, 4000);
-//   };
+  //   // Hide the popup after 3 seconds
+  //   setTimeout(() => {
+  //     setShowPopup(false);
+  //   }, 4000);
+  // };
 
   return (
-      <div className="fixed inset-0 bg-opacity-50 flex justify-center items-start pt-10 z-50">
-      <div className="bg-[#03837E] p-6 rounded-lg shadow-lg max-w-md w-full mx-4 animate-fade-in">
+      <div className="fixed inset-0 bg-opacity-50 flex justify-center items-start pt-5 z-50">
+      <div className="bg-[#03837E] p-6 rounded-lg shadow-lg max-w-sm w-full mx-4 animate-fade-in">
         <div className="flex justify-between items-center">
-           <p className="text-white text-[20px] font-medium">{message}</p>
+           <p className="text-white text-[18px] font-medium">{message}</p>
           {/* <h3 className="text-lg font-semibold text-white">Success</h3> */}
           <button 
             onClick={onClose}

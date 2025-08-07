@@ -37,17 +37,16 @@ const Careers = () => {
     fetchData();
   }, []);
 
-  
-        useEffect(() => {
+  useEffect(() => {
     if (showSuccessPopup) {
       const timer = setTimeout(() => {
         setShowSuccessPopup(false);
-      }, 5000);
-  
+      }, 15000);
+
       return () => clearTimeout(timer);
     }
   }, [showSuccessPopup]);
-  
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -125,7 +124,7 @@ const Careers = () => {
     >
       {showSuccessPopup && (
         <Popup
-          message="Details saved successfully!"
+          message="Your details have been submitted successfully. Stay connected!"
           onClose={() => setShowSuccessPopup(false)}
         />
       )}
@@ -196,9 +195,17 @@ const Careers = () => {
                 <input
                   type="tel"
                   name="phone"
+                  inputMode="numeric"
                   required
+                  pattern="^\d{7,15}$"
+                  maxLength={15}
                   value={formData.phone}
                   onChange={handleInputChange}
+                  onInvalid={(e) =>
+                    e.target.setCustomValidity(
+                      "Please enter a valid phone number (7–15 digits only)"
+                    )
+                  }
                   className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
                 />
               </div>
@@ -217,18 +224,6 @@ const Careers = () => {
                 />
               </div>
 
-              <div className="flex flex-col">
-                <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
-                  Company Name
-                </label>
-                <input
-                  type="text"
-                  name="company_name"
-                  value={formData.company_name}
-                  onChange={handleInputChange}
-                  className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
-                />
-              </div>
 
               <div className="flex flex-col">
                 <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
@@ -249,7 +244,7 @@ const Careers = () => {
                     className="hidden"
                     onChange={handleFileChange}
                   />
-                  <span className="text-xs md:text-sm font-semibold text-[#192437] whitespace-nowrap ml-1 sm:ml-2 mt-1 sm:mt-0">
+                  <span className="text-xs md:text-sm font-semibold text-[#192437] whitespace-nowrap ml-1 sm:ml-2 mt-1 sm:mt-2">
                     {formData.resume ? formData.resume.name : "No file chosen"}
                   </span>
                 </div>
