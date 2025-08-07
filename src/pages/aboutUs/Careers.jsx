@@ -69,10 +69,10 @@ const Careers = () => {
       const formDataToSend = new FormData();
       formDataToSend.append("first_name", formData.first_name);
       formDataToSend.append("last_name", formData.last_name);
-      formDataToSend.append("phone", formData.phone);
+      formDataToSend.append("phone_number", formData.phone);
       formDataToSend.append("email", formData.email);
-      formDataToSend.append("company_name", formData.company_name);
-      formDataToSend.append("subject", formData.subject);
+      // formDataToSend.append("company_name", formData.company_name);
+      formDataToSend.append("message", formData.subject);
 
       if (formData.resume) {
         formDataToSend.append("resume", formData.resume);
@@ -83,7 +83,7 @@ const Careers = () => {
       }
 
       const response = await axiosInstance.post(
-        "/contactus/store",
+        "/careers/store",
         formDataToSend,
         {
           headers: {

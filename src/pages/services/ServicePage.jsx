@@ -6,6 +6,7 @@ import {
   getBmsEmsTechnologyPage,
   getMeEngineeringPage,
   getEcoSolutionsPage,
+  getLightCivilPage
 } from "../../api/routes";
 
 const HexIcon = () => (
@@ -30,6 +31,7 @@ const serviceEndpoints = {
   'bms_ems_technology': getBmsEmsTechnologyPage,
   'me_engineering': getMeEngineeringPage,
   'eco_solutions': getEcoSolutionsPage,
+  "light_civil_engineering": getLightCivilPage
 };
 
 const ServicePage = () => {
