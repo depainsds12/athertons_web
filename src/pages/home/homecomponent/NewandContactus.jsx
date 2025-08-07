@@ -46,7 +46,7 @@ const NewandContactus = ({ apiData }) => {
       formDataToSend.append("email", formData.email);
       formDataToSend.append("company_name", formData.company_name);
       formDataToSend.append("subject", formData.subject);
-      formDataToSend.append("message", formData.your_message);
+      formDataToSend.append("message", formData.message);
 
       for (let [key, value] of formDataToSend.entries()) {
         console.log(key, value);
@@ -207,7 +207,14 @@ const NewandContactus = ({ apiData }) => {
               required
               value={formData.email}
               onChange={handleInputChange}
+              pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
               className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
+              onInvalid={(e) =>
+                e.target.setCustomValidity(
+                  "Please enter a valid email address"
+                )
+              }
+              onInput={(e) => e.target.setCustomValidity("")}
             />
           </div>
 
@@ -227,11 +234,12 @@ const NewandContactus = ({ apiData }) => {
               maxLength={15}
               value={formData.phone}
               onChange={handleInputChange}
-              onInvalid={(e) =>
+              onInvalid={(e) => {
                 e.target.setCustomValidity(
                   "Please enter a valid phone number (7–15 digits only)"
-                )
-              }
+                );
+              }}
+              onInput={(e) => e.target.setCustomValidity("")}
               className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
             />
           </div>
