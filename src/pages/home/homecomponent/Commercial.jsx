@@ -149,11 +149,11 @@ const Commercial = ({ apiData, projectData }) => {
               key={project.id}
               className="flex flex-col items-center sm:text-left gap-4 sm:flex-row sm:items-center"
             >
-              <div className="group w-[216px] h-[164px] overflow-hidden border border-[#D6D6D6] hover:shadow-xl transition-shadow duration-500 ease-in-out mr-4">
+              <div className="group w-[216px] h-[164px] md:min-w-[216px] overflow-hidden border border-[#D6D6D6] hover:shadow-xl transition-shadow duration-500 ease-in-out mr-4">
                 <img
                   src={project.featured_image}
                   alt={`Preview of ${project.project_title}`}
-                  className="object-cover w-full h-full transition-transform duration-500 ease-in-out shadow-2xl group-hover:scale-105"
+                  className="object-cover md:min-w-[216px] w-full h-full transition-transform duration-500 ease-in-out shadow-2xl group-hover:scale-105"
                 />
               </div>
               <div>

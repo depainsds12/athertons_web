@@ -176,6 +176,13 @@ const ContactUs = () => {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
+                    pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity(
+                        "Please enter a valid email address"
+                      )
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                     className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
                   />
                 </div>
@@ -192,11 +199,11 @@ const ContactUs = () => {
                     maxLength={15}
                     value={formData.phone}
                     onChange={handleInputChange}
-                    onInvalid={(e) =>
+                    onInvalid={(e) => {
                       e.target.setCustomValidity(
                         "Please enter a valid phone number (7–15 digits only)"
-                      )
-                    }
+                      );
+                    }}
                     onInput={(e) => e.target.setCustomValidity("")}
                     className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
                   />
