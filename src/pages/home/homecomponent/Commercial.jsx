@@ -161,7 +161,9 @@ const Commercial = ({ apiData, projectData }) => {
                   {project.project_title}
                 </h4>
                 <button
-                  onClick={() => handleProjectClick(project.project_title)}
+                  onClick={() => navigate(`/projects/${project.id}`,{
+                    state: { projectId: project.id },
+                  })}
                   className="text-[#03837E] text-[18px] font-[500] underline cursor-pointer"
                   aria-label={`View details for ${project.project_title}`}
                 >

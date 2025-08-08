@@ -1,7 +1,7 @@
 import { projects } from "../../../data/projects.js";
 import { useNavigate } from "react-router-dom";
 import casestudiesData from "../../../data/casestudiesData.js";
-const Casestudies = () => {
+const Casestudies = ({apiData}) => {
   const navigate = useNavigate();
     const generateProjectSlug = (title) => {
     return title
@@ -13,10 +13,10 @@ const Casestudies = () => {
   };
 
 
-  const handleProjectClick = (projectTitle) => {
-    const slug = generateProjectSlug(projectTitle);
-    navigate(`/casestudies/${slug}`);
-  };
+  // const handleProjectClick = (projectTitle) => {
+  //   const slug = generateProjectSlug(projectTitle);
+  //   navigate(`/casestudies/${slug}`);
+  // };
 
   return (
     <section className="w-full  py-5 lg:py-16 section_padding mx-auto ">
@@ -25,7 +25,7 @@ const Casestudies = () => {
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-7 lg:gap-y-16 xl:gap-x-18">
-        {projects.slice(0, 3).map((project) => (
+        {apiData.map((project) => (
           <div
             key={project.id}
             className="flex flex-col items-start w-full max-w-[520px] mx-auto"
@@ -38,17 +38,19 @@ const Casestudies = () => {
               }}
             >
               <img
-                src={project.image}
+                src={project.featured_image}
                 alt={project.name}
                 className="object-cover w-full h-full transition-transform duration-500 ease-in-out animate__animated animate__zoomIn group-hover:scale-105"
               />
             </div>
 
             <h3 className="text-[#192437] font-semibold text-[20px] leading-[100%] font-['Open_Sans'] mb-2 text-left w-full">
-              {project.name || "N/A"}
+              {project.title}
             </h3>
             <a
-             onClick={() => handleProjectClick(project.name)}
+              onClick={() => navigate(`/casestudies/${1}`,{
+                  state: {caseStudyId: project.id}
+                })}
               // href={`/casestudies/${project.id}`}
               className="text-[#03837E] font-medium text-[18px] leading-[100%] underline underline-offset-2 font-['Open_Sans'] hover:text-[#02635f] cursor-pointer text-left w-full"
             >
