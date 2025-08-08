@@ -224,7 +224,6 @@ const Careers = () => {
                 />
               </div>
 
-
               <div className="flex flex-col">
                 <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
                   Upload Resume*
@@ -244,7 +243,7 @@ const Careers = () => {
                     className="hidden"
                     onChange={handleFileChange}
                   />
-                  <span className="text-xs md:text-sm font-semibold text-[#192437] whitespace-nowrap ml-1 sm:ml-2 mt-1 sm:mt-2">
+                  <span className="text-xs md:text-sm font-semibold text-[#192437] whitespace-nowrap ml-1 sm:ml-2 mt-1 sm:mt-2  max-w-[250px] sm:max-w-[150px] truncate overflow-hidden">
                     {formData.resume ? formData.resume.name : "No file chosen"}
                   </span>
                 </div>
