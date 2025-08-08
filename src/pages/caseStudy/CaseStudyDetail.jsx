@@ -1,8 +1,10 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import casestudiesData from "../../data/casestudiesData.js";
 import triangleb from "../../assets/triangleb.svg";
 import trianglepurew from "../../assets/trianglepurew.svg";
+import { useEffect, useState } from "react";
+import { getAxios } from "../../api/config";
 
 const CustomBullet = () => (
   <svg
@@ -38,86 +40,187 @@ const WhiteBullet = () => (
 
 const CaseStudyDetail = () => {
   const { id } = useParams();
-  const caseStudy = casestudiesData.find((item) => item.id === id);
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { caseStudyId = '' } = useLocation().state || {};
 
-  if (!caseStudy) {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getAxios().get(`/casestudydetailpage/${1}`);
+        setData(response.data.data.project_data);
+      } catch (error) {
+        console.error("Failed to fetch project details:", error);
+        setError("Failed to load case study details");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [caseStudyId]);
+
+  if (isLoading) {
+    return <div className="p-10 text-center">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="p-10 text-center">{error}</div>;
+  }
+
+  if (!data) {
     return <div className="p-10 text-center">Case study not found</div>;
   }
 
+ 
+  const parseHtml = (htmlString) => {
+    return { __html: htmlString };
+  };
+
+
+  const extractBulletPoints = (htmlString) => {
+    const liRegex = /<li>(.*?)<\/li>/g;
+    const matches = [];
+    let match;
+    while ((match = liRegex.exec(htmlString)) !== null) {
+      matches.push(match[1]);
+    }
+    return matches;
+  };
+
+  const parseSolutionsContent = (htmlString) => {
+    const elements = [];
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlString, 'text/html');
+ 
+    const nodes = doc.body.childNodes;
+    
+    for (let i = 0; i < nodes.length; i++) {
+      const node = nodes[i];
+      
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        if (node.tagName === 'P') {
+        
+          elements.push({
+            type: 'paragraph',
+            content: node.innerHTML
+          });
+        } else if (node.tagName === 'UL') {
+       
+          const listItems = node.querySelectorAll('li');
+          listItems.forEach(li => {
+            const strong = li.querySelector('strong');
+            if (strong) {
+              elements.push({
+                type: 'listItem',
+                title: strong.textContent,
+                description: li.textContent.replace(strong.textContent, '').trim()
+              });
+            } else {
+              elements.push({
+                type: 'listItem',
+                title: li.textContent,
+                description: ''
+              });
+            }
+          });
+        }
+      }
+    }
+    
+    return elements;
+  };
+
+  const challengeBulletPoints = extractBulletPoints(data.challenges_description);
+  const solutionsContent = parseSolutionsContent(data.solutions_description);
+
   return (
     <section className="font-Poppins text-black">
-      {/* Banner */}
+    
       <div
         className="relative w-full min-h-[200px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
-        style={{ backgroundImage: `url(${caseStudy.bannerImage})` }}
+        style={{ backgroundImage: `url(${data.featured_image})` }}
       >
         <div className="absolute inset-0 bg-[#192437]/60" />
         <h2 className="relative z-10 text-white text-3xl md:text-[45px] lg:text-[55px] xl:text-[60px] font-bold tracking-wide text-center px-4">
-          {caseStudy.title}
+          {data.title}
         </h2>
       </div>
 
-      {/* Main Content */}
+     
       <div className="max-w-[1440px] mx-auto px-4 py-12 lg:px-8 space-y-20">
-        {/* Project Overview */}
+      
         <div>
           <h3 className="text-2xl lg:text-[40px] xl:text-[40px] text-center font-semibold mb-4">
-            Project Overview
+            {data.project_overview_title}
           </h3>
-          <p className="text-center leading-7 text-black">
-            {caseStudy.overview}
-          </p>
+          <div 
+            className="text-center leading-7 text-black" 
+            dangerouslySetInnerHTML={parseHtml(data.project_overview)}
+          />
         </div>
 
-        {/* Challenges */}
+    
         <div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <img
-              src={caseStudy.challenges.image}
+              src={data.challenge_image}
               alt="Challenge"
               className="w-full object-cover xl:w-[556px] xl:h-[431px]"
             />
             <div className="space-y-4 text-black">
               <h3 className="text-2xl lg:text-[40px] xl:text-[40px] font-semibold mb-8">
-                Challenges
+                {data.challenges_title}
               </h3>
-              <p>{caseStudy.challenges.text}</p>
+              <div dangerouslySetInnerHTML={parseHtml(data.challenges_description.replace(/<li>.*?<\/li>/g, ''))} />
               <ul className="space-y-2">
-                {caseStudy.challenges.points.map((point, i) => (
+                {challengeBulletPoints.map((point, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CustomBullet />
-                    <span>{point}</span>
+                    <span dangerouslySetInnerHTML={parseHtml(point)} />
                   </li>
                 ))}
               </ul>
-              <p>{caseStudy.challenges.paragraph}</p>
             </div>
           </div>
         </div>
 
-        {/* Solutions */}
+     
         <div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <div className="space-y-6 order-1 text-black">
               <h3 className="text-2xl lg:text-[40px] xl:text-[40px] font-semibold mb-8">
-                Solutions
+                {data.solutions_title}
               </h3>
-              <p className="italic">{caseStudy.solutions.text}</p>
               <div className="space-y-6">
-                {caseStudy.solutions.points.map((point, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CustomBullet />
-                    <div>
-                      <h4 className="font-semibold">{point.title}</h4>
-                      <p>{point.description}</p>
-                    </div>
-                  </div>
-                ))}
+                {solutionsContent.map((item, i) => {
+                  if (item.type === 'paragraph') {
+                    return (
+                      <div 
+                        key={`p-${i}`} 
+                        className="italic"
+                        dangerouslySetInnerHTML={parseHtml(item.content)}
+                      />
+                    );
+                  } else if (item.type === 'listItem') {
+                    return (
+                      <div key={`li-${i}`} className="flex items-start gap-3">
+                        <CustomBullet />
+                        <div>
+                          {item.title && <h4 className="font-semibold">{item.title}</h4>}
+                          {item.description && <p>{item.description}</p>}
+                        </div>
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
               </div>
             </div>
             <div className="order-2">
               <img
-                src={caseStudy.solutions.image}
+                src={data.solution_image}
                 alt="Solution"
                 className="w-full object-cover aspect-[556/431] max-h-[431px]"
               />
@@ -126,58 +229,55 @@ const CaseStudyDetail = () => {
         </div>
       </div>
 
-      
       <div className="w-full max-w-[1440px] mx-auto bg-[#03837E] py-14 relative">
         <div className="max-w-[1440px] mx-auto px-4">
           <h3 className="text-2xl lg:text-[40px] xl:text-[40px] font-semibold mb-10 text-white text-center">
             Outcome
           </h3>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 text-white text-left max-w-4xl mx-auto">
-            {caseStudy.outcome.map((item, i) => (
+            {data.outcomes.map((item, i) => (
               <li key={i} className="flex items-start gap-3 justify-start">
                 <WhiteBullet />
                 <span>{item}</span>
               </li>
             ))}
           </ul>
-              {/* Decorative triangles */}
-        <div className="animate-bounce hidden lg:flex absolute top-8 right-8 flex-col items-start justify-start">
-          <img
-            src={triangleb}
-            alt="triangle black"
-            className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain"
-          />
-          <img
-            src={trianglepurew}
-            alt="triangle white"
-            className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain -mt-6"
-          />
+         
+          <div className="animate-bounce hidden lg:flex absolute top-8 right-8 flex-col items-start justify-start">
+            <img
+              src={triangleb}
+              alt="triangle black"
+              className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain"
+            />
+            <img
+              src={trianglepurew}
+              alt="triangle white"
+              className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain -mt-6"
+            />
+          </div>
+          <div className="animate-bounce hidden lg:flex absolute bottom-8 left-8 flex-col items-start justify-start">
+            <img
+              src={triangleb}
+              alt="triangle black"
+              className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain"
+            />
+            <img
+              src={trianglepurew}
+              alt="triangle white"
+              className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain -mt-6"
+            />
+          </div>
         </div>
-        <div className="animate-bounce hidden lg:flex absolute bottom-8 left-8 flex-col items-start justify-start">
-          <img
-            src={triangleb}
-            alt="triangle black"
-            className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain"
-          />
-          <img
-            src={trianglepurew}
-            alt="triangle white"
-            className="w-[70px] xl:w-[80px] h-[70px] xl:h-[80px] object-contain -mt-6"
-          />
-        </div>
-        </div>
-
-    
       </div>
 
-      {/* Explore More */}
+    
       <div className="max-w-[1440px] mx-auto px-4 py-12 space-y-20">
         <div>
           <h3 className="text-center text-2xl lg:text-[40px] xl:text-[40px] font-semibold mb-10">
             Explore More Case Studies
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
-            {caseStudy.exploreMore.map((p) => (
+            {casestudiesData.filter(item => item.id !== id).slice(0, 3).map((p) => (
               <div
                 key={p.id}
                 className="flex flex-col gap-2 hover:scale-[1.02] transition"
@@ -210,12 +310,14 @@ const CaseStudyDetail = () => {
           </div>
 
           <div className="flex justify-center mt-10">
-            <button
-              className="bg-[#03837E] text-white text-lg font-medium"
-              style={{ width: "283px", height: "48px" }}
-            >
-              View All Case Studies
-            </button>
+            <Link to="/casestudies">
+              <button
+                className="bg-[#03837E] text-white text-lg font-medium cursor-pointer hover:bg-white hover:text-[#03837E] border border-[#03837E] transition-colors duration-300 flex items-center justify-center"
+                style={{ width: "283px", height: "48px" }}
+              >
+                View All Case Studies
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -21,6 +21,7 @@ export default function HomePage() {
   const [teamData, setTeamData] = useState([]);
   const [recentProjects, setRecentProjects] = useState([]);
   const [news, setNews] = useState([]);
+  const [caseStudies, setCaseStudies] = useState([]);
 
 
   useEffect(() => {
@@ -36,6 +37,7 @@ export default function HomePage() {
         setTeamData(response?.data?.data?.teams);
         setRecentProjects(response?.data?.data?.latest_projects);
         setNews(response?.data?.data?.news_insights);
+        setCaseStudies(response?.data?.data?.case_studies);
       } catch (error) {
         console.error("Failed to fetch Home API:", error);
       }
@@ -52,7 +54,7 @@ export default function HomePage() {
       <Accreditation membershipsData={membershipImages} />
       <Commercial apiData={homepageData} projectData={recentProjects}  />
       <Video apiData={homepageData} />
-      <Casestudies />
+      <Casestudies apiData={caseStudies}/>
       <TestimonialsAndConfidence
         apiData={homepageData}
         testimonialData={testimonialData}

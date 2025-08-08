@@ -183,13 +183,15 @@ export default function ProjectList() {
         <div className="w-full mx-auto flex flex-wrap justify-center gap-6 px-4 py-4">
           {filteredProjects.map((project, index) => (
             <div
-              key={index} 
+              key={project.id} 
               className="flex-grow flex-shrink basis-full sm:basis-[45%] lg:basis-[30%] max-w-full sm:max-w-[45%] lg:max-w-[30%] flex justify-center my-5"
             >
               <ProjectCard
                 name={project.project_title} 
                 image={project.featured_image}
-                onClick={() => navigate(`/projects/${index}`)} 
+                onClick={() => navigate(`/projects/${project.id}`,{
+                  state: {projectId: project.id}
+                })} 
               />
             </div>
           ))}
@@ -202,13 +204,14 @@ export default function ProjectList() {
           handleInputChange={handleInputChange}
           formErrors={formErrors}
           isSubmitting={isSubmitting}
+          images={projectsData.project_data.map(p => p.featured_image)}
         />
       </div>
     </div>
   );
 }
 
-function ContactSectionWithSlider({ onSubmit, formData, handleInputChange, formErrors, isSubmitting }) {
+function ContactSectionWithSlider({ onSubmit, formData, handleInputChange, formErrors, isSubmitting ,images }) {
   const [imgIdx, setImgIdx] = React.useState(0);
 
   const sliderImages = [
@@ -237,10 +240,10 @@ function ContactSectionWithSlider({ onSubmit, formData, handleInputChange, formE
         </button>
       
         <div className="flex gap-6 mx-auto">
-          {sliderImages.map((img, i) => (
+          {images.map((img, i) => (
             <img
               key={img}
-              src={sliderImages[(imgIdx + i) % sliderImages.length]}
+              src={img}
               alt="Project"
               className={`lg:w-[200px] lg:h-[150px] w-[75px] sm:w-[120px] md:w-[150px] xl:w-[313.01px] xl:h-[237.13px] object-cover transform -translate-y-210/100 sm:-translate-y-130/100 md:-translate-y-105/100 lg:-translate-y-75/100 xl:-translate-y-62/100 ${i === 1 ? 'z-10' : 'z-0'}`}
             />
@@ -379,3 +382,4 @@ function ContactSectionWithSlider({ onSubmit, formData, handleInputChange, formE
     </div>
   );
 }
+

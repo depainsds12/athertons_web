@@ -1,9 +1,37 @@
 import React from 'react';
+import { useEffect ,useState } from 'react';
 // import { projects } from '../../data/projects';
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate } from 'react-router-dom';
 import { caseStudies } from '../../data/caseStudies';
+import { getCaseStudyList } from '../../api/routes';
+import { getAxios } from '../../api/config';
 
 const CaseStudyList = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await getAxios().get(getCaseStudyList);
+          console.log("data of projects are", response?.data?.data);
+          setData(response.data.data);
+        } catch (error) {
+          console.error("Failed to fetch Case Studies API:", error);
+          setError(error);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchData();
+    }, []);
+
+    
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       <section
@@ -13,7 +41,7 @@ const CaseStudyList = () => {
         {/* Banner */}
         <div
           className="relative w-full aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
-          style={{ backgroundImage: `url(/CaseStudyListbg.jpg)` }}
+          style={{ backgroundImage: `url(${data.banner_image})` }}
           role="presentation"
           aria-hidden="true"
         >
@@ -22,13 +50,14 @@ const CaseStudyList = () => {
             id="careers-heading"
             className="relative z-10 text-white text-3xl md:text-[45px] lg:text-[55px] xl:text-[60px] font-bold tracking-wide text-center"
           >
-            CASE STUDIES
+          
+            {data.banner_title}
           </h2>
         </div>
 
         
         <div className="w-full mx-auto flex flex-wrap justify-center gap-y-12 py-12 px-4">
-          {caseStudies.map((project, idx) => (
+          {data.case_sudy_data.map((project, idx) => (
             <div
               key={project.id}
               className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 flex justify-center"
@@ -42,17 +71,19 @@ const CaseStudyList = () => {
                   }}
                 >
                   <img
-                    src={project.image}
+                    src={project.featured_image}
                     alt={project.name}
                     className="w-full h-full object-cover"
                     style={{ objectFit: 'cover', objectPosition: 'center' }}
                   />
                 </div>
                 <div className="text-[#192437] font-semibold text-[20px] leading-[100%] font-['Open_Sans'] mb-2 text-left w-full">
-                  {project.name}
+                  {project.title}
                 </div>
                 <Link
-                  to={`/casestudies/${project.id}`}
+                 onClick={() => navigate(`/casestudies/${1}`,{
+                  state: {caseStudyId: project.id}
+                })} 
                   className="text-[#03837E] font-medium text-[18px] leading-[100%] underline underline-offset-2 font-['Open_Sans'] hover:text-[#02635f] cursor-pointer text-left w-full"
                   style={{
                     textDecorationStyle: 'solid',
