@@ -30,7 +30,7 @@ const MeetOurTeam = () => {
           <div className="absolute inset-0 bg-[#192437] opacity-60 z-10" />
           <h1
             id="team-heading"
-            className="relative z-20 text-white text-[20px] sm:text-[36px] md:text-[48px] xl:text-[60px] 2xl:text-[80px] font-bold leading-[1] text-center mt-2"
+            className="relative  section_padding z-20 text-white text-[20px] sm:text-[36px] md:text-[48px] xl:text-[60px] 2xl:text-[80px] font-bold leading-[1] text-center mt-2"
           >
             
             {teamData?.banner_title || "MEET OUR TEAM"}
@@ -39,7 +39,7 @@ const MeetOurTeam = () => {
 
         {/* Team Section (Flex Layout) */}
         <section
-          className="w-full flex flex-wrap justify-center gap-y-12 py-8 sm:py-10 md:py-16 px-4 "
+          className="w-full flex flex-wrap justify-center gap-y-12 py-8 sm:py-10 md:py-16 section_padding "
           aria-labelledby="team-heading"
           role="list"
         >
