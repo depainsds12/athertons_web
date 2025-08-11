@@ -81,7 +81,7 @@ const CaseStudyList = () => {
                   {project.title}
                 </div>
                 <Link
-                 onClick={() => navigate(`/casestudies/${1}`,{
+                 onClick={() => navigate(`/casestudies/${project.id}`,{
                   state: {caseStudyId: project.id}
                 })} 
                   className="text-[#03837E] font-medium text-[18px] leading-[100%] underline underline-offset-2 font-['Open_Sans'] hover:text-[#02635f] cursor-pointer text-left w-full"

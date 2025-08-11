@@ -14,3 +14,4 @@ export const getHeaderFooterDetails= "/headerfooter";
 export const getContactusPage="/contactuspage";
 export const getProjectList = "/projectlistpage";
 export const getCaseStudyList = "/casestudylistpage";
+export const getNewsList = "/newsinsightslistpage";

@@ -44,12 +44,14 @@ const CaseStudyDetail = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const { caseStudyId = '' } = useLocation().state || {};
+  const [exploreData, setExploreData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getAxios().get(`/casestudydetailpage/${1}`);
+        const response = await getAxios().get(`/casestudydetailpage/${id}`);
         setData(response.data.data.case_study_data);
+        setExploreData(response.data.latest_case_study_data);
       } catch (error) {
         console.error("Failed to fetch project details:", error);
         setError("Failed to load case study details");
@@ -59,7 +61,7 @@ const CaseStudyDetail = () => {
     };
 
     fetchData();
-  }, [caseStudyId]);
+  }, [id]);
 
   if (isLoading) {
     return <div className="p-10 text-center">Loading...</div>;
@@ -277,20 +279,20 @@ const CaseStudyDetail = () => {
             Explore More Case Studies
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
-            {casestudiesData.filter(item => item.id !== id).slice(0, 3).map((p) => (
+            {exploreData.map((p) => (
               <div
                 key={p.id}
                 className="flex flex-col gap-2 hover:scale-[1.02] transition"
               >
                 <Link to={`/casestudies/${p.id}`}>
                   <img
-                    src={p.image}
+                    src={p.featured_image}
                     alt={p.name}
                     className="object-cover"
                     style={{ width: "330px", height: "250px" }}
                   />
                 </Link>
-                <h4 className="font-medium">{p.name}</h4>
+                <h4 className="font-medium">{p.title}</h4>
                 <Link
                   to={`/casestudies/${p.id}`}
                   style={{
