@@ -48,7 +48,7 @@ const Casestudies = ({apiData}) => {
               {project.title}
             </h3>
             <a
-              onClick={() => navigate(`/casestudies/${1}`,{
+              onClick={() => navigate(`/casestudies/${project.id}`,{
                   state: {caseStudyId: project.id}
                 })}
               // href={`/casestudies/${project.id}`}

@@ -122,7 +122,7 @@ const NewandContactus = ({ apiData }) => {
                   {item.excerpt}
                 </p>
                 <Link
-                  to={"/newsandinsight/1"}
+                  to={`/newsandinsight/${item.id}`}
                   aria-label="View Details"
                   className="underline text-[#03837E] font-poppins font-medium text-[18px] leading-[100%] hover:text-[#02635f] cursor-pointer"
                 >

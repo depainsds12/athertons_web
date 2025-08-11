@@ -1,11 +1,63 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import newsData from "../../data/newsData";
+import { getAxios } from "../../api/config";
 
 const NewsDetail = () => {
-  const { newsId } = useParams();
-  const data = newsData.find((item) => item.id === newsId);
+  const { newsId } = useParams(); 
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    const fetchNewsDetail = async () => {
+      try {
+        setIsLoading(true);
+        const response = await getAxios().get(`/newsinsightsdetailpage/${newsId}`);
+        const apiData = response.data.data.news_insights_data;
+        
+    
+        const transformedData = {
+          bannerImage: apiData.featured_image,
+          title: apiData.title,
+          image: apiData.featured_image,
+          subheading: apiData.title,
+          description: apiData.excerpt,
+          points: extractListItems(apiData.description),
+          summary: apiData.excerpt,
+          paragraphs: extractParagraphs(apiData.description)
+        };
+        
+        setData(transformedData);
+      } catch (error) {
+        console.error("Error fetching news detail:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (newsId) {
+      fetchNewsDetail();
+    }
+  }, [newsId]);
+
+  // Helper function to extract list items from HTML
+  const extractListItems = (html) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const listItems = doc.querySelectorAll('li');
+    return Array.from(listItems).map(item => item.textContent);
+  };
+
+  // Helper function to extract paragraphs from HTML
+  const extractParagraphs = (html) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const paragraphs = doc.querySelectorAll('p');
+    return Array.from(paragraphs)
+      .map(p => p.textContent)
+      .filter(text => text.trim().length > 0);
+  };
+
+  if (isLoading) return <div className="p-10">Loading...</div>;
   if (!data) return <div className="p-10">News not found</div>;
 
   return (
@@ -19,7 +71,7 @@ const NewsDetail = () => {
         <div className="absolute inset-0 bg-[#192437] opacity-60 z-10" />
         <h1
           id="news-heading"
-          className="relative z-20 text-white text-[36px] sm:text-[48px]  md:text-[60px] font-bold text-center"
+          className="relative z-20 text-white text-[36px] sm:text-[48px] md:text-[60px] font-bold text-center"
         >
           {data.title}
         </h1>
@@ -27,7 +79,7 @@ const NewsDetail = () => {
 
       {/* Content */}
       <section
-        className=" w-full bg-white  max-w-[1600px] mx-auto  py-14 xl:py px-4 md:px-14 xl:px-20"
+        className="w-full bg-white max-w-[1600px] mx-auto py-14 xl:py px-4 md:px-14 xl:px-20"
         aria-labelledby="news-content-heading"
       >
         <div className="flex flex-col lg:flex-row gap-8">
