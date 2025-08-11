@@ -57,7 +57,7 @@ const CaseStudyList = () => {
 
         
         <div className="w-full mx-auto flex flex-wrap justify-center gap-y-12 py-12 px-4">
-          {data.case_sudy_data.map((project, idx) => (
+          {data.case_study_data.map((project, idx) => (
             <div
               key={project.id}
               className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 flex justify-center"

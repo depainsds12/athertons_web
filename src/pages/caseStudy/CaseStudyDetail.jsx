@@ -49,7 +49,7 @@ const CaseStudyDetail = () => {
     const fetchData = async () => {
       try {
         const response = await getAxios().get(`/casestudydetailpage/${1}`);
-        setData(response.data.data.project_data);
+        setData(response.data.data.case_study_data);
       } catch (error) {
         console.error("Failed to fetch project details:", error);
         setError("Failed to load case study details");

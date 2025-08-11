@@ -12,7 +12,7 @@ const Footer = () => {
       const fetchHeaderFooterData = async () => {
         try {
           const response = await getAxios().get(getHeaderFooterDetails);
-          console.log("data of Header and Footer is", response?.data?.data);
+          // console.log("data of Header and Footer is", response?.data?.data);
           setData(response?.data?.data);
         } catch (error) {
           console.error("Failed to fetch Header and  Footer API:", error);
