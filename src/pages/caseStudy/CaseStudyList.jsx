@@ -40,7 +40,7 @@ const CaseStudyList = () => {
       >
         {/* Banner */}
         <div
-          className="relative w-full aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
+          className="relative min-h-[230px] w-full aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
           style={{ backgroundImage: `url(${data.banner_image})` }}
           role="presentation"
           aria-hidden="true"
@@ -56,7 +56,7 @@ const CaseStudyList = () => {
         </div>
 
         
-        <div className="w-full mx-auto flex flex-wrap justify-center gap-y-12 py-12 px-4">
+        <div className="w-full section_padding mx-auto flex flex-wrap justify-center sm:gap-y-12 gap-y-5 py-12 px-4">
           {data.case_study_data.map((project, idx) => (
             <div
               key={project.id}

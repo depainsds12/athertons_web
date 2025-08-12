@@ -141,7 +141,7 @@ const CaseStudyDetail = () => {
     <section className="font-Poppins text-black">
     
       <div
-        className="relative w-full min-h-[200px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
+        className="relative w-full aspect-[1366/300] min-h-[230px] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: `url(${data.featured_image})` }}
       >
         <div className="absolute inset-0 bg-[#192437]/60" />
@@ -151,9 +151,9 @@ const CaseStudyDetail = () => {
       </div>
 
      
-      <div className="max-w-[1440px] mx-auto px-4 py-12 lg:px-8 space-y-20">
+      <div className="max-w-[1440px] mx-auto px-4 py-12 lg:px-8 space-y-20 flex flex-col justify-center items-center">
       
-        <div>
+        <div className="w-full max-w-[1200px] mx-auto text-center mb-0 lg:mb-5">
           <h3 className="text-2xl lg:text-[40px] xl:text-[40px] text-center font-semibold mb-4">
             {data.project_overview_title}
           </h3>
@@ -164,23 +164,23 @@ const CaseStudyDetail = () => {
         </div>
 
     
-        <div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 place-items-center">
+        <div className="mb-5 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-10 place-items-center place-content-center">
             <img
               src={data.challenge_image}
               alt="Challenge"
               className="w-full object-cover xl:w-[556px] xl:h-[431px]"
             />
             <div className="space-y-4 text-black">
-              <h3 className="text-2xl lg:text-[40px] xl:text-[40px] font-semibold mb-8">
+              <h3 className="text-2xl text-center md:text-left lg:text-[40px] xl:text-[40px] font-semibold mb-5">
                 {data.challenges_title}
               </h3>
-              <div dangerouslySetInnerHTML={parseHtml(data.challenges_description.replace(/<li>.*?<\/li>/g, ''))} />
+              <div className="text-center md:text-left" dangerouslySetInnerHTML={parseHtml(data.challenges_description.replace(/<li>.*?<\/li>/g, ''))} />
               <ul className="space-y-2">
                 {challengeBulletPoints.map((point, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CustomBullet />
-                    <span dangerouslySetInnerHTML={parseHtml(point)} />
+                    <p dangerouslySetInnerHTML={parseHtml(point)} />
                   </li>
                 ))}
               </ul>
@@ -191,8 +191,8 @@ const CaseStudyDetail = () => {
      
         <div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-            <div className="space-y-6 order-1 text-black">
-              <h3 className="text-2xl lg:text-[40px] xl:text-[40px] font-semibold mb-8">
+            <div className="space-y-6 order-2 sm:order-1 text-black">
+              <h3 className="text-2xl text-center md:text-left lg:text-[40px] xl:text-[40px] font-semibold mb-2 sm:mb-5">
                 {data.solutions_title}
               </h3>
               <div className="space-y-6">
@@ -201,7 +201,7 @@ const CaseStudyDetail = () => {
                     return (
                       <div 
                         key={`p-${i}`} 
-                        className="italic"
+                        className="italic text-center md:text-left"
                         dangerouslySetInnerHTML={parseHtml(item.content)}
                       />
                     );
@@ -220,7 +220,7 @@ const CaseStudyDetail = () => {
                 })}
               </div>
             </div>
-            <div className="order-2">
+            <div className="order-1 sm:order-2">
               <img
                 src={data.solution_image}
                 alt="Solution"
@@ -231,12 +231,12 @@ const CaseStudyDetail = () => {
         </div>
       </div>
 
-      <div className="w-full max-w-[1440px] mx-auto bg-[#03837E] py-14 relative">
+      <div className="w-full max-w-[1440px] mx-auto bg-[#03837E] py-7 lg:py-14 relative">
         <div className="max-w-[1440px] mx-auto px-4">
-          <h3 className="text-2xl lg:text-[40px] xl:text-[40px] font-semibold mb-10 text-white text-center">
+          <h3 className="text-2xl lg:text-[40px] xl:text-[40px] font-semibold mb-5 lg:mb-10 text-white text-center">
             Outcome
           </h3>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 gap-x-[10px] text-white text-left max-w-[950px] mx-auto">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 gap-x-[10px] text-white text-left max-w-[1050px] mx-auto">
             {data.outcomes.map((item, i) => (
               <li key={i} className="flex items-start gap-3 justify-start">
                 <WhiteBullet />
@@ -273,9 +273,9 @@ const CaseStudyDetail = () => {
       </div>
 
     
-      <div className="max-w-[1440px] mx-auto px-4 py-12 space-y-20">
+      <div className="max-w-[1440px] mx-auto px-4 pb-12 py-5 lg:py-12 space-y-20">
         <div>
-          <h3 className="text-center text-2xl lg:text-[40px] xl:text-[40px] font-semibold mb-10">
+          <h3 className="text-center text-2xl lg:text-[40px] xl:text-[40px] font-semibold mb-5 lg:mb-10">
             Explore More Case Studies
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
