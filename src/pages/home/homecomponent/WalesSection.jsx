@@ -4,9 +4,9 @@ const WalesSection = ({ apiData }) => {
       className="w-full flex justify-center section_padding py-12"
       aria-label="Supporting Wales Section"
     >
-      <div className="w-full max-w-[1700px] flex flex-col lg:flex-row items-center lg:items-start justify-center gap-16 2xl:gap-30">
+      <div className="w-full max-w-[1700px] flex flex-col lg:flex-row items-center lg:items-start justify-center gap-16 2xl:gap-20">
         {/* Left Block */}
-        <div className="flex flex-col items-center lg:items-start w-full max-w-[563px]">
+        <div className="flex flex-col items-center lg:items-start w-full max-w-[563px] 2xl:mr-5">
           <h2 className="font-poppins font-semibold text-[28px] md:text-[40px] leading-[125%] tracking-[0] text-[#192437] mb-6 text-center lg:text-left">
             {/* Athertons: <br /> Supporting Wales */}
             {apiData.supporting_wales_left_title}
@@ -44,7 +44,7 @@ const WalesSection = ({ apiData }) => {
         </div>
 
         {/* Right Block */}
-        <div className="flex flex-col items-center lg:items-start w-full ">
+        <div className="flex flex-col items-center lg:items-start w-full max-w-[520px]">
           <h2 className="font-poppins font-semibold text-[28px] md:text-[40px]  leading-[125%] tracking-[0] text-[#192437] mb-2 text-center lg:text-left">
             {/* Supporting Wales <br /> Infrastructure */}
             {apiData.supporting_wales_right_title}

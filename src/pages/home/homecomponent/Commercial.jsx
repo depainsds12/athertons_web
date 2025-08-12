@@ -57,7 +57,7 @@ const Commercial = ({ apiData, projectData }) => {
 
   return (
     <section
-      className="relative flex flex-col items-center justify-between w-full gap-10  py-16 mx-auto xl:flex-row xl:items-start 2xl:gap-3 max-w-[1600px] section_padding"
+      className="relative flex flex-col items-center justify-between 2xl:justify-center  w-full gap-10  py-16 mx-auto xl:flex-row xl:items-start 2xl:gap-22 max-w-[1600px] section_padding"
       aria-labelledby="commercial-heading"
     >
       <div className="w-full max-w-xl text-center lg:text-left">
