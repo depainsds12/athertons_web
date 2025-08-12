@@ -165,7 +165,7 @@ const CaseStudyDetail = () => {
 
     
         <div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 place-items-center">
             <img
               src={data.challenge_image}
               alt="Challenge"
@@ -236,7 +236,7 @@ const CaseStudyDetail = () => {
           <h3 className="text-2xl lg:text-[40px] xl:text-[40px] font-semibold mb-10 text-white text-center">
             Outcome
           </h3>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 text-white text-left max-w-4xl mx-auto">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 gap-x-[10px] text-white text-left max-w-[950px] mx-auto">
             {data.outcomes.map((item, i) => (
               <li key={i} className="flex items-start gap-3 justify-start">
                 <WhiteBullet />
