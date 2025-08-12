@@ -157,8 +157,8 @@ const NewandContactus = ({ apiData }) => {
           className="bg-[#F4F4F5] p-6 md:p-8 w-full max-w-[600px] flex flex-col gap-4"
           onSubmit={handleSubmit}
         >
-          <div className="flex gap-4">
-            <div className="flex flex-col w-1/2">
+          <div className="flex gap-4 justify-between">
+            <div className="flex flex-col w-[45%] sm:w-1/2">
               <label
                 htmlFor="firstName"
                 className="text-xs md:text-sm font-semibold mb-1 text-[#192437]"
@@ -171,10 +171,10 @@ const NewandContactus = ({ apiData }) => {
                 required
                 value={formData.first_name}
                 onChange={handleInputChange}
-                className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px]"
+                className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-10 sm:h-[50px]"
               />
             </div>
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col w-[45%] sm:w-1/2">
               <label
                 htmlFor="lastName"
                 className="text-xs md:text-sm font-semibold mb-1 text-[#192437]"
@@ -244,8 +244,8 @@ const NewandContactus = ({ apiData }) => {
             />
           </div>
 
-          <div className="flex gap-4">
-            <div className="flex flex-col w-1/2">
+          <div className="flex gap-4 justify-between">
+            <div className="flex flex-col w-[45%] sm:w-1/2">
               <label
                 htmlFor="company"
                 className="text-xs md:text-sm font-semibold mb-1 text-[#192437]"
@@ -262,7 +262,7 @@ const NewandContactus = ({ apiData }) => {
                 className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
               />
             </div>
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col w-[45%] sm:w-1/2">
               <label
                 htmlFor="subject"
                 className="text-xs md:text-sm font-semibold mb-1 text-[#192437]"
