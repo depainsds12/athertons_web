@@ -19,7 +19,7 @@ const ContactUs = () => {
     message: "",
   });
 
-  const [apiData, setApiData] = useState(null);
+ 
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   useEffect(() => {
@@ -451,7 +451,7 @@ const ContactUs = () => {
         <div className="w-full flex flex-col md:flex-row items-center gap-6 px-4 md:px-10 lg:px-20 xl:px-32 pb-16">
           <iframe
             className="w-full md:w-[48%]  md:h-[489px]"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2379.467926965286!2d-3.0357248!3d53.388569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b2704b55b77e9%3A0x9005aa45577452c!2sGrange%20House%2C%2019-21%20Grange%20Mount%2C%20Birkenhead%2C%20Prenton%20CH43%204XN%2C%20UK!5e0!3m2!1sen!2sin!4v1752507524986!5m2!1sen!2sin"
+            src={data.map1}
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
@@ -461,7 +461,7 @@ const ContactUs = () => {
 
           <iframe
             className="w-full md:w-[48%] h-[300px] md:h-[489px]"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2398.498874132858!2d-2.994213174363613!3d53.047343147054924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487ac71c2026e3df%3A0xf816ac676895e1af!2sHome%20of%20Offices%20Limited!5e0!3m2!1sen!2sin!4v1752507638201!5m2!1sen!2sin"
+            src={data.map2}
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
