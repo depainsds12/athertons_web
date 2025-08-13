@@ -22,6 +22,9 @@ const Header = () => {
       document.body.classList.add("overflow-hidden");
     } else {
       document.body.classList.remove("overflow-hidden");
+      // Reset mobile dropdowns when menu closes
+      setMobileAboutOpen(false);
+      setMobileServicesOpen(false);
     }
     return () => document.body.classList.remove("overflow-hidden");
   }, [isMenuOpen]);
@@ -60,15 +63,29 @@ const Header = () => {
     const fetchHeaderFooterData = async () => {
       try {
         const response = await getAxios().get(getHeaderFooterDetails);
-        // console.log("data of Header and Footer is", response?.data?.data);
         setData(response?.data?.data);
       } catch (error) {
-        console.error("Failed to fetch Header and  Footer API:", error);
+        console.error("Failed to fetch Header and Footer API:", error);
       }
     };
 
     fetchHeaderFooterData();
   }, []);
+
+  const handleNavItemClick = () => {
+    setIsMenuOpen(false);
+    setAboutDropdown(false);
+    setServicesDropdown(false);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    if (isMenuOpen) {
+      // If closing the menu, reset dropdown states
+      setAboutDropdown(false);
+      setServicesDropdown(false);
+    }
+  };
 
   return (
     <>
@@ -112,7 +129,6 @@ const Header = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                {/* Wirral Office */}
                 {data.office1}
               </a>
               <a
@@ -145,7 +161,6 @@ const Header = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                {/* Wrexham Office */}
                 {data.office2}
               </a>
             </div>
@@ -176,7 +191,6 @@ const Header = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                {/* info@athertons.co.uk */}
                 {data.email}
               </a>
               <a
@@ -198,7 +212,6 @@ const Header = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                {/* 0151 670 0666 */}
                 {data.phone_number}
               </a>
             </div>
@@ -386,7 +399,10 @@ const Header = () => {
                         <Link
                           key={label}
                           to={to}
-                          onClick={() => setAboutDropdown(false)}
+                          onClick={() => {
+                            setAboutDropdown(false);
+                            handleNavItemClick();
+                          }}
                           className={`px-4 py-4 text-[#343638] hover:text-[#fff] hover:bg-[#03837E] cursor-pointer transition-colors duration-200 ${
                             i < arr.length - 1
                               ? "border-b border-[#eeeded]"
@@ -450,7 +466,10 @@ const Header = () => {
                         <Link
                           key={label}
                           to={to}
-                          onClick={() => setServicesDropdown(false)}
+                          onClick={() => {
+                            setServicesDropdown(false);
+                            handleNavItemClick();
+                          }}
                           className={`px-4 py-4  text-[#343638] hover:text-[#fff] hover:bg-[#03837E]  cursor-pointer transition-colors duration-200 ${
                             i < arr.length - 1
                               ? "border-b border-[#eeeded]"
@@ -468,18 +487,21 @@ const Header = () => {
                 <Link
                   to="/projects"
                   className="hover:text-[#03837E] cursor-pointer"
+                  onClick={handleNavItemClick}
                 >
                   Projects
                 </Link>
                 <Link
                   to="/casestudies"
                   className="hover:text-[#03837E] cursor-pointer"
+                  onClick={handleNavItemClick}
                 >
                   Case Studies
                 </Link>
                 <Link
                   to="/contactus"
                   className="hover:text-[#03837E] cursor-pointer"
+                  onClick={handleNavItemClick}
                 >
                   Contact Us
                 </Link>
@@ -554,7 +576,7 @@ const Header = () => {
 
               <button
                 className="flex flex-col gap-1 p-2 cursor-pointer lg:hidden"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                onClick={toggleMenu}
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               >
                 {isMenuOpen ? (
@@ -588,7 +610,7 @@ const Header = () => {
               <Link
                 to="/"
                 className="text-black hover:text-[#03837E] py-2 border-b border-[#D6D6D6] mt-20"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={handleNavItemClick}
               >
                 Home
               </Link>
@@ -626,28 +648,28 @@ const Header = () => {
                     <Link
                       to="/aboutus/meetourteam"
                       className="text-black hover:text-[#03837E] py-2 pl-6 border-b border-[#F4F4F5] text-left"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleNavItemClick}
                     >
                       Meet Our Team
                     </Link>
                     <Link
                       to="/aboutus/accreditation_Membership"
                       className="text-black hover:text-[#03837E] py-2 pl-6 border-b border-[#F4F4F5] text-left"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleNavItemClick}
                     >
                       Accreditations and Membership
                     </Link>
                     <Link
                       to="/aboutus/careers"
                       className="text-black hover:text-[#03837E] py-2 pl-6 border-b border-[#F4F4F5] text-left"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleNavItemClick}
                     >
                       Career
                     </Link>
                     <Link
                       to="/aboutus/testimonials"
                       className="text-black hover:text-[#03837E] py-2 pl-6 text-left"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleNavItemClick}
                     >
                       Testimonial
                     </Link>
@@ -688,35 +710,35 @@ const Header = () => {
                     <Link
                       to="/services/consultancy_smartdesign"
                       className="text-black hover:text-[#03837E] py-2 pl-6 border-b border-[#F4F4F5] text-left"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleNavItemClick}
                     >
                       Consultancy & Smart Design
                     </Link>
                     <Link
                       to="/services/bms_ems_technology"
                       className="text-black hover:text-[#03837E] py-2 pl-6 border-b border-[#F4F4F5] text-left"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleNavItemClick}
                     >
                       BMS & EMS Technology
                     </Link>
                     <Link
                       to="/services/me_engineering"
                       className="text-black hover:text-[#03837E] py-2 pl-6 border-b border-[#F4F4F5] text-left"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleNavItemClick}
                     >
                       M&E Engineering
                     </Link>
                     <Link
                       to="/services/light_civil_engineering"
                       className="text-black hover:text-[#03837E] py-2 pl-6 border-b border-[#F4F4F5] text-left"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleNavItemClick}
                     >
                       Light Civil Engineering
                     </Link>
                     <Link
                       to="/services/eco_solutions"
                       className="text-black hover:text-[#03837E] py-2 pl-6 text-left"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleNavItemClick}
                     >
                       Eco Solutions
                     </Link>
@@ -726,21 +748,21 @@ const Header = () => {
               <Link
                 to="/projects"
                 className="text-black hover:text-[#03837E] py-2 border-b border-[#D6D6D6]"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={handleNavItemClick}
               >
                 Projects
               </Link>
               <Link
                 to="/casestudies"
                 className="text-black hover:text-[#03837E] py-2 border-b border-[#D6D6D6]"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={handleNavItemClick}
               >
                 Case Studies
               </Link>
               <Link
                 to="/contactus"
                 className="text-black hover:text-[#03837E] py-2 border-b border-[#D6D6D6]"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={handleNavItemClick}
               >
                 Contact Us
               </Link>
