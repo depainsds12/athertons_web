@@ -87,7 +87,7 @@ const Services = ({ servicesData = [] }) => {
         
        
         <div className="w-full flex justify-center items-center">
-          <div role="tablist" className="flex flex-row flex-nowrap w-full sm:w-[85%] lg:w-full">
+          <div role="tablist" className="flex flex-row flex-nowrap w-full sm:w-[85%] md:w-full">
             {servicesData.map((service) => (
               <div key={service.title} className="relative flex-1">
                 <button
@@ -132,8 +132,8 @@ const Services = ({ servicesData = [] }) => {
       
         {activeService && (
           <div className="w-full  flex justify-center items-center">
-            <div className="bg-[#192437] text-white flex flex-col md:flex-row justify-center py-10 w-full sm:w-[85%] lg:w-full">
-              <div className="flex flex-col w-full gap-6 px-4 md:flex-row sm:px-8">
+            <div className="bg-[#192437] text-white flex flex-col md:flex-row justify-center py-10 w-full sm:w-[85%] md:w-full">
+              <div className="flex flex-col w-full gap-6 px-4 lg:flex-row sm:px-8">
                 <div className="flex-1">
                   <h3 className="text-xl lg:text-[28px] xl:text-[36px] mt-1 font-semibold">
                     {activeService.title}
@@ -153,12 +153,12 @@ const Services = ({ servicesData = [] }) => {
                     Read More
                   </button>
                 </div>
-                <div className="flex items-center justify-end overflow-hidden group">
+                <div className="flex items-center justify-center lg:justify-end overflow-hidden group">
                   {activeService.image ? (
                     <img
                       src={activeService.image}
                       alt={`${activeService.title} Illustration`}
-                      className="aspect-[464/344] w-full md:w-[310px] lg:w-[400px] xl:w-[464px] xl:h-[344px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                      className="aspect-[464/344] w-full lg:w-[400px] xl:w-[464px] xl:h-[344px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                       onError={(e) => {
                         e.target.src = "https://via.placeholder.com/464x344?text=Image+Not+Available";
                       }}

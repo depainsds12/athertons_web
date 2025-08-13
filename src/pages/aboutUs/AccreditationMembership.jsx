@@ -35,11 +35,11 @@ const AccreditationMembership = () => {
 
   return (
     <section
-      className="bg-white lg:min-h-screen flex flex-col w-full"
-      aria-labelledby="accreditation-heading"
+      className="bg-white flex flex-col w-full"
+      aria-labelledby="accreditation-heading min-h-screen"
     >
       <div
-        className="relative w-full min-h-[180px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
+        className="relative w-full min-h-[230px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
         style={{
           backgroundImage: `url(${apiData?.banner_image || aboutusbg2})`,
         }}
@@ -58,7 +58,7 @@ const AccreditationMembership = () => {
       <div className="w-full flex flex-col items-center justify-center py-10 px-0.5">
         {apiData?.logo_image?.length > 0 && (
           <div
-            className="flex flex-wrap justify-evenly w-full mb-6 mt-2"
+            className="flex flex-wrap justify-evenly w-full mb-6 mt-2 max-w-[1500px]"
             role="group"
             aria-labelledby="group1-label"
           >
@@ -81,7 +81,7 @@ const AccreditationMembership = () => {
         )}
 
         <div
-          className="flex flex-wrap justify-evenly w-[75%] mt-8 lg:mt-12 mb-4"
+          className="flex flex-wrap justify-evenly max-w-[1440px] w-[75%] mt-8 lg:mt-12 mb-4"
           role="group"
           aria-labelledby="group2-label"
         >

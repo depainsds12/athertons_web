@@ -38,7 +38,7 @@ const Testimonials = () => {
       aria-labelledby="testimonials-heading"
     >
       <div
-        className="relative w-full min-h-[150px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
+        className="relative w-full min-h-[230px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: `url(${testimonialData?.banner_image})` }}
         role="presentation"
         aria-hidden="true"
@@ -63,17 +63,17 @@ const Testimonials = () => {
           {testimonialData?.data?.map((t, idx) => (
             <article
               key={idx}
-              className="bg-[#F4F4F5] flex flex-col justify-between p-6 md:p-7 w-full min-h-[373px] "
+              className="bg-[#F4F4F5] flex flex-col justify-between p-6  md:px-4 md:py-7 lg:p-7 w-full min-h-[373px] "
               role="article"
               aria-labelledby={`testimonial-name-${idx}`}
             >
               <div className="flex flex-col">
-                <div className="flex items-start gap-x-4">
+                <div className="flex items-start gap-x-4 md:gap-x-2 lg:gap-x-4">
                   <img
                     src={quote}
                     alt=""
                     aria-hidden="true"
-                    className=" w-[84px] h-[60px] md:w-[106px] md:h-[76px] pl-1.5"
+                    className=" w-[84px] h-[60px] md:w-[70px] md:h-[55px] lg:w-[106px] lg:h-[76px] pl-1.5"
                   />
                   <div>
                     <div

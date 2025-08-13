@@ -331,7 +331,7 @@ const Header = () => {
 
         {/* Main nav */}
         <div className="w-full bg-white">
-          <div className="flex items-center justify-between section_padding ">
+          <div className="flex items-center lg:px-10 xl:px-20 justify-between section_padding ">
             {/* Left: Logo + Navigation */}
             <div className="flex items-center gap-5 xl:gap-10">
               <div className="w-[90px] h-[84px] flex items-center justify-center sm:w-[116px] sm:h-[107px]    cursor-pointer group my-1">
