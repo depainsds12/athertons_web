@@ -35,7 +35,7 @@ const CaseStudyList = () => {
   return (
     <div>
       <section
-        className="w-full min-h-screen bg-white flex flex-col font-Poppins"
+        className="w-full bg-white flex flex-col font-Poppins"
         aria-labelledby="careers-heading"
       >
         {/* Banner */}

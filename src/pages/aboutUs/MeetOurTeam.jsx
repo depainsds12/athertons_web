@@ -24,7 +24,7 @@ const MeetOurTeam = () => {
       <div className="w-full">
         {/* Banner */}
         <div
-          className="relative w-full aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
+          className="relative w-full min-h-[230px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
           style={{ backgroundImage: `url(${teamData?.banner_image})` }}
         >
           <div className="absolute inset-0 bg-[#192437] opacity-60 z-10" />
