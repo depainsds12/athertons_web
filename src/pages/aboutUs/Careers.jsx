@@ -130,7 +130,7 @@ const Careers = () => {
       )}
 
       <div
-        className="relative min-h-[180px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center w-full"
+        className="relative min-h-[230px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center w-full"
         style={{ backgroundImage: `url(${apiData?.banner_image})` }}
         role="presentation"
         aria-hidden="true"
@@ -231,7 +231,7 @@ const Careers = () => {
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                   <button
                     type="button"
-                    className="border border-[#D6D6D6] py-2 mt-2 sm:mt-3 text-sm bg-white font-medium cursor-pointer hover:bg-[#e0e0e0] focus:outline-none text-[#192437] text-center h-10 sm:h-[50px] w-full sm:max-w-[425px]"
+                    className="border border-[#D6D6D6] py-2 mt-2 sm:mt-3 text-sm bg-white font-medium cursor-pointer hover:bg-[#e0e0e0] focus:outline-none text-[#192437] text-center h-10 sm:h-[50px] w-full sm:max-w-[216px]"
                     onClick={() => fileInputRef.current.click()}
                   >
                     Choose File
@@ -281,7 +281,7 @@ const Careers = () => {
               </h4>
 
               <div className="flex items-center gap-4">
-                <span className="flex items-center justify-center w-16 h-16 xl:w-20 xl:h-20 mr-4 bg-[#03837E]">
+                <span className="flex items-center justify-center w-16 h-16 min-w-16 mr-4 bg-[#03837E]">
                   <svg
                     width="38"
                     height="38"
@@ -323,7 +323,7 @@ const Careers = () => {
               </div>
 
               <div className="flex items-center gap-4">
-                <span className="flex items-center justify-center w-16 h-16 xl:w-20 xl:h-20 mr-4 bg-[#03837E]">
+                <span className="flex items-center justify-center w-16 h-16 min-w-16 mr-4 bg-[#03837E]">
                   <svg
                     width="38"
                     height="38"
@@ -369,7 +369,7 @@ const Careers = () => {
               </div>
 
               <div className="flex items-center gap-4">
-                <span className="flex items-center justify-center  w-full max-w-16 xl:min-w-20 xl:max-w-[80px] mr-4 h-16 xl:w-20 xl:h-20 bg-[#03837E]">
+                <span className="flex items-center justify-center  min-w-16 mr-4 h-16 w-16 bg-[#03837E]">
                   <svg
                     width="38"
                     height="38"

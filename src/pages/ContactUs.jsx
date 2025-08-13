@@ -84,8 +84,7 @@ const ContactUs = () => {
 
       setShowSuccessPopup(true);
 
-      // console.log('Response:', response.data);
-      // alert('Form submitted successfully!');
+   
 
       setFormData({
         first_name: "",
@@ -107,7 +106,7 @@ const ContactUs = () => {
     <>
       {/* Banner Section */}
       <div
-        className="relative w-full min-h-[150px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center  mx-auto"
+        className="relative w-full min-h-[230px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center  mx-auto"
         style={{ backgroundImage: `url(${data?.banner_image})` }}
         role="presentation"
         aria-hidden="true"
@@ -135,8 +134,8 @@ const ContactUs = () => {
               onSubmit={handleSubmit}
             >
               {/* Name Inputs */}
-              <div className="flex gap-4 xl:gap-8.75">
-                <div className="flex flex-col w-1/2">
+              <div className="flex gap-4 justify-between xl:gap-8.75">
+                <div className="flex flex-col w-[45%] sm:w-1/2">
                   <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
                     First Name*
                   </label>
@@ -146,10 +145,10 @@ const ContactUs = () => {
                     required
                     value={formData.first_name}
                     onChange={handleInputChange}
-                    className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-[50px]"
+                    className="border border-[#D6D6D6] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#03837E] bg-white h-10 sm:h-[50px]"
                   />
                 </div>
-                <div className="flex flex-col w-1/2">
+                <div className="flex flex-col w-[45%] sm:w-1/2">
                   <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
                     Last Name*
                   </label>
@@ -165,8 +164,8 @@ const ContactUs = () => {
               </div>
 
               {/* Email and Phone */}
-              <div className="flex gap-4 xl:gap-8.75">
-                <div className="flex flex-col w-1/2">
+              <div className="flex gap-4 justify-between xl:gap-8.75">
+                <div className="flex flex-col w-[45%] sm:w-1/2">
                   <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
                     Email Address*
                   </label>
@@ -186,7 +185,7 @@ const ContactUs = () => {
                     className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
                   />
                 </div>
-                <div className="flex flex-col w-1/2">
+                <div className="flex flex-col w-[45%] sm:w-1/2">
                   <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
                     Phone Number*
                   </label>
@@ -211,8 +210,8 @@ const ContactUs = () => {
               </div>
 
               {/* Company and Subject */}
-              <div className="flex gap-4 xl:gap-8.75">
-                <div className="flex flex-col w-1/2">
+              <div className="flex gap-4 justify-between xl:gap-8.75">
+                <div className="flex flex-col w-[45%] sm:w-1/2">
                   <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
                     Company Name*
                   </label>
@@ -225,7 +224,7 @@ const ContactUs = () => {
                     className="border border-[#D6D6D6] px-3 py-2 text-sm bg-white h-10 sm:h-[50px] focus:outline-none focus:ring-2 focus:ring-[#03837E]"
                   />
                 </div>
-                <div className="flex flex-col w-1/2">
+                <div className="flex flex-col w-[45%] sm:w-1/2">
                   <label className="text-xs md:text-sm font-semibold mb-1 text-[#192437]">
                     Subject*
                   </label>
@@ -271,7 +270,7 @@ const ContactUs = () => {
             <div className="w-full max-w-[444px] flex flex-col gap-8 p-2 gap-y-6">
               {/* Email */}
               <div className="flex items-start gap-8">
-                <span className="flex items-center justify-center w-16 h-16 xl:w-[80px] xl:h-[80px] xl:min-w-20 min-w-16 bg-[#03837E] text-white">
+                <span className="flex items-center justify-center w-16 h-16  min-w-16 bg-[#03837E] text-white">
                   <svg
                     width="38"
                     height="38"
@@ -311,7 +310,7 @@ const ContactUs = () => {
 
               {/* Phone */}
               <div className="flex items-center gap-8">
-                <span className="flex items-center justify-center w-16 h-16 xl:w-[80px] xl:h-[80px] xl:min-w-20 min-w-16 bg-[#03837E] text-white">
+                <span className="flex items-center justify-center w-16 h-16  min-w-16 bg-[#03837E] text-white">
                   <svg
                     width="38"
                     height="38"
@@ -356,7 +355,7 @@ const ContactUs = () => {
 
               {/* Address */}
               <div className="flex items-start gap-8">
-                <span className="flex items-center justify-center w-16 h-16 xl:w-[80px] xl:h-[80px] xl:min-w-20 min-w-16 bg-[#03837E] text-white">
+                <span className="flex items-center justify-center w-16 h-16  min-w-16 bg-[#03837E] text-white">
                   <img
                     className="h-[38px] w-[38px]"
                     src="/map-pin.svg"
@@ -385,7 +384,7 @@ const ContactUs = () => {
 
               {/* Wrexham Office */}
               <div className="flex items-start gap-8">
-                <span className="flex items-center justify-center w-16 h-16 xl:w-[80px] xl:h-[80px] xl:min-w-20 min-w-16 bg-[#03837E] text-white">
+                <span className="flex items-center justify-center w-16 h-16  min-w-16 bg-[#03837E] text-white">
                   <svg
                     width="38"
                     height="38"

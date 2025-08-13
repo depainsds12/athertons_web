@@ -140,7 +140,7 @@ export default function ProjectList() {
       )}
 
       <div
-        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] flex items-center justify-center bg-cover bg-center mx-auto"
+        className="relative w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[300px] min-h-[230px] flex items-center justify-center bg-cover bg-center mx-auto"
         style={{ backgroundImage: `url(${projectsData.banner_image})` }} 
         role="presentation"
         aria-hidden="true"

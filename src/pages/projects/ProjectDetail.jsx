@@ -97,7 +97,7 @@ const { projectId = '' } = useLocation().state || {};
     >
       {/* Banner */}
       <div
-        className="relative aspect-[1366/300] min-h-[200px] flex items-center justify-center bg-cover bg-center w-full"
+        className="relative aspect-[1366/300] min-h-[230px] flex items-center justify-center bg-cover bg-center w-full"
         style={{ backgroundImage: `url(${data.featured_image})` }}
         role="presentation"
         aria-hidden="true"

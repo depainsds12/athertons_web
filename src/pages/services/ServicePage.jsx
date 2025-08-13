@@ -203,7 +203,7 @@ const ServicePage = () => {
     <main className="w-full min-h-screen bg-white flex flex-col font-poppins" role="main" aria-label="Service Details">
      
       <section
-        className="relative w-full min-h-[200px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
+        className="relative w-full min-h-[230px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: `url(${service.banner_image})` }}
         role="banner"
         aria-label={`${service.banner_title} Hero`}

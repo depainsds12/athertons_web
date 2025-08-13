@@ -110,7 +110,7 @@ const Footer = () => {
         {/* 2. Services and Quick Links for small screen side-by-side */}
         <div className="flex flex-row justify-center sm:gap-8 gap-10 w-full lg:flex-row lg:flex-1">
           {/* Services */}
-          <div className="flex flex-col items-start sm:items-center lg:items-start flex-1">
+          <div className="flex flex-col items-start flex-1">
             <span className="text-white font-semibold text-base md:text-[20px] mb-4">
               Our Services
             </span>
@@ -147,7 +147,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="flex flex-col items-start sm:items-center lg:items-start flex-1">
+          <div className="flex flex-col items-start flex-1">
             <span className="text-white font-semibold ttext-base md:text-[20px] mb-4">
               Quick Links
             </span>
@@ -179,7 +179,7 @@ const Footer = () => {
         </div>
 
         {/* 3. Contact Us */}
-        <div className="flex flex-col sm:items-center items-start justify-start lg:items-start flex-1 ">
+        <div className="flex w-full flex-col items-start justify-start flex-1 ">
           <span className="text-white font-semibold text-base md:text-[20px] mb-4">
             Contact Us
           </span>
