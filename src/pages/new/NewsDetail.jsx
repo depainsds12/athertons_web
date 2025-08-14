@@ -39,7 +39,7 @@ const NewsDetail = () => {
     }
   }, [newsId]);
 
-  // Helper function to extract list items from HTML
+  
   const extractListItems = (html) => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
@@ -47,7 +47,7 @@ const NewsDetail = () => {
     return Array.from(listItems).map(item => item.textContent);
   };
 
-  // Helper function to extract paragraphs from HTML
+
   const extractParagraphs = (html) => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
@@ -82,18 +82,18 @@ const NewsDetail = () => {
         className="w-full bg-white max-w-[1600px] mx-auto py-14 xl:py px-4 md:px-14 xl:px-20"
         aria-labelledby="news-content-heading"
       >
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row items-center gap-8">
           {/* Left: Image */}
           <div className="flex-shrink-0 flex justify-center xl:mr-5">
             <img
               src={data.image}
               alt={`Illustration for ${data.title}`}
-              className="w-full max-w-[556px] h-auto object-cover xl:w-[556px] xl:h-[422px]"
+              className="w-full max-w-[556px] lg:w-[400px] lg:h-[400px] h-auto object-cover xl:w-[556px] xl:h-[422px]"
             />
           </div>
 
           {/* Right: Text */}
-          <div className="flex flex-col justify-start ml-2">
+          <div className="flex flex-col text-center lg:text-left justify-start ml-2">
             <h2
               id="news-content-heading"
               className="text-[32px] lg:text-[40px] text-[#192437] font-semibold"
@@ -102,7 +102,7 @@ const NewsDetail = () => {
             </h2>
             <p className="italic font-[500] text-[20px] mt-3 mb-5">{data.description}</p>
 
-            <ul className="mb-4 space-y-3" role="list">
+            <ul className="mb-4 space-y-3 text-left" role="list">
               {data.points.map((p, idx) => (
                 <li key={idx} className="flex items-start gap-3" role="listitem">
                   <svg
@@ -129,7 +129,7 @@ const NewsDetail = () => {
         </div>
 
         {/* Paragraphs below */}
-        <div className="mt-12 flex flex-col gap-6">
+        <div className="mt-12 flex text-center lg:text-left flex-col gap-6">
           {data.paragraphs.map((para, idx) => (
             <p key={idx}>{para}</p>
           ))}

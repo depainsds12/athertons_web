@@ -190,8 +190,8 @@ const CaseStudyDetail = () => {
 
      
         <div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-            <div className="space-y-6 order-2 sm:order-1 text-black">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start my-8">
+            <div className="space-y-6 order-2 lg:order-1 text-black">
               <h3 className="text-2xl text-center md:text-left lg:text-[40px] xl:text-[40px] font-semibold mb-2 sm:mb-5">
                 {data.solutions_title}
               </h3>
@@ -220,7 +220,7 @@ const CaseStudyDetail = () => {
                 })}
               </div>
             </div>
-            <div className="order-1 sm:order-2">
+            <div className="order-1 lg:order-2">
               <img
                 src={data.solution_image}
                 alt="Solution"

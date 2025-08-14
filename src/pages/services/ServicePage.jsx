@@ -136,7 +136,7 @@ const ServicePage = () => {
 
 
   const RenderList = ({ list }) => (
-    <ul className={`mt-4 ${list.listType === 'ol' ? 'list-decimal pl-5' : 'list-disc pl-5'}`}>
+    <ul className={`mt-4 ${list.listType === 'ol' ? 'list-decimal pl-5' : 'list-disc text-left pl-5'}`}>
       {list.items.map((item, i) => (
         <li key={i} className="mb-2">
           {item}
@@ -161,7 +161,7 @@ const ServicePage = () => {
       key={`${sectionType}-${index}`}
       role="region"
       aria-labelledby={`${sectionType}-section-${index}`}
-      className="mb-8"
+      className="mb-2.5 lg:mb-8 text-center lg:text-left"
     >
       {section.title && (
         <h2
@@ -200,7 +200,7 @@ const ServicePage = () => {
   );
 
   return (
-    <main className="w-full min-h-screen bg-white flex flex-col font-poppins" role="main" aria-label="Service Details">
+    <main className="w-full bg-white flex flex-col font-poppins" role="main" aria-label="Service Details">
      
       <section
         className="relative w-full min-h-[230px] aspect-[1366/300] flex items-center justify-center bg-cover bg-center"
@@ -216,13 +216,13 @@ const ServicePage = () => {
 
       {/* Content Section */}
       <section className="w-full max-w-[1600px] mx-auto flex flex-col py-14 px-4 md:px-14 xl:px-20" aria-label="Service Content">
-        <div className="w-full flex flex-col gap-10 lg:flex-row lg:items-start 2xl:items-center">
+        <div className="w-full flex flex-col gap-10 lg:flex-row justify-center items-center">
           {/* Left Image */}
           <div className="flex justify-center items-start lg:w-1/2 w-full">
             <img
               src={service.image}
               alt={`${service.banner_title} illustration`}
-              className="object-cover w-full lg:min-h-[450px] h-auto"
+              className="object-cover w-full max-w-[630px] lg:max-h-[400px] h-auto"
             />
           </div>
 
@@ -235,7 +235,7 @@ const ServicePage = () => {
         </div>
 
         {/* Below Sections */}
-        <div className="flex flex-col w-full mt-10 space-y-10">
+        <div className="flex flex-col w-full mt-3 lg:mt-10 space-y-10">
           {bottomBlockSections.map((section, index) => (
             <SectionRenderer section={section} sectionType="bottom" index={index} />
           ))}
