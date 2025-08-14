@@ -128,7 +128,7 @@ const TeamPage = () => {
       </div>
 
       {/* Top Team */}
-      <div className="flex flex-col items-center justify-center mb-16 md:flex-row gap-10 lg:gap-28 max-w-[1800px] mx-auto">
+      <div className="flex flex-col items-center justify-center mb-16 md:flex-row gap-10 xl:gap-28 max-w-[1800px] mx-auto">
         {transformedData.topTeam.map((person, idx) => (
           <div className="flex flex-col items-center" key={idx}>
             <div className="overflow-hidden rounded-full group">
